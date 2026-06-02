@@ -7,7 +7,7 @@ public class PlayerStateMachine : MonoBehaviour
     public PlayerBaseState playerBaseState;
     public PlayerDeadState playerDeadState;
 
-    public void Start()
+    public void Awake()
     {
         playerBaseState = new PlayerBaseState(player);
         playerDeadState = new PlayerDeadState(player);
