@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class Player : MonoBehaviour
 {
+    public PlayerObjectInteraction playerObjectInteraction;
     public PlayerMovement playerMovement;
     public PlayerStateMachine playerStateMachine;
 
@@ -17,6 +17,10 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             BaseState();
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            playerObjectInteraction.Interact();
         }
 
     }
