@@ -17,6 +17,6 @@ public class IKFolowingLeg : IKLeg
 
     void ReturnLeg()
     {
-        SetTarget(defaultPosition.position);
+        Target = defaultPosition.position;
     }
 }
