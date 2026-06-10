@@ -120,6 +120,8 @@ GameObject:
   - component: {fileID: 4031651730016803565}
   - component: {fileID: 4612091867928227931}
   - component: {fileID: 6388091752429591500}
+  - component: {fileID: 6792398280663394125}
+  - component: {fileID: 3782461075319111218}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -170,6 +172,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerObjectInteraction: {fileID: 4031651730016803565}
+  playerInventory: {fileID: 6792398280663394125}
+  playerObjectHold: {fileID: 3782461075319111218}
   playerMovement: {fileID: 8057258995056074699}
   playerStateMachine: {fileID: 5614018124006436660}
 --- !u!114 &5614018124006436660
@@ -239,6 +243,39 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!114 &6792398280663394125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5997081642616601318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf184058c9304e4b86d315f42d81cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 8017804734392711120}
+  items:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _currentId: 0
+--- !u!114 &3782461075319111218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5997081642616601318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ee0d559e14ec2b4794f318cbed99144, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 8017804734392711120}
+  offset: {x: 1, y: 0, z: 0}
 --- !u!1 &9201441843169874589
 GameObject:
   m_ObjectHideFlags: 0
