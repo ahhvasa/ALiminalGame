@@ -1,33 +1,36 @@
 using UnityEngine;
 
-public class ItemHoldable : Item
+public abstract class ItemHoldable : Item
 {
 
     public override void OnDrop()
     {
         playerOwner.playerObjectHold.DropObject();
         playerOwner = null;
-        Debug.Log("OnDrop");
+
+        Activate(false);
     }
 
     public override void OnTakeInHands()
     {
         playerOwner.playerObjectHold.HoldObject(itemObject.transform);
         itemObject.gameObject.SetActive(true);
-        Debug.Log("OnGetInHands");
+
+        Activate(true);
     }
 
     public override void OnRemoveFromHands()
     {
-        playerOwner.playerObjectHold.DropObject();
         itemObject.gameObject.SetActive(false);
-        Debug.Log("OnHideFromHands");
+
+        Activate(false);
     }
 
     public override void OnPickUp(Player player)
     {
         playerOwner = player;
         playerOwner.playerObjectHold.HoldObject(itemObject.transform);
-        Debug.Log("OnPickUp");
+
+        Activate(true);
     }
 }

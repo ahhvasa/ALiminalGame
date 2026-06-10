@@ -39,9 +39,6 @@ public class PlayerMovement : MonoBehaviour
         OnMove?.Invoke(direction, speedFactor);
     }
 
-    /// <summary>
-    /// Checking for input
-    /// </summary>
     public void Update()
     {
         Vector3 inputDirection = Vector3.zero;

@@ -1,31 +1,29 @@
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.SearchService;
 using UnityEngine;
 
 public class RoomZone : MonoBehaviour
 {
-    public List<VisibleObject> visibleObjects;
-    public void OnTriggerEnter(Collider other)
+    public List<VisibleObject> visibleObjects = new List<VisibleObject>();
+    private List<VisibleObject> currentVisibleObjects = new List<VisibleObject>();
+    public void OnTriggerStay(Collider other)
     {
         if (other.TryGetComponent<VisibleObject>(out var visibleObject))
         {
-            if (visibleObjects.Contains(visibleObject) == false)
+            if (currentVisibleObjects.Contains(visibleObject) == false)
             {
-                visibleObjects.Add(visibleObject);
+                currentVisibleObjects.Add(visibleObject);
             }
         }
     }
-    public void OnTriggerExit(Collider other)
+    public void FixedUpdate()
     {
+        visibleObjects.Clear();
+        visibleObjects.AddRange(currentVisibleObjects);
+        currentVisibleObjects.Clear();
+    }
 
-        if (other.TryGetComponent<VisibleObject>(out var visibleObject))
-        {
-            if (visibleObjects.Contains(visibleObject))
-            {
-                visibleObjects.Remove(visibleObject);
-            }
-        }
-    }
     public void Show(bool show)
     {
         foreach (var visibleObject in visibleObjects)

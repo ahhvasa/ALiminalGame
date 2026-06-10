@@ -12,11 +12,8 @@ public abstract class
     public abstract void OnRemoveFromHands();
 
 
-    /// PickUp
-    /// Drop
-    /// GetInHands
-    /// HideFromHands
-
-
-
+    /// <summary>
+    /// taking or removing from hands
+    /// </summary>when 
+    public abstract void Activate(bool activateOrDeactivate);
 }

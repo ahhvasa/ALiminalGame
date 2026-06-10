@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5026815970163232346}
   - component: {fileID: 9045672154853580419}
   - component: {fileID: 5409617921940107312}
+  - component: {fileID: 3870784853569403547}
   m_Layer: 6
   m_Name: Sphere
   m_TagString: Player
@@ -105,6 +106,18 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.45
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3870784853569403547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589238910367454291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f08d7cd62f988f459b15b2723c825cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5997081642616601318
 GameObject:
   m_ObjectHideFlags: 0
@@ -121,7 +134,7 @@ GameObject:
   - component: {fileID: 4612091867928227931}
   - component: {fileID: 6388091752429591500}
   - component: {fileID: 6792398280663394125}
-  - component: {fileID: 3782461075319111218}
+  - component: {fileID: 4684141565397258298}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -173,7 +186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerObjectInteraction: {fileID: 4031651730016803565}
   playerInventory: {fileID: 6792398280663394125}
-  playerObjectHold: {fileID: 3782461075319111218}
+  playerObjectHold: {fileID: 4684141565397258298}
   playerMovement: {fileID: 8057258995056074699}
   playerStateMachine: {fileID: 5614018124006436660}
 --- !u!114 &5614018124006436660
@@ -262,7 +275,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _currentId: 0
---- !u!114 &3782461075319111218
+--- !u!114 &4684141565397258298
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -271,11 +284,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5997081642616601318}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ee0d559e14ec2b4794f318cbed99144, type: 3}
+  m_Script: {fileID: 11500000, guid: 61de72fe8f1aad2459a6987601a6dc77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 8017804734392711120}
-  offset: {x: 1, y: 0, z: 0}
+  parent: {fileID: 798647189311640246}
+  offset: {x: 0, y: 0, z: 1}
 --- !u!1 &9201441843169874589
 GameObject:
   m_ObjectHideFlags: 0
