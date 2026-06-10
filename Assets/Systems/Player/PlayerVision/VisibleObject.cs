@@ -21,7 +21,15 @@ public class VisibleObject : MonoBehaviour
         if (fadeCoroutine != null)
             StopCoroutine(fadeCoroutine);
 
+        if (gameObject.activeSelf == false)
+        { return; }
+
         fadeCoroutine = StartCoroutine(Fade(show));
+    }
+
+    public void OnDisable()
+    {
+        StopCoroutine(fadeCoroutine);
     }
 
     private IEnumerator Fade(bool show)

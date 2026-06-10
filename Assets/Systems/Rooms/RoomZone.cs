@@ -9,7 +9,10 @@ public class RoomZone : MonoBehaviour
     {
         if (other.TryGetComponent<VisibleObject>(out var visibleObject))
         {
-            visibleObjects.Add(visibleObject);
+            if (visibleObjects.Contains(visibleObject) == false)
+            {
+                visibleObjects.Add(visibleObject);
+            }
         }
     }
     public void OnTriggerExit(Collider other)

@@ -1,7 +1,14 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class PlayerInventory : MonoBehaviour
 {
+    public void Start()
+    {
+        CurrentID = 0;
+    }
     public Player player;
 
     [SerializeField] private Item[] items;
@@ -34,16 +41,29 @@ public class PlayerInventory : MonoBehaviour
                 TakeItemInHands(_currentId);
             }
 
+            OnSetSlot?.Invoke(value);
+
             void TakeItemInHands(int id)
             {
+                OnTakeInHands?.Invoke(items == null ? null : items[id], id);
                 items[id]?.OnTakeInHands();
             }
             void RemoveItemFromHands(int id)
             {
+                OnRemoveFromHands?.Invoke(items == null ? null : items[id], id);
                 items[id]?.OnRemoveFromHands();
             }
         }
     }
+
+
+    public event Action<Item, int> OnPickUp;
+    public event Action<Item, int> OnDrop;
+
+    public event Action<Item, int> OnTakeInHands;
+    public event Action<Item, int> OnRemoveFromHands;
+
+    public event Action<int> OnSetSlot;
 
     public void PickUpItem(Item item)
     {
@@ -51,12 +71,17 @@ public class PlayerInventory : MonoBehaviour
         {
             DropItem();
         }
+
+        OnPickUp?.Invoke(item, CurrentID);
+
         CurrentItem = item;
         CurrentItem.OnPickUp(player);
     }
 
     public void DropItem()
     {
+        OnDrop?.Invoke(CurrentItem, CurrentID);
+
         CurrentItem.OnDrop();
         CurrentItem = null;
     }
