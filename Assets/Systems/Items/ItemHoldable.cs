@@ -15,6 +15,7 @@ public abstract class ItemHoldable : Item
     {
         playerOwner.playerObjectHold.HoldObject(itemObject.transform);
         itemObject.gameObject.SetActive(true);
+        itemObject.transform.localRotation = Quaternion.identity;
 
         Activate(true);
     }
@@ -30,6 +31,7 @@ public abstract class ItemHoldable : Item
     {
         playerOwner = player;
         playerOwner.playerObjectHold.HoldObject(itemObject.transform);
+        itemObject.transform.localRotation = Quaternion.identity;
 
         Activate(true);
     }
