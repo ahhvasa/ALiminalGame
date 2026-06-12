@@ -5,24 +5,17 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public PlayerObjectInteraction playerObjectInteraction;
+    public PlayerInventory playerInventory;
+    public PlayerObjectHold playerObjectHold;
     public PlayerMovement playerMovement;
     public PlayerStateMachine playerStateMachine;
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            Die();
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            BaseState();
-        }
         if (Input.GetKeyDown(KeyCode.E))
         {
             playerObjectInteraction.Interact();
         }
-
     }
 
     public void Die()
