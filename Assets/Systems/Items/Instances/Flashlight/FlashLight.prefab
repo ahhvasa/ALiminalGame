@@ -104,6 +104,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3140387155959390480}
   - component: {fileID: 4701957319539400675}
+  - component: {fileID: 6192324889404625254}
   m_Layer: 9
   m_Name: FlashLight
   m_TagString: Untagged
@@ -145,6 +146,34 @@ MonoBehaviour:
   active: 0
   on: 1
   projectorObject: {fileID: 1087654470322919892}
+  soundPlayer: {fileID: 6192324889404625254}
+  turnOn:
+    mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
+    clip: {fileID: 8300000, guid: 13ec8e11528095846b5bba6819f58e38, type: 3}
+    looped: 0
+  turnOff:
+    mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
+    clip: {fileID: 8300000, guid: 13ec8e11528095846b5bba6819f58e38, type: 3}
+    looped: 0
+  flickering:
+    mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
+    clips:
+    - {fileID: 8300000, guid: 94d276b1e340afc4fa9225399294bf04, type: 3}
+    - {fileID: 8300000, guid: 60e6f75ff12ba9a4a9a878a933c31eb9, type: 3}
+    looped: 1
+--- !u!114 &6192324889404625254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607454806685953961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc30803b067cad24f9859fd8f3abf016, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playingSounds: []
 --- !u!1 &7497275028173928410
 GameObject:
   m_ObjectHideFlags: 0
