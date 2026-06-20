@@ -49,18 +49,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70583fd1ef5fa4347aeebb31a3dbbdd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  settingsMenuPanel: {fileID: 9007686559061114602}
   backButton: {fileID: 4323045770805797341}
   sfxSlider: {fileID: 3837841821406922390}
   musicSlider: {fileID: 8296835029148150009}
   resolutionDropdown: {fileID: 126917462696245426}
+  languageDropdown: {fileID: 9175438975014977901}
   applyButton: {fileID: 4054086693611365469}
   defaultsButton: {fileID: 1494555558648019731}
   cancelButton: {fileID: 1243911144271851042}
   options:
+    resolutionWidth: 0
+    resolutionHeight: 0
     fullscreen: 1
     sfxVolume: 1
     musicVolume: 1
-    languageCode: en
+    languageCode: 
 --- !u!1 &9007686559061114602
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,7 +156,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2351880465780117832, guid: b3cec92b4f5239c4ea496b75a5def669, type: 3}
       propertyPath: m_Size
-      value: 0.9677419
+      value: 0.8333333
       objectReference: {fileID: 0}
     - target: {fileID: 2351880465780117832, guid: b3cec92b4f5239c4ea496b75a5def669, type: 3}
       propertyPath: m_Value
@@ -210,6 +214,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4839169591033357616, guid: b3cec92b4f5239c4ea496b75a5def669, type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 690870185984
+      objectReference: {fileID: 0}
+    - target: {fileID: 5104504577451864065, guid: b3cec92b4f5239c4ea496b75a5def669, type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 724957294592
+      objectReference: {fileID: 0}
     - target: {fileID: 5202735682012668587, guid: b3cec92b4f5239c4ea496b75a5def669, type: 3}
       propertyPath: m_Text
       value: Resolution
@@ -227,6 +239,26 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5404005491820140204, guid: b3cec92b4f5239c4ea496b75a5def669, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5565545513302920894, guid: b3cec92b4f5239c4ea496b75a5def669, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5565545513302920894, guid: b3cec92b4f5239c4ea496b75a5def669, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5565545513302920894, guid: b3cec92b4f5239c4ea496b75a5def669, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 5565545513302920894, guid: b3cec92b4f5239c4ea496b75a5def669, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5565545513302920894, guid: b3cec92b4f5239c4ea496b75a5def669, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
@@ -378,6 +410,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7649486960763121487, guid: b3cec92b4f5239c4ea496b75a5def669, type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 657919733760
+      objectReference: {fileID: 0}
     - target: {fileID: 7653984103618318109, guid: b3cec92b4f5239c4ea496b75a5def669, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -518,6 +554,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9175438975014977901 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4515717510307125323, guid: b3cec92b4f5239c4ea496b75a5def669, type: 3}
+  m_PrefabInstance: {fileID: 4755440584537463078}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d0b652f32a2cc243917e4028fa0f046, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7555790462933427057
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -533,6 +580,10 @@ PrefabInstance:
     - target: {fileID: 3998299425194891463, guid: afe5a54fc74a39a46a6e65432e6a7a5a, type: 3}
       propertyPath: m_Name
       value: SettingsBack
+      objectReference: {fileID: 0}
+    - target: {fileID: 4661456354065223832, guid: afe5a54fc74a39a46a6e65432e6a7a5a, type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 218826436608
       objectReference: {fileID: 0}
     - target: {fileID: 6169100080052425908, guid: afe5a54fc74a39a46a6e65432e6a7a5a, type: 3}
       propertyPath: m_Pivot.x

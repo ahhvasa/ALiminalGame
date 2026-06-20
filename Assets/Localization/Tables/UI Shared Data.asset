@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: UI Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: UI
+  m_TableCollectionNameGuidString: 6f472d5fced43624a82be4383240979b
+  m_Entries:
+  - m_Id: 77339979776
+    m_Key: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 157958696960
+    m_Key: Options
+    m_Metadata:
+      m_Items: []
+  - m_Id: 192217772032
+    m_Key: Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 218826436608
+    m_Key: Back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 253488164864
+    m_Key: SFX volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 431154688000
+    m_Key: Music volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 499807055872
+    m_Key: Screen resolution
+    m_Metadata:
+      m_Items: []
+  - m_Id: 657919733760
+    m_Key: Apply
+    m_Metadata:
+      m_Items: []
+  - m_Id: 690870185984
+    m_Key: Cancel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 724957294592
+    m_Key: Restore default settings
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 4724933971451838488
+  references:
+    version: 2
+    RefIds:
+    - rid: 4724933971451838488
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1781919049631

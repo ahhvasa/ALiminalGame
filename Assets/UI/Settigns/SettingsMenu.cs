@@ -1,12 +1,20 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using Unity.VisualScripting;
+using UnityEditor.Localization.Editor;
 using UnityEngine;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 using Zenject;
 
 public class SettingsMenu : MonoBehaviour
 {
+    public GameObject settingsMenuPanel;
+
     private const string SettingsKey = "Settings";
 
     [Inject] private ISaveSystem saveSystem;
@@ -20,6 +28,10 @@ public class SettingsMenu : MonoBehaviour
     [Header("Resolution")]
     [SerializeField] private Dropdown resolutionDropdown;
     private List<Resolution> resolutions = new List<Resolution>();
+
+
+    [Header("Localization")]
+    [SerializeField] private Dropdown languageDropdown;
 
     [Header("Buttons")]
     [SerializeField] private Button applyButton;
@@ -50,6 +62,7 @@ public class SettingsMenu : MonoBehaviour
         sfxSlider.SetValueWithoutNotify(options.sfxVolume);
         musicSlider.SetValueWithoutNotify(options.musicVolume);
         resolutionDropdown.SetValueWithoutNotify(ResolutionToId(options.resolution));
+        languageDropdown.SetValueWithoutNotify(LanguageToId(options.language));
     }
 
     private async Task LoadOptions()
@@ -77,6 +90,7 @@ public class SettingsMenu : MonoBehaviour
     private void InitializeUI()
     {
         InitializeResolutions();
+        InitializeLanguages();
     }
     private void InitializeResolutions()
     {
@@ -102,6 +116,23 @@ public class SettingsMenu : MonoBehaviour
         resolutionDropdown.value = 0;
         resolutionDropdown.RefreshShownValue();
     }
+
+    private void InitializeLanguages()
+    {
+        var locales = LocalizationSettings.AvailableLocales.Locales;
+
+        languageDropdown.ClearOptions();
+
+        languageDropdown.AddOptions(
+            locales
+                .Select(locale => locale.LocaleName)
+                .ToList()
+        );
+
+        languageDropdown.value = locales.IndexOf(
+            LocalizationSettings.SelectedLocale
+        );
+    }
     #endregion
 
 
@@ -117,6 +148,7 @@ public class SettingsMenu : MonoBehaviour
         cancelButton.onClick.AddListener(OnCancelClicked);
 
         resolutionDropdown.onValueChanged.AddListener(OnResolutionChange);
+        languageDropdown.onValueChanged.AddListener(OnLanguageChange);
     }
 
     private void UnsubscribeEvents()
@@ -129,6 +161,7 @@ public class SettingsMenu : MonoBehaviour
         cancelButton.onClick.RemoveListener(OnCancelClicked);
 
         resolutionDropdown.onValueChanged.RemoveListener(OnResolutionChange);
+        languageDropdown.onValueChanged.AddListener(OnLanguageChange);
     }
 
     #endregion
@@ -148,6 +181,11 @@ public class SettingsMenu : MonoBehaviour
     private void OnResolutionChange(int index)
     {
         options.resolution = resolutions[index];
+    }
+
+    private void OnLanguageChange(int index)
+    {
+        options.language = LocalizationSettings.AvailableLocales.Locales[index];
     }
 
     private async void OnApplyClicked()
@@ -180,6 +218,21 @@ public class SettingsMenu : MonoBehaviour
                 return i;
             }
         }
+        Debug.LogError("No resolution " + resolution.ToString());
+        return 0;
+    }
+
+    private int LanguageToId(Locale locale)
+    {
+        for (int i = 0; i != LocalizationSettings.AvailableLocales.Locales.Count; i++)
+        {
+            Debug.Log($"count =  {LocalizationSettings.AvailableLocales.Locales.Count},  cur = {locale}, our = {LocalizationSettings.AvailableLocales.Locales[i]}");
+            if (locale.Identifier.Code == LocalizationSettings.AvailableLocales.Locales[i].Identifier.Code)
+            {
+                return i;
+            }
+        }
+        Debug.LogError("No locale " + locale.ToString());
         return 0;
     }
 
@@ -198,7 +251,7 @@ public class SettingsMenu : MonoBehaviour
 
     private GameOptionsData CreateDefaultOptions()
     {
-        return GameOptionsData.Create(Screen.currentResolution, sfxVolume: 1, musicVolume: 1);
+        return GameOptionsData.Create(Screen.currentResolution, sfxVolume: 1, musicVolume: 1, language: LocalizationSettings.AvailableLocales.Locales[0]);
 
         //return new GameOptionsData
         //{

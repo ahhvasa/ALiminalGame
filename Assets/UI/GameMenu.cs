@@ -65,26 +65,26 @@ public class GameMenu : MonoBehaviour
     public void Options()
     {
         gameMenuPanel.SetActive(false);
-        settingsMenu.gameObject.SetActive(true);
+        settingsMenu.settingsMenuPanel.SetActive(true);
     }
     public void OptionsClose()
     {
         gameMenuPanel.SetActive(true);
-        settingsMenu.gameObject.SetActive(false);
+        settingsMenu.settingsMenuPanel.SetActive(false);
     }
 
     public void OpenMenu()
     {
         Time.timeScale = 0;
         gameMenuPanel.SetActive(true);
-        settingsMenu.gameObject.SetActive(false);
+        settingsMenu.settingsMenuPanel.SetActive(false);
     }
 
     public void CloseMenu()
     {
         Time.timeScale = 1;
         gameMenuPanel.SetActive(false);
-        settingsMenu.gameObject.SetActive(false);
+        settingsMenu.settingsMenuPanel.SetActive(false);
     }
 
 }
