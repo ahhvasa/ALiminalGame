@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -13,7 +14,7 @@ public class SoundManager : MonoBehaviour
     public Sound soundObjectPrefab;
 
     public ObjectPull<Sound> objectPull;
-
+    public List<Sound> currentActiveSounds = new List<Sound>();
     
 
     public static Sound PlaySound(ISoundData soundData, SoundPlayer soundPlayer)
@@ -32,20 +33,21 @@ public class SoundManager : MonoBehaviour
 
     private static void Return(Sound sound)
     {
-        Debug.Log("return");
-
         Instance.objectPull.ReturnObject(sound);
 
         sound.transform.SetParent(Instance.transform, false);
         sound.transform.localPosition = Vector3.zero;
 
         sound.ClearEvent();
+
+        Instance.currentActiveSounds.Remove(sound);
     }
 
     private static Sound GetSound()
     {
         Sound sound = Instance.objectPull.GetObject();
         sound.OnClipEnd += () => Return(sound);
+        Instance.currentActiveSounds.Add(sound);
         return sound;
     }
 }
