@@ -8,8 +8,7 @@ using UnityEngine.Localization.Settings;
 public class GameOptionsData
 {
     [Header("Display")]
-    public int screenWidth = 1920;
-    public int screenHeight = 1080;
+    public Resolution resolution;
     public bool fullscreen = true;
 
     [Header("Audio")]
@@ -23,10 +22,18 @@ public class GameOptionsData
 
     public string languageCode = "en";
 
+    public static GameOptionsData Create(Resolution currentResolution, float sfxVolume, float musicVolume)
+    {
+        GameOptionsData data = new GameOptionsData();
+        data.resolution = currentResolution;
+        data.sfxVolume = sfxVolume;
+        data.musicVolume = musicVolume;
+        return data;
+    }
 
     public void ApplySettings()
     {
-        //ApplyResolution();
+        ApplyResolution();
         ApplyAudio(SoundManager.Instance.audioMixer);
         //ApplyLanguage();
     }
@@ -34,8 +41,8 @@ public class GameOptionsData
     private void ApplyResolution()
     {
         Screen.SetResolution(
-            screenWidth,
-            screenHeight,
+            resolution.width,
+            resolution.height,
             fullscreen
         );
     }
