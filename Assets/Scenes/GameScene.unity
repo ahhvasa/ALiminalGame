@@ -1263,6 +1263,35 @@ MonoBehaviour:
   audioMixer: {fileID: 24100000, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
   soundObjectPrefab: {fileID: 7967532896723379237, guid: f092da548db91b44098ca94235b61e53, type: 3}
   currentActiveSounds: []
+  itemSounds:
+    bulkyPickUp:
+      mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
+      clip: {fileID: 8300000, guid: 71cdf10c86241aa4c8305d001c2d77b9, type: 3}
+      looped: 0
+    cardboardPickUp:
+      mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
+      clip: {fileID: 8300000, guid: 37f7a01bff2fb5740a66c6f8c55966b0, type: 3}
+      looped: 0
+    standartPickUp:
+      mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
+      clip: {fileID: 8300000, guid: 7df7d388de10ee84089983a4d910d7cc, type: 3}
+      looped: 0
+    plasticPickUp:
+      mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
+      clip: {fileID: 8300000, guid: 5134e5189c11dae4d942de6b186ba58f, type: 3}
+      looped: 0
+    ragPickUp:
+      mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
+      clip: {fileID: 8300000, guid: 51759be9c56ee7f4ca028da1e83815a4, type: 3}
+      looped: 0
+    woodPickUp:
+      mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
+      clip: {fileID: 8300000, guid: e63f54c6268e74a41bc5e8537b7eafcd, type: 3}
+      looped: 0
+    itemDropDown:
+      mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
+      clip: {fileID: 8300000, guid: cbd8cfb09d881214c8e2b85024dac4dd, type: 3}
+      looped: 0
 --- !u!4 &1186054999
 Transform:
   m_ObjectHideFlags: 0

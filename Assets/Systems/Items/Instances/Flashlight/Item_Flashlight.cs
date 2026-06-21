@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[RequireComponent(typeof(SoundPlayer))]
 public class Item_Flashlight : ItemHoldable
 {
     public bool active;

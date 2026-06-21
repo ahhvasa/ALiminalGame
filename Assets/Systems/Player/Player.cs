@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     public PlayerMovement playerMovement;
     public PlayerStateMachine playerStateMachine;
 
+    public SoundPlayer soundPlayer;
+
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -15,7 +16,8 @@ public class SoundManager : MonoBehaviour
 
     public ObjectPull<Sound> objectPull;
     public List<Sound> currentActiveSounds = new List<Sound>();
-    
+
+    public ItemSounds itemSounds;
 
     public static Sound PlaySound(ISoundData soundData, SoundPlayer soundPlayer)
     {
@@ -49,5 +51,38 @@ public class SoundManager : MonoBehaviour
         sound.OnClipEnd += () => Return(sound);
         Instance.currentActiveSounds.Add(sound);
         return sound;
+    }
+}
+
+
+[Serializable]
+public class ItemSounds
+{
+    public SoundData bulkyPickUp;
+    public SoundData cardboardPickUp;
+    public SoundData standartPickUp;
+    public SoundData plasticPickUp;
+    public SoundData ragPickUp;
+    public SoundData woodPickUp;
+
+    public SoundData GetPickUpSound(itemTextureType textureType)
+    {
+        return textureType switch
+        {
+            itemTextureType.bulky => bulkyPickUp,
+            itemTextureType.cardboard => cardboardPickUp,
+            itemTextureType.standart => standartPickUp,
+            itemTextureType.plastic => plasticPickUp,
+            itemTextureType.rag => ragPickUp,
+            itemTextureType.wood => woodPickUp,
+            _ => standartPickUp
+        };
+    }
+
+    public SoundData itemDropDown;
+
+    public SoundData GetDropDownSound()
+    {
+        return itemDropDown;
     }
 }

@@ -2,37 +2,27 @@ using UnityEngine;
 
 public abstract class ItemHoldable : Item
 {
+    public override void OnPickUpInternal(Player player)
+    {
+        playerOwner.playerObjectHold.HoldObject(itemObject.transform);
+        itemObject.transform.localRotation = Quaternion.identity;
 
-    public override void OnDrop()
+    }
+    public override void OnDropInternal()
     {
         playerOwner.playerObjectHold.DropObject();
-        playerOwner = null;
-
-        Activate(false);
     }
 
-    public override void OnTakeInHands()
+    public override void OnTakeInHandsInternal()
     {
         playerOwner.playerObjectHold.HoldObject(itemObject.transform);
         itemObject.gameObject.SetActive(true);
         itemObject.transform.localRotation = Quaternion.identity;
-
-        Activate(true);
     }
 
-    public override void OnRemoveFromHands()
+    public override void OnRemoveFromHandsInternal()
     {
         itemObject.gameObject.SetActive(false);
-
-        Activate(false);
     }
 
-    public override void OnPickUp(Player player)
-    {
-        playerOwner = player;
-        playerOwner.playerObjectHold.HoldObject(itemObject.transform);
-        itemObject.transform.localRotation = Quaternion.identity;
-
-        Activate(true);
-    }
 }
