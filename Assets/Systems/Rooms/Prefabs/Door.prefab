@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2554710020070855460}
   - component: {fileID: 5669110630852228907}
   - component: {fileID: 1239761940743089929}
+  - component: {fileID: 7584878858712421162}
   m_Layer: 7
   m_Name: Door
   m_TagString: Untagged
@@ -52,6 +53,41 @@ MonoBehaviour:
   meshRenderer: {fileID: 6636040997547936469}
   doorWays: []
   IsOpen: 0
+  soundPlayer: {fileID: 7584878858712421162}
+  openSound:
+    mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
+    clips:
+    - {fileID: 8300000, guid: 66750745fb30f61428e0121a6b150ca0, type: 3}
+    - {fileID: 8300000, guid: 95cd972e470262a47892e442a5d39b2e, type: 3}
+    - {fileID: 8300000, guid: 84bb2f27b7abdf040ba9855cb242cefe, type: 3}
+    looped: 0
+  closeSound:
+    mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
+    clips:
+    - {fileID: 8300000, guid: 633ad556cb84ffe4093b28ad5a04f8e7, type: 3}
+    - {fileID: 8300000, guid: 15bf4b74150237c4592eef86e5c626e9, type: 3}
+    - {fileID: 8300000, guid: 345ff3790c28da84f809da195d62bea3, type: 3}
+    looped: 0
+  monsterTryToOpenSound:
+    mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
+    clips:
+    - {fileID: 8300000, guid: 2c2ae6c4194b56f489f49d7b8e45507c, type: 3}
+    - {fileID: 8300000, guid: c80ff83f959c6d74ea3ca220773f0b93, type: 3}
+    - {fileID: 8300000, guid: defade0a207edb6448245ff86eaa9cf9, type: 3}
+    looped: 0
+  creakSound:
+    mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
+    clips:
+    - {fileID: 8300000, guid: ced948cc71c259d45be22cb21f6f71ac, type: 3}
+    - {fileID: 8300000, guid: 9df48343a81871e449abe7ecbfc1379b, type: 3}
+    - {fileID: 8300000, guid: cee8f9475c215b6489f4ad6665379477, type: 3}
+    looped: 0
+  breakSound:
+    mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
+    clips:
+    - {fileID: 8300000, guid: b4b2b2224b445ef40848e08bbff98bd4, type: 3}
+    - {fileID: 8300000, guid: fccebf24f1f13ab4c991d7699e132bb9, type: 3}
+    looped: 0
 --- !u!114 &6112607935231658487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,6 +161,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7584878858712421162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496089703848959527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc30803b067cad24f9859fd8f3abf016, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playingSounds: []
 --- !u!1 &3199499896710916038
 GameObject:
   m_ObjectHideFlags: 0
