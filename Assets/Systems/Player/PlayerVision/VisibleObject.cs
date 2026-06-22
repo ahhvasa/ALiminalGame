@@ -1,19 +1,31 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
+using System.Collections.Generic;
+
 
 public class VisibleObject : MonoBehaviour
 {
     [SerializeField] private float fadeDuration = 0.3f;
 
-    private MeshRenderer[] meshRenderers;
-    private SpriteRenderer[] spriteRenderers;
+    [SerializeField] private List<MeshRenderer> meshRenderers = new();
+    [SerializeField] private List<SpriteRenderer> spriteRenderers = new();
+
+    [SerializeField] private List<GameObject> connectedObjects;
 
     private Coroutine fadeCoroutine;
 
     private void Awake()
     {
-        meshRenderers = GetComponentsInChildren<MeshRenderer>(true);
-        spriteRenderers = GetComponentsInChildren<SpriteRenderer>(true);
+        meshRenderers.AddRange(GetComponentsInChildren<MeshRenderer>(true));
+        spriteRenderers.AddRange(GetComponentsInChildren<SpriteRenderer>(true));
+    }
+    public void ConnectObject(GameObject gameObject)
+    {
+        connectedObjects.Add(gameObject);
+
+        meshRenderers.AddRange(gameObject.GetComponentsInChildren<MeshRenderer>(true));
+        spriteRenderers.AddRange(gameObject.GetComponentsInChildren<SpriteRenderer>(true));
     }
 
     public void Show(bool show)
@@ -64,10 +76,10 @@ public class VisibleObject : MonoBehaviour
 
     private float GetCurrentAlpha()
     {
-        if (spriteRenderers.Length > 0)
+        if (spriteRenderers.Count > 0)
             return spriteRenderers[0].color.a;
 
-        if (meshRenderers.Length > 0)
+        if (meshRenderers.Count > 0)
             return meshRenderers[0].material.color.a;
 
         return 1f;

@@ -7,7 +7,7 @@ public class IKLegController : MonoBehaviour
 {
     public List<IKLegGroup> legGroups;
     public float speed;
-    public Transform lookTarget;
+    public Vector3 lookTarget;
 
     public void Start()
     {
@@ -27,7 +27,7 @@ public class IKLegController : MonoBehaviour
             foreach (var leg in group.legs)
             {
                 leg.speed = speed;
-                leg.lineRenderer.transform.LookAt(lookTarget);
+                leg.lineRenderer.transform.rotation = Quaternion.LookRotation(lookTarget);
             }
         }
     }
