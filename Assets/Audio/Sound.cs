@@ -1,10 +1,14 @@
 using System;
+using UnityEditor.Localization.Plugins.XLIFF.V12;
 using UnityEngine;
 
 public class Sound : MonoBehaviour
 {
     public AudioSource audioSource;
     public ISoundData currentSoundData;
+
+    [Header("Filters")]
+    public AudioLowPassFilter audioLowPassFilter;
 
     public event Action OnClipEnd;
 

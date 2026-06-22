@@ -21,7 +21,7 @@ public class SoundData : ISoundData
 
         sound.audioSource.clip = clip;
         sound.audioSource.outputAudioMixerGroup = mixerGroup;
-        // sound.audioSource.loop = looped;
+        // sound.audioSource.loop = looped; // forbidden
     }
 
     public bool IsLooped()
