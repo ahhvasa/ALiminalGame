@@ -3,6 +3,8 @@ using UnityEngine;
 public class PlayerStateMachine : MonoBehaviour
 {
     private IPlayerState _currentState;
+    public IPlayerState CurrentState { get { return _currentState; } }
+
     public Player player;
     public PlayerBaseState playerBaseState;
     public PlayerDeadState playerDeadState;

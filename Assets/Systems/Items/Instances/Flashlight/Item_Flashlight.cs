@@ -50,3 +50,4 @@ public class Item_Flashlight : ItemHoldable
         on = !on;
     }
 }
+

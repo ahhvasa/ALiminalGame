@@ -177,6 +177,7 @@ MonoBehaviour:
   playerObjectHold: {fileID: 4684141565397258298}
   playerMovement: {fileID: 8057258995056074699}
   playerStateMachine: {fileID: 5614018124006436660}
+  roomSeer: {fileID: 4612091867928227931}
   soundPlayer: {fileID: 214273685968976462}
 --- !u!114 &5614018124006436660
 MonoBehaviour:
@@ -217,6 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8704fb0aaa85646448030585f8861a40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  directlyVisibleRooms: []
   currentRoom: {fileID: 0}
 --- !u!54 &6388091752429591500
 Rigidbody:

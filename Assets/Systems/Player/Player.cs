@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public PlayerObjectHold playerObjectHold;
     public PlayerMovement playerMovement;
     public PlayerStateMachine playerStateMachine;
+    public RoomSeer roomSeer;
 
     public SoundPlayer soundPlayer;
 
@@ -28,5 +29,10 @@ public class Player : MonoBehaviour
     public void BaseState()
     {
         playerStateMachine.EnterState(playerStateMachine.playerBaseState);
+    }
+
+    public void EnterState(IPlayerState state)
+    {
+        playerStateMachine.EnterState(state);
     }
 }

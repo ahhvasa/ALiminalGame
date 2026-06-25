@@ -1,27 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+
 public class RoomSeer : MonoBehaviour
 {
-    List<Room> allRooms;
+    public List<Room> directlyVisibleRooms = new();
 
-    void Start()
+    public List<Room> GetVisibleRooms()
     {
-        allRooms = GameObject.FindObjectsOfType<Room>().ToList();
+        List<Room> currentDirectlyVisibleRooms = new List<Room>();
+        currentDirectlyVisibleRooms.AddRange(directlyVisibleRooms);
 
+        currentDirectlyVisibleRooms.Add(RoomManadger.GetClosestRoom(transform.position));
+
+        List<Room> allVisibleRooms = new List<Room>();
+
+        foreach(var room in currentDirectlyVisibleRooms)
+        {
+            var visibleRooms = room.GetAllVisibleRooms();
+            foreach(var visibleRoom in visibleRooms)
+            {
+                if (allVisibleRooms.Contains(visibleRoom) == false)
+                { allVisibleRooms.Add(visibleRoom); }
+            }
+        }
+
+        return allVisibleRooms;
     }
 
     void FixedUpdate()
     {
-        List<Room> visibleRooms = GetClosestRoom().GetAllVisibleRooms();
-
+        List<Room> visibleRooms = GetVisibleRooms();
         List<Room> unVisibleRooms = new List<Room>();
 
-        foreach (Room room in allRooms)
+        foreach (Room room in RoomManadger.AllRooms)
         {
             if (visibleRooms.Contains(room) == false)
             {
@@ -37,25 +53,6 @@ public class RoomSeer : MonoBehaviour
         {
             room.Show(true);
         }
-    }
-
-    public Room GetClosestRoom()
-    {
-        Room closestRoom = null;
-        float closestDistance = float.MaxValue;
-
-        foreach (Room room in allRooms)
-        {
-            float distance = Vector3.Distance(transform.position, room.transform.position);
-
-            if (distance < closestDistance)
-            {
-                closestDistance = distance;
-                closestRoom = room;
-            }
-        }
-
-        return closestRoom;
     }
 
     public Room currentRoom;
