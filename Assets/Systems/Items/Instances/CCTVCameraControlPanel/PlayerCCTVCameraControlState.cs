@@ -4,6 +4,27 @@ using UnityEngine;
 public class PlayerCCTVCameraControlState : IPlayerState
 {
     private Player player;
+    private int _currentCameraId = 0;
+    public int CurrentCameraId
+    {
+        get { return _currentCameraId; }
+        set
+        {
+            _currentCameraId = value;
+            if (_currentCameraId >= CCTVCameraManager.Instance.cameras.Count)
+            {
+                _currentCameraId = 0;
+            }
+            if (_currentCameraId < 0)
+            {
+                _currentCameraId = CCTVCameraManager.Instance.cameras.Count - 1;
+            }
+
+            CameraPoint.Instance.FollowObject(CCTVCameraManager.Instance.cameras[_currentCameraId].transform);
+        }
+    }
+
+
     public PlayerCCTVCameraControlState(Player player)
     {
         this.player = player;
@@ -13,10 +34,12 @@ public class PlayerCCTVCameraControlState : IPlayerState
     {
         Debug.Log("PlayerCCTVCameraControlState");
         player.playerMovement.enabled = false;
+
+        CameraPoint.Instance.FollowObject(CCTVCameraManager.Instance.cameras[_currentCameraId].transform);
     }
     public void OnExit()
     {
-
+        CameraPoint.Instance.FollowPlayer();
     }
 
     public void FixedUpdate()
@@ -28,6 +51,16 @@ public class PlayerCCTVCameraControlState : IPlayerState
         if (Input.GetKeyDown(KeyCode.G))
         {
             ExitCameraControlState();
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            CurrentCameraId += 1;
+        }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            CurrentCameraId -= 1;
         }
     }
 
