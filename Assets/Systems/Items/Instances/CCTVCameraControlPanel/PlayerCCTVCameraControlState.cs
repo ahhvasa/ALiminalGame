@@ -20,7 +20,7 @@ public class PlayerCCTVCameraControlState : IPlayerState
                 _currentCameraId = CCTVCameraManager.Instance.cameras.Count - 1;
             }
 
-            CameraPoint.Instance.FollowObject(CCTVCameraManager.Instance.cameras[_currentCameraId].transform);
+            CameraPoint.Instance.FollowObject(CCTVCameraManager.Instance.cameras[_currentCameraId].itemObject.transform);
         }
     }
 
@@ -35,7 +35,7 @@ public class PlayerCCTVCameraControlState : IPlayerState
         Debug.Log("PlayerCCTVCameraControlState");
         player.playerMovement.enabled = false;
 
-        CameraPoint.Instance.FollowObject(CCTVCameraManager.Instance.cameras[_currentCameraId].transform);
+        CameraPoint.Instance.FollowObject(CCTVCameraManager.Instance.cameras[_currentCameraId].itemObject.transform);
     }
     public void OnExit()
     {
