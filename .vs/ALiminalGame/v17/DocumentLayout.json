@@ -3,7 +3,11 @@
   "WorkspaceRootPath": "G:\\Sync\\Projects\\ALiminalGame\\Unity\\ALiminalGame\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{820EEECA-99C2-CF87-FA3D-A0A88CE947B5}|Assembly-CSharp.csproj|G:\\Sync\\Projects\\ALiminalGame\\Unity\\ALiminalGame\\assets\\systems\\player\\playerability\\playerobjectinteraction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{820EEECA-99C2-CF87-FA3D-A0A88CE947B5}|Assembly-CSharp.csproj|G:\\Sync\\Projects\\ALiminalGame\\Unity\\ALiminalGame\\assets\\systems\\player\\playerability\\playermovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{820EEECA-99C2-CF87-FA3D-A0A88CE947B5}|Assembly-CSharp.csproj|solutionrelative:assets\\systems\\player\\playerability\\playermovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{820EEECA-99C2-CF87-FA3D-A0A88CE947B5}|Assembly-CSharp.csproj|g:\\sync\\projects\\aliminalgame\\unity\\aliminalgame\\assets\\systems\\player\\playerability\\playerobjectinteraction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{820EEECA-99C2-CF87-FA3D-A0A88CE947B5}|Assembly-CSharp.csproj|solutionrelative:assets\\systems\\player\\playerability\\playerobjectinteraction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -15,7 +19,7 @@
       "RelativeMoniker": "D:0:0:{820EEECA-99C2-CF87-FA3D-A0A88CE947B5}|Assembly-CSharp.csproj|solutionrelative:assets\\systems\\player\\inventory\\playerinventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{820EEECA-99C2-CF87-FA3D-A0A88CE947B5}|Assembly-CSharp.csproj|g:\\sync\\projects\\aliminalgame\\unity\\aliminalgame\\assets\\systems\\items\\instances\\cctvcameracontrolpanel\\playercctvcameracontrolstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{820EEECA-99C2-CF87-FA3D-A0A88CE947B5}|Assembly-CSharp.csproj|G:\\Sync\\Projects\\ALiminalGame\\Unity\\ALiminalGame\\assets\\systems\\items\\instances\\cctvcameracontrolpanel\\playercctvcameracontrolstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{820EEECA-99C2-CF87-FA3D-A0A88CE947B5}|Assembly-CSharp.csproj|solutionrelative:assets\\systems\\items\\instances\\cctvcameracontrolpanel\\playercctvcameracontrolstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -97,10 +101,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{820EEECA-99C2-CF87-FA3D-A0A88CE947B5}|Assembly-CSharp.csproj|G:\\Sync\\Projects\\ALiminalGame\\Unity\\ALiminalGame\\assets\\scenes\\2dcreaturetest\\splitrotationlookatcamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{820EEECA-99C2-CF87-FA3D-A0A88CE947B5}|Assembly-CSharp.csproj|solutionrelative:assets\\scenes\\2dcreaturetest\\splitrotationlookatcamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{820EEECA-99C2-CF87-FA3D-A0A88CE947B5}|Assembly-CSharp.csproj|G:\\Sync\\Projects\\ALiminalGame\\Unity\\ALiminalGame\\assets\\systems\\player\\playerability\\playermovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{820EEECA-99C2-CF87-FA3D-A0A88CE947B5}|Assembly-CSharp.csproj|solutionrelative:assets\\systems\\player\\playerability\\playermovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{820EEECA-99C2-CF87-FA3D-A0A88CE947B5}|Assembly-CSharp.csproj|G:\\Sync\\Projects\\ALiminalGame\\Unity\\ALiminalGame\\assets\\scenes\\2dcreaturetest\\objectflipbytarget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -448,7 +448,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "LevelMusic.cs",
               "DocumentMoniker": "G:\\Sync\\Projects\\ALiminalGame\\Unity\\ALiminalGame\\Assets\\Audio\\LevelMusic.cs",
               "RelativeDocumentMoniker": "Assets\\Audio\\LevelMusic.cs",
@@ -461,7 +461,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "Item_Flashlight.cs",
               "DocumentMoniker": "G:\\Sync\\Projects\\ALiminalGame\\Unity\\ALiminalGame\\Assets\\Systems\\Items\\Instances\\Flashlight\\Item_Flashlight.cs",
               "RelativeDocumentMoniker": "Assets\\Systems\\Items\\Instances\\Flashlight\\Item_Flashlight.cs",
@@ -470,12 +470,11 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-18T18:42:45.89Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "SettingsMenu.cs",
               "DocumentMoniker": "G:\\Sync\\Projects\\ALiminalGame\\Unity\\ALiminalGame\\Assets\\UI\\Settigns\\SettingsMenu.cs",
               "RelativeDocumentMoniker": "Assets\\UI\\Settigns\\SettingsMenu.cs",
@@ -500,7 +499,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "Item.cs",
               "DocumentMoniker": "G:\\Sync\\Projects\\ALiminalGame\\Unity\\ALiminalGame\\Assets\\Systems\\Items\\Item.cs",
               "RelativeDocumentMoniker": "Assets\\Systems\\Items\\Item.cs",
@@ -509,12 +508,11 @@
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABEAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-10T19:20:43.456Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "ItemHoldable.cs",
               "DocumentMoniker": "G:\\Sync\\Projects\\ALiminalGame\\Unity\\ALiminalGame\\Assets\\Systems\\Items\\ItemHoldable.cs",
               "RelativeDocumentMoniker": "Assets\\Systems\\Items\\ItemHoldable.cs",
@@ -523,12 +521,11 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-21T11:49:30.11Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "RoomSeer.cs",
               "DocumentMoniker": "G:\\Sync\\Projects\\ALiminalGame\\Unity\\ALiminalGame\\Assets\\Systems\\Player\\PlayerVision\\RoomSeer.cs",
               "RelativeDocumentMoniker": "Assets\\Systems\\Player\\PlayerVision\\RoomSeer.cs",
@@ -537,12 +534,11 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-10T17:41:51.349Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Item_CCTVCameraControlPanel.cs",
               "DocumentMoniker": "G:\\Sync\\Projects\\ALiminalGame\\Unity\\ALiminalGame\\Assets\\Systems\\Items\\Instances\\CCTVCameraControlPanel\\Item_CCTVCameraControlPanel.cs",
               "RelativeDocumentMoniker": "Assets\\Systems\\Items\\Instances\\CCTVCameraControlPanel\\Item_CCTVCameraControlPanel.cs",
@@ -551,38 +547,11 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-25T16:46:37.395Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "PlayerCCTVCameraControlState.cs",
-              "DocumentMoniker": "G:\\Sync\\Projects\\ALiminalGame\\Unity\\ALiminalGame\\Assets\\Systems\\Items\\Instances\\CCTVCameraControlPanel\\PlayerCCTVCameraControlState.cs",
-              "RelativeDocumentMoniker": "Assets\\Systems\\Items\\Instances\\CCTVCameraControlPanel\\PlayerCCTVCameraControlState.cs",
-              "ToolTip": "G:\\Sync\\Projects\\ALiminalGame\\Unity\\ALiminalGame\\Assets\\Systems\\Items\\Instances\\CCTVCameraControlPanel\\PlayerCCTVCameraControlState.cs",
-              "RelativeToolTip": "Assets\\Systems\\Items\\Instances\\CCTVCameraControlPanel\\PlayerCCTVCameraControlState.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAAADsAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-25T16:47:48.803Z",
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "PlayerStateMachine.cs",
-              "DocumentMoniker": "G:\\Sync\\Projects\\ALiminalGame\\Unity\\ALiminalGame\\Assets\\Systems\\Player\\PlayerStateMachine\\PlayerStateMachine.cs",
-              "RelativeDocumentMoniker": "Assets\\Systems\\Player\\PlayerStateMachine\\PlayerStateMachine.cs",
-              "ToolTip": "G:\\Sync\\Projects\\ALiminalGame\\Unity\\ALiminalGame\\Assets\\Systems\\Player\\PlayerStateMachine\\PlayerStateMachine.cs",
-              "RelativeToolTip": "Assets\\Systems\\Player\\PlayerStateMachine\\PlayerStateMachine.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-25T10:32:39.89Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "PlayerBaseState.cs",
               "DocumentMoniker": "G:\\Sync\\Projects\\ALiminalGame\\Unity\\ALiminalGame\\Assets\\Systems\\Player\\PlayerStateMachine\\States\\BaseState\\PlayerBaseState.cs",
               "RelativeDocumentMoniker": "Assets\\Systems\\Player\\PlayerStateMachine\\States\\BaseState\\PlayerBaseState.cs",
@@ -590,12 +559,11 @@
               "RelativeToolTip": "Assets\\Systems\\Player\\PlayerStateMachine\\States\\BaseState\\PlayerBaseState.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-25T10:24:17.502Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-25T10:24:17.502Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Player.cs",
               "DocumentMoniker": "G:\\Sync\\Projects\\ALiminalGame\\Unity\\ALiminalGame\\Assets\\Systems\\Player\\Player.cs",
               "RelativeDocumentMoniker": "Assets\\Systems\\Player\\Player.cs",
@@ -603,12 +571,11 @@
               "RelativeToolTip": "Assets\\Systems\\Player\\Player.cs",
               "ViewState": "AgIAAAcAAAAAAAAAAAAewBUAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-08T13:20:41.993Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-08T13:20:41.993Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "PlayerInventory.cs",
               "DocumentMoniker": "G:\\Sync\\Projects\\ALiminalGame\\Unity\\ALiminalGame\\Assets\\Systems\\Player\\Inventory\\PlayerInventory.cs",
               "RelativeDocumentMoniker": "Assets\\Systems\\Player\\Inventory\\PlayerInventory.cs",
@@ -616,12 +583,11 @@
               "RelativeToolTip": "Assets\\Systems\\Player\\Inventory\\PlayerInventory.cs",
               "ViewState": "AgIAAEsAAAAAAAAAAAAAAGAAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-10T19:04:56.326Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-10T19:04:56.326Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "PlayerObjectInteraction.cs",
               "DocumentMoniker": "G:\\Sync\\Projects\\ALiminalGame\\Unity\\ALiminalGame\\Assets\\Systems\\Player\\PlayerAbility\\PlayerObjectInteraction.cs",
               "RelativeDocumentMoniker": "Assets\\Systems\\Player\\PlayerAbility\\PlayerObjectInteraction.cs",
@@ -634,7 +600,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "RoomManadger.cs",
               "DocumentMoniker": "G:\\Sync\\Projects\\ALiminalGame\\Unity\\ALiminalGame\\Assets\\Systems\\Player\\PlayerVision\\RoomManadger.cs",
               "RelativeDocumentMoniker": "Assets\\Systems\\Player\\PlayerVision\\RoomManadger.cs",
@@ -646,7 +612,44 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 0,
+              "Title": "PlayerMovement.cs",
+              "DocumentMoniker": "G:\\Sync\\Projects\\ALiminalGame\\Unity\\ALiminalGame\\Assets\\Systems\\Player\\PlayerAbility\\PlayerMovement.cs",
+              "RelativeDocumentMoniker": "Assets\\Systems\\Player\\PlayerAbility\\PlayerMovement.cs",
+              "ToolTip": "G:\\Sync\\Projects\\ALiminalGame\\Unity\\ALiminalGame\\Assets\\Systems\\Player\\PlayerAbility\\PlayerMovement.cs",
+              "RelativeToolTip": "Assets\\Systems\\Player\\PlayerAbility\\PlayerMovement.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAewFYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-10T21:39:21.217Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "PlayerStateMachine.cs",
+              "DocumentMoniker": "G:\\Sync\\Projects\\ALiminalGame\\Unity\\ALiminalGame\\Assets\\Systems\\Player\\PlayerStateMachine\\PlayerStateMachine.cs",
+              "RelativeDocumentMoniker": "Assets\\Systems\\Player\\PlayerStateMachine\\PlayerStateMachine.cs",
+              "ToolTip": "G:\\Sync\\Projects\\ALiminalGame\\Unity\\ALiminalGame\\Assets\\Systems\\Player\\PlayerStateMachine\\PlayerStateMachine.cs",
+              "RelativeToolTip": "Assets\\Systems\\Player\\PlayerStateMachine\\PlayerStateMachine.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-25T10:32:39.89Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PlayerCCTVCameraControlState.cs",
+              "DocumentMoniker": "G:\\Sync\\Projects\\ALiminalGame\\Unity\\ALiminalGame\\Assets\\Systems\\Items\\Instances\\CCTVCameraControlPanel\\PlayerCCTVCameraControlState.cs",
+              "RelativeDocumentMoniker": "Assets\\Systems\\Items\\Instances\\CCTVCameraControlPanel\\PlayerCCTVCameraControlState.cs",
+              "ToolTip": "G:\\Sync\\Projects\\ALiminalGame\\Unity\\ALiminalGame\\Assets\\Systems\\Items\\Instances\\CCTVCameraControlPanel\\PlayerCCTVCameraControlState.cs",
+              "RelativeToolTip": "Assets\\Systems\\Items\\Instances\\CCTVCameraControlPanel\\PlayerCCTVCameraControlState.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAADsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-25T16:47:48.803Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "CCTVCameraManager.cs",
               "DocumentMoniker": "G:\\Sync\\Projects\\ALiminalGame\\Unity\\ALiminalGame\\Assets\\Systems\\Items\\Instances\\CCTVCamera\\CCTVCameraManager.cs",
               "RelativeDocumentMoniker": "Assets\\Systems\\Items\\Instances\\CCTVCamera\\CCTVCameraManager.cs",
@@ -658,7 +661,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "Item_CCTVCamera.cs",
               "DocumentMoniker": "G:\\Sync\\Projects\\ALiminalGame\\Unity\\ALiminalGame\\Assets\\Systems\\Items\\Instances\\CCTVCamera\\Item_CCTVCamera.cs",
               "RelativeDocumentMoniker": "Assets\\Systems\\Items\\Instances\\CCTVCamera\\Item_CCTVCamera.cs",
@@ -682,7 +685,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "SoundData.cs",
               "DocumentMoniker": "G:\\Sync\\Projects\\ALiminalGame\\Unity\\ALiminalGame\\Assets\\Audio\\SoundData.cs",
               "RelativeDocumentMoniker": "Assets\\Audio\\SoundData.cs",
@@ -694,7 +697,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "IKLegController.cs",
               "DocumentMoniker": "G:\\Sync\\Projects\\ALiminalGame\\Unity\\ALiminalGame\\Assets\\Scenes\\IKTest\\IKLegController.cs",
               "RelativeDocumentMoniker": "Assets\\Scenes\\IKTest\\IKLegController.cs",
@@ -706,7 +709,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "CameraManadger.cs",
               "DocumentMoniker": "G:\\Sync\\Projects\\ALiminalGame\\Unity\\ALiminalGame\\Assets\\Scenes\\CameraManadger.cs",
               "RelativeDocumentMoniker": "Assets\\Scenes\\CameraManadger.cs",
@@ -718,7 +721,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "Room.cs",
               "DocumentMoniker": "G:\\Sync\\Projects\\ALiminalGame\\Unity\\ALiminalGame\\Assets\\Systems\\Rooms\\Room.cs",
               "RelativeDocumentMoniker": "Assets\\Systems\\Rooms\\Room.cs",
@@ -730,7 +733,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "CreatureViewController.cs",
               "DocumentMoniker": "G:\\Sync\\Projects\\ALiminalGame\\Unity\\ALiminalGame\\Assets\\Scenes\\2dCreatureTest\\CreatureViewController.cs",
               "RelativeDocumentMoniker": "Assets\\Scenes\\2dCreatureTest\\CreatureViewController.cs",
@@ -742,7 +745,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "VisibleObject.cs",
               "DocumentMoniker": "G:\\Sync\\Projects\\ALiminalGame\\Unity\\ALiminalGame\\Assets\\Systems\\Player\\PlayerVision\\VisibleObject.cs",
               "RelativeDocumentMoniker": "Assets\\Systems\\Player\\PlayerVision\\VisibleObject.cs",
@@ -754,7 +757,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "ConnectToVisibleObject.cs",
               "DocumentMoniker": "G:\\Sync\\Projects\\ALiminalGame\\Unity\\ALiminalGame\\Assets\\Systems\\Player\\PlayerVision\\ConnectToVisibleObject.cs",
               "RelativeDocumentMoniker": "Assets\\Systems\\Player\\PlayerVision\\ConnectToVisibleObject.cs",
@@ -766,7 +769,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "SplitRotationLookAtCamera.cs",
               "DocumentMoniker": "G:\\Sync\\Projects\\ALiminalGame\\Unity\\ALiminalGame\\Assets\\Scenes\\2dCreatureTest\\SplitRotationLookAtCamera.cs",
               "RelativeDocumentMoniker": "Assets\\Scenes\\2dCreatureTest\\SplitRotationLookAtCamera.cs",
@@ -799,18 +802,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-22T12:53:07.58Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "PlayerMovement.cs",
-              "DocumentMoniker": "G:\\Sync\\Projects\\ALiminalGame\\Unity\\ALiminalGame\\Assets\\Systems\\Player\\PlayerAbility\\PlayerMovement.cs",
-              "RelativeDocumentMoniker": "Assets\\Systems\\Player\\PlayerAbility\\PlayerMovement.cs",
-              "ToolTip": "G:\\Sync\\Projects\\ALiminalGame\\Unity\\ALiminalGame\\Assets\\Systems\\Player\\PlayerAbility\\PlayerMovement.cs",
-              "RelativeToolTip": "Assets\\Systems\\Player\\PlayerAbility\\PlayerMovement.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEYAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-10T21:39:21.217Z"
             },
             {
               "$type": "Document",

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 /// <summary>
 /// A component for player movement. It immediately checks for key presses and applies movement. If movement needs to be disabled, set component.enabled to false.
@@ -39,6 +40,14 @@ public class PlayerMovement : MonoBehaviour
         OnMove?.Invoke(direction, speedFactor);
     }
 
+
+
+
+
+    public InputActionReference move;
+
+
+
     public void Update()
     {
         Vector3 inputDirection = Vector3.zero;
@@ -47,6 +56,9 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.S)) inputDirection += Vector3.back;
         if (Input.GetKey(KeyCode.D)) inputDirection += Vector3.right;
         if (Input.GetKey(KeyCode.A)) inputDirection += Vector3.left;
+
+        inputDirection = move.action.ReadValue<Vector2>();
+        inputDirection = new Vector3(inputDirection.x, 0, inputDirection.y);
 
         float speed = 0;
 
