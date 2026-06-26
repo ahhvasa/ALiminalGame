@@ -88,8 +88,14 @@ public class PlayerInventory : MonoBehaviour
 
 
 
+    public void FixedUpdate()
+    {
+        CurrentItem?.ItemFixedUpdate();
+    }
     public void Update()
     {
+        CurrentItem?.ItemUpdate();
+
         if (Input.GetKeyDown(KeyCode.Q))
         {
             DropItem();

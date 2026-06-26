@@ -15,10 +15,6 @@ public class Player : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            playerObjectInteraction.Interact();
-        }
     }
 
     public void Die()

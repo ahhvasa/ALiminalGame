@@ -12,10 +12,14 @@ public class PlayerBaseState : IPlayerState
     {
         Debug.Log("BaseState");
         player.playerMovement.enabled = true;
+        player.playerInventory.enabled = true;
+        player.playerObjectInteraction.enabled = true;
     }
     public void OnExit()
     {
         player.playerMovement.enabled = false;
+        player.playerInventory.enabled = false;
+        player.playerObjectInteraction.enabled = false;
     }
 
     public void FixedUpdate()

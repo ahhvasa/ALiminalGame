@@ -23,7 +23,7 @@ public class Item_Flashlight : ItemHoldable
         active = activateOrDeactivate;
     }
 
-    public void Update()
+    public override void ItemUpdateInternal()
     {
         if (active)
         {

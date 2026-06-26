@@ -5,6 +5,16 @@ public class PlayerObjectInteraction : MonoBehaviour
 {
     public Player player;
     public float maxActivationDistance = 1;
+
+
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Interact();
+        }
+    }
+
     public void Interact()
     {
 

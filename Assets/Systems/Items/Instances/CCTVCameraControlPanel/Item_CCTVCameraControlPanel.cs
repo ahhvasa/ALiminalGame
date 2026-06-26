@@ -12,7 +12,7 @@ public class Item_CCTVCameraControlPanel : ItemHoldable
         ApplyCameraView(activateOrDeactivate);
     }
 
-    public void Update()
+    public override void ItemUpdateInternal()
     {
         if (active)
         {

@@ -15,6 +15,8 @@ public abstract class
     public abstract void OnDropInternal();
     public abstract void OnTakeInHandsInternal();
     public abstract void OnRemoveFromHandsInternal();
+    public virtual void ItemFixedUpdateInternal() { }
+    public virtual void ItemUpdateInternal() { }
 
     public void OnPickUp(Player player)
     {
@@ -50,6 +52,14 @@ public abstract class
         Activate(false);
 
         OnRemoveFromHandsInternal();
+    }
+    public void ItemFixedUpdate()
+    {
+        ItemFixedUpdateInternal();
+    }
+    public void ItemUpdate()
+    {
+        ItemUpdateInternal();
     }
 
     /// <summary>

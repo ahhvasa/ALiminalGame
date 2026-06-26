@@ -48,17 +48,17 @@ public class PlayerCCTVCameraControlState : IPlayerState
     public void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.G))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             ExitCameraControlState();
         }
 
 
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             CurrentCameraId += 1;
         }
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             CurrentCameraId -= 1;
         }
