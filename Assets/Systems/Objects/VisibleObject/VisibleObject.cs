@@ -10,6 +10,7 @@ public class VisibleObject : MonoBehaviour
 
     [SerializeField] private List<MeshRenderer> meshRenderers = new();
     [SerializeField] private List<SpriteRenderer> spriteRenderers = new();
+    [SerializeField] private List<Light> lightSources = new();
 
     [SerializeField] private List<GameObject> connectedObjects;
 
@@ -19,6 +20,8 @@ public class VisibleObject : MonoBehaviour
     {
         meshRenderers.AddRange(GetComponentsInChildren<MeshRenderer>(true));
         spriteRenderers.AddRange(GetComponentsInChildren<SpriteRenderer>(true));
+        lightSources.AddRange(GetComponentsInChildren<Light>(true));
+        
     }
     public void ConnectObject(GameObject gameObject)
     {
@@ -26,6 +29,7 @@ public class VisibleObject : MonoBehaviour
 
         meshRenderers.AddRange(gameObject.GetComponentsInChildren<MeshRenderer>(true));
         spriteRenderers.AddRange(gameObject.GetComponentsInChildren<SpriteRenderer>(true));
+        lightSources.AddRange(gameObject.GetComponentsInChildren<Light>(true));
     }
 
     public void Show(bool show)
@@ -82,6 +86,9 @@ public class VisibleObject : MonoBehaviour
         if (meshRenderers.Count > 0)
             return meshRenderers[0].material.color.a;
 
+        if (lightSources.Count > 0)
+            return lightSources[0].enabled ? 1 : 0;
+
         return 1f;
     }
 
@@ -102,6 +109,12 @@ public class VisibleObject : MonoBehaviour
             color.a = alpha;
             material.color = color;
         }
+
+        foreach (var lightSource in lightSources)
+        {
+            lightSource.enabled = alpha > 0.5f ? true : false;
+        }
+
     }
 
     private void SetRenderersEnabled(bool enabled)
@@ -111,5 +124,8 @@ public class VisibleObject : MonoBehaviour
 
         foreach (var renderer in meshRenderers)
             renderer.enabled = enabled;
+
+        foreach (var lightSource in lightSources)
+            lightSource.enabled = enabled;
     }
 }

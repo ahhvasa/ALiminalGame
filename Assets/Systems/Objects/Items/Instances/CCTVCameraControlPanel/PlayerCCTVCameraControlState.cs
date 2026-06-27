@@ -7,6 +7,8 @@ public class PlayerCCTVCameraControlState : IPlayerState
     public InputActionReference interact;
     private Player player;
     private int _currentCameraId = 0;
+    private bool _justEntered = false;
+
     public int CurrentCameraId
     {
         get { return _currentCameraId; }
@@ -36,6 +38,7 @@ public class PlayerCCTVCameraControlState : IPlayerState
     {
         Debug.Log("PlayerCCTVCameraControlState");
         player.playerMovement.enabled = false;
+        _justEntered = true;
 
         CameraPoint.Instance.FollowObject(CCTVCameraManager.Instance.cameras[_currentCameraId].itemObject.transform);
     }
@@ -46,12 +49,14 @@ public class PlayerCCTVCameraControlState : IPlayerState
 
     public void FixedUpdate()
     {
+        _justEntered = false;
     }
     public void Update()
     {
 
         if (InputProvider.ActivateItem())
         {
+            if (_justEntered) { return; }
             ExitCameraControlState();
         }
 
