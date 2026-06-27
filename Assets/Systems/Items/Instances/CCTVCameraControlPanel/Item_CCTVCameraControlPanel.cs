@@ -5,18 +5,33 @@ public class Item_CCTVCameraControlPanel : ItemHoldable
 {
     public bool active;
     public PlayerCCTVCameraControlState cameraControlState;
+    public InputHintInfo hintInfo;
+
+    public Item_CCTVCameraControlPanel()
+    {
+        hintInfo = new InputHintInfo("F", "See Cameras");
+    }
 
     public override void Activate(bool activateOrDeactivate)
     {
         active = activateOrDeactivate;
         ApplyCameraView(activateOrDeactivate);
+
+        if (active)
+        {
+            InputHintManadger.ShowHint(hintInfo);
+        }
+        else
+        {
+            InputHintManadger.RemoveHint(hintInfo);
+        }
     }
 
     public override void ItemUpdateInternal()
     {
         if (active)
         {
-            if (Input.GetKeyDown(KeyCode.F))
+            if (InputProvider.ActivateItem())
             {
                 EnterCameraControlState();
             }

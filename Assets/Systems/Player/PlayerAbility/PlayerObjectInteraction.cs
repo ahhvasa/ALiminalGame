@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerObjectInteraction : MonoBehaviour
 {
@@ -9,7 +11,7 @@ public class PlayerObjectInteraction : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (InputProvider.Interact())
         {
             Interact();
         }

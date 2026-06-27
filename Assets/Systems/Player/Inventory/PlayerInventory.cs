@@ -96,23 +96,23 @@ public class PlayerInventory : MonoBehaviour
     {
         CurrentItem?.ItemUpdate();
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (InputProvider.Drop())
         {
             DropItem();
         }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (InputProvider.SelectItem_1())
         {
             CurrentID = 0;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (InputProvider.SelectItem_2())
         {
             CurrentID = 1;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+        if (InputProvider.SelectItem_3())
         {
             CurrentID = 2;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
+        if (InputProvider.SelectItem_4())
         {
             CurrentID = 3;
         }

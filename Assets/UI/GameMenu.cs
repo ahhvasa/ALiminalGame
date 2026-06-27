@@ -39,7 +39,7 @@ public class GameMenu : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (InputProvider.Escape())
         {
             if (active)
             {

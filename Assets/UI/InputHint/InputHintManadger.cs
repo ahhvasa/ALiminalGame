@@ -12,20 +12,22 @@ public class InputHintManadger : MonoBehaviour
     public void Awake()
     {
         Instance = this;
-        objectPull = new ObjectPull<InputHintItem>(prefab, 10);
+        objectPull = new ObjectPull<InputHintItem>(prefab, 10, context);
     }
 
-    public void ShowHint(InputHintInfo hint)
+    public static void ShowHint(InputHintInfo hint)
     {
-        if (items.ContainsKey(hint)) { items[hint].SetText(hint);  return; }
+        if (Instance.items.ContainsKey(hint)) { Instance.items[hint].SetText(hint);  return; }
 
-        items.Add(hint, GetItem());
-        items[hint].SetText(hint);
+        Instance.items.Add(hint, Instance.GetItem());
+        Instance.items[hint].SetText(hint);
     }
-    public void RemoveHint(InputHintInfo hint)
+    public static void RemoveHint(InputHintInfo hint)
     {
-        objectPull.ReturnObject(items[hint]);
-        items.Remove(hint);
+        if (Instance.items.ContainsKey(hint) == false) { return; }
+
+        Instance.objectPull.ReturnObject(Instance.items[hint]);
+        Instance.items.Remove(hint);
     }
 
 

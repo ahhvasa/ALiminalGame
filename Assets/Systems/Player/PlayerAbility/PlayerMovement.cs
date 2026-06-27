@@ -9,20 +9,20 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private float maxSpeed = 5f;
+
+    private Vector3 _velocity;
     private Rigidbody rb;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
 
-    [SerializeField] private float maxSpeed = 5f;
 
     /// <summary>
     /// normalized direction and speed factor from 0 to 1
     /// </summary>
     public event Action<Vector3, float> OnMove;
-
-    private Vector3 _velocity;
 
     /// <summary>
     /// normalized direction and speed factor from 0 to 1
@@ -39,26 +39,9 @@ public class PlayerMovement : MonoBehaviour
 
         OnMove?.Invoke(direction, speedFactor);
     }
-
-
-
-
-
-    public InputActionReference move;
-
-
-
     public void Update()
     {
-        Vector3 inputDirection = Vector3.zero;
-
-        if (Input.GetKey(KeyCode.W)) inputDirection += Vector3.forward;
-        if (Input.GetKey(KeyCode.S)) inputDirection += Vector3.back;
-        if (Input.GetKey(KeyCode.D)) inputDirection += Vector3.right;
-        if (Input.GetKey(KeyCode.A)) inputDirection += Vector3.left;
-
-        inputDirection = move.action.ReadValue<Vector2>();
-        inputDirection = new Vector3(inputDirection.x, 0, inputDirection.y);
+        Vector3 inputDirection = InputProvider.CurrentMovement();
 
         float speed = 0;
 

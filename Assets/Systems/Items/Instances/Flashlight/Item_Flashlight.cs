@@ -27,7 +27,7 @@ public class Item_Flashlight : ItemHoldable
     {
         if (active)
         {
-            if (Input.GetKeyDown(KeyCode.F))
+            if (InputProvider.ActivateItem())
             {
                 Turn();
             }

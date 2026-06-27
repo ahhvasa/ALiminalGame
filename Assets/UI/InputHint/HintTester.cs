@@ -13,20 +13,20 @@ public class HintTester : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.O))
         {
-            InputHintManadger.Instance.ShowHint(hint1);
+            InputHintManadger.ShowHint(hint1);
         }
         if (Input.GetKeyDown(KeyCode.I))
         {
-            InputHintManadger.Instance.RemoveHint(hint1);
+            InputHintManadger.RemoveHint(hint1);
         }
 
         if (Input.GetKeyDown(KeyCode.L))
         {
-            InputHintManadger.Instance.ShowHint(hint2);
+            InputHintManadger.ShowHint(hint2);
         }
         if (Input.GetKeyDown(KeyCode.K))
         {
-            InputHintManadger.Instance.RemoveHint(hint2);
+            InputHintManadger.RemoveHint(hint2);
         }
     }
 }

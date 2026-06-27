@@ -15,12 +15,4 @@ public class LevelMusic : MonoBehaviour
     {
         SoundManager.PlaySound(music, soundPlayer);
     }
-
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            SoundManager.PlaySound(scaryAmbience, soundPlayer);
-        }
-    }
 }

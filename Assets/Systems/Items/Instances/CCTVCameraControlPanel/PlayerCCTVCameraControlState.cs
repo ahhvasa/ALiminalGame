@@ -1,8 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerCCTVCameraControlState : IPlayerState
 {
+    public InputActionReference interact;
     private Player player;
     private int _currentCameraId = 0;
     public int CurrentCameraId
@@ -48,17 +50,17 @@ public class PlayerCCTVCameraControlState : IPlayerState
     public void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (InputProvider.ActivateItem())
         {
             ExitCameraControlState();
         }
 
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (InputProvider.Interact())
         {
             CurrentCameraId += 1;
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        if (InputProvider.Drop())
         {
             CurrentCameraId -= 1;
         }
