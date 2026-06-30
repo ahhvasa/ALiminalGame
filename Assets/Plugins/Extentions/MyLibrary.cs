@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace MyLibrary
@@ -8,9 +9,9 @@ namespace MyLibrary
     {
         public class StateMachine<T> where T : IState
         {
-            public StateMachine(params T[] allStates1)
+            public StateMachine(params T[] allStates)
             {
-                allStates = allStates1;
+                this.allStates = allStates.ToList();
                 Start();
             }
             public void Start()
@@ -18,7 +19,7 @@ namespace MyLibrary
                 currentId = 0;
                 allStates[currentId].OnEnter();
             }
-            public T[] allStates;
+            public List<T> allStates;
             public int currentId;
             public void EnterState(int id)
             {
@@ -26,6 +27,18 @@ namespace MyLibrary
                 currentId = id;
                 allStates[currentId].OnEnter();
             }
+            public void EnterState(T state)
+            {
+                if (allStates.Contains(state) == false)
+                {
+                    allStates.Add(state);
+                }
+
+                allStates[currentId].OnExit();
+                currentId = allStates.IndexOf(state);
+                allStates[currentId].OnEnter();
+            }
+
             public T Current
             {
                 get { return allStates[currentId]; }
