@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
+using UnityEditor.SearchService;
 using UnityEngine;
 
 public class Room : MonoBehaviour
@@ -70,5 +71,12 @@ public class Room : MonoBehaviour
     {
         GetComponent<VisibleObject>().Show(show);
         roomZone.Show(show);
+    }
+
+
+
+    public List<VisibleObject> GetAllVisibleObjects()
+    {
+        return roomZone.visibleObjects;
     }
 }

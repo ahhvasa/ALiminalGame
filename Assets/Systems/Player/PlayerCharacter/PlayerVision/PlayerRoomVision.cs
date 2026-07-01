@@ -5,11 +5,9 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-
-public class PlayerRoomVision : MonoBehaviour
+public abstract class RoomVision : MonoBehaviour
 {
     public List<Room> directlyVisibleRooms = new();
-
     public List<Room> GetVisibleRooms()
     {
         List<Room> currentDirectlyVisibleRooms = new List<Room>();
@@ -19,10 +17,10 @@ public class PlayerRoomVision : MonoBehaviour
 
         List<Room> allVisibleRooms = new List<Room>();
 
-        foreach(var room in currentDirectlyVisibleRooms)
+        foreach (var room in currentDirectlyVisibleRooms)
         {
             var visibleRooms = room.GetAllVisibleRooms();
-            foreach(var visibleRoom in visibleRooms)
+            foreach (var visibleRoom in visibleRooms)
             {
                 if (allVisibleRooms.Contains(visibleRoom) == false)
                 { allVisibleRooms.Add(visibleRoom); }
@@ -31,7 +29,11 @@ public class PlayerRoomVision : MonoBehaviour
 
         return allVisibleRooms;
     }
+}
 
+
+public class PlayerRoomVision : RoomVision
+{
     void FixedUpdate()
     {
         List<Room> visibleRooms = GetVisibleRooms();
@@ -54,6 +56,4 @@ public class PlayerRoomVision : MonoBehaviour
             room.Show(true);
         }
     }
-
-    public Room currentRoom;
 }

@@ -7,6 +7,7 @@ public class RoomZone : MonoBehaviour
 {
     public List<VisibleObject> visibleObjects = new List<VisibleObject>();
     private List<VisibleObject> currentVisibleObjects = new List<VisibleObject>();
+
     public void OnTriggerStay(Collider other)
     {
         if (other.TryGetComponent<VisibleObject>(out var visibleObject))

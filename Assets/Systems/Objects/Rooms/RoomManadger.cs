@@ -33,4 +33,15 @@ public class RoomManadger : MonoBehaviour
 
         return closestRoom;
     }
+
+    public static List<T> GetComponentInRooms<T>(List<Room> rooms) 
+        where T : Object
+    {
+        List<T> objects = new List<T>();
+        foreach (Room room in rooms)
+        {
+            objects.AddRange(room.GetComponentsInChildren<T>());
+        }
+        return objects;
+    }
 }

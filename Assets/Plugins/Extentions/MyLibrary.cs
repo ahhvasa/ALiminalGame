@@ -17,6 +17,7 @@ namespace MyLibrary
             public void Start()
             {
                 currentId = 0;
+                if (allStates.Count == 0) { return; }
                 allStates[currentId].OnEnter();
             }
             public List<T> allStates;
