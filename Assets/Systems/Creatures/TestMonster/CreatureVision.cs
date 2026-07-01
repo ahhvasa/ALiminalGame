@@ -15,6 +15,22 @@ public class CreatureVision : RoomVision
     private readonly HashSet<VisibleObject> _currentObjects = new();
     private readonly HashSet<VisibleObject> _newObjects = new();
 
+    public void Start()
+    {
+        OnSawObject +=
+            (VisibleObject visibleObject) =>
+            {
+                Debug.Log($"Saw Object -> {visibleObject}");
+            };
+
+
+        OnLoseObject +=
+            (VisibleObject visibleObject) =>
+            {
+                Debug.Log($"Lose Object -> {visibleObject}");
+            };
+    }
+
     void FixedUpdate()
     {
         List<Room> visibleRooms = GetVisibleRooms();

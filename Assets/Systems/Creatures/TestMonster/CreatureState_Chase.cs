@@ -7,7 +7,6 @@ public class CreatureState_Chase : ICreatureState
 {
     public Creature creature;
     public CreatureMovement creatureMovement;
-
     public Player player;
 
 

@@ -19,7 +19,7 @@ public class CreatureState_Wander : ICreatureState
     }
     public void OnExit()
     {
-
+        movement.Stop();
     }
     public void FixedUpdate()
     {
@@ -27,7 +27,6 @@ public class CreatureState_Wander : ICreatureState
     }
     public void Update()
     {
-
         if (!movement.agent.pathPending &&
             movement.agent.remainingDistance <= movement.agent.stoppingDistance)
         {

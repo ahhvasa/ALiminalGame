@@ -3,17 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public abstract class Creature : MonoBehaviour
+public class Creature : MonoBehaviour
 {
     public StateMachine<ICreatureState> stateMachine;
+    public CreatureTask currentTask;
 
-    public void InitializeStateMachine(ICreatureState initialState)
+    public void Awake()
     {
-        stateMachine = new StateMachine<ICreatureState>(initialState);
+        stateMachine = new StateMachine<ICreatureState>(new CreatureIdleState());
     }
 
-    public void SetIdleState()
+    public void ExecuteTask(CreatureTask task)
     {
+        if (task == null) { return; }
+        if (currentTask == task) { return; }
 
+        currentTask = task;
+        stateMachine.EnterState(task.state);
+    }
+
+    public void FixedUpdate()
+    {
+        stateMachine.Current.FixedUpdate();
+    }
+    public void Update()
+    {
+        stateMachine.Current.Update();
     }
 }

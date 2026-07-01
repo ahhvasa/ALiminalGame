@@ -12,10 +12,14 @@ GameObject:
   - component: {fileID: 8431351711469559084}
   - component: {fileID: 7483272580478815291}
   - component: {fileID: 7518679934182680715}
-  - component: {fileID: 2938514808604237585}
   - component: {fileID: 1380999199825952042}
-  - component: {fileID: 1751652571975840925}
   - component: {fileID: 1254359818580523566}
+  - component: {fileID: 1751652571975840925}
+  - component: {fileID: 1180154092914783600}
+  - component: {fileID: 3431674306515161479}
+  - component: {fileID: 685530593418726863}
+  - component: {fileID: 8408356003059662882}
+  - component: {fileID: 597254973705653380}
   m_Layer: 0
   m_Name: TestMonster
   m_TagString: Untagged
@@ -110,20 +114,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2938514808604237585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6099313049049769468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f17798d484c2d24fbc32e5e6afdba50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  points: []
-  agent: {fileID: 1380999199825952042}
 --- !u!195 &1380999199825952042
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -146,19 +136,6 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1751652571975840925
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6099313049049769468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ce4dfd559aa1e04f8498640b25bd5e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeDuration: 0.3
 --- !u!54 &1254359818580523566
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -186,6 +163,92 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1751652571975840925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6099313049049769468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ce4dfd559aa1e04f8498640b25bd5e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeDuration: 0.3
+  meshRenderers: []
+  spriteRenderers: []
+  lightSources: []
+  connectedObjects: []
+--- !u!114 &1180154092914783600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6099313049049769468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2dfc34fff6bde0499aafc8e40726ed0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTest: {fileID: 0}
+--- !u!114 &3431674306515161479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6099313049049769468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7296dedfd60590b4c84785956e955729, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  creature: {fileID: 1180154092914783600}
+  creatureVision: {fileID: 597254973705653380}
+  creatureTaskRegister: {fileID: 8408356003059662882}
+--- !u!114 &685530593418726863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6099313049049769468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abc52ed3d90b683488479ec0538dd685, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 1380999199825952042}
+  currentTarget: {fileID: 0}
+--- !u!114 &8408356003059662882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6099313049049769468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b67ef5db9e7c884a8061422ea85ab84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  creature: {fileID: 1180154092914783600}
+--- !u!114 &597254973705653380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6099313049049769468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7da3b8d03eba9a41bfde546786b37d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  directlyVisibleRooms: []
+  visibleObjects: []
 --- !u!1001 &7749794833650830290
 PrefabInstance:
   m_ObjectHideFlags: 0
