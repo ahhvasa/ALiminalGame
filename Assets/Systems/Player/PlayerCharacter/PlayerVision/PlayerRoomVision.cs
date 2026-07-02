@@ -2,38 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
-using UnityEngine;
 using UnityEngine.UIElements;
-
-public abstract class RoomVision : MonoBehaviour
-{
-    public List<Room> directlyVisibleRooms = new();
-    public List<Room> GetVisibleRooms()
-    {
-        List<Room> currentDirectlyVisibleRooms = new List<Room>();
-        currentDirectlyVisibleRooms.AddRange(directlyVisibleRooms);
-
-        currentDirectlyVisibleRooms.Add(RoomManadger.GetClosestRoom(transform.position));
-
-        List<Room> allVisibleRooms = new List<Room>();
-
-        foreach (var room in currentDirectlyVisibleRooms)
-        {
-            var visibleRooms = room.GetAllVisibleRooms();
-            foreach (var visibleRoom in visibleRooms)
-            {
-                if (allVisibleRooms.Contains(visibleRoom) == false)
-                { allVisibleRooms.Add(visibleRoom); }
-            }
-        }
-
-        return allVisibleRooms;
-    }
-}
 
 
 public class PlayerRoomVision : RoomVision
 {
+    public bool seeEveryRoom;
+
     void FixedUpdate()
     {
         List<Room> visibleRooms = GetVisibleRooms();
@@ -49,6 +24,7 @@ public class PlayerRoomVision : RoomVision
 
         foreach (Room room in unVisibleRooms)
         {
+            if (seeEveryRoom) { room.Show(true); return; }
             room.Show(false);
         }
         foreach (Room room in visibleRooms)
