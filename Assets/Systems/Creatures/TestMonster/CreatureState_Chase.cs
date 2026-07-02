@@ -16,6 +16,11 @@ public class CreatureState_Chase : ICreatureState
         creatureMovement = creature.GetComponent<CreatureMovement>();
     }
 
+    public CreatureState_Chase(Creature creature, Player player) : this(creature)
+    {
+        this.player = player;
+    }
+
     public void SetPlayer(Player player)
     {
         this.player = player;

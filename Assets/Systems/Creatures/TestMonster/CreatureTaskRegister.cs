@@ -12,15 +12,42 @@ public class CreatureTaskRegister : MonoBehaviour
     [SerializeField][TextArea] private string taskLog;
 
     public List<CreatureTask> tasks = new();
-    
+    public List<CreatureTask> updatedTasks = new();
+
     public void AddTask(CreatureTask creatureTask)
     {
+        foreach (var task in tasks)
+        {
+            if (task.Equal(creatureTask))
+            {
+                updatedTasks.Add(task);
+                task.Update(creatureTask);
+                return;
+            }
+        }
+
+        updatedTasks.Add(creatureTask);
         tasks.Add(creatureTask);
     }
 
     public void RemoveTask(CreatureTask creatureTask)
     {
         tasks.Remove(creatureTask);
+    }
+
+    public void RemoveUnUpdated()
+    {
+        for (int i = 0; i != tasks.Count; i++)
+        {
+            var task = tasks[i];
+            if (updatedTasks.Contains(task) == false)
+            {
+                tasks.Remove(task);
+                i--;
+            }
+        }
+
+        updatedTasks.Clear();
     }
 
     public void FixedUpdate()
@@ -76,6 +103,18 @@ public class CreatureTask
         }
 
         return sb.ToString();
+    }
+
+    public bool Equal(CreatureTask task)
+    {
+        if (priority != task.priority) { return false; }
+        if (state.GetType() != task.state.GetType()) { return false; }
+        return true;
+    }
+
+    public void Update(CreatureTask task)
+    {
+        state = task.state;
     }
 }
 

@@ -419,6 +419,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ce4dfd559aa1e04f8498640b25bd5e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  perceivableObject: {fileID: 0}
+  AIIgnore: 0
   fadeDuration: 0.3
   meshRenderers: []
   spriteRenderers: []
@@ -810,6 +812,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7433ffcd70ea424180591f57fba5297, type: 3}
+--- !u!114 &719928132 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3258114034675192971, guid: 9ed3323b3c4754941832fbe574c89011, type: 3}
+  m_PrefabInstance: {fileID: 1007174196}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c35c01e5a37906f4fa81dadf5869ce54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &769376312
 GameObject:
   m_ObjectHideFlags: 0
@@ -1017,6 +1030,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3431674306515161479, guid: 9ed3323b3c4754941832fbe574c89011, type: 3}
+      propertyPath: creatureMemory
+      value: 
+      objectReference: {fileID: 719928132}
     - target: {fileID: 6099313049049769468, guid: 9ed3323b3c4754941832fbe574c89011, type: 3}
       propertyPath: m_Name
       value: TestMonster
@@ -1091,6 +1108,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ce4dfd559aa1e04f8498640b25bd5e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  perceivableObject: {fileID: 0}
+  AIIgnore: 0
   fadeDuration: 0.3
   meshRenderers: []
   spriteRenderers: []
@@ -2219,6 +2238,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ce4dfd559aa1e04f8498640b25bd5e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  perceivableObject: {fileID: 0}
+  AIIgnore: 0
   fadeDuration: 0.3
   meshRenderers: []
   spriteRenderers: []
