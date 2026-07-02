@@ -31,8 +31,9 @@ public class CreatureViewController : MonoBehaviour
         _lastPosition = rb.transform.position;
 
         moveDirection = velocity.normalized;
-        moveSpeed = Mathf.InverseLerp(moveSpeedRange.x, moveSpeedRange.y, velocity.magnitude) * moveSpeedBase;
+
         lookDirection = rb.transform.forward;
+        moveSpeed = Mathf.InverseLerp(moveSpeedRange.x, moveSpeedRange.y, velocity.magnitude) * moveSpeedBase;
         Debug.DrawRay(rb.transform.position, velocity.normalized * 2, Color.red);
         Debug.DrawRay(rb.transform.position, rb.transform.forward);
     }
@@ -42,8 +43,6 @@ public class CreatureViewController : MonoBehaviour
     {
         set
         {
-            if (value.magnitude < 0.5f) { return; }
-
             iKLegController.lookTarget = value;
         }
     }
@@ -51,6 +50,10 @@ public class CreatureViewController : MonoBehaviour
     {
         set
         {
+            if (float.IsNaN(value) || float.IsInfinity(value))
+            {
+                value = 0f;
+            }
             iKLegController.speed = value;
         }
     }
