@@ -6,6 +6,7 @@ public class ObjectTrail : MonoBehaviour
 {
     [SerializeField] private Transform target;
     [SerializeField] private float maxDistance = 1f;
+    [SerializeField] private int maximumPoints = 20;
 
     public IReadOnlyList<Vector3> Points
     {
@@ -33,7 +34,17 @@ public class ObjectTrail : MonoBehaviour
 
         if (Vector3.Distance(points[points.Count - 1], currentPosition) >= maxDistance)
         {
-            points.Add(currentPosition);
+            AddPoint(currentPosition);
+        }
+    }
+
+    public void AddPoint(Vector3 point)
+    {
+        points.Add(point);
+
+        while (points.Count >= maximumPoints)
+        {
+            points.RemoveAt(0);
         }
     }
 

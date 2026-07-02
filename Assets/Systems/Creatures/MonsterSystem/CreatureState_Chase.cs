@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 using System.Collections;
-using UnityEngine;
 
 public class CreatureState_Chase : ICreatureState
 {

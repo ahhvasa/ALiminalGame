@@ -3,7 +3,6 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Pool;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 
 public class InputHintItem : MonoBehaviour
 {

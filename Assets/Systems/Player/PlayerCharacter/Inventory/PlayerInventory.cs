@@ -1,7 +1,6 @@
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class PlayerInventory : MonoBehaviour
 {

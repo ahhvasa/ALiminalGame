@@ -1,5 +1,4 @@
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 public class PlayerObjectHold : MonoBehaviour
 {
@@ -20,23 +19,4 @@ public class PlayerObjectHold : MonoBehaviour
         currentTargrt?.SetParent(null);
         currentTargrt = null;
     }
-}
-
-
-
-
-public class Test144444 : MonoBehaviour
-{
-
-    void Update()
-    {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        int layerMask = LayerMask.GetMask("GroundQuad");
-
-        if (Physics.Raycast(ray, 100, layerMask))
-        {
-            Debug.Log("Something");
-        }
-    }
-
 }
