@@ -42,6 +42,7 @@ public class CreatureVision : RoomVision
 
         foreach (VisibleObject obj in _newObjects)
         {
+            if (obj.AIIgnore) { continue; }
             if (_currentObjects.Add(obj))
             {
                 OnSawObject?.Invoke(obj);

@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 685530593418726863}
   - component: {fileID: 8408356003059662882}
   - component: {fileID: 597254973705653380}
+  - component: {fileID: 3258114034675192971}
   m_Layer: 0
   m_Name: TestMonster
   m_TagString: Untagged
@@ -175,6 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ce4dfd559aa1e04f8498640b25bd5e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  perceivableObject: {fileID: 0}
   fadeDuration: 0.3
   meshRenderers: []
   spriteRenderers: []
@@ -192,7 +194,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2dfc34fff6bde0499aafc8e40726ed0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTest: {fileID: 0}
 --- !u!114 &3431674306515161479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,6 +236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creature: {fileID: 1180154092914783600}
+  taskLog: 
 --- !u!114 &597254973705653380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,6 +251,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directlyVisibleRooms: []
   visibleObjects: []
+--- !u!114 &3258114034675192971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6099313049049769468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c35c01e5a37906f4fa81dadf5869ce54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  creatureVision: {fileID: 597254973705653380}
+  memoryLog: 
 --- !u!1001 &7749794833650830290
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -6,6 +6,12 @@ using System.Collections.Generic;
 
 public class VisibleObject : MonoBehaviour
 {
+    public PerceivableObject perceivableObject;
+    /// <summary>
+    /// A flag that indicates whether the object will be taken into account by the AI.
+    /// </summary>
+    [Tooltip("A flag that indicates whether the object will be taken into account by the AI.")] public bool AIIgnore;
+
     [SerializeField] private float fadeDuration = 0.3f;
 
     [SerializeField] private List<MeshRenderer> meshRenderers = new();
@@ -21,7 +27,9 @@ public class VisibleObject : MonoBehaviour
         meshRenderers.AddRange(GetComponentsInChildren<MeshRenderer>(true));
         spriteRenderers.AddRange(GetComponentsInChildren<SpriteRenderer>(true));
         lightSources.AddRange(GetComponentsInChildren<Light>(true));
-        
+
+        perceivableObject = gameObject.AddComponent<PerceivableObject>();
+        perceivableObject.visibleObject = this;
     }
     public void ConnectObject(GameObject gameObject)
     {
