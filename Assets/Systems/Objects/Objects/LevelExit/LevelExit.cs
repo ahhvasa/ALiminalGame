@@ -14,6 +14,7 @@ public class LevelExit : MonoBehaviour, IPlayerInteractableObject
             boxCount += 1;
             var item = player.playerInventory.TakeItem();
             item.SetExistence(false);
+            item.transform.position = new Vector3(999, -999, 999);
 
             if (boxCount >= needToWin)
             {
@@ -24,6 +25,7 @@ public class LevelExit : MonoBehaviour, IPlayerInteractableObject
 
     public void Win()
     {
+        boxCount = 0;
         WorldManadger.Instance.EnterDay();
         WorldManadger.Instance.Win();
     }
