@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Room : MonoBehaviour
 {
+    public VisibleObject visibleObject;
     public Transform roomCenter;
     public List<RoomDoorWay> doorWays;
     public RoomZone roomZone;
@@ -67,14 +68,15 @@ public class Room : MonoBehaviour
 
     public void Show(bool show)
     {
-        GetComponent<VisibleObject>().Show(show);
+        visibleObject.Show(show);
         roomZone.Show(show);
     }
 
-
-
     public List<VisibleObject> GetAllVisibleObjects()
     {
-        return roomZone.visibleObjects;
+        List<VisibleObject> allVisibleObjects = new List<VisibleObject>();
+        allVisibleObjects.AddRange(roomZone.visibleObjects);
+        allVisibleObjects.Add(visibleObject);
+        return allVisibleObjects;
     }
 }

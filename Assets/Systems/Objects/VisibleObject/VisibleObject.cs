@@ -45,7 +45,7 @@ public class VisibleObject : MonoBehaviour
         if (fadeCoroutine != null)
             StopCoroutine(fadeCoroutine);
 
-        if (gameObject.activeSelf == false)
+        if (gameObject.activeSelf == false || gameObject.activeInHierarchy == false)
         { return; }
 
         fadeCoroutine = StartCoroutine(Fade(show));
@@ -53,6 +53,7 @@ public class VisibleObject : MonoBehaviour
 
     public void OnDisable()
     {
+        if (fadeCoroutine == null) { return; }
         StopCoroutine(fadeCoroutine);
     }
 

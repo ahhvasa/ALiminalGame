@@ -85,6 +85,17 @@ public class PlayerInventory : MonoBehaviour
         CurrentItem = null;
     }
 
+    /// <summary>
+    /// For systems that take an object from hands
+    /// </summary>
+    public Item TakeItem()
+    {
+        if (CurrentItem == null) { return null; }
+
+        Item result = CurrentItem;
+        DropItem();
+        return result;
+    }
 
 
     public void FixedUpdate()

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
@@ -39,6 +40,12 @@ public class SettingsMenu : MonoBehaviour
 
     private async void Start()
     {
+        await Addressables.InitializeAsync().Task;
+        await LocalizationSettings.InitializationOperation.Task;
+
+        var tables = LocalizationSettings.StringDatabase.GetAllTables();
+        await tables.Task;
+
         InitializeUI();
         await LoadOptions();
         SubscribeEvents();
