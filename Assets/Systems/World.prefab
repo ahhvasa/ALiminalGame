@@ -403,7 +403,8 @@ MonoBehaviour:
   itemSounds:
     bulkyPickUp:
       mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
-      clips: []
+      clips:
+      - {fileID: 8300000, guid: 53b2b60640d4a2545bd3f8db0c374c6c, type: 3}
       loopPlayInterval:
         looped: 0
         minimumInterval: 0
@@ -411,7 +412,8 @@ MonoBehaviour:
       removeDistantSoundReduction: 0
     cardboardPickUp:
       mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
-      clips: []
+      clips:
+      - {fileID: 8300000, guid: 431cff7c885291d4fb7046f3fce7945c, type: 3}
       loopPlayInterval:
         looped: 0
         minimumInterval: 0
@@ -419,7 +421,8 @@ MonoBehaviour:
       removeDistantSoundReduction: 0
     standartPickUp:
       mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
-      clips: []
+      clips:
+      - {fileID: 8300000, guid: fa362f3be98bf8c4ab16525623c5d5d2, type: 3}
       loopPlayInterval:
         looped: 0
         minimumInterval: 0
@@ -427,7 +430,8 @@ MonoBehaviour:
       removeDistantSoundReduction: 0
     plasticPickUp:
       mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
-      clips: []
+      clips:
+      - {fileID: 8300000, guid: fa362f3be98bf8c4ab16525623c5d5d2, type: 3}
       loopPlayInterval:
         looped: 0
         minimumInterval: 0
@@ -435,7 +439,8 @@ MonoBehaviour:
       removeDistantSoundReduction: 0
     ragPickUp:
       mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
-      clips: []
+      clips:
+      - {fileID: 8300000, guid: a8ae0157274683c4bad87f60a40e9186, type: 3}
       loopPlayInterval:
         looped: 0
         minimumInterval: 0
@@ -443,15 +448,62 @@ MonoBehaviour:
       removeDistantSoundReduction: 0
     woodPickUp:
       mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
-      clips: []
+      clips:
+      - {fileID: 8300000, guid: f982235ff31d0344dbfd4c1bd7e77608, type: 3}
       loopPlayInterval:
         looped: 0
         minimumInterval: 0
         maximumInterval: 0
       removeDistantSoundReduction: 0
-    itemDropDown:
+    bulkyDropDown:
       mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
-      clips: []
+      clips:
+      - {fileID: 8300000, guid: 5b84c1b312678ca438d8bf1bb4b4aec6, type: 3}
+      loopPlayInterval:
+        looped: 0
+        minimumInterval: 0
+        maximumInterval: 0
+      removeDistantSoundReduction: 0
+    cardboardDropDown:
+      mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
+      clips:
+      - {fileID: 8300000, guid: 838a4536c16b1624aa90873278d8d3a0, type: 3}
+      loopPlayInterval:
+        looped: 0
+        minimumInterval: 0
+        maximumInterval: 0
+      removeDistantSoundReduction: 0
+    standartDropDown:
+      mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
+      clips:
+      - {fileID: 8300000, guid: e19ee984e9ea1f648b6e77f6c9019543, type: 3}
+      loopPlayInterval:
+        looped: 0
+        minimumInterval: 0
+        maximumInterval: 0
+      removeDistantSoundReduction: 0
+    plasticDropDown:
+      mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
+      clips:
+      - {fileID: 8300000, guid: e19ee984e9ea1f648b6e77f6c9019543, type: 3}
+      loopPlayInterval:
+        looped: 0
+        minimumInterval: 0
+        maximumInterval: 0
+      removeDistantSoundReduction: 0
+    ragDropDown:
+      mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
+      clips:
+      - {fileID: 8300000, guid: af935be4f61697d4d9654673987337c5, type: 3}
+      loopPlayInterval:
+        looped: 0
+        minimumInterval: 0
+        maximumInterval: 0
+      removeDistantSoundReduction: 0
+    woodDropDown:
+      mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
+      clips:
+      - {fileID: 8300000, guid: 682eed7610299bb43a01d4e22dde6bc6, type: 3}
       loopPlayInterval:
         looped: 0
         minimumInterval: 0

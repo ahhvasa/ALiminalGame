@@ -31,7 +31,7 @@ public abstract class
     }
     public void OnDrop()
     {
-        SoundManager.PlaySound(SoundManager.Instance.itemSounds.itemDropDown, playerOwner.soundPlayer);
+        SoundManager.PlaySound(SoundManager.Instance.itemSounds.GetDropDownSound(textureType), playerOwner.soundPlayer);
         _isInInventory = false;
 
         OnDropInternal();

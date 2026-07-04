@@ -65,6 +65,13 @@ public class ItemSounds
     public SoundData ragPickUp;
     public SoundData woodPickUp;
 
+    public SoundData bulkyDropDown;
+    public SoundData cardboardDropDown;
+    public SoundData standartDropDown;
+    public SoundData plasticDropDown;
+    public SoundData ragDropDown;
+    public SoundData woodDropDown;
+
     public SoundData GetPickUpSound(itemTextureType textureType)
     {
         return textureType switch
@@ -79,10 +86,17 @@ public class ItemSounds
         };
     }
 
-    public SoundData itemDropDown;
-
-    public SoundData GetDropDownSound()
+    public SoundData GetDropDownSound(itemTextureType textureType)
     {
-        return itemDropDown;
+        return textureType switch
+        {
+            itemTextureType.bulky => bulkyDropDown,
+            itemTextureType.cardboard => cardboardDropDown,
+            itemTextureType.standart => standartDropDown,
+            itemTextureType.plastic => plasticDropDown,
+            itemTextureType.rag => ragDropDown,
+            itemTextureType.wood => woodDropDown,
+            _ => standartDropDown
+        };
     }
 }
