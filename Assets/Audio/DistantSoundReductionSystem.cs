@@ -14,7 +14,7 @@ public class DistantSoundReductionSystem : MonoBehaviour
     }
     public void Process(Sound sound)
     {
-        if (sound.currentSoundData.UseDistantSoundReduction == false) { return; }
+        if (sound.currentSoundData.RemoveDistantSoundReduction) { return; }
 
         VisibleObject soundParent = sound.GetComponentInParent<VisibleObject>();
         if (soundParent == null) { return; }

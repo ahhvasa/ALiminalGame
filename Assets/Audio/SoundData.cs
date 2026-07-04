@@ -38,7 +38,7 @@ public class SoundData: ISoundData
         return loopPlayInterval.GetInterval();
     }
 
-    public bool UseDistantSoundReduction { get { return !removeDistantSoundReduction; } }
+    public bool RemoveDistantSoundReduction { get { return removeDistantSoundReduction; } }
 
 }
 

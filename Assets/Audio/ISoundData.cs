@@ -8,5 +8,5 @@ public interface ISoundData
     public bool IsLooped();
     public float GetLoopInterval();
 
-    bool UseDistantSoundReduction { get; }
+    bool RemoveDistantSoundReduction { get; }
 }
