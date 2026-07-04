@@ -9,9 +9,9 @@ public class InputProvider : MonoBehaviour
     public InputActionReference interact;
     public InputActionReference drop;
     public InputActionReference activateItem;
+    public InputActionReference scroll;
 
     public InputActionReference escape;
-
 
     public InputActionReference selectItem_1;
     public InputActionReference selectItem_2;
@@ -42,10 +42,35 @@ public class InputProvider : MonoBehaviour
     {
         return Instance.activateItem.action.WasPressedThisFrame();
     }
+    /// <summary>
+    /// return 0 or 1 or -1
+    /// </summary>
+    /// <returns></returns>
+    public static bool MouseScroll(out bool forwardOrBackward)
+    {
+        float value = Instance.scroll.action.ReadValue<Vector2>().y;
+
+        if (value > 0)
+        {
+            forwardOrBackward = true;
+            return true;
+        }
+        else if (value < 0)
+        {
+            forwardOrBackward = false;
+            return true;
+        }
+        else
+        {
+            forwardOrBackward = false;
+            return false;
+        }
+    }
     public static bool Escape()
     {
         return Instance.escape.action.WasPressedThisFrame();
     }
+
 
     public static bool SelectItem_1()
     {

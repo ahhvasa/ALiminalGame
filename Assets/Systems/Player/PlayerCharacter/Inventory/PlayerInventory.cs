@@ -30,8 +30,10 @@ public class PlayerInventory : MonoBehaviour
         {
             int previousId = _currentId;
 
+
+
             _currentId = value;
-            _currentId = Mathf.Abs(_currentId);
+            if (_currentId < 0) { _currentId = 0; }
             if (_currentId >= items.Length) { _currentId = items.Length - 1; }
 
             if (_currentId != previousId)
@@ -40,7 +42,7 @@ public class PlayerInventory : MonoBehaviour
                 TakeItemInHands(_currentId);
             }
 
-            OnSetSlot?.Invoke(value);
+            OnSetSlot?.Invoke(_currentId);
 
             void TakeItemInHands(int id)
             {
@@ -79,6 +81,8 @@ public class PlayerInventory : MonoBehaviour
 
     public void DropItem()
     {
+        if (CurrentItem == null) { return; }
+
         OnDrop?.Invoke(CurrentItem, CurrentID);
 
         CurrentItem.OnDrop();
@@ -109,6 +113,10 @@ public class PlayerInventory : MonoBehaviour
         if (InputProvider.Drop())
         {
             DropItem();
+        }
+        if (InputProvider.MouseScroll(out bool forwardOrBackward))
+        {
+            CurrentID += forwardOrBackward ? 1 : -1;
         }
         if (InputProvider.SelectItem_1())
         {
