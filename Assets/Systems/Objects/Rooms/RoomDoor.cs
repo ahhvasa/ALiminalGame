@@ -74,10 +74,10 @@ public class RoomDoor : MonoBehaviour, IPlayerInteractableObject
 
     [Header("Sounds")]
     public SoundPlayer soundPlayer;
-    public SoundData_RandomSound openSound;
-    public SoundData_RandomSound closeSound;
-    public SoundData_RandomSound monsterTryToOpenSound;
-    public SoundData_RandomSound creakSound;
-    public SoundData_RandomSound breakSound;
+    public SoundData openSound;
+    public SoundData closeSound;
+    public SoundData monsterTryToOpenSound;
+    public SoundData creakSound;
+    public SoundData breakSound;
 
 }

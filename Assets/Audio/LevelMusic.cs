@@ -5,14 +5,27 @@ using UnityEngine.Audio;
 
 public class LevelMusic : MonoBehaviour
 {
-    public SoundData_RandomSound music;
-    public SoundData_RandomSound scaryAmbience;
+    public SoundData music;
+    public SoundData scaryAmbience;
 
     public AudioMixerGroup mixerGroup;
     public SoundPlayer soundPlayer;
 
     public void Start()
     {
-        SoundManager.PlaySound(music, soundPlayer);
+        sound = SoundManager.PlaySound(music, soundPlayer);
     }
+    Sound sound;
+    public void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.H))
+        {
+            sound.StopSmoothly();
+        }
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            sound.PlaySmoothly();
+        }
+    }
+
 }

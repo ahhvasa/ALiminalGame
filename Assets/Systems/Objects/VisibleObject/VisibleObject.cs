@@ -20,6 +20,9 @@ public class VisibleObject : MonoBehaviour
 
     [SerializeField] private List<GameObject> connectedObjects;
 
+    public float CurrentProgress { get { return _currentProgress; } }
+    private float _currentProgress = 0;
+
     private Coroutine fadeCoroutine;
 
     private void Awake()
@@ -57,6 +60,7 @@ public class VisibleObject : MonoBehaviour
         StopCoroutine(fadeCoroutine);
     }
 
+
     private IEnumerator Fade(bool show)
     {
         float startAlpha = GetCurrentAlpha();
@@ -73,7 +77,7 @@ public class VisibleObject : MonoBehaviour
 
             float t = Mathf.Clamp01(time / fadeDuration);
             float alpha = Mathf.Lerp(startAlpha, targetAlpha, t);
-
+            _currentProgress = alpha;
             SetAlpha(alpha);
 
             yield return null;

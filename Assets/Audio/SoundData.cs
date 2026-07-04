@@ -1,37 +1,56 @@
 using System;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 
 [Serializable]
-public class SoundData : ISoundData
+public class SoundData: ISoundData
 {
     public AudioMixerGroup mixerGroup;
-    public AudioClip clip;
-    public bool looped;
+    public List<AudioClip> clips;
+    public SoundLoopPlay loopPlayInterval;
+    public bool removeDistantSoundReduction;
 
-    public SoundData(AudioMixerGroup mixerGroup, AudioClip clip)
+    public SoundData(AudioMixerGroup mixerGroup, List<AudioClip> clips)
     {
         this.mixerGroup = mixerGroup;
-        this.clip = clip;
+        this.clips = clips;
     }
 
     public void ApplyToSound(Sound sound)
     {
         sound.currentSoundData = this;
 
-        sound.audioSource.clip = clip;
+        if (clips.Count == 0) { return; }
+
+        sound.audioSource.clip = clips[UnityEngine.Random.Range(0, clips.Count)];
         sound.audioSource.outputAudioMixerGroup = mixerGroup;
-        // sound.audioSource.loop = looped; // forbidden
     }
 
     public bool IsLooped()
     {
-        return looped;
+        return loopPlayInterval.looped;
     }
+
+    public float GetLoopInterval()
+    {
+        return loopPlayInterval.GetInterval();
+    }
+
+    public bool UseDistantSoundReduction { get { return !removeDistantSoundReduction; } }
+
 }
 
-public interface ISoundData
+[Serializable]
+public class SoundLoopPlay
 {
-    public void ApplyToSound(Sound sound);
-    public bool IsLooped();
+    public bool looped;
+    public float minimumInterval;
+    public float maximumInterval;
+
+    public float GetInterval()
+    {
+        return UnityEngine.Random.Range(minimumInterval, maximumInterval);
+    }
 }

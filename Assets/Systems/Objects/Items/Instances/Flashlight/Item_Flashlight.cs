@@ -13,7 +13,7 @@ public class Item_Flashlight : ItemHoldable
 
     public SoundData turnOn;
     public SoundData turnOff;
-    public SoundData_RandomSound flickering;
+    public SoundData flickering;
 
     private Sound currentFlickering;
 
@@ -43,7 +43,7 @@ public class Item_Flashlight : ItemHoldable
         }
         else
         {
-            if (currentFlickering != null) { currentFlickering.End(); }
+            if (currentFlickering != null) { currentFlickering.Stop(); }
         }
 
         projectorObject.SetActive(on);

@@ -48,7 +48,7 @@ public class SoundManager : MonoBehaviour
     private static Sound GetSound()
     {
         Sound sound = Instance.objectPull.GetObject();
-        sound.OnClipEnd += () => Return(sound);
+        sound.OnSoundDestroy += () => Return(sound);
         Instance.currentActiveSounds.Add(sound);
         return sound;
     }
