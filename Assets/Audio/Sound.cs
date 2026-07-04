@@ -13,6 +13,9 @@ public class Sound : MonoBehaviour
     [Header("Filters")]
     public AudioLowPassFilter audioLowPassFilter;
 
+    public bool IsPlaying { get { return isPlaying; } }
+    private bool isPlaying;
+
     public event Action OnSoundDestroy;
 
     public void ClearEvent()
@@ -20,7 +23,6 @@ public class Sound : MonoBehaviour
         OnSoundDestroy = null;
     }
 
-    private bool isPlaying;
 
     void Update()
     {
@@ -39,7 +41,7 @@ public class Sound : MonoBehaviour
     {
         if (currentSoundData.IsLooped() == true)
         {
-            StartWaitAndPlay(currentSoundData.GetLoopInterval());
+            StartWaitAndPlay();
         }
         else
         {
@@ -55,6 +57,7 @@ public class Sound : MonoBehaviour
 
     public void Play()
     {
+        if (IsPlaying) { return; }
         currentSoundData.ApplyToSound(this);
         audioSource.Play();
     }
@@ -72,12 +75,12 @@ public class Sound : MonoBehaviour
     }
 
 
-    public async void StopSmoothly()
+    public async UniTask StopSmoothly()
     {
         await SmoothlyChangeVolumeAsync(1f, 0f);
         Stop();
     }
-    public async void PlaySmoothly()
+    public async UniTask PlaySmoothly()
     {
         Play();
         if (audioSource.volume < 1f)
@@ -85,7 +88,15 @@ public class Sound : MonoBehaviour
             await SmoothlyChangeVolumeAsync(audioSource.volume, 1f);
         }
     }
-
+    public async UniTask PlaySmoothly(ISoundData newSoundData)
+    {
+        if (currentSoundData != newSoundData)
+        {
+            await StopSmoothly();
+            currentSoundData = newSoundData;
+        }
+        await PlaySmoothly();
+    }
 
 
 
@@ -122,10 +133,18 @@ public class Sound : MonoBehaviour
     public float intervalTime = 1;
 
 
-    private void StartWaitAndPlay(float time)
+    public void StartWaitAndPlay()
     {
-        intervalTime = time;
+        intervalTime = currentSoundData.GetLoopInterval();
         waitAndPlayCoroutine = StartCoroutine(WaitAndPlay());
+    }
+    public void StopWaitAndPlay()
+    {
+        if (waitAndPlayCoroutine != null)
+        {
+            StopCoroutine(waitAndPlayCoroutine);
+            waitAndPlayCoroutine = null;
+        }
     }
     private IEnumerator WaitAndPlay()
     {
@@ -136,11 +155,7 @@ public class Sound : MonoBehaviour
 
     private void OnDisable()
     {
-        if (waitAndPlayCoroutine != null)
-        {
-            StopCoroutine(waitAndPlayCoroutine);
-            waitAndPlayCoroutine = null;
-        }
+        StopWaitAndPlay();
         audioSource.volume = targetVolume;
     }
 
