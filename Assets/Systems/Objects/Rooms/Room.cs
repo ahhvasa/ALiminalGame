@@ -7,61 +7,59 @@ public class Room : MonoBehaviour
 {
     public VisibleObject visibleObject;
     public Transform roomCenter;
-    public List<RoomDoorWay> doorWays;
+    public RoomConnectedPart[] roomParts;
     public RoomZone roomZone;
 
-    /// <summary>
-    /// All adjacent rooms.
-    /// </summary>
+    public void Awake()
+    {
+        foreach (var part in roomParts) { part.hostRoom = this; }
+    }
+
+    public RoomConnectedPart[] GetRoomConnectedParts()
+    {
+        return roomParts;
+    }
+
     public List<Room> GetAdjacentRooms()
     {
         List<Room> rooms = new List<Room>();
         rooms.Add(this);
-        foreach (RoomDoorWay doorWay in doorWays)
+        foreach (var roomPart in roomParts)
         {
-            rooms.Add(doorWay.GetConnectedRoom());
-        }
-        return rooms;
-    }
-    /// <summary>
-    /// Adjacent visible rooms.
-    /// </summary>
-    public List<Room> GetAdjacentVisibleRooms()
-    {
-        List<Room> rooms = new List<Room>();
-        rooms.Add(this);
-        foreach (RoomDoorWay doorWay in doorWays)
-        {
-            if (doorWay.IsOpen())
-            { rooms.Add(doorWay.GetConnectedRoom()); }
+            if (roomPart.TryGetConnectedRoom(out Room room))
+            {
+                rooms.Add(room);
+            }
         }
         return rooms;
     }
 
-    /// <summary>
-    /// All visible rooms from this room.
-    /// </summary>
+    public List<Room> GetAdjacentVisibleRooms()
+    {
+        List<Room> rooms = new List<Room>();
+        rooms.Add(this);
+        foreach (var roomPart in roomParts)
+        {
+            if (roomPart.CanSeeConnectedRoom())
+            {
+                if (roomPart.TryGetConnectedRoom(out Room room))
+                {
+                    rooms.Add(room);
+                }
+            }
+        }
+        return rooms;
+    }
+
     public List<Room> GetAllVisibleRooms()
     {
         List<Room> allRooms = GetAdjacentVisibleRooms();
 
         for (int i = 0; i != allRooms.Count; i++)
         {
-            TryAddRooms(allRooms[i].GetAdjacentVisibleRooms());
+            var rooms = allRooms[i].GetAdjacentVisibleRooms();
+            allRooms.Union(rooms);
         }
-
-        void TryAddRooms(List<Room> rooms)
-        {
-            foreach (Room room in rooms)
-            {
-                if (allRooms.Contains(room) == false)
-                {
-                    allRooms.Add(room);
-                }
-            }
-
-        }
-
         return allRooms;
     }
 

@@ -22,7 +22,7 @@ public class CreatureMemory : MonoBehaviour
         }
 
         UpdateSenses();
-        memoryLog = CreatureSense.ListToString(senses);
+        memoryLog = senses.ListToText<CreatureSense>();
         SenseTimer();
     }
 

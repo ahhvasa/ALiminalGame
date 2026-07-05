@@ -65,11 +65,6 @@ public abstract class CreatureSense
     }
 
     public abstract void UpdateInternal(CreatureSense sense);
-
-    public static string ListToString(List<CreatureSense> senses)
-    {
-        return string.Join("\n", senses.Select(s => s.ToString()));
-    }
 }
 
 public class VisionSense : CreatureSense
