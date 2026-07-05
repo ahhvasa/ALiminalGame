@@ -194,6 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63285ae6dfadcbf44b0dec52272a262d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  visibleObject: {fileID: 125004633333180621}
   roomCenter: {fileID: 8681209749846603890}
   doorWays:
   - {fileID: 5753318539622385438}
@@ -213,7 +214,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ce4dfd559aa1e04f8498640b25bd5e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  perceivableObject: {fileID: 0}
+  AIIgnore: 0
   fadeDuration: 0.3
+  meshRenderers: []
+  spriteRenderers: []
+  lightSources: []
+  connectedObjects: []
 --- !u!1 &6326016340307531035
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,7 +264,7 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 0.5412835, g: 1, b: 0.36320752, a: 1}
+  m_Color: {r: 1, g: 0.9261197, b: 0.1745283, a: 1}
   m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 116

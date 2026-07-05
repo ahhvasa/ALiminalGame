@@ -1,4 +1,5 @@
 using MyLibrary.StateMachine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,9 @@ public class WorldManadger : MonoBehaviour
     public WorldDayState worldDayState;
     public WorldNightState worldNightState;
 
+    public event Action OnDayStart;
+    public event Action OnNightStart;
+
     public void Awake()
     {
         Instance = this;
@@ -20,15 +24,22 @@ public class WorldManadger : MonoBehaviour
         worldNightState = new WorldNightState(this);
 
         stateMachine = new StateMachine<IWorldState>(worldDayState, worldNightState);
+        EnterDay();
     }
 
     public void EnterDay()
     {
+        OnDayStart?.Invoke();
         stateMachine.EnterState(worldDayState);
     }
     public void EnterNight()
     {
+        OnNightStart?.Invoke();
         stateMachine.EnterState(worldNightState);
+    }
+    public void Win()
+    {
+
     }
 
     public void Update()

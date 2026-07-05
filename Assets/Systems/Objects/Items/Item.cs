@@ -31,7 +31,7 @@ public abstract class
     }
     public void OnDrop()
     {
-        SoundManager.PlaySound(SoundManager.Instance.itemSounds.itemDropDown, playerOwner.soundPlayer);
+        SoundManager.PlaySound(SoundManager.Instance.itemSounds.GetDropDownSound(textureType), playerOwner.soundPlayer);
         _isInInventory = false;
 
         OnDropInternal();
@@ -66,6 +66,15 @@ public abstract class
     /// taking or removing from hands
     /// </summary>when 
     public abstract void Activate(bool activateOrDeactivate);
+
+    /// <summary>
+    /// Turns the object on/off, used to hide the item when destroyed.
+    /// </summary>
+    public void SetExistence(bool enabled)
+    {
+        itemObject.gameObject.SetActive(enabled);
+        gameObject.SetActive(enabled);
+    }
 }
 
 public enum itemTextureType

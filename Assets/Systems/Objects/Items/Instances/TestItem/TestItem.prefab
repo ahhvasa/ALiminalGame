@@ -48,6 +48,7 @@ MonoBehaviour:
   playerOwner: {fileID: 0}
   itemObject: {fileID: 9101376675677017802}
   icon: {fileID: 21300000, guid: 6b092b46cd99e1a41b3348db5425d3a7, type: 3}
+  textureType: 1
 --- !u!1 &3422207294632505463
 GameObject:
   m_ObjectHideFlags: 0
@@ -64,6 +65,7 @@ GameObject:
   - component: {fileID: 7987092945633140589}
   - component: {fileID: 2648269534218476609}
   - component: {fileID: 7549928013607634756}
+  - component: {fileID: 8141678428854241624}
   m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
@@ -173,7 +175,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ce4dfd559aa1e04f8498640b25bd5e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  perceivableObject: {fileID: 0}
+  AIIgnore: 0
   fadeDuration: 0.3
+  meshRenderers: []
+  spriteRenderers: []
+  lightSources: []
+  connectedObjects: []
 --- !u!65 &2648269534218476609
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -222,3 +230,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8141678428854241624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3422207294632505463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ba96e4e5b7620341a1f7170e4a30ed1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeAtDay: 0
+  activeAtNight: 1

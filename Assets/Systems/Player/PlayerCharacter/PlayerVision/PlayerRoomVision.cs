@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine.UIElements;
@@ -22,14 +23,32 @@ public class PlayerRoomVision : RoomVision
             }
         }
 
+        List<VisibleObject> visibleObjects = new List<VisibleObject>();
+        List<VisibleObject> unVisibleObjects = FindObjectsOfType<VisibleObject>().ToList();
+
         foreach (Room room in unVisibleRooms)
         {
-            if (seeEveryRoom) { room.Show(true); return; }
-            room.Show(false);
+            if (seeEveryRoom) { visibleObjects.AddRange(room.GetAllVisibleObjects()); continue; }
+
+            // unVisibleObjects.AddRange(room.GetAllVisibleObjects());
         }
         foreach (Room room in visibleRooms)
         {
-            room.Show(true);
+            visibleObjects.AddRange(room.GetAllVisibleObjects());
+        }
+
+
+
+        foreach (VisibleObject visibleObject in unVisibleObjects)
+        {
+            if (visibleObjects.Contains(visibleObject)) { continue; }
+
+            visibleObject.Show(false);
+        }
+
+        foreach (VisibleObject visibleObject in visibleObjects)
+        {
+            visibleObject.Show(true);
         }
     }
 }

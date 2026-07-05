@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,14 +6,61 @@ using UnityEngine.Audio;
 
 public class LevelMusic : MonoBehaviour
 {
-    public SoundData_RandomSound music;
-    public SoundData_RandomSound scaryAmbience;
+    public SoundData dayMusic;
+    public SoundData nightMusic;
+    public SoundData scaryAmbience;
 
     public AudioMixerGroup mixerGroup;
     public SoundPlayer soundPlayer;
 
+    Sound currentMusic;
+    Sound currentSFX;
+
     public void Start()
     {
-        SoundManager.PlaySound(music, soundPlayer);
+        currentMusic = SoundManager.PlaySound(dayMusic, soundPlayer);
+        currentMusic.Stop();
+
+        currentSFX = SoundManager.PlaySound(scaryAmbience, soundPlayer);
+        currentSFX.Stop();
+
+
+        WorldManadger.Instance.OnDayStart += () => { PlayDayMusic(); };
+        WorldManadger.Instance.OnNightStart += () => { PlayNightMusic(); };
+
+        if (WorldManadger.Instance.stateMachine.Current is WorldDayState) { PlayDayMusic(); }
+        if (WorldManadger.Instance.stateMachine.Current is WorldNightState) { PlayNightMusic(); }
     }
+    
+    public void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.H))
+        {
+            currentMusic.StopSmoothly();
+        }
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            currentMusic.PlaySmoothly();
+        }
+    }
+
+    public async UniTask PlayDayMusic()
+    {
+        currentSFX.StopWaitAndPlay();
+
+        await currentMusic.PlaySmoothly(dayMusic);
+    }
+
+    public async UniTask PlayNightMusic()
+    {
+        currentSFX.StartWaitAndPlay();
+
+        await currentMusic.PlaySmoothly(nightMusic);
+    }
+
+    public async UniTask PlayScarySound()
+    {
+        await currentSFX.PlaySmoothly(scaryAmbience);
+    }
+
 }

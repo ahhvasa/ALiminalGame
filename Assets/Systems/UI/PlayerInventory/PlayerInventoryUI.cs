@@ -5,7 +5,7 @@ public class PlayerInventoryUI : MonoBehaviour
     public PlayerInventory playerInventory;
     public PlayerInventoryUI_Item[] items;
 
-    public void Start()
+    public void Awake()
     {
         playerInventory.OnPickUp += SetTextureToItem;
         playerInventory.OnDrop += HideItem;

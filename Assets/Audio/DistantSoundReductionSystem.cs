@@ -14,25 +14,20 @@ public class DistantSoundReductionSystem : MonoBehaviour
     }
     public void Process(Sound sound)
     {
-        VisibleObject soundParent;
-        try
+        if (sound.currentSoundData.RemoveDistantSoundReduction) { return; }
+
+        VisibleObject soundParent = sound.GetComponentInParent<VisibleObject>();
+        if (soundParent == null) { return; }
+
+        float progress = soundParent.CurrentProgress;
+
+        if (progress < 0.5f)
         {
-            soundParent = sound.GetComponentInParent<VisibleObject>();
-
-            var mesh = soundParent.GetComponent<MeshRenderer>();
-
-            if (mesh.material.color.a < 0.5f)
-            {
-                sound.audioLowPassFilter.enabled = true;
-            }
-            else
-            {
-                sound.audioLowPassFilter.enabled = false;
-            }
+            sound.audioLowPassFilter.enabled = true;
         }
-        catch
+        else
         {
-            return;
+            sound.audioLowPassFilter.enabled = false;
         }
     }
 }
