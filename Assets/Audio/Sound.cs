@@ -41,7 +41,14 @@ public class Sound : MonoBehaviour
     {
         if (currentSoundData.IsLooped() == true)
         {
-            StartWaitAndPlay();
+            if (Mathf.Approximately(intervalTime, 0))
+            {
+                Play();
+            }
+            else
+            {
+                StartWaitAndPlay();
+            }
         }
         else
         {

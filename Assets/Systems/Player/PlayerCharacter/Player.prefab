@@ -50,7 +50,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1589238910367454291}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -118,6 +118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ce4dfd559aa1e04f8498640b25bd5e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  perceivableObject: {fileID: 0}
+  AIIgnore: 0
   fadeDuration: 0.3
   meshRenderers: []
   spriteRenderers: []
@@ -143,6 +145,7 @@ GameObject:
   - component: {fileID: 214273685968976462}
   - component: {fileID: 4775188550777790815}
   - component: {fileID: 4397380968887510416}
+  - component: {fileID: 7034749440477165721}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -238,6 +241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   directlyVisibleRooms: []
+  seeEveryRoom: 0
 --- !u!54 &6388091752429591500
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -354,3 +358,29 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &7034749440477165721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5997081642616601318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e3b02c1d3e3d6849ad9242f722ed5af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSoundData:
+    mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
+    clips:
+    - {fileID: 8300000, guid: 484d6cd6e12dfa442abadfea030c6fe7, type: 3}
+    loopPlayInterval:
+      looped: 1
+      minimumInterval: 0
+      maximumInterval: 0
+    removeDistantSoundReduction: 0
+  soundPlayer: {fileID: 214273685968976462}
+  moveThreshold: 0.05
+  maxSpeed: 6
+  minPitch: 0.8
+  maxPitch: 1.3

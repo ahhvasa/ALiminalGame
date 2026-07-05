@@ -9,6 +9,6 @@ public class MonsterIdleSound : MonoBehaviour
 
     public void Start()
     {
-        SoundManager.PlaySound(idleSound, soundPlayer);
+        Sound sound = SoundManager.PlaySound(idleSound, soundPlayer);
     }
 }
