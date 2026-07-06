@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,21 @@ public class Room : MonoBehaviour
     public Transform roomCenter;
     public RoomConnectedPart[] roomParts;
     public RoomZone roomZone;
+
+    public RoomView roomView;
+
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            foreach (var part in roomParts)
+            {
+                part.roomPart.SetWallTexture(this, roomView.wallTexture);
+            }
+        }
+    }
+
+
 
     public void Awake()
     {
@@ -38,6 +54,7 @@ public class Room : MonoBehaviour
     {
         List<Room> rooms = new List<Room>();
         rooms.Add(this);
+
         foreach (var roomPart in roomParts)
         {
             if (roomPart.CanSeeConnectedRoom())
@@ -58,7 +75,12 @@ public class Room : MonoBehaviour
         for (int i = 0; i != allRooms.Count; i++)
         {
             var rooms = allRooms[i].GetAdjacentVisibleRooms();
-            allRooms.Union(rooms);
+
+            foreach (var room in rooms)
+            {
+                if (allRooms.Contains(room)) { continue; }
+                allRooms.Add(room);
+            }
         }
         return allRooms;
     }
@@ -77,4 +99,11 @@ public class Room : MonoBehaviour
         allVisibleObjects.Add(visibleObject);
         return allVisibleObjects;
     }
+}
+
+
+[Serializable]
+public class RoomView
+{
+    public Texture2D wallTexture;
 }

@@ -21,4 +21,13 @@ public abstract class RoomPart : MonoBehaviour
         connectedRoom = null;
         return false;
     }
+
+    public void SetWallTexture(Room hostRoom, Texture2D texture)
+    {
+        RoomObjectWall[] roomObjectWalls = GetComponentsInChildren<RoomObjectWall>();
+        foreach (var roomObjectWall in roomObjectWalls)
+        {
+            roomObjectWall.SetTexture(hostRoom, texture);
+        }
+    }
 }
