@@ -44,8 +44,6 @@ public class RoomDoor : MonoBehaviour, IPlayerInteractableObject
 
     }
 
-
-
     private IEnumerator AutoClose()
     {
         yield return new WaitForSeconds(autoCloseDelay);
@@ -62,9 +60,6 @@ public class RoomDoor : MonoBehaviour, IPlayerInteractableObject
             autoCloseCoroutine = null;
         }
     }
-
-
-
 
     public void Interact(Player player)
     {

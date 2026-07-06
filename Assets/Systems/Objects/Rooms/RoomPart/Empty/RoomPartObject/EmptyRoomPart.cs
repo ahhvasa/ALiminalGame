@@ -1,18 +1,11 @@
-using System.Collections.Generic;
-using UnityEngine;
-
-public class TestRoomPart : RoomPart
+public class EmptyRoomPart : RoomPart
 {
-    public bool canSee;
-
     public override bool CanSeeConnectedRoom(Room hostRoom)
     {
-        return canSee;
+        return true;
     }
-
     public override bool CanWalkToConnectedRoom(Room hostRoom)
     {
         return true;
     }
-
 }
