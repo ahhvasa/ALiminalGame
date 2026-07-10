@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3752485816920095866
+--- !u!1 &5521290235729043764
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,37 +8,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6086200885068854271}
+  - component: {fileID: 92352489505955261}
   m_Layer: 0
-  m_Name: LivingRoom
+  m_Name: Grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6086200885068854271
+--- !u!4 &92352489505955261
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3752485816920095866}
+  m_GameObject: {fileID: 5521290235729043764}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.239795, y: -0.25690794, z: 3.4890304}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5465107817489478234}
+  - {fileID: 66597898144546077}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &3137314670831262579
+--- !u!1001 &6967798594348651572
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 6086200885068854271}
+    m_TransformParent: {fileID: 92352489505955261}
     m_Modifications:
     - target: {fileID: 734098496158569571, guid: c7ca8d223e46d2045abcf59ef5036d0b, type: 3}
       propertyPath: m_Name
@@ -47,7 +47,7 @@ PrefabInstance:
     - target: {fileID: 2756310139865434674, guid: c7ca8d223e46d2045abcf59ef5036d0b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: acc1bf379263f6148bea6c833b11b8a1, type: 2}
+      objectReference: {fileID: 2100000, guid: ee6dd3748e3b9964e9670846dc2570f3, type: 2}
     - target: {fileID: 6944002557231458601, guid: c7ca8d223e46d2045abcf59ef5036d0b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -88,29 +88,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7161289282278839596, guid: c7ca8d223e46d2045abcf59ef5036d0b, type: 3}
-      propertyPath: m_Color.b
-      value: 0.8066038
-      objectReference: {fileID: 0}
-    - target: {fileID: 7161289282278839596, guid: c7ca8d223e46d2045abcf59ef5036d0b, type: 3}
-      propertyPath: m_Color.g
-      value: 0.9483177
-      objectReference: {fileID: 0}
-    - target: {fileID: 7161289282278839596, guid: c7ca8d223e46d2045abcf59ef5036d0b, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 7332022918007791144, guid: c7ca8d223e46d2045abcf59ef5036d0b, type: 3}
+      propertyPath: roomView.material
+      value: 
+      objectReference: {fileID: 2100000, guid: a9c9fd9d58dd4484e9e0a8e48557f047, type: 2}
     - target: {fileID: 7332022918007791144, guid: c7ca8d223e46d2045abcf59ef5036d0b, type: 3}
       propertyPath: roomView.wallTexture
       value: 
-      objectReference: {fileID: 2800000, guid: 9a14077ade533e84eb54338019d7f030, type: 3}
+      objectReference: {fileID: 2800000, guid: d12eb165747a74344902d4ef018ba309, type: 3}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 765957973973470404, guid: c7ca8d223e46d2045abcf59ef5036d0b, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7ca8d223e46d2045abcf59ef5036d0b, type: 3}
---- !u!4 &5465107817489478234 stripped
+--- !u!4 &66597898144546077 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6944002557231458601, guid: c7ca8d223e46d2045abcf59ef5036d0b, type: 3}
-  m_PrefabInstance: {fileID: 3137314670831262579}
+  m_PrefabInstance: {fileID: 6967798594348651572}
   m_PrefabAsset: {fileID: 0}

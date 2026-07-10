@@ -22,12 +22,12 @@ public abstract class RoomPart : MonoBehaviour
         return false;
     }
 
-    public void SetWallTexture(Room hostRoom, Texture2D texture)
+    public void SetWallTexture(Room hostRoom, Material material)
     {
         RoomObjectWall[] roomObjectWalls = GetComponentsInChildren<RoomObjectWall>();
         foreach (var roomObjectWall in roomObjectWalls)
         {
-            roomObjectWall.SetTexture(hostRoom, texture);
+            roomObjectWall.SetTexture(hostRoom, material);
         }
     }
 }

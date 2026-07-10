@@ -1,109 +1,117 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Unity.AI.Navigation;
 using Unity.Loading;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 using Zenject;
 
+[ExecuteAlways]
 public class RoomBuilder : MonoBehaviour
 {
-    [Inject] PrefabFactory prefabFactory;
-
+    public NavMeshSurface navMeshSurface;
     public string emptyRoomMarkAddressiblesKey;
+    public string roomConnectionPointAddressiblesKey;
 
-    public Room room;
-
-    public void Start()
+    public void ClearBuilding()
     {
-        BuildRoom();
-    }
-
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.G))
+        AssembledByRoomBuilderFlag[] objects = FindObjectsOfType<AssembledByRoomBuilderFlag>();
+        foreach (var obj in objects)
         {
-            BuildRoom();
+            GameObject.DestroyImmediate(obj.gameObject);
         }
+        navMeshSurface.RemoveData();
     }
 
-    public async void BuildRoom()
+    public async Task Build()
     {
-        await InitializeRoomPartMarks();
+        ClearBuilding();
 
-        RoomPartMark[] marks = FindObjectsOfType<RoomPartMark>();
-        foreach (RoomPartMark mark in marks)
+        List<RoomConnectionPoint> connectionPoints = await CreateRoomConnectionPoints();
+
+        foreach (RoomConnectionPoint point in connectionPoints)
         {
-            var task = prefabFactory.LoadPrefabAsync(mark.addressiblesKey);
+            var task = LoadPrefabAsync(point.partMark.addressiblesKey);
             await task;
             GameObject gameObject = task.Result;
             RoomPart roomPart = gameObject.GetComponent<RoomPart>();
-            roomPart.transform.position = mark.transform.position;
+            Debug.Log($"roomPart = {roomPart}");
+            roomPart.AddComponent<AssembledByRoomBuilderFlag>();
+            roomPart.transform.position = point.transform.position;
 
-            foreach (var connectedPart in mark.roomConnectedParts)
+            foreach (RoomConnectedPart connectedPart in point.roomConnectedParts)
             {
+                Undo.RecordObject(connectedPart, "Assign RoomPart");
                 connectedPart.roomPart = roomPart;
+                EditorUtility.SetDirty(connectedPart);
+
                 roomPart.rooms.Add(connectedPart.hostRoom);
                 roomPart.transform.LookAt(connectedPart.hostRoom.transform.position);
             }
         }
+
+        ApplyTextures();
+        navMeshSurface.BuildNavMesh();
     }
 
-
-    public async Task InitializeRoomPartMarks()
+    public void ApplyTextures()
     {
-        List<RoomPartMark> roomPartMarks = FindObjectsOfType<RoomPartMark>().ToList();
-        List<Room> rooms = RoomManadger.AllRooms;
-        foreach (var roomPartMark in roomPartMarks)
+        Room[] rooms = FindObjectsOfType<Room>();
+        foreach (var room in rooms)
         {
-            Room nearestRoom = rooms
-                .Where(room => Vector3.Distance(room.transform.position, roomPartMark.transform.position) < squareSize)
-                .OrderBy(room => (room.transform.position - roomPartMark.transform.position).sqrMagnitude)
-                .FirstOrDefault();
-            if (nearestRoom == null) { continue; }
+            room.ApplyTextures();
+        }
+    }
 
-            RoomConnectedPart nearestRoomConnectedPart = 
-                nearestRoom.GetRoomConnectedParts()
-                .OrderBy(part => (part.transform.position - roomPartMark.transform.position).sqrMagnitude)
-                .FirstOrDefault();
+    public async Task<List<RoomConnectionPoint>> CreateRoomConnectionPoints()
+    {
+        RoomConnectedPart[] roomConnections = GameObject.FindObjectsOfType<RoomConnectedPart>();
+        List<RoomConnectionPoint> connectionPoint = new List<RoomConnectionPoint>();
 
-            roomPartMark.transform.position = nearestRoomConnectedPart.transform.position;
+        RoomPartMark defaultPartMark = (await LoadPrefabAsync(emptyRoomMarkAddressiblesKey)).GetComponent<RoomPartMark>();
+        defaultPartMark.transform.position = new Vector3(0, -999, 0);
+        defaultPartMark.AddComponent<AssembledByRoomBuilderFlag>();
+
+        foreach (var roomConnection in roomConnections)
+        {
+            await CreatePoint(roomConnection);
         }
 
-        RoomConnectedPart[] roomConnectedParts = FindObjectsOfType<RoomConnectedPart>();
-        foreach (var roomConnectedPart in roomConnectedParts)
+        async Task CreatePoint(RoomConnectedPart roomConnectionPart)
         {
-            List<RoomPartMark> marks = SceneSearchService.FindAllObjectsInSquareZone<RoomPartMark>(roomConnectedPart.transform.position, 1);
-
-            if (marks.Count == 0)
+            float maxDistance = 1f;
+            if (SceneSearchService.TryFindNearest(roomConnectionPart.transform.position, maxDistance, out RoomConnectionPoint existingConnectionPoint))
             {
-                var task = prefabFactory.LoadPrefabAsync(emptyRoomMarkAddressiblesKey);
-                await task;
-                var mark = task.Result.GetComponent<RoomPartMark>();
-                mark.transform.position = roomConnectedPart.transform.position;
-                marks.Add(mark);
+                existingConnectionPoint.roomConnectedParts.Add(roomConnectionPart);
+                return;
             }
+            var task = LoadPrefabAsync(roomConnectionPointAddressiblesKey);
+            await task;
+            RoomConnectionPoint connecionPoint = task.Result.GetComponent<RoomConnectionPoint>();
+            connectionPoint.Add(connecionPoint);
 
-
-            for (int i = 0; i != marks.Count; i++)
-            {
-                if (i == 0)
-                {
-                    marks[i].roomConnectedParts.Add(roomConnectedPart);
-                }
-                else
-                {
-                    marks[i].transform.position = marks[i].transform.position + Vector3.up * -20;
-                    Debug.LogWarning("Extra room part mark detected");
-                }
-            }
+            connecionPoint.roomConnectedParts.Add(roomConnectionPart);
+            connecionPoint.transform.position = roomConnectionPart.transform.position;
+            connecionPoint.Initialize(defaultPartMark);
+            connecionPoint.AddComponent<AssembledByRoomBuilderFlag>();
         }
+        return connectionPoint;
     }
 
 
 
-    [SerializeField] private float squareSize = 10.5f;
 
+    public async Task<GameObject> LoadPrefabAsync(string key)
+    {
+        AsyncOperationHandle<GameObject> handle =
+            Addressables.LoadAssetAsync<GameObject>(key);
 
+        GameObject prefab = await handle.Task;
 
-
+        return GameObject.Instantiate(prefab);
+    }
 }

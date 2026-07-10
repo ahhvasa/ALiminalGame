@@ -1,18 +1,13 @@
 using UnityEngine;
-/// <summary>
-/// Один IRoomPart может являться частью сразу 2 комнат.
-/// RoomConectedPart это компонент связь между комнатой и этой IRoomPart.
-/// Необходим чтобы одна комната могла получить противоположную комнату.
-/// </summary>
+
 public class RoomConnectedPart : MonoBehaviour
 {
     public Room hostRoom;
-    public Room connectedRoom;
-
     public RoomPart roomPart;
 
     public bool CanWalkToConnectedRoom()
     {
+        if (roomPart == null) { return false; }
         return roomPart.CanWalkToConnectedRoom(hostRoom);
     }
     public bool CanSeeConnectedRoom()
@@ -22,14 +17,7 @@ public class RoomConnectedPart : MonoBehaviour
     }
     public bool TryGetConnectedRoom(out Room room)
     {
+        if (roomPart == null) { room = null; return false; }
         return roomPart.TryGetConnectedRoom(hostRoom, out room);
-    }
-
-
-
-    public void ClaimRoomPart(RoomPart roomPart)
-    {
-        this.roomPart = roomPart;
-        // if (roomPart.TryGetConnectedRoom(hostRoom, out connectedRoom) == false) { Debug.LogError("NO CONNECTED ROOM"); }
     }
 }

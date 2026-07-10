@@ -15,20 +15,15 @@ public class Room : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            foreach (var part in roomParts)
-            {
-                part.roomPart.SetWallTexture(this, roomView.wallTexture);
-            }
-        }
+
     }
 
-
-
-    public void Awake()
+    public void ApplyTextures()
     {
-        foreach (var part in roomParts) { part.hostRoom = this; }
+        foreach (var part in roomParts)
+        {
+            part.roomPart.SetWallTexture(this, roomView.material);
+        }
     }
 
     public RoomConnectedPart[] GetRoomConnectedParts()
@@ -105,5 +100,5 @@ public class Room : MonoBehaviour
 [Serializable]
 public class RoomView
 {
-    public Texture2D wallTexture;
+    public Material material;
 }
