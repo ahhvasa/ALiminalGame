@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEditor.SearchService;
 using UnityEngine;
 
-public class CreatureSoundSenseProvider : CreatureSenseProvider<VisibleObject, SoundSense>, ICreatureSenseProvider
+public class CreatureSoundSenseProvider : CreatureSenseProvider<Sound, SoundSense>, ICreatureSenseProvider
 {
     public float hearingDistance = 5;
 
@@ -15,7 +15,7 @@ public class CreatureSoundSenseProvider : CreatureSenseProvider<VisibleObject, S
         allVisibleObjects = FindObjectsOfType<VisibleObject>().ToList();
     }
 
-    public override SoundSense GetSense(VisibleObject obj)
+    public override SoundSense GetSense(Sound obj)
     {
         return new SoundSense(obj);
     }
@@ -23,12 +23,11 @@ public class CreatureSoundSenseProvider : CreatureSenseProvider<VisibleObject, S
     public override void UpdateValues()
     {
         newObjects.Clear();
-        foreach (var visibleObject in allVisibleObjects)
+        foreach (Sound sound in SoundManager.Instance.currentAIPerceivableActiveSounds)
         {
-            if (visibleObject.AIIgnore) { continue; }
-            if (Vector3.Distance(transform.position, visibleObject.transform.position) < hearingDistance)
+            if (Vector3.Distance(transform.position, sound.transform.position) < hearingDistance)
             {
-                newObjects.Add(visibleObject);
+                newObjects.Add(sound);
             }
         }
     }

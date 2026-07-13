@@ -7,8 +7,19 @@ using Cysharp.Threading.Tasks;
 
 public class Sound : MonoBehaviour
 {
+    public SoundPlayer currentSoundPlayer;
+    public PerceivableObject PerceivableObject
+    {
+        get
+        {
+            return currentSoundPlayer.perceivableObject;
+        }
+    }
+
     public AudioSource audioSource;
     public ISoundData currentSoundData;
+
+    public AIPerceivedSoundData aIPerceivedSoundData;
 
     [Header("Filters")]
     public AudioLowPassFilter audioLowPassFilter;
@@ -169,4 +180,19 @@ public class Sound : MonoBehaviour
 
 
 
+}
+
+[Serializable]
+public class AIPerceivedSoundData
+{
+    public bool isAiPerceived;
+    public AiPerceivedSoundType soundType;
+}
+
+public enum AiPerceivedSoundType
+{
+    step,
+    monsterScream,
+    ring,
+    itemSound
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class FootstepAudio : MonoBehaviour
 {
@@ -18,6 +19,28 @@ public class FootstepAudio : MonoBehaviour
         _lastPosition = transform.position;
         walkSound = SoundManager.PlaySound(walkSoundData, soundPlayer);
         walkSound.Stop();
+    }
+
+    public void OnEnable()
+    {
+        if (SoundManager.Instance == null || walkSound != null) { return; }
+
+        _lastPosition = transform.position;
+        walkSound = SoundManager.PlaySound(walkSoundData, soundPlayer);
+        walkSound.Stop();
+    }
+
+    public void OnDisable()
+    {
+        if (SoundManager.Instance == null || walkSound == null || gameObject.activeSelf == false) { return; }
+
+        SoundManager.Instance.StartCoroutine(ReturnToPool());
+    }
+    IEnumerator ReturnToPool()
+    {
+        yield return null;
+        walkSound.DestroySound();
+        walkSound = null;
     }
 
     private void FixedUpdate()

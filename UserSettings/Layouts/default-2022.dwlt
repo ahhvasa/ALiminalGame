@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 16
+  controlID: 109
   draggingID: 0
 --- !u!114 &4
 MonoBehaviour:
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 85
+  controlID: 64
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -202,7 +202,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 83
+  controlID: 138
   draggingID: 0
 --- !u!114 &9
 MonoBehaviour:
@@ -249,7 +249,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 84
+  controlID: 108
   draggingID: 0
 --- !u!114 &11
 MonoBehaviour:
@@ -1659,9 +1659,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 7.1577125, y: -13.255555, z: 0.8917069}
+    m_Target: {x: 19.854185, y: -9.543281, z: -16.448318}
     speed: 2
-    m_Value: {x: 7.1577125, y: -13.255555, z: 0.8917069}
+    m_Value: {x: 19.854185, y: -9.543281, z: -16.448318}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1707,13 +1707,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.39671877, y: -0.557132, z: 0.3433559, w: -0.6437249}
+    m_Target: {x: -0.31926978, y: -0.53272426, z: 0.2266788, w: -0.75029707}
     speed: 2
-    m_Value: {x: -0.3967075, y: -0.5571162, z: 0.34334615, w: -0.6437067}
+    m_Value: {x: -0.31926066, y: -0.532709, z: 0.22667232, w: -0.7502756}
   m_Size:
-    m_Target: 10.687416
+    m_Target: 8.314479
     speed: 2
-    m_Value: 10.687416
+    m_Value: 8.314479
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1775,9 +1775,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 0ee6ffff
-      m_LastClickedID: -6642
-      m_ExpandedIDs: 6ce3ffff72e3fffffee3ffff0ce4ffff12e4ffff1ae4ffff48e4ffff0ee6ffff86e9ffff1afbffff
+      m_SelectedIDs: 7ee4ffff
+      m_LastClickedID: -7042
+      m_ExpandedIDs: a0e4ffff86e9ffff8ce9ffff26fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1842,7 +1842,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 179
+  m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
@@ -1893,7 +1893,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Systems/Player/PlayerCharacter
+    - Assets/Systems/Creatures/MonsterSystem
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1901,16 +1901,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 65
   m_LastFolders:
-  - Assets/Systems/Player/PlayerCharacter
+  - Assets/Systems/Creatures/MonsterSystem
   m_LastFoldersGridSize: 65
   m_LastProjectPath: G:\Sync\Projects\ALiminalGame\Unity\ALiminalGame
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 1639}
-    m_SelectedIDs: f0960000
-    m_LastClickedID: 38640
-    m_ExpandedIDs: 00000000e2960000e4960000e6960000e8960000ea960000ec960000ee960000f0960000f2960000f4960000f6960000f8960000fa960000fc960000fe96000000970000029700000497000006970000089700000a9700000c9700000e97000010970000129700001497000016970000189700001a9700001c9700001e97000020970000229700002497000026970000289700002a970000ac97000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 1015}
+    m_SelectedIDs: 5e980000
+    m_LastClickedID: 39006
+    m_ExpandedIDs: 00000000f6960000f8960000fa960000fc960000fe96000000970000029700000497000006970000089700000a9700000c9700000e97000010970000129700001497000016970000189700001a9700001c9700001e97000020970000229700002497000026970000289700002a9700002c9700002e97000030970000329700003497000036970000389700003a9700003c9700003e970000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1938,7 +1938,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000e2960000e4960000e6960000e8960000ea960000ec960000ee960000f0960000f2960000f4960000f6960000f8960000fa960000fc960000fe96000000970000029700000497000006970000089700000a9700000c9700000e97000010970000129700001497000016970000189700001a9700001c9700001e97000020970000229700002497000026970000289700002a970000
+    m_ExpandedIDs: 00000000f6960000f8960000fa960000fc960000fe96000000970000029700000497000006970000089700000a9700000c9700000e97000010970000129700001497000016970000189700001a9700001c9700001e97000020970000229700002497000026970000289700002a9700002c9700002e97000030970000329700003497000036970000389700003a9700003c9700003e970000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1963,9 +1963,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 1c45ffff
-    m_LastClickedInstanceID: -47844
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: 98edffff
+    m_LastClickedInstanceID: -4712
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0

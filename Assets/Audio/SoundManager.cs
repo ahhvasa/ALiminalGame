@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using TreeEditor;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -16,6 +17,7 @@ public class SoundManager : MonoBehaviour
 
     public ObjectPull<Sound> objectPull;
     public List<Sound> currentActiveSounds = new List<Sound>();
+    public List<Sound> currentAIPerceivableActiveSounds = new List<Sound>();
 
     public ItemSounds itemSounds;
 
@@ -25,6 +27,8 @@ public class SoundManager : MonoBehaviour
         soundData.ApplyToSound(sound);
         soundPlayer.ClaimSound(sound);
 
+        AIPerceivedSoundCheck(sound);
+
         sound.transform.SetParent(soundPlayer.transform, false);
         sound.transform.localPosition = Vector3.zero;
 
@@ -33,15 +37,21 @@ public class SoundManager : MonoBehaviour
         return sound;
     }
 
+    private static void AIPerceivedSoundCheck(Sound sound)
+    {
+        if (sound.aIPerceivedSoundData.isAiPerceived == true) 
+        {
+            Instance.currentAIPerceivableActiveSounds.Add(sound);
+            sound.OnSoundDestroy += () => Instance.currentAIPerceivableActiveSounds.Remove(sound);
+        }
+    }
+
     private static void Return(Sound sound)
     {
         Instance.objectPull.ReturnObject(sound);
-
         sound.transform.SetParent(Instance.transform, false);
         sound.transform.localPosition = Vector3.zero;
-
         sound.ClearEvent();
-
         Instance.currentActiveSounds.Remove(sound);
     }
 

@@ -1,10 +1,10 @@
 public class SoundSense : CreatureSense
 {
-    public VisibleObject visibleObject;
+    public Sound sound;
 
-    public SoundSense(VisibleObject visibleObject) : base(visibleObject.perceivableObject, 0, visibleObject.perceivableObject.transform.position)
+    public SoundSense(Sound sound) : base(sound.PerceivableObject, 0, sound.PerceivableObject.transform.position)
     {
-        this.visibleObject = visibleObject;
+        this.sound = sound;
     }
 
     public override bool EqualInternal(CreatureSense sense)
@@ -12,7 +12,7 @@ public class SoundSense : CreatureSense
         try
         {
             SoundSense soundSense = sense as SoundSense;
-            return visibleObject == soundSense.visibleObject;
+            return sound == soundSense.sound;
         }
         catch
         {

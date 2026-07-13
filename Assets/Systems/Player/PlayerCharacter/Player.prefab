@@ -277,6 +277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc30803b067cad24f9859fd8f3abf016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  perceivableObject: {fileID: 0}
   playingSounds: []
 --- !u!114 &4775188550777790815
 MonoBehaviour:
@@ -341,6 +342,9 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 1
+      soundType: 0
   soundPlayer: {fileID: 214273685968976462}
   moveThreshold: 0.05
   maxSpeed: 6

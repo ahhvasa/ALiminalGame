@@ -12,6 +12,8 @@ public class SoundData: ISoundData
     public SoundLoopPlay loopPlayInterval;
     public bool removeDistantSoundReduction;
 
+    public AIPerceivedSoundData aIPerceivedSoundData;
+
     public SoundData(AudioMixerGroup mixerGroup, List<AudioClip> clips)
     {
         this.mixerGroup = mixerGroup;
@@ -26,6 +28,7 @@ public class SoundData: ISoundData
 
         sound.audioSource.clip = clips[UnityEngine.Random.Range(0, clips.Count)];
         sound.audioSource.outputAudioMixerGroup = mixerGroup;
+        sound.aIPerceivedSoundData = aIPerceivedSoundData;
     }
 
     public bool IsLooped()
