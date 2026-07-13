@@ -5,12 +5,12 @@ using UnityEngine;
 public class ObjectConditionTask<TComponent>
     where TComponent : Component
 {
-    private CreatureVision creatureVision;
+    private CreatureVisionSense creatureVision;
     private CreatureTaskRegister creatureTaskRegister;
     private Func<TComponent, CreatureTask> createTaskDelegate;
     private Dictionary<TComponent, CreatureTask> tasks = new();
 
-    public ObjectConditionTask(CreatureVision creatureVision, CreatureTaskRegister creatureTaskRegister, Func<TComponent, CreatureTask> createTaskDelegate)
+    public ObjectConditionTask(CreatureVisionSense creatureVision, CreatureTaskRegister creatureTaskRegister, Func<TComponent, CreatureTask> createTaskDelegate)
     {
         this.creatureVision = creatureVision;
         this.creatureTaskRegister = creatureTaskRegister;
@@ -20,7 +20,7 @@ public class ObjectConditionTask<TComponent>
 
     private void Initialize()
     {
-        creatureVision.OnSawObject += 
+        creatureVision.OnDetectObject += 
             (VisibleObject visibleObject) => 
             {
                 if (TryGetComponent(visibleObject, out TComponent component) == false) { return; }

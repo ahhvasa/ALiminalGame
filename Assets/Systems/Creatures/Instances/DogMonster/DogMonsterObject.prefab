@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 6786429213037736242}
   - component: {fileID: 5205544256144012057}
   - component: {fileID: 1541168149746257147}
+  - component: {fileID: 1771460713052369127}
   - component: {fileID: 7937974353815006841}
   m_Layer: 0
   m_Name: DogMonsterObject
@@ -202,7 +203,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3829444498239040751}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7296dedfd60590b4c84785956e955729, type: 3}
   m_Name: 
@@ -246,9 +247,23 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3829444498239040751}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7da3b8d03eba9a41bfde546786b37d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  directlyVisibleRooms: []
+  visibleObjects: []
+--- !u!114 &1771460713052369127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3829444498239040751}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edfe347a7056dc34f9afb511e2c5c3a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   directlyVisibleRooms: []
@@ -265,7 +280,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c35c01e5a37906f4fa81dadf5869ce54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  creatureVision: {fileID: 1541168149746257147}
   memoryLog: 
   memoryTime: 5
 --- !u!1001 &3008829432601762235

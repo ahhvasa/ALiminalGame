@@ -4,7 +4,7 @@ public class CreatureAI : MonoBehaviour
 {
     public Creature creature;
 
-    public CreatureVision creatureVision;
+    public CreatureVisionSense creatureVision;
 
     public CreatureMemory creatureMemory;
 
@@ -35,29 +35,39 @@ public class CreatureAI : MonoBehaviour
 
         foreach (var sense in creatureMemory.senses)
         {
-            Debug.Log("990 Sense = " + sense.ToString());
-
-            VisionSense visionSense = sense as VisionSense;
-            if (visionSense == null) { continue; }
-
-            Debug.Log("990 VisionSense = " + visionSense.ToString());
-
-            try
+            if (sense is VisionSense)
             {
-                Player player = visionSense.perceivableObject.GetComponentInParent<Player>();
-                if (player == null) { continue; }
-
-                Debug.Log("990 Player = " + player);
-
-
+                VisionSense visionSense = sense as VisionSense;
+                Player player = visionSense.perceivableObject.GetComponentInParent<Player>(); if (player == null) { continue; }
                 creatureTaskRegister.AddTask(new CreatureTask(100, new CreatureState_Chase(creature, player)));
-
-                Debug.Log("990 Added");
             }
-            catch
+            if (sense is SoundSense)
             {
-
+                SoundSense soundSense = sense as SoundSense;
+                Player player = soundSense.perceivableObject.GetComponentInParent<Player>(); if (player == null) { continue; }
+                creatureTaskRegister.AddTask(new CreatureTask(90, new CreatureState_Chase(creature, player)));
             }
+
+
+            //VisionSense visionSense = sense as VisionSense;
+            //if (visionSense == null) { continue; }
+
+            //try
+            //{
+            //    Player player = visionSense.perceivableObject.GetComponentInParent<Player>();
+            //    if (player == null) { continue; }
+
+            //    Debug.Log("990 Player = " + player);
+
+
+            //    creatureTaskRegister.AddTask(new CreatureTask(100, new CreatureState_Chase(creature, player)));
+
+            //    Debug.Log("990 Added");
+            //}
+            //catch
+            //{
+
+            //}
         }
 
         creatureTaskRegister.RemoveUnUpdated();

@@ -25,6 +25,7 @@ public class RoomBuilder : MonoBehaviour
             GameObject.DestroyImmediate(obj.gameObject);
         }
         navMeshSurface.RemoveData();
+        EditorUtility.SetDirty(navMeshSurface);
     }
 
     public async Task Build()
@@ -42,6 +43,7 @@ public class RoomBuilder : MonoBehaviour
             Debug.Log($"roomPart = {roomPart}");
             roomPart.AddComponent<AssembledByRoomBuilderFlag>();
             roomPart.transform.position = point.transform.position;
+            EditorUtility.SetDirty(roomPart);
 
             foreach (RoomConnectedPart connectedPart in point.roomConnectedParts)
             {
@@ -51,6 +53,7 @@ public class RoomBuilder : MonoBehaviour
 
                 roomPart.rooms.Add(connectedPart.hostRoom);
                 roomPart.transform.LookAt(connectedPart.hostRoom.transform.position);
+                EditorUtility.SetDirty(roomPart);
             }
         }
 
@@ -64,6 +67,7 @@ public class RoomBuilder : MonoBehaviour
         foreach (var room in rooms)
         {
             room.ApplyTextures();
+            EditorUtility.SetDirty(room);
         }
     }
 
@@ -75,6 +79,7 @@ public class RoomBuilder : MonoBehaviour
         RoomPartMark defaultPartMark = (await LoadPrefabAsync(emptyRoomMarkAddressiblesKey)).GetComponent<RoomPartMark>();
         defaultPartMark.transform.position = new Vector3(0, -999, 0);
         defaultPartMark.AddComponent<AssembledByRoomBuilderFlag>();
+        EditorUtility.SetDirty(defaultPartMark);
 
         foreach (var roomConnection in roomConnections)
         {
@@ -87,6 +92,7 @@ public class RoomBuilder : MonoBehaviour
             if (SceneSearchService.TryFindNearest(roomConnectionPart.transform.position, maxDistance, out RoomConnectionPoint existingConnectionPoint))
             {
                 existingConnectionPoint.roomConnectedParts.Add(roomConnectionPart);
+                EditorUtility.SetDirty(existingConnectionPoint);
                 return;
             }
             var task = LoadPrefabAsync(roomConnectionPointAddressiblesKey);
@@ -98,6 +104,7 @@ public class RoomBuilder : MonoBehaviour
             connecionPoint.transform.position = roomConnectionPart.transform.position;
             connecionPoint.Initialize(defaultPartMark);
             connecionPoint.AddComponent<AssembledByRoomBuilderFlag>();
+            EditorUtility.SetDirty(connecionPoint);
         }
         return connectionPoint;
     }
@@ -112,6 +119,7 @@ public class RoomBuilder : MonoBehaviour
 
         GameObject prefab = await handle.Task;
 
+        EditorUtility.SetDirty(prefab);
         return GameObject.Instantiate(prefab);
     }
 }

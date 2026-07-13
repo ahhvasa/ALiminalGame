@@ -1,43 +1,58 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class CreatureVision : RoomVision
+public class CreatureSoundSense : RoomVision, ICreatureSense
 {
     public List<VisibleObject> visibleObjects = new();
 
-    public event Action<VisibleObject> OnSawObject;
+    public float hearingDistance = 5;
+
+    public event Action<VisibleObject> OnDetectObject;
     public event Action<VisibleObject> OnLoseObject;
 
     private readonly HashSet<VisibleObject> _currentObjects = new();
     private readonly HashSet<VisibleObject> _newObjects = new();
 
+    List<VisibleObject> allVisibleObjects;
     public void Start()
     {
-        OnSawObject +=
+        allVisibleObjects = FindObjectsOfType<VisibleObject>().ToList();
+
+        OnDetectObject +=
             (VisibleObject visibleObject) =>
             {
-                Debug.Log($"Saw Object -> {visibleObject}");
+                Debug.Log($"Heard Detect Object -> {visibleObject}");
             };
 
 
         OnLoseObject +=
             (VisibleObject visibleObject) =>
             {
-                Debug.Log($"Lose Object -> {visibleObject}");
+                Debug.Log($"Heard Lose Object -> {visibleObject}");
             };
+    }
+
+
+    public void AddSenses(ref List<CreatureSense> creatureSenses)
+    {
+        foreach (var visibleObject in visibleObjects)
+        {
+            creatureSenses.Add(new SoundSense(visibleObject));
+        }
     }
 
     void FixedUpdate()
     {
-        List<Room> visibleRooms = GetVisibleRooms();
         _newObjects.Clear();
-        foreach (Room room in visibleRooms)
+        foreach (var visibleObject in allVisibleObjects)
         {
-            _newObjects.UnionWith(room.GetAllVisibleObjects());
+            if (visibleObject.AIIgnore) { continue; }
+            if (Vector3.Distance(transform.position, visibleObject.transform.position) < hearingDistance)
+            {
+                _newObjects.Add(visibleObject);
+            }
         }
 
         foreach (VisibleObject obj in _newObjects)
@@ -45,7 +60,7 @@ public class CreatureVision : RoomVision
             if (obj.AIIgnore) { continue; }
             if (_currentObjects.Add(obj))
             {
-                OnSawObject?.Invoke(obj);
+                OnDetectObject?.Invoke(obj);
             }
         }
 
@@ -60,6 +75,11 @@ public class CreatureVision : RoomVision
 
         visibleObjects.Clear();
         visibleObjects.AddRange(_currentObjects);
+
+
+
+
+
     }
 
 

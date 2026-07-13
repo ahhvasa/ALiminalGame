@@ -1,24 +1,27 @@
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
 
 public class CreatureMemory : MonoBehaviour
 {
-    public CreatureVision creatureVision;
+    public ICreatureSense[] creatureSenses;
 
     public List<CreatureSense> senses = new();
     public List<CreatureSense> currentSenses = new();
 
     [SerializeField][TextArea(10, 50)] private string memoryLog;
 
+    public void Awake()
+    {
+        creatureSenses = GetComponentsInChildren<ICreatureSense>();
+    }
+
     public void FixedUpdate()
     {
-        var visibleObjects = creatureVision.visibleObjects;
-
         currentSenses.Clear();
-
-        foreach (var visibleObject in visibleObjects)
+        foreach (var creatureSense in creatureSenses)
         {
-            currentSenses.Add(new VisionSense(visibleObject));
+            creatureSense.AddSenses(ref currentSenses);
         }
 
         UpdateSenses();
