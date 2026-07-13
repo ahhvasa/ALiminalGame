@@ -57,3 +57,49 @@ public class CreatureState_Wander : ICreatureState
 }
 
 
+
+public class CreatureState_Explore : ICreatureState
+{
+    public Creature creature;
+    public CreatureMovement movement;
+    public Vector3 point;
+
+    public CreatureState_Explore(Creature creature, Vector3 point)
+    {
+        this.creature = creature;
+        movement = creature.movement;
+        this.point = point;
+    }
+
+    public void OnEnter()
+    {
+
+    }
+    public void OnExit()
+    {
+        movement.Stop();
+    }
+    public void FixedUpdate()
+    {
+
+    }
+    public void Update()
+    {
+        if (!movement.agent.pathPending &&
+            movement.agent.remainingDistance <= movement.agent.stoppingDistance)
+        {
+            if (!movement.agent.hasPath || movement.agent.velocity.sqrMagnitude == 0f)
+            {
+                SetDestination();
+            }
+        }
+    }
+
+    void SetDestination()
+    {
+        movement.SetDestination(point);
+    }
+
+}
+
+
