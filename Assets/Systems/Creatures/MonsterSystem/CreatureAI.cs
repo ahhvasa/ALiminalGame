@@ -4,7 +4,7 @@ public class CreatureAI : MonoBehaviour
 {
     public Creature creature;
 
-    public CreatureVisionSense creatureVision;
+    public CreatureVisionSenseProvider creatureVision;
 
     public CreatureMemory creatureMemory;
 

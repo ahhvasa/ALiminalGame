@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEditor;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 
-public class PlayerRoomVision : RoomVision
+public class PlayerRoomVision : MonoBehaviour
 {
+    public RoomVision roomVision;
     public bool seeEveryRoom;
 
     void FixedUpdate()
     {
-        List<Room> visibleRooms = GetVisibleRooms();
+        List<Room> visibleRooms = RoomManadger.GetVisibleRooms(transform.position, roomVision);
         List<Room> unVisibleRooms = new List<Room>();
 
         foreach (Room room in RoomManadger.AllRooms)

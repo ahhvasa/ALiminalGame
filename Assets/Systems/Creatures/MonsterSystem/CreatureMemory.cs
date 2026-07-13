@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CreatureMemory : MonoBehaviour
 {
-    public ICreatureSense[] creatureSenses;
+    public ICreatureSenseProvider[] creatureSenseProviders;
 
     public List<CreatureSense> senses = new();
     public List<CreatureSense> currentSenses = new();
@@ -13,13 +13,13 @@ public class CreatureMemory : MonoBehaviour
 
     public void Awake()
     {
-        creatureSenses = GetComponentsInChildren<ICreatureSense>();
+        creatureSenseProviders = GetComponentsInChildren<ICreatureSenseProvider>();
     }
 
     public void FixedUpdate()
     {
         currentSenses.Clear();
-        foreach (var creatureSense in creatureSenses)
+        foreach (var creatureSense in creatureSenseProviders)
         {
             creatureSense.AddSenses(ref currentSenses);
         }

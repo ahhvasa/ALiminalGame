@@ -44,4 +44,26 @@ public class RoomManadger : MonoBehaviour
         }
         return objects;
     }
+
+    public static List<Room> GetVisibleRooms(Vector3 position, RoomVision roomVision)
+    {
+        List<Room> currentDirectlyVisibleRooms = new List<Room>();
+        currentDirectlyVisibleRooms.AddRange(roomVision.directlyVisibleRooms);
+
+        currentDirectlyVisibleRooms.Add(RoomManadger.GetClosestRoom(position));
+
+        List<Room> allVisibleRooms = new List<Room>();
+
+        foreach (var room in currentDirectlyVisibleRooms)
+        {
+            var visibleRooms = room.GetAllVisibleRooms();
+            foreach (var visibleRoom in visibleRooms)
+            {
+                if (allVisibleRooms.Contains(visibleRoom) == false)
+                { allVisibleRooms.Add(visibleRoom); }
+            }
+        }
+
+        return allVisibleRooms;
+    }
 }

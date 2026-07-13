@@ -31,7 +31,13 @@ public class VisibleObject : MonoBehaviour
         spriteRenderers.AddRange(GetComponentsInChildren<SpriteRenderer>(true));
         lightSources.AddRange(GetComponentsInChildren<Light>(true));
 
-        perceivableObject = gameObject.AddComponent<PerceivableObject>();
+        if (perceivableObject == null)
+        {
+            if (gameObject.TryGetComponent<PerceivableObject>(out perceivableObject) == false)
+            {
+                perceivableObject = gameObject.AddComponent<PerceivableObject>();
+            }
+        }
         perceivableObject.visibleObject = this;
     }
     public void ConnectObject(GameObject gameObject)

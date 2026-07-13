@@ -5,12 +5,12 @@ using UnityEngine;
 public class ObjectConditionTask<TComponent>
     where TComponent : Component
 {
-    private CreatureVisionSense creatureVision;
+    private CreatureVisionSenseProvider creatureVision;
     private CreatureTaskRegister creatureTaskRegister;
     private Func<TComponent, CreatureTask> createTaskDelegate;
     private Dictionary<TComponent, CreatureTask> tasks = new();
 
-    public ObjectConditionTask(CreatureVisionSense creatureVision, CreatureTaskRegister creatureTaskRegister, Func<TComponent, CreatureTask> createTaskDelegate)
+    public ObjectConditionTask(CreatureVisionSenseProvider creatureVision, CreatureTaskRegister creatureTaskRegister, Func<TComponent, CreatureTask> createTaskDelegate)
     {
         this.creatureVision = creatureVision;
         this.creatureTaskRegister = creatureTaskRegister;

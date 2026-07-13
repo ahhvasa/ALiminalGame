@@ -51,14 +51,14 @@ public class Item_CCTVCameraControlPanel : ItemHoldable
     {
         if (activate)
         {
-            playerOwner.roomVision.directlyVisibleRooms.AddRange(CCTVCameraManager.GetRoomsSeenByCameras());
+            playerOwner.roomVision.roomVision.directlyVisibleRooms.AddRange(CCTVCameraManager.GetRoomsSeenByCameras());
         }
         else
         {
             var rooms = CCTVCameraManager.GetRoomsSeenByCameras();
             foreach (var room in rooms)
             {
-                if (playerOwner.roomVision.directlyVisibleRooms.Contains(room)) { playerOwner.roomVision.directlyVisibleRooms.Remove(room); }
+                if (playerOwner.roomVision.roomVision.directlyVisibleRooms.Contains(room)) { playerOwner.roomVision.roomVision.directlyVisibleRooms.Remove(room); }
             }
         }
 
