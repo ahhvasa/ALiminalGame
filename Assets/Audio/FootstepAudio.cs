@@ -4,6 +4,8 @@ using System.Collections;
 public class FootstepAudio : MonoBehaviour
 {
     public SoundData walkSoundData;
+    public SoundData runSoundData;
+
     public SoundPlayer soundPlayer;
     private Sound walkSound;
 

@@ -8,7 +8,22 @@ public class Creature : MonoBehaviour
     public StateMachine<ICreatureState> stateMachine;
     public CreatureTask currentTask;
 
+
     public CreatureMovement movement;
+
+    public CreatureSound creatureSound;
+
+    public PerceivableObject perceivableObject;
+    public ScaryFlag scaryFlag;
+
+    public CreatureTaskRegister taskRegister;
+
+
+    public void SurpriseSound()
+    {
+        creatureSound.SurpriseSound();
+    }
+
 
     public void Awake()
     {

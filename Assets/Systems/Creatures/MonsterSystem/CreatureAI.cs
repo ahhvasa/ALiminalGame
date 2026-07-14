@@ -60,7 +60,7 @@ public class CreatureAI : MonoBehaviour
                 },
                 onDetect: (VisibleObject visibleObject, CreatureTask task) =>
                 {
-                    //(task.state as CreatureState_EatObject).point = visibleObject.perceivableObject.transform.position;
+
                 },
                 onLost: (VisibleObject visibleObject, CreatureTask task) =>
                 {
@@ -68,7 +68,7 @@ public class CreatureAI : MonoBehaviour
                 },
                 onFixedUpdate: (VisibleObject visibleObject, CreatureTask task) =>
                 {
-                    //(task.state as CreatureState_EatObject).point = visibleObject.perceivableObject.transform.position;
+
                 }
 
                 );
@@ -85,11 +85,11 @@ public class CreatureAI : MonoBehaviour
                 runFromObjectTasks,
                 validateObject: (VisibleObject visibleObject) =>
                 {
-                    if (creature.GetComponent<PerceivableObject>() == visibleObject.PerceivableObject) { return false; }
+                    if (creature.perceivableObject== visibleObject.PerceivableObject) { return false; }
 
                     if (visibleObject.PerceivableObject.TryGetComponent<ScaryFlag>(out ScaryFlag scaryFlag))
                     {
-                        return creature.GetComponent<ScaryFlag>().scaryMeter <= scaryFlag.scaryMeter;
+                        return creature.scaryFlag.scaryMeter <= scaryFlag.scaryMeter;
                     }
                     return false;
                 },
@@ -102,6 +102,7 @@ public class CreatureAI : MonoBehaviour
                 },
                 onDetect: (VisibleObject visibleObject, CreatureTask task) =>
                 {
+                    creature.SurpriseSound();
                     (task.state as CreatureState_RunFrom).runFromPoint = visibleObject.perceivableObject.transform.position;
                 },
                 onLost: (VisibleObject visibleObject, CreatureTask task) =>
@@ -139,6 +140,7 @@ public class CreatureAI : MonoBehaviour
                 },
                 onDetect: (Sound sound, CreatureTask task) =>
                 {
+                    creature.SurpriseSound();
                     (task.state as CreatureState_Explore).point = sound.PerceivableObject.transform.position;
                 },
                 onLost: (Sound sound, CreatureTask task) =>
@@ -170,6 +172,7 @@ public class CreatureAI : MonoBehaviour
                 },
                 onDetect: (ObjectSmell objectSmell, CreatureTask task) =>
                 {
+                    creature.SurpriseSound();
                     (task.state as CreatureState_Explore).point = objectSmell.PerceivableObject.transform.position;
                 },
                 onLost: (ObjectSmell objectSmell, CreatureTask task) =>
@@ -201,6 +204,7 @@ public class CreatureAI : MonoBehaviour
                 },
                 onDetect: (VisibleObject visibleObject, CreatureTask task) =>
                 {
+                    creature.SurpriseSound();
                     (task.state as CreatureState_Chase).player = visibleObject.perceivableObject.GetComponent<Player>();
                 },
                 onLost: (VisibleObject visibleObject, CreatureTask task) =>

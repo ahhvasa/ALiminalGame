@@ -5,12 +5,12 @@ public class CreatureState_Wander : ICreatureState
 {
     public Creature creature;
     public CreatureMovement movement;
-    public Vector3[] points;
+    public Room[] rooms;
 
     public CreatureState_Wander(Creature creature)
     {
         this.creature = creature;
-        movement = creature.GetComponent<CreatureMovement>();
+        movement = creature.movement;
         Initialize();
     }
 
@@ -42,18 +42,12 @@ public class CreatureState_Wander : ICreatureState
     void Initialize()
     {
         SceneSearchService.TryFindNearest<Room>(creature.transform.position, 10, out Room room);
-        Room[] rooms = room.GetAllConnectedRooms().ToArray();
-
-        points = new Vector3[rooms.Length];
-        for (int i = 0; i < rooms.Length; i++)
-        {
-            points[i] = rooms[i].roomCenter.transform.position;
-        }
+        rooms = room.GetAllConnectedRooms().ToArray();
     }
 
     void SetRandomDestination()
     {
-        movement.SetDestination(points[UnityEngine.Random.Range(0, points.Length)]);
+        movement.SetDestination(rooms[UnityEngine.Random.Range(0, rooms.Length)].roomCenter.transform.position);
     }
 
 }
@@ -136,7 +130,7 @@ public class CreatureState_EatObject : ICreatureState
     {
         if (target.activeSelf == false)
         {
-            creature.GetComponent<CreatureTaskRegister>().RemoveTask(creatureTask);
+            creature.taskRegister.RemoveTask(creatureTask);
             return;
         }
 
@@ -160,7 +154,7 @@ public class CreatureState_EatObject : ICreatureState
 
     void EatObject()
     {
-        creature.GetComponent<CreatureTaskRegister>().RemoveTask(creatureTask);
+        creature.taskRegister.RemoveTask(creatureTask);
         target.gameObject.SetActive(false);
     }
 }
@@ -179,7 +173,7 @@ public class CreatureState_RunFrom : ICreatureState
     public CreatureState_RunFrom(Creature creature, Vector3 runFromPoint)
     {
         this.creature = creature;
-        movement = creature.GetComponent<CreatureMovement>();
+        movement = creature.movement;
         this.runFromPoint = runFromPoint;
         Initialize();
     }
@@ -206,7 +200,7 @@ public class CreatureState_RunFrom : ICreatureState
         {
             if (!movement.agent.hasPath || movement.agent.velocity.sqrMagnitude == 0f)
             {
-                creature.GetComponent<CreatureTaskRegister>().RemoveTask(creatureTask);
+                creature.taskRegister.RemoveTask(creatureTask);
             }
         }
     }

@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1649448455170574732
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 815229219532640259}
+  - component: {fileID: 6979068212297007377}
+  - component: {fileID: 1367437736871121277}
+  m_Layer: 11
+  m_Name: MonsterSound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &815229219532640259
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649448455170574732}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6979068212297007377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649448455170574732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 258e1d2afa2b1d24f830c86b62d7bc8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundPlayer: {fileID: 1367437736871121277}
+  idleSound:
+    mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
+    clips:
+    - {fileID: 8300000, guid: c1be2b922deb9f74cba3889d3fa5a540, type: 3}
+    - {fileID: 8300000, guid: 9d4ea9957d1a9a84bb3b5bd4566cb6b7, type: 3}
+    - {fileID: 8300000, guid: b097dd9fe0386754f9bc97cd2f11b714, type: 3}
+    - {fileID: 8300000, guid: 4cabcdc72c0b4a34c9a7222f690ff2dd, type: 3}
+    - {fileID: 8300000, guid: 98cd7b5cabcb0ba48b3d514d9cde1799, type: 3}
+    - {fileID: 8300000, guid: 3967734a712d2d149912ee518245ba14, type: 3}
+    - {fileID: 8300000, guid: e616808d9b4f43d41ae4c68134c60c27, type: 3}
+    - {fileID: 8300000, guid: 493646a86365c2e4096543da538419c2, type: 3}
+    - {fileID: 8300000, guid: 0a8aab36a89461046a2d5e5c4725cd50, type: 3}
+    - {fileID: 8300000, guid: bf1e9f69e6dbce547b90d5ddbc3b6de6, type: 3}
+    - {fileID: 8300000, guid: 20e08c7159317b340b0bbe2b0d3aa594, type: 3}
+    - {fileID: 8300000, guid: 822e7c184b3156e42baa9c6151ffae4d, type: 3}
+    loopPlayInterval:
+      looped: 1
+      minimumInterval: 5
+      maximumInterval: 10
+    removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
+  surpriseSound:
+    mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
+    clips:
+    - {fileID: 8300000, guid: d4b8e19044968c1438e272235d5d7460, type: 3}
+    loopPlayInterval:
+      looped: 0
+      minimumInterval: 0
+      maximumInterval: 0
+    removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
+--- !u!114 &1367437736871121277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649448455170574732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc30803b067cad24f9859fd8f3abf016, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  perceivableObject: {fileID: 0}
+  playingSounds: []

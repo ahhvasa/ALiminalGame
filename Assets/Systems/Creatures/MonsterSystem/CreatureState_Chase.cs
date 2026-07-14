@@ -12,7 +12,7 @@ public class CreatureState_Chase : ICreatureState
     public CreatureState_Chase(Creature creature)
     {
         this.creature = creature;
-        creatureMovement = creature.GetComponent<CreatureMovement>();
+        creatureMovement = creature.movement;
     }
 
     public CreatureState_Chase(Creature creature, Player player) : this(creature)

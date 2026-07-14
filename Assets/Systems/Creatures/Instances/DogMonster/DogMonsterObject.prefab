@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: -7138600435968851587}
   - component: {fileID: 7937974353815006841}
   - component: {fileID: 7198548222226105184}
+  - component: {fileID: 1218084161766518720}
   m_Layer: 0
   m_Name: DogMonsterObject
   m_TagString: Untagged
@@ -179,7 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ce4dfd559aa1e04f8498640b25bd5e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  perceivableObject: {fileID: 0}
+  perceivableObject: {fileID: 1218084161766518720}
   AIIgnore: 0
   fadeDuration: 0.3
   meshRenderers: []
@@ -199,6 +200,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 6786429213037736242}
+  creatureSound: {fileID: 0}
+  perceivableObject: {fileID: 1218084161766518720}
+  scaryFlag: {fileID: 7198548222226105184}
+  taskRegister: {fileID: 5205544256144012057}
 --- !u!114 &2451182496047876615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,6 +315,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scaryMeter: 10
+--- !u!114 &1218084161766518720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3829444498239040751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a48b626cd7146124db30a8c9dd608354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visibleObject: {fileID: 2221823251366716362}
+  objectSmell: {fileID: 0}
+  soundPlayer: {fileID: 0}
 --- !u!1001 &3008829432601762235
 PrefabInstance:
   m_ObjectHideFlags: 0
