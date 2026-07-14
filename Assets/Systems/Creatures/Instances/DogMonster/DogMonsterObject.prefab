@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 1771460713052369127}
   - component: {fileID: -7138600435968851587}
   - component: {fileID: 7937974353815006841}
+  - component: {fileID: 7198548222226105184}
   m_Layer: 0
   m_Name: DogMonsterObject
   m_TagString: Untagged
@@ -296,6 +297,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   memoryLog: 
   memoryTime: 5
+--- !u!114 &7198548222226105184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3829444498239040751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfd2be8d39b76514089746e686224287, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaryMeter: 10
 --- !u!1001 &3008829432601762235
 PrefabInstance:
   m_ObjectHideFlags: 0

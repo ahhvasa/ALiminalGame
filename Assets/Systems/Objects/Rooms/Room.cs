@@ -44,6 +44,40 @@ public class Room : MonoBehaviour
         }
         return rooms;
     }
+    public List<Room> GetAllConnectedRooms()
+    {
+        List<Room> allRooms = GetAdjacentConnectedRooms();
+
+        for (int i = 0; i != allRooms.Count; i++)
+        {
+            var rooms = allRooms[i].GetAdjacentConnectedRooms();
+
+            foreach (var room in rooms)
+            {
+                if (allRooms.Contains(room)) { continue; }
+                allRooms.Add(room);
+            }
+        }
+        return allRooms;
+    }
+    public List<Room> GetAdjacentConnectedRooms()
+    {
+        List<Room> rooms = new List<Room>();
+        rooms.Add(this);
+
+        foreach (var roomPart in roomParts)
+        {
+            if (roomPart.CanWalkToConnectedRoom())
+            {
+                if (roomPart.TryGetConnectedRoom(out Room room))
+                {
+                    rooms.Add(room);
+                }
+            }
+        }
+        return rooms;
+    }
+
 
     public List<Room> GetAdjacentVisibleRooms()
     {

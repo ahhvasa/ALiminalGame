@@ -107,9 +107,11 @@ public class CreatureTask
 
     public bool Equal(CreatureTask task)
     {
-        if (priority != task.priority) { return false; }
-        if (state.GetType() != task.state.GetType()) { return false; }
-        return true;
+        return this == task;
+
+        //if (priority != task.priority) { return false; }
+        //if (state.GetType() != task.state.GetType()) { return false; }
+        //return true;
     }
 
     public void Update(CreatureTask task)

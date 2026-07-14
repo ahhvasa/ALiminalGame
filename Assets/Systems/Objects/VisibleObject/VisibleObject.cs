@@ -59,6 +59,8 @@ public class VisibleObject : MonoBehaviour, IPercivableObject
 
     public void Show(bool show)
     {
+        if (this == null) { return; }
+
         if (fadeCoroutine != null)
             StopCoroutine(fadeCoroutine);
 
