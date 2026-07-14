@@ -1258,6 +1258,9 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
   closeSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -1269,6 +1272,9 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
   monsterTryToOpenSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -1280,6 +1286,9 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
   creakSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -1291,6 +1300,9 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
   breakSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -1301,6 +1313,9 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
 --- !u!114 &32465780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1313,6 +1328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc30803b067cad24f9859fd8f3abf016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  perceivableObject: {fileID: 0}
   playingSounds: []
 --- !u!4 &32465781
 Transform:
@@ -4658,6 +4674,9 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
   closeSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -4669,6 +4688,9 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
   monsterTryToOpenSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -4680,6 +4702,9 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
   creakSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -4691,6 +4716,9 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
   breakSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -4701,6 +4729,9 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
 --- !u!114 &189457145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4713,6 +4744,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc30803b067cad24f9859fd8f3abf016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  perceivableObject: {fileID: 0}
   playingSounds: []
 --- !u!4 &189457146
 Transform:
@@ -16636,6 +16668,9 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
   closeSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -16647,6 +16682,9 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
   monsterTryToOpenSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -16658,6 +16696,9 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
   creakSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -16669,6 +16710,9 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
   breakSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -16679,6 +16723,9 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
 --- !u!114 &677642587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16691,6 +16738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc30803b067cad24f9859fd8f3abf016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  perceivableObject: {fileID: 0}
   playingSounds: []
 --- !u!4 &677642588
 Transform:
@@ -24127,6 +24175,9 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
   closeSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -24138,6 +24189,9 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
   monsterTryToOpenSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -24149,6 +24203,9 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
   creakSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -24160,6 +24217,9 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
   breakSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -24170,6 +24230,9 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
 --- !u!114 &1020251955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24182,6 +24245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc30803b067cad24f9859fd8f3abf016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  perceivableObject: {fileID: 0}
   playingSounds: []
 --- !u!4 &1020251956
 Transform:
@@ -27363,6 +27427,70 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6276090283749515542, guid: a701326e5ab8c324c880cb5589bb44a6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6276090283749515542, guid: a701326e5ab8c324c880cb5589bb44a6, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6276090283749515542, guid: a701326e5ab8c324c880cb5589bb44a6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6276090283749515542, guid: a701326e5ab8c324c880cb5589bb44a6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713873422313786577, guid: a701326e5ab8c324c880cb5589bb44a6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713873422313786577, guid: a701326e5ab8c324c880cb5589bb44a6, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713873422313786577, guid: a701326e5ab8c324c880cb5589bb44a6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713873422313786577, guid: a701326e5ab8c324c880cb5589bb44a6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7074834880648611813, guid: a701326e5ab8c324c880cb5589bb44a6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7074834880648611813, guid: a701326e5ab8c324c880cb5589bb44a6, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7074834880648611813, guid: a701326e5ab8c324c880cb5589bb44a6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7074834880648611813, guid: a701326e5ab8c324c880cb5589bb44a6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974653452122435728, guid: a701326e5ab8c324c880cb5589bb44a6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974653452122435728, guid: a701326e5ab8c324c880cb5589bb44a6, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974653452122435728, guid: a701326e5ab8c324c880cb5589bb44a6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974653452122435728, guid: a701326e5ab8c324c880cb5589bb44a6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27843,6 +27971,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1196437376}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1200379886 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1199581708336641105, guid: 04c02d6491ad6c245842a656e03aed87, type: 3}
+  m_PrefabInstance: {fileID: 1243702053}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abc52ed3d90b683488479ec0538dd685, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1208248403
 GameObject:
   m_ObjectHideFlags: 0
@@ -28603,9 +28742,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 720625957897256992, guid: 04c02d6491ad6c245842a656e03aed87, type: 3}
+      propertyPath: movement
+      value: 
+      objectReference: {fileID: 1200379886}
     - target: {fileID: 5195981832800576972, guid: 04c02d6491ad6c245842a656e03aed87, type: 3}
       propertyPath: m_Name
       value: DarkMonster
+      objectReference: {fileID: 0}
+    - target: {fileID: 6205545214620169604, guid: 04c02d6491ad6c245842a656e03aed87, type: 3}
+      propertyPath: hearingDistance
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7915244301117806819, guid: 04c02d6491ad6c245842a656e03aed87, type: 3}
       propertyPath: m_LocalPosition.x
@@ -33361,6 +33508,9 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
   closeSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -33372,6 +33522,9 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
   monsterTryToOpenSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -33383,6 +33536,9 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
   creakSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -33394,6 +33550,9 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
   breakSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -33404,6 +33563,9 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
 --- !u!114 &1492615455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33416,6 +33578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc30803b067cad24f9859fd8f3abf016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  perceivableObject: {fileID: 0}
   playingSounds: []
 --- !u!4 &1492615456
 Transform:
@@ -37504,6 +37667,9 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
   closeSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -37515,6 +37681,9 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
   monsterTryToOpenSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -37526,6 +37695,9 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
   creakSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -37537,6 +37709,9 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
   breakSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -37547,6 +37722,9 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
 --- !u!114 &1639583118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37559,6 +37737,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc30803b067cad24f9859fd8f3abf016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  perceivableObject: {fileID: 0}
   playingSounds: []
 --- !u!4 &1639583119
 Transform:
@@ -38528,6 +38707,9 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
   closeSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -38539,6 +38721,9 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
   monsterTryToOpenSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -38550,6 +38735,9 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
   creakSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -38561,6 +38749,9 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
   breakSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -38571,6 +38762,9 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
 --- !u!114 &1661579338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38583,6 +38777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc30803b067cad24f9859fd8f3abf016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  perceivableObject: {fileID: 0}
   playingSounds: []
 --- !u!4 &1661579339
 Transform:
@@ -47063,6 +47258,9 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
   closeSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -47074,6 +47272,9 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
   monsterTryToOpenSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -47085,6 +47286,9 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
   creakSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -47096,6 +47300,9 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
   breakSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -47106,6 +47313,9 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
 --- !u!114 &1994854118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47118,6 +47328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc30803b067cad24f9859fd8f3abf016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  perceivableObject: {fileID: 0}
   playingSounds: []
 --- !u!4 &1994854119
 Transform:

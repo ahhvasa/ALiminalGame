@@ -5,7 +5,7 @@ using UnityEngine;
 using Cysharp.Threading.Tasks;
 
 
-public class Sound : MonoBehaviour
+public class Sound : MonoBehaviour, IPercivableObject
 {
     public SoundPlayer currentSoundPlayer;
     public PerceivableObject PerceivableObject

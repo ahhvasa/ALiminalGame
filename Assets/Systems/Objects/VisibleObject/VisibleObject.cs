@@ -4,8 +4,16 @@ using UnityEngine;
 using System.Collections.Generic;
 
 
-public class VisibleObject : MonoBehaviour
+public class VisibleObject : MonoBehaviour, IPercivableObject
 {
+    public PerceivableObject PerceivableObject
+    {
+        get
+        {
+            return perceivableObject;
+        }
+    }
+
     public PerceivableObject perceivableObject;
     /// <summary>
     /// A flag that indicates whether the object will be taken into account by the AI.

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEditor.SearchService;
 using UnityEngine;
@@ -5,6 +6,21 @@ using UnityEngine;
 public class CreatureMemory : MonoBehaviour
 {
     public ICreatureSenseProvider[] creatureSenseProviders;
+
+    public bool TryGetProvider<T>(out T result)
+        where T : UnityEngine.Object, ICreatureSenseProvider
+    {
+        foreach (var creatureSenseProvider in creatureSenseProviders)
+        {
+            if (creatureSenseProvider is T)
+            {
+                result =  creatureSenseProvider as T;
+                return true; 
+            }
+        }
+        result = null;
+        return false;
+    }
 
     public List<CreatureSense> senses = new();
     public List<CreatureSense> currentSenses = new();

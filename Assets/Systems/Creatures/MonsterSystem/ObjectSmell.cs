@@ -1,9 +1,14 @@
 using UnityEngine;
 
-public class ObjectSmell : MonoBehaviour
+public class ObjectSmell : MonoBehaviour, IPercivableObject
 {
     public PerceivableObject perceivableObject;
     public bool AIIgnore;
+
+    public PerceivableObject PerceivableObject
+    {  
+        get { return perceivableObject; }
+    }
 
     public void Awake()
     {

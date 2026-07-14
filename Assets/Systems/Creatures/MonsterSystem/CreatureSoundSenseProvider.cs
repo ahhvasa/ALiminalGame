@@ -69,10 +69,13 @@ public class SmellSense : CreatureSense
     }
 }
 
-
+public interface IPercivableObject
+{
+    public PerceivableObject PerceivableObject { get; }
+}
 
 public abstract class CreatureSenseProvider<TObject, TSense> : MonoBehaviour
-    where TObject : UnityEngine.Object
+    where TObject : UnityEngine.Object, IPercivableObject
     where TSense : CreatureSense
 {
     public event Action<TObject> OnDetectObject;
