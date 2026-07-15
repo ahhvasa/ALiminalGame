@@ -128,7 +128,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: -1.1, z: 0}
-  m_LocalScale: {x: 150, y: 150, z: 1}
+  m_LocalScale: {x: 250, y: 250, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4628378429106023769}
@@ -700,6 +700,7 @@ MonoBehaviour:
   audioMixer: {fileID: 24100000, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
   soundObjectPrefab: {fileID: 7967532896723379237, guid: f092da548db91b44098ca94235b61e53, type: 3}
   currentActiveSounds: []
+  currentAIPerceivableActiveSounds: []
   itemSounds:
     bulkyPickUp:
       mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
@@ -710,6 +711,9 @@ MonoBehaviour:
         minimumInterval: 0
         maximumInterval: 0
       removeDistantSoundReduction: 0
+      aIPerceivedSoundData:
+        isAiPerceived: 0
+        soundType: 0
     cardboardPickUp:
       mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
       clips:
@@ -719,6 +723,9 @@ MonoBehaviour:
         minimumInterval: 0
         maximumInterval: 0
       removeDistantSoundReduction: 0
+      aIPerceivedSoundData:
+        isAiPerceived: 0
+        soundType: 0
     standartPickUp:
       mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
       clips:
@@ -728,6 +735,9 @@ MonoBehaviour:
         minimumInterval: 0
         maximumInterval: 0
       removeDistantSoundReduction: 0
+      aIPerceivedSoundData:
+        isAiPerceived: 0
+        soundType: 0
     plasticPickUp:
       mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
       clips:
@@ -737,6 +747,9 @@ MonoBehaviour:
         minimumInterval: 0
         maximumInterval: 0
       removeDistantSoundReduction: 0
+      aIPerceivedSoundData:
+        isAiPerceived: 0
+        soundType: 0
     ragPickUp:
       mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
       clips:
@@ -746,6 +759,9 @@ MonoBehaviour:
         minimumInterval: 0
         maximumInterval: 0
       removeDistantSoundReduction: 0
+      aIPerceivedSoundData:
+        isAiPerceived: 0
+        soundType: 0
     woodPickUp:
       mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
       clips:
@@ -755,6 +771,9 @@ MonoBehaviour:
         minimumInterval: 0
         maximumInterval: 0
       removeDistantSoundReduction: 0
+      aIPerceivedSoundData:
+        isAiPerceived: 0
+        soundType: 0
     bulkyDropDown:
       mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
       clips:
@@ -764,6 +783,9 @@ MonoBehaviour:
         minimumInterval: 0
         maximumInterval: 0
       removeDistantSoundReduction: 0
+      aIPerceivedSoundData:
+        isAiPerceived: 0
+        soundType: 0
     cardboardDropDown:
       mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
       clips:
@@ -773,6 +795,9 @@ MonoBehaviour:
         minimumInterval: 0
         maximumInterval: 0
       removeDistantSoundReduction: 0
+      aIPerceivedSoundData:
+        isAiPerceived: 0
+        soundType: 0
     standartDropDown:
       mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
       clips:
@@ -782,6 +807,9 @@ MonoBehaviour:
         minimumInterval: 0
         maximumInterval: 0
       removeDistantSoundReduction: 0
+      aIPerceivedSoundData:
+        isAiPerceived: 0
+        soundType: 0
     plasticDropDown:
       mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
       clips:
@@ -791,6 +819,9 @@ MonoBehaviour:
         minimumInterval: 0
         maximumInterval: 0
       removeDistantSoundReduction: 0
+      aIPerceivedSoundData:
+        isAiPerceived: 0
+        soundType: 0
     ragDropDown:
       mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
       clips:
@@ -800,6 +831,9 @@ MonoBehaviour:
         minimumInterval: 0
         maximumInterval: 0
       removeDistantSoundReduction: 0
+      aIPerceivedSoundData:
+        isAiPerceived: 0
+        soundType: 0
     woodDropDown:
       mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
       clips:
@@ -809,6 +843,9 @@ MonoBehaviour:
         minimumInterval: 0
         maximumInterval: 0
       removeDistantSoundReduction: 0
+      aIPerceivedSoundData:
+        isAiPerceived: 0
+        soundType: 0
 --- !u!114 &525860335533576130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -833,10 +870,12 @@ MonoBehaviour:
       minimumInterval: 45
       maximumInterval: 120
     removeDistantSoundReduction: 1
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
   nightMusic:
     mixerGroup: {fileID: -6528212505855835555, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
-    - {fileID: 8300000, guid: fecce07ce91b3a647b2a6123bf467767, type: 3}
     - {fileID: 8300000, guid: 54b12cfef900b384ebef76d31ec5b418, type: 3}
     - {fileID: 8300000, guid: 6239fdea9062504489165dfce4d9751d, type: 3}
     - {fileID: 8300000, guid: 9eda35e11946eb4439781deeb032250f, type: 3}
@@ -847,6 +886,9 @@ MonoBehaviour:
       minimumInterval: 45
       maximumInterval: 120
     removeDistantSoundReduction: 1
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
   scaryAmbience:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -858,6 +900,9 @@ MonoBehaviour:
       minimumInterval: 20
       maximumInterval: 40
     removeDistantSoundReduction: 1
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
   mixerGroup: {fileID: -6528212505855835555, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
   soundPlayer: {fileID: 7202224384338430323}
 --- !u!114 &7202224384338430323
@@ -872,6 +917,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc30803b067cad24f9859fd8f3abf016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  perceivableObject: {fileID: 0}
   playingSounds: []
 --- !u!1 &8893342664126310358
 GameObject:

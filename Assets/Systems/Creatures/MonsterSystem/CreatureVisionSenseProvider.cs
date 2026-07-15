@@ -1,10 +1,5 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.Mathematics;
-using Unity.VisualScripting;
-using UnityEditor.SearchService;
-using UnityEngine;
 
 public class CreatureVisionSenseProvider : CreatureSenseProvider<VisibleObject, VisionSense>, ICreatureSenseProvider
 {

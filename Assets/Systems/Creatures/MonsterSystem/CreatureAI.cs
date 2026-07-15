@@ -1,9 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.SearchService;
 using UnityEngine;
-using Zenject.SpaceFighter;
 
 public class CreatureAI : MonoBehaviour
 {

@@ -1,14 +1,14 @@
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Unity.AI.Navigation;
-using Unity.Loading;
 using Unity.VisualScripting;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
+
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
-using Zenject;
 
 [ExecuteAlways]
 public class RoomBuilder : MonoBehaviour
@@ -16,6 +16,8 @@ public class RoomBuilder : MonoBehaviour
     public NavMeshSurface navMeshSurface;
     public string emptyRoomMarkAddressiblesKey;
     public string roomConnectionPointAddressiblesKey;
+
+    #if UNITY_EDITOR
 
     public void ClearBuilding()
     {
@@ -109,9 +111,6 @@ public class RoomBuilder : MonoBehaviour
         return connectionPoint;
     }
 
-
-
-
     public async Task<GameObject> LoadPrefabAsync(string key)
     {
         AsyncOperationHandle<GameObject> handle =
@@ -122,4 +121,9 @@ public class RoomBuilder : MonoBehaviour
         EditorUtility.SetDirty(prefab);
         return GameObject.Instantiate(prefab);
     }
+
+    #endif
+
+
+
 }
