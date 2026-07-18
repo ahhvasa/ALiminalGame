@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class SplitRotation : MonoBehaviour
 {
-    [SerializeField] private Transform yPart;
-    [SerializeField] private Transform xPart;
+    public Transform yPart;
+    public Transform xPart;
 
     public void SetDirection(Quaternion targetRotation)
     {
