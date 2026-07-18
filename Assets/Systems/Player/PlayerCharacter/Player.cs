@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -10,6 +9,7 @@ public class Player : MonoBehaviour
     public PlayerMovement playerMovement;
     public PlayerStateMachine playerStateMachine;
     public PlayerRoomVision roomVision;
+    public PlayerMonsterInView playerMonsterInView;
 
     public SoundPlayer soundPlayer;
 

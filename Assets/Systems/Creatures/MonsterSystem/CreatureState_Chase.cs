@@ -28,10 +28,12 @@ public class CreatureState_Chase : ICreatureState
     public void OnEnter()
     {
         creatureMovement.FollowTarget(player.transform);
+        player.playerMonsterInView.AddMonster(creature);
     }
     public void OnExit()
     {
         creatureMovement.ClearFollowTarget();
+        player.playerMonsterInView.RemoveMonster(creature);
     }
     public void FixedUpdate()
     {

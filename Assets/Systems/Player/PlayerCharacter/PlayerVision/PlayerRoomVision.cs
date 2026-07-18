@@ -12,6 +12,9 @@ public class PlayerRoomVision : MonoBehaviour
     public RoomVision roomVision;
     public bool seeEveryRoom;
 
+    public List<VisibleObject> visibleObjects = new();
+    private List<VisibleObject> unVisibleObjects = new();
+
     void FixedUpdate()
     {
         List<Room> visibleRooms = RoomManadger.GetVisibleRooms(transform.position, roomVision);
@@ -25,8 +28,8 @@ public class PlayerRoomVision : MonoBehaviour
             }
         }
 
-        List<VisibleObject> visibleObjects = new List<VisibleObject>();
-        List<VisibleObject> unVisibleObjects = FindObjectsOfType<VisibleObject>().ToList();
+        visibleObjects.Clear();
+        unVisibleObjects = FindObjectsOfType<VisibleObject>().ToList();
 
         foreach (Room room in unVisibleRooms)
         {
