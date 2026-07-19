@@ -6,14 +6,14 @@ public class CreatureViewAnimation : MonoBehaviour
 
     public void EatObject()
     {
-        animator.SetTrigger("EatObject");
+        animator?.SetTrigger("EatObject");
     }
     public void Attack()
     {
-        animator.SetTrigger("Attack");
+        animator?.SetTrigger("Attack");
     }
     public void IdleSpecial()
     {
-        animator.SetTrigger("IdleScecial");
+        animator?.SetTrigger("IdleScecial");
     }
 }
