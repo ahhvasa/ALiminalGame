@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
 
 public class CreatureAI : MonoBehaviour
@@ -133,23 +134,29 @@ public class CreatureAI : MonoBehaviour
                 },
                 createAction: (Sound sound) =>
                 {
-                    return new CreatureTask(50, new CreatureState_Explore(creature, sound.PerceivableObject.transform.position));
+                    var state = new CreatureState_Explore(creature, sound.PerceivableObject.transform.position);
+                    var task = new CreatureTask(50, state);
+                    state.SetParentTask(task);
+                    return task;
                 },
                 onDetect: (Sound sound, CreatureTask task) =>
                 {
                     creature.SurpriseSound();
+                    (task.state as CreatureState_Explore).lost = false;
                     (task.state as CreatureState_Explore).point = sound.PerceivableObject.transform.position;
                 },
                 onLost: (Sound sound, CreatureTask task) =>
                 {
-
+                    (task.state as CreatureState_Explore).lost = true;
                 },
                 onFixedUpdate: (Sound sound, CreatureTask task) =>
                 {
+                    if ((task.state as CreatureState_Explore).lost == true) { return; }
                     (task.state as CreatureState_Explore).point = sound.PerceivableObject.transform.position;
-                }
-
+                },
+                removeTaskOnLose: false
                 );
+
 
         }
 
@@ -165,22 +172,27 @@ public class CreatureAI : MonoBehaviour
                 },
                 createAction: (ObjectSmell objectSmell) =>
                 {
-                    return new CreatureTask(40, new CreatureState_Explore(creature, objectSmell.PerceivableObject.transform.position));
+                    var state = new CreatureState_Explore(creature, objectSmell.PerceivableObject.transform.position);
+                    var task = new CreatureTask(40, state);
+                    state.SetParentTask(task);
+                    return task;
                 },
                 onDetect: (ObjectSmell objectSmell, CreatureTask task) =>
                 {
                     creature.SurpriseSound();
+                    (task.state as CreatureState_Explore).lost = false;
                     (task.state as CreatureState_Explore).point = objectSmell.PerceivableObject.transform.position;
                 },
                 onLost: (ObjectSmell objectSmell, CreatureTask task) =>
                 {
-
+                    (task.state as CreatureState_Explore).lost = true;
                 },
                 onFixedUpdate: (ObjectSmell objectSmell, CreatureTask task) =>
                 {
+                    if ((task.state as CreatureState_Explore).lost == true) { return; }
                     (task.state as CreatureState_Explore).point = objectSmell.PerceivableObject.transform.position;
-                }
-
+                },
+                removeTaskOnLose: false
                 );
 
         }

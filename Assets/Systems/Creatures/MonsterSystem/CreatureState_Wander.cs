@@ -28,7 +28,7 @@ public class CreatureState_Wander : ICreatureState
     }
     public void Update()
     {
-        if (!movement.agent.pathPending &&
+        if (movement.agent.pathPending == false &&
             movement.agent.remainingDistance <= movement.agent.stoppingDistance)
         {
             if (!movement.agent.hasPath || movement.agent.velocity.sqrMagnitude == 0f)
@@ -59,12 +59,18 @@ public class CreatureState_Explore : ICreatureState
     public Creature creature;
     public CreatureMovement movement;
     public Vector3 point;
+    public CreatureTask creatureTask;
+    public bool lost = false;
 
     public CreatureState_Explore(Creature creature, Vector3 point)
     {
         this.creature = creature;
         movement = creature.movement;
         this.point = point;
+    }
+    public void SetParentTask(CreatureTask creatureTask)
+    {
+        this.creatureTask = creatureTask;
     }
 
     public void OnEnter()
@@ -77,23 +83,30 @@ public class CreatureState_Explore : ICreatureState
     }
     public void FixedUpdate()
     {
-
+        if (Vector3.Distance(creature.transform.position, point) < 0.5f)
+        {
+            Finish();
+        }
     }
     public void Update()
     {
-        if (!movement.agent.pathPending &&
-            movement.agent.remainingDistance <= movement.agent.stoppingDistance)
+        SetDestination();
+
+        if (Vector3.Distance(creature.transform.position, point) < 1)
         {
-            if (!movement.agent.hasPath || movement.agent.velocity.sqrMagnitude == 0f)
-            {
-                SetDestination();
-            }
+            Finish();
         }
+
     }
 
     void SetDestination()
     {
         movement.SetDestination(point);
+    }
+
+    void Finish()
+    {
+        creature.taskRegister.RemoveTask(creatureTask);
     }
 
 }
