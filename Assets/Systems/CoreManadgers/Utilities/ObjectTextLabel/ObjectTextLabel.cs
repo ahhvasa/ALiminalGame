@@ -1,16 +1,28 @@
 using MyLibrary.StateMachine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 
 public class ObjectTextLabel : MonoBehaviour
 {
-    public string text;
+    [SerializeField] private string text;
+    private ObjectTextItem textItem;
+
+    public string Text
+    {
+        set
+        {
+            text = value;
+            textItem.SetText(text);
+        }
+        get { return text; }
+    }
     void Start()
     {
-        ObjectTextItem textItem = ObjectTextManadger.Instance.Get();
+        textItem = ObjectTextManadger.Instance.Get();
         textItem.transform.position = transform.position;
         textItem.transform.SetParent(transform);
-        textItem.SetText(text);
+        Text = text;
     }
 }

@@ -4,6 +4,7 @@ public class ObjectSmell : MonoBehaviour, IPercivableObject
 {
     public PerceivableObject perceivableObject;
     public bool AIIgnore;
+    public float smellDistance = 10;
 
     public PerceivableObject PerceivableObject
     {  

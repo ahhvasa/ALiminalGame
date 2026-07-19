@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CreatureSoundSenseProvider : CreatureSenseProvider<Sound, SoundSense>, ICreatureSenseProvider
 {
-    public float hearingDistance = 5;
+    public float hearingDistanceMultiplier = 1;
 
     List<VisibleObject> allVisibleObjects;
 
@@ -24,7 +24,7 @@ public class CreatureSoundSenseProvider : CreatureSenseProvider<Sound, SoundSens
         newObjects.Clear();
         foreach (Sound sound in SoundManager.Instance.currentAIPerceivableActiveSounds)
         {
-            if (Vector3.Distance(transform.position, sound.transform.position) < hearingDistance)
+            if (Vector3.Distance(transform.position, sound.transform.position) < sound.aIPerceivedSoundData.soundDistance * hearingDistanceMultiplier)
             {
                 newObjects.Add(sound);
             }

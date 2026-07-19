@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CreatureSmellSenseProvider : CreatureSenseProvider<ObjectSmell, SmellSense>, ICreatureSenseProvider
 {
-    public float smellDistance = 10;
+    public float smellDistanceMultiplier = 1;
 
     public override void StartInternal()
     {
@@ -19,7 +19,7 @@ public class CreatureSmellSenseProvider : CreatureSenseProvider<ObjectSmell, Sme
         foreach (var objectSmell in ObjectSmellManadger.Instance.objectSmell)
         {
             if (objectSmell.AIIgnore) { continue; }
-            if (Vector3.Distance(transform.position, objectSmell.transform.position) < smellDistance)
+            if (Vector3.Distance(transform.position, objectSmell.transform.position) < objectSmell.smellDistance * smellDistanceMultiplier)
             {
                 newObjects.Add(objectSmell);
             }

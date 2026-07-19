@@ -187,6 +187,7 @@ public class AIPerceivedSoundData
 {
     public bool isAiPerceived;
     public AiPerceivedSoundType soundType;
+    public float soundDistance = 10;
 }
 
 public enum AiPerceivedSoundType
