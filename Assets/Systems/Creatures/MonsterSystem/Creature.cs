@@ -17,7 +17,7 @@ public class Creature : MonoBehaviour
     public ScaryFlag scaryFlag;
 
     public CreatureTaskRegister taskRegister;
-
+    public CreatureViewAnimation creatureViewAnimation;
 
     public void SurpriseSound()
     {
