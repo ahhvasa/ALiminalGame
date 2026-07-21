@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edfe347a7056dc34f9afb511e2c5c3a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hearingDistance: 5
+  hearingDistanceMultiplier: 1
 --- !u!114 &-7138600435968851587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d01cc435d891c9647922d698733107c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smellDistance: 10
+  smellDistanceMultiplier: 1
 --- !u!114 &7937974353815006841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,7 +336,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2470447875600392718, guid: 1c2d8e527a97169498d64dcc050e4722, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5274147582711814291, guid: 1c2d8e527a97169498d64dcc050e4722, type: 3}
       propertyPath: m_LocalPosition.x

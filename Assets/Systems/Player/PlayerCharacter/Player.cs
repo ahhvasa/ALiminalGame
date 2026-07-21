@@ -10,8 +10,11 @@ public class Player : MonoBehaviour
     public PlayerStateMachine playerStateMachine;
     public PlayerRoomVision roomVision;
     public PlayerMonsterInView playerMonsterInView;
+    public MeatExplosion meatExplosion;
+    public PlayerDeath playerDeath;
 
     public SoundPlayer soundPlayer;
+
 
     public void Update()
     {

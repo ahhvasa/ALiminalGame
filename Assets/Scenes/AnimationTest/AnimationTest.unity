@@ -615,6 +615,7 @@ MonoBehaviour:
     aIPerceivedSoundData:
       isAiPerceived: 0
       soundType: 0
+      soundDistance: 10
   closeSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -629,6 +630,7 @@ MonoBehaviour:
     aIPerceivedSoundData:
       isAiPerceived: 0
       soundType: 0
+      soundDistance: 10
   monsterTryToOpenSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -643,6 +645,7 @@ MonoBehaviour:
     aIPerceivedSoundData:
       isAiPerceived: 0
       soundType: 0
+      soundDistance: 10
   creakSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -657,6 +660,7 @@ MonoBehaviour:
     aIPerceivedSoundData:
       isAiPerceived: 0
       soundType: 0
+      soundDistance: 10
   breakSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -670,6 +674,7 @@ MonoBehaviour:
     aIPerceivedSoundData:
       isAiPerceived: 0
       soundType: 0
+      soundDistance: 10
 --- !u!114 &34672719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1968,7 +1973,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 149528552}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.64327407, y: -0.33982402, z: 0.57124305, w: 0.37999946}
+  m_LocalRotation: {x: -0.6432741, y: -0.339824, z: 0.571243, w: 0.37999934}
   m_LocalPosition: {x: 0, y: 0, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2629,7 +2634,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.5079148, w: 0.8614074}
   m_LocalPosition: {x: 1.8689568, y: 1.1465154, z: 0}
-  m_LocalScale: {x: 1, y: -1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1807016129}
@@ -4958,7 +4963,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 515264770}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.2685259, y: 0, z: 0, w: 0.96327245}
+  m_LocalRotation: {x: -0.26852617, y: 0, z: 0, w: 0.9632724}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5268,6 +5273,7 @@ MonoBehaviour:
     aIPerceivedSoundData:
       isAiPerceived: 0
       soundType: 0
+      soundDistance: 10
   closeSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -5282,6 +5288,7 @@ MonoBehaviour:
     aIPerceivedSoundData:
       isAiPerceived: 0
       soundType: 0
+      soundDistance: 10
   monsterTryToOpenSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -5296,6 +5303,7 @@ MonoBehaviour:
     aIPerceivedSoundData:
       isAiPerceived: 0
       soundType: 0
+      soundDistance: 10
   creakSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -5310,6 +5318,7 @@ MonoBehaviour:
     aIPerceivedSoundData:
       isAiPerceived: 0
       soundType: 0
+      soundDistance: 10
   breakSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -5323,6 +5332,7 @@ MonoBehaviour:
     aIPerceivedSoundData:
       isAiPerceived: 0
       soundType: 0
+      soundDistance: 10
 --- !u!114 &574738539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5598,7 +5608,7 @@ Transform:
   - {fileID: 933097175}
   - {fileID: 829072734}
   m_Father: {fileID: 1470317773}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.444}
 --- !u!1 &629236110
 GameObject:
   m_ObjectHideFlags: 0
@@ -5623,15 +5633,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 629236110}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.99476475, w: 0.10219151}
-  m_LocalPosition: {x: 3.5707119, y: 3.179678, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.98528934, w: 0.1708944}
+  m_LocalPosition: {x: 3.49, y: 2.96, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1470317773}
   - {fileID: 318459298}
   m_Father: {fileID: 152173581}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 160.32}
 --- !u!1 &643451841
 GameObject:
   m_ObjectHideFlags: 0
@@ -7216,7 +7226,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 602548058}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 10.795}
 --- !u!1 &844306920
 GameObject:
   m_ObjectHideFlags: 0
@@ -8612,7 +8622,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 602548058}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 3.445}
 --- !u!1 &934096044
 GameObject:
   m_ObjectHideFlags: 0
@@ -14047,7 +14057,7 @@ Transform:
   - {fileID: 252764327}
   - {fileID: 602548058}
   m_Father: {fileID: 629236111}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 41.382}
 --- !u!1 &1476410214
 GameObject:
   m_ObjectHideFlags: 0
@@ -14193,7 +14203,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1476936905}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5173273, y: 0, z: 0, w: 0.8557877}
+  m_LocalRotation: {x: 0.5173276, y: 0, z: 0, w: 0.85578746}
   m_LocalPosition: {x: 0, y: 0, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

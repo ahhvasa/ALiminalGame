@@ -27,6 +27,7 @@ public class CreatureState_Chase : ICreatureState
 
     public void OnEnter()
     {
+        creatureMovement.SetChaseSpeed();
         creatureMovement.FollowTarget(player.transform);
         player.playerMonsterInView.AddMonster(creature);
     }

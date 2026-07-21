@@ -16,7 +16,7 @@ public class CreatureState_Wander : ICreatureState
 
     public void OnEnter()
     {
-
+        movement.SetWanderSpeed();
     }
     public void OnExit()
     {
@@ -75,7 +75,7 @@ public class CreatureState_Explore : ICreatureState
 
     public void OnEnter()
     {
-
+        movement.SetExplorationSpeed();
     }
     public void OnExit()
     {
@@ -133,6 +133,7 @@ public class CreatureState_EatObject : ICreatureState
 
     public void OnEnter()
     {
+        movement.SetWanderSpeed();
     }
     public void OnExit()
     {
@@ -199,7 +200,7 @@ public class CreatureState_RunFrom : ICreatureState
 
     public void OnEnter()
     {
-
+        movement.SetChaseSpeed();
     }
     public void OnExit()
     {

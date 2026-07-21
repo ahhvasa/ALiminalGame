@@ -16,6 +16,7 @@ public class PlayerDeadState : IPlayerState
         Debug.Log("DeadState");
         player.playerMovement.enabled = false;
 
+        player.playerDeath.Die();
         OnDeath.Invoke(true);
     }
     public void OnExit()

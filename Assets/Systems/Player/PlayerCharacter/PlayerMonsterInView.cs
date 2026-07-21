@@ -42,9 +42,15 @@ public class PlayerMonsterInView : MonoBehaviour
             OnLastMonsterLost();
     }
 
+    public void OnDisable()
+    {
+        activeMonsterDetected?.StopSmoothly();
+        activeMonsterNear?.StopSmoothly();
+        activeJustEscapedMonster?.StopSmoothly();
+    }
+
     private void OnFirstMonsterDetected()
     {
-        // Если проигрывается "только что убежал" - выключаем его.
         if (justEscapedCoroutine != null)
         {
             StopCoroutine(justEscapedCoroutine);
@@ -53,7 +59,6 @@ public class PlayerMonsterInView : MonoBehaviour
 
         activeJustEscapedMonster?.StopSmoothly();
 
-        // Запускаем звуки обнаружения.
         activeMonsterDetected?.StopSmoothly();
         activeMonsterDetected = SoundManager.PlaySound(monsterDetected, player.soundPlayer);
 

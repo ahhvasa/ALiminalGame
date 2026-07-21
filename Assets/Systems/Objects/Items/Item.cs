@@ -4,6 +4,9 @@ using UnityEngine;
 public abstract class 
     Item : MonoBehaviour
 {
+    private int layerInWorld = 13;
+    private int layerInHands = 9;
+
     public Player playerOwner;
     public ItemObject itemObject;
     public Sprite icon;
@@ -22,17 +25,20 @@ public abstract class
     {
         playerOwner = player;
         _isInInventory = true;
+        itemObject.gameObject.layer = layerInHands;
 
         Activate(true);
 
         SoundManager.PlaySound(SoundManager.Instance.itemSounds.GetPickUpSound(textureType), playerOwner.soundPlayer);
 
         OnPickUpInternal(player);
+
     }
     public void OnDrop()
     {
         SoundManager.PlaySound(SoundManager.Instance.itemSounds.GetDropDownSound(textureType), playerOwner.soundPlayer);
         _isInInventory = false;
+        itemObject.gameObject.layer = layerInWorld;
 
         OnDropInternal();
 
