@@ -5,6 +5,15 @@ using UnityEngine;
 public class RoomDoor : MonoBehaviour, IPlayerInteractableObject
 {
     public MeshRenderer meshRenderer;
+    public Animator animator;
+
+    public void Awake()
+    {
+        forwardPoint = transform.position + transform.forward * 1;
+        backwardPoint = transform.position + transform.forward * -1;
+
+        currentUserPosition = forwardPoint;
+    }
 
     public List<Room> GetRooms()
     {
@@ -23,13 +32,27 @@ public class RoomDoor : MonoBehaviour, IPlayerInteractableObject
 
     private Coroutine autoCloseCoroutine;
 
+    public GameObject doorWallObject;
+    public Vector3 currentUserPosition;
+    Vector3 forwardPoint;
+    Vector3 backwardPoint;
+
+    public void Open(bool open, Vector3 userPosition)
+    {
+        if (open == true) { currentUserPosition = userPosition; }
+        Open(open);
+    }
     public void Open(bool open)
     {
         IsOpen = open;
-        meshRenderer.gameObject.SetActive(!open);
+        
 
         SoundManager.PlaySound(IsOpen ? openSound : closeSound, soundPlayer);
 
+        doorWallObject.SetActive(open == false);
+
+        animator.SetBool("forwardAnimation", Vector3.Distance(currentUserPosition, forwardPoint) < Vector3.Distance(currentUserPosition, backwardPoint));
+        animator.SetTrigger(open ? "open" : "close");
 
         if (autoCloseCoroutine != null)
         {
@@ -63,7 +86,7 @@ public class RoomDoor : MonoBehaviour, IPlayerInteractableObject
 
     public void Interact(Player player)
     {
-        Open(!IsOpen);
+        Open(!IsOpen, player.transform.position);
     }
 
 
