@@ -18,7 +18,8 @@ public class CCTVCameraManager : MonoBehaviour
         List<Room> rooms = new List<Room>();
         foreach (var camera in Instance.cameras)
         {
-            if (camera.IsInInventory) { continue; }
+            if (camera.IsInInventory || camera.Working == false) { continue; }
+
             rooms.Add(RoomManadger.GetClosestRoom(camera.itemObject.transform.position));
         }
         return rooms;
