@@ -1,5 +1,7 @@
 using UnityEngine;
 
+
+
 public class CameraPost : MonoBehaviour, IPlayerInteractableObject
 {
     public Animator animator;

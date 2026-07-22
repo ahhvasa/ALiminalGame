@@ -46,6 +46,7 @@ public class RoomDoor : MonoBehaviour, IPlayerInteractableObject
     }
     public void Open(bool open)
     {
+        if (IsOpen == open) { return; }
         IsOpen = open;
         
 
