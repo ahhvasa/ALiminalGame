@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections;
 
 public class CreatureMovement : MonoBehaviour
 {
@@ -35,20 +36,53 @@ public class CreatureMovement : MonoBehaviour
         agent.SetDestination(currentTarget.position);
     }
 
+    public bool canChangeSpeed = true;
+    public float savedSpeed;
+
     public void SetWanderSpeed()
     {
+        if (canChangeSpeed == false) { savedSpeed = wanderSpeed; return; }
         agent.speed = wanderSpeed;
     }
 
     public void SetExplorationSpeed()
     {
+        if (canChangeSpeed == false) { savedSpeed = explorationSpeed; return; }
         agent.speed = explorationSpeed;
     }
 
     public void SetChaseSpeed()
     {
+        if (canChangeSpeed == false) { savedSpeed = chaseSpeed; return; }
         agent.speed = chaseSpeed;
     }
+
+    public void SetStopSpeed()
+    {
+        agent.speed = 0f;
+    }
+
+    public void StopForTime(float time)
+    {
+        if (stopCoroutine != null)
+        {
+            StopCoroutine(stopCoroutine);
+            stopCoroutine = null;
+        }
+        stopCoroutine = StartCoroutine(StopForTimeCoroutine(time));
+    }
+    Coroutine stopCoroutine;
+
+    private IEnumerator StopForTimeCoroutine(float time)
+    {
+        canChangeSpeed = false;
+        savedSpeed = agent.speed;
+        SetStopSpeed();
+        yield return new WaitForSeconds(time);
+        agent.speed = savedSpeed;
+        canChangeSpeed = true;
+    }
+
 }
 
 public enum moveType
