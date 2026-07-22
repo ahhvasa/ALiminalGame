@@ -12,7 +12,7 @@ public class Sound : MonoBehaviour, IPercivableObject
     {
         get
         {
-            return currentSoundPlayer.perceivableObject;
+            return currentSoundPlayer?.perceivableObject;
         }
     }
 
@@ -195,5 +195,6 @@ public enum AiPerceivedSoundType
     step,
     monsterScream,
     ring,
-    itemSound
+    itemSound,
+    meatExplosion
 }

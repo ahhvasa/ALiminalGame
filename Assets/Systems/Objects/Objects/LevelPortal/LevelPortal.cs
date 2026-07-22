@@ -9,4 +9,12 @@ public class LevelPortal : MonoBehaviour, IPlayerInteractableObject
     {
         SceneManager.LoadScene(sceneName);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            SceneManager.LoadScene(sceneName);
+        }
+    }
 }

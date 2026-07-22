@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
 
 public class CreatureAI : MonoBehaviour
@@ -152,6 +151,9 @@ public class CreatureAI : MonoBehaviour
                 onFixedUpdate: (Sound sound, CreatureTask task) =>
                 {
                     if ((task.state as CreatureState_Explore).lost == true) { return; }
+
+                    if (sound.PerceivableObject == null) { return; }
+
                     (task.state as CreatureState_Explore).point = sound.PerceivableObject.transform.position;
                 },
                 removeTaskOnLose: false
@@ -190,6 +192,9 @@ public class CreatureAI : MonoBehaviour
                 onFixedUpdate: (ObjectSmell objectSmell, CreatureTask task) =>
                 {
                     if ((task.state as CreatureState_Explore).lost == true) { return; }
+
+                    if (objectSmell.PerceivableObject == null) { return; }
+
                     (task.state as CreatureState_Explore).point = objectSmell.PerceivableObject.transform.position;
                 },
                 removeTaskOnLose: false
@@ -299,6 +304,8 @@ public class CreatureBehaviourBuilder
 
 
             var key = obj.PerceivableObject;
+
+            if (obj.PerceivableObject == null) { return; }
 
             var task = taskDictionary[key];
 

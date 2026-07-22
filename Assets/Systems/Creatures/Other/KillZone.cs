@@ -9,6 +9,9 @@ public class KillZone : MonoBehaviour
         if (other.tag == "Player")
         {
             other.GetComponentInParent<Player>().Die();
+            animator?.SetTrigger("Attack");
         }
     }
+
+    public Animator animator;
 }

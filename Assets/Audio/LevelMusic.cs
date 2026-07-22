@@ -34,14 +34,7 @@ public class LevelMusic : MonoBehaviour
     
     public void Update()
     {
-        if(Input.GetKeyDown(KeyCode.H))
-        {
-            currentMusic.StopSmoothly();
-        }
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            currentMusic.PlaySmoothly();
-        }
+
     }
 
     public async UniTask PlayDayMusic()
@@ -61,6 +54,12 @@ public class LevelMusic : MonoBehaviour
     public async UniTask PlayScarySound()
     {
         await currentSFX.PlaySmoothly(scaryAmbience);
+    }
+
+    public async void StopMusic()
+    {
+        currentSFX.StopSmoothly();
+        await currentMusic.StopSmoothly();
     }
 
 }

@@ -546,7 +546,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 0, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 311
+    m_Bits: 16640
   m_UseGeometry: 1
   m_DefaultArea: 0
   m_GenerateLinks: 0
@@ -557,7 +557,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: a7fe074fc8649184ebf62e8de03c6c3a, type: 2}
+  m_NavMeshData: {fileID: 0}
   m_BuildHeightMesh: 0
 --- !u!1 &6146106570909155058
 GameObject:
@@ -714,6 +714,7 @@ MonoBehaviour:
       aIPerceivedSoundData:
         isAiPerceived: 0
         soundType: 0
+        soundDistance: 10
     cardboardPickUp:
       mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
       clips:
@@ -726,6 +727,7 @@ MonoBehaviour:
       aIPerceivedSoundData:
         isAiPerceived: 0
         soundType: 0
+        soundDistance: 10
     standartPickUp:
       mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
       clips:
@@ -738,6 +740,7 @@ MonoBehaviour:
       aIPerceivedSoundData:
         isAiPerceived: 0
         soundType: 0
+        soundDistance: 10
     plasticPickUp:
       mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
       clips:
@@ -750,6 +753,7 @@ MonoBehaviour:
       aIPerceivedSoundData:
         isAiPerceived: 0
         soundType: 0
+        soundDistance: 10
     ragPickUp:
       mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
       clips:
@@ -762,6 +766,7 @@ MonoBehaviour:
       aIPerceivedSoundData:
         isAiPerceived: 0
         soundType: 0
+        soundDistance: 10
     woodPickUp:
       mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
       clips:
@@ -774,6 +779,7 @@ MonoBehaviour:
       aIPerceivedSoundData:
         isAiPerceived: 0
         soundType: 0
+        soundDistance: 10
     bulkyDropDown:
       mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
       clips:
@@ -786,6 +792,7 @@ MonoBehaviour:
       aIPerceivedSoundData:
         isAiPerceived: 0
         soundType: 0
+        soundDistance: 10
     cardboardDropDown:
       mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
       clips:
@@ -798,6 +805,7 @@ MonoBehaviour:
       aIPerceivedSoundData:
         isAiPerceived: 0
         soundType: 0
+        soundDistance: 10
     standartDropDown:
       mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
       clips:
@@ -810,6 +818,7 @@ MonoBehaviour:
       aIPerceivedSoundData:
         isAiPerceived: 0
         soundType: 0
+        soundDistance: 10
     plasticDropDown:
       mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
       clips:
@@ -822,6 +831,7 @@ MonoBehaviour:
       aIPerceivedSoundData:
         isAiPerceived: 0
         soundType: 0
+        soundDistance: 10
     ragDropDown:
       mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
       clips:
@@ -834,6 +844,7 @@ MonoBehaviour:
       aIPerceivedSoundData:
         isAiPerceived: 0
         soundType: 0
+        soundDistance: 10
     woodDropDown:
       mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
       clips:
@@ -846,6 +857,7 @@ MonoBehaviour:
       aIPerceivedSoundData:
         isAiPerceived: 0
         soundType: 0
+        soundDistance: 10
 --- !u!114 &525860335533576130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -873,6 +885,7 @@ MonoBehaviour:
     aIPerceivedSoundData:
       isAiPerceived: 0
       soundType: 0
+      soundDistance: 10
   nightMusic:
     mixerGroup: {fileID: -6528212505855835555, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -889,6 +902,7 @@ MonoBehaviour:
     aIPerceivedSoundData:
       isAiPerceived: 0
       soundType: 0
+      soundDistance: 10
   scaryAmbience:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -903,6 +917,7 @@ MonoBehaviour:
     aIPerceivedSoundData:
       isAiPerceived: 0
       soundType: 0
+      soundDistance: 10
   mixerGroup: {fileID: -6528212505855835555, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
   soundPlayer: {fileID: 7202224384338430323}
 --- !u!114 &7202224384338430323
@@ -1051,22 +1066,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5784362396252738982, guid: a37446fe62139b94e8c09bbc11c87ce2, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5784362396252738982, guid: a37446fe62139b94e8c09bbc11c87ce2, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5784362396252738982, guid: a37446fe62139b94e8c09bbc11c87ce2, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5784362396252738982, guid: a37446fe62139b94e8c09bbc11c87ce2, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6091467142521843952, guid: a37446fe62139b94e8c09bbc11c87ce2, type: 3}
       propertyPath: playerInventory
       value: 
@@ -1074,54 +1073,6 @@ PrefabInstance:
     - target: {fileID: 6434058211309785965, guid: a37446fe62139b94e8c09bbc11c87ce2, type: 3}
       propertyPath: m_Name
       value: Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 6517676651644270689, guid: a37446fe62139b94e8c09bbc11c87ce2, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6517676651644270689, guid: a37446fe62139b94e8c09bbc11c87ce2, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6517676651644270689, guid: a37446fe62139b94e8c09bbc11c87ce2, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6517676651644270689, guid: a37446fe62139b94e8c09bbc11c87ce2, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8017685426824027794, guid: a37446fe62139b94e8c09bbc11c87ce2, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8017685426824027794, guid: a37446fe62139b94e8c09bbc11c87ce2, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8017685426824027794, guid: a37446fe62139b94e8c09bbc11c87ce2, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8017685426824027794, guid: a37446fe62139b94e8c09bbc11c87ce2, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8207257809189546471, guid: a37446fe62139b94e8c09bbc11c87ce2, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8207257809189546471, guid: a37446fe62139b94e8c09bbc11c87ce2, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8207257809189546471, guid: a37446fe62139b94e8c09bbc11c87ce2, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8207257809189546471, guid: a37446fe62139b94e8c09bbc11c87ce2, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

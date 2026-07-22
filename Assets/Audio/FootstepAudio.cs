@@ -41,8 +41,14 @@ public class FootstepAudio : MonoBehaviour
     IEnumerator ReturnToPool()
     {
         yield return null;
-        walkSound.DestroySound();
-        walkSound = null;
+
+        if (walkSound != null) 
+        {
+
+            walkSound?.DestroySound();
+            walkSound = null;
+        }
+
     }
 
     private void FixedUpdate()

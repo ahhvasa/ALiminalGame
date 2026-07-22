@@ -66,6 +66,10 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
+      soundDistance: 10
   closeSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -77,6 +81,10 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
+      soundDistance: 10
   monsterTryToOpenSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -88,6 +96,10 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
+      soundDistance: 10
   creakSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -99,6 +111,10 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
+      soundDistance: 10
   breakSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -109,6 +125,10 @@ MonoBehaviour:
       minimumInterval: 0
       maximumInterval: 0
     removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
+      soundDistance: 10
 --- !u!114 &6112607935231658487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,6 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc30803b067cad24f9859fd8f3abf016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  perceivableObject: {fileID: 0}
   playingSounds: []
 --- !u!1 &3199499896710916038
 GameObject:
