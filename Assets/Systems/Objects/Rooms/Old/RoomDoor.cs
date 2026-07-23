@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,8 @@ public class RoomDoor : MonoBehaviour, IPlayerInteractableObject
 {
     public MeshRenderer meshRenderer;
     public Animator animator;
+
+    public Action<bool> OnOpen;
 
     public void Awake()
     {
@@ -68,6 +71,7 @@ public class RoomDoor : MonoBehaviour, IPlayerInteractableObject
             autoCloseCoroutine = StartCoroutine(AutoClose());
         }
 
+        OnOpen?.Invoke(open);
     }
 
     private IEnumerator AutoClose()

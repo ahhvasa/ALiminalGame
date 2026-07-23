@@ -1,26 +1,39 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class CreatureAI : MonoBehaviour
+public class NestCreatureAI : CreatureAI
 {
-    public Creature creature;
+    [SerializeField] private float _hunger;
+    public float Hunger
+    {
+        get { return _hunger; }
+        set
+        {
+            _hunger = value;
+            if (_hunger <= 0) { _hunger = 0; }
 
+            if (_hunger > maximumHunger)
+            {
+                soundProvider.enabled = true;
+                creatureTaskRegister.RemoveTask(stayInRoomTask);
+            }
+            else
+            {
+                soundProvider.enabled = false;
+                creatureTaskRegister.AddTask(stayInRoomTask);
+            }
+        }
+    }
+    public float maximumHunger;
+    public float saturationPerItem = 75;
 
-    public CreatureVisionSenseProvider creatureVision;
+    public CreatureTask stayInRoomTask;
 
-    public CreatureMemory creatureMemory;
+    public void FixedUpdate()
+    {
+        Hunger += 1 * Time.deltaTime;
+    }
 
-    public CreatureTaskRegister creatureTaskRegister;
-
-
-    protected CreatureVisionSenseProvider visionProvider;
-    protected CreatureSoundSenseProvider soundProvider;
-    protected CreatureSmellSenseProvider smellProvider;
-
-    public Action OnFixedUpdate;
-
-    public void Start()
+    new public void Start()
     {
         creatureMemory.TryGetProvider<CreatureVisionSenseProvider>(out visionProvider);
         creatureMemory.TryGetProvider<CreatureSoundSenseProvider>(out soundProvider);
@@ -33,6 +46,11 @@ public class CreatureAI : MonoBehaviour
         BeScared();
         EatFood();
 
+        stayInRoomTask = new CreatureTask(20, new CreatureState_Explore(creature, creature.transform.position));
+        creatureTaskRegister.AddTask(stayInRoomTask);
+
+        creature.OnEatObject += () => { _hunger -= saturationPerItem; };
+        Hunger = 0;
 
         void EatFood()
         {
@@ -72,8 +90,6 @@ public class CreatureAI : MonoBehaviour
 
         }
 
-
-
         void BeScared()
         {
             new CreatureBehaviourBuilder().Build<VisibleObject, VisionSense>(
@@ -82,7 +98,7 @@ public class CreatureAI : MonoBehaviour
                 runFromObjectTasks,
                 validateObject: (VisibleObject visibleObject) =>
                 {
-                    if (creature.perceivableObject== visibleObject.PerceivableObject) { return false; }
+                    if (creature.perceivableObject == visibleObject.PerceivableObject) { return false; }
 
                     if (visibleObject.PerceivableObject.TryGetComponent<ScaryFlag>(out ScaryFlag scaryFlag))
                     {
@@ -234,95 +250,10 @@ public class CreatureAI : MonoBehaviour
 
         }
 
-    }
-
-
-    public CreatureTask wanderTask;
-
-    public Dictionary<PerceivableObject, CreatureTask> runFromObjectTasks = new();
-    public Dictionary<PerceivableObject, CreatureTask> eatObjectTasks = new();
-
-    public Dictionary<PerceivableObject, CreatureTask> playerChaseTasks = new();
-    public Dictionary<PerceivableObject, CreatureTask> soundExploreTasks = new();
-    public Dictionary<PerceivableObject, CreatureTask> smellExploreTasks = new();
-
-    public void FixedUpdate()
-    {
-        OnFixedUpdate?.Invoke();
-    }
-
-
-
-}
-
-
-
-
-
-
-public class CreatureBehaviourBuilder
-{
-    private Action fixedUpdateAction;
-
-    public void Build<TObject, TSense>(
-        CreatureSenseProvider<TObject, TSense> creatureSenseProvider,
-        CreatureAI creatureAI,
-        Dictionary<PerceivableObject, CreatureTask> taskDictionary,
-
-        Func<TObject, bool> validateObject,
-        Func<TObject, CreatureTask> createAction,
-        Action<TObject, CreatureTask> onDetect,
-        Action<TObject, CreatureTask> onLost,
-        Action<TObject, CreatureTask> onFixedUpdate,
-
-        bool removeTaskOnLose = true
-        )
-        where TObject : UnityEngine.Object, IPercivableObject
-        where TSense : CreatureSense
-    {
-        creatureSenseProvider.OnDetectObject += (TObject obj) =>
-        {
-            if (validateObject(obj) == false) { return; }
-
-            var key = obj.PerceivableObject;
-
-            if (taskDictionary.ContainsKey(key) == false)
-            {
-                taskDictionary[key] = createAction(obj);
-            }
-            CreatureTask task = taskDictionary[key];
-
-            onDetect.Invoke(obj, task);
-            creatureAI.creatureTaskRegister.AddTask(task);
-
-            fixedUpdateAction = () =>
-            {
-                onFixedUpdate(obj, task);
-            };
-
-            creatureAI.OnFixedUpdate += fixedUpdateAction;
-        };
-
-        creatureSenseProvider.OnLoseObject += (TObject obj) =>
-        {
-            if (validateObject(obj) == false) { return; }
-
-
-            var key = obj.PerceivableObject;
-
-            if (obj.PerceivableObject == null) { return; }
-
-            var task = taskDictionary[key];
-
-            onLost.Invoke(obj, task);
-
-            creatureAI.OnFixedUpdate -= fixedUpdateAction;
-
-            if (removeTaskOnLose)
-            {
-                creatureAI.creatureTaskRegister.RemoveTask(task);
-            }
-        };
 
     }
+
+
+
+
 }
