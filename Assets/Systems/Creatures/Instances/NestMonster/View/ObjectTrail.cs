@@ -28,6 +28,9 @@ public class ObjectTrail : MonoBehaviour
         points.Add(target.position);
     }
 
+    public float timer = 0;
+    public float maxTimer = 1;
+
     private void Update()
     {
         Vector3 currentPosition = target.position;
@@ -36,10 +39,17 @@ public class ObjectTrail : MonoBehaviour
         {
             AddPoint(currentPosition);
         }
+
+        timer += Time.deltaTime;
+        if (timer > maxTimer)
+        {
+            AddPoint(currentPosition);
+        }
     }
 
     public void AddPoint(Vector3 point)
     {
+        timer = 0;
         points.Add(point);
 
         while (points.Count >= maximumPoints)

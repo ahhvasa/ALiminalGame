@@ -182,8 +182,11 @@ MonoBehaviour:
   creatureVision: {fileID: 1572960960614919942}
   creatureMemory: {fileID: 7970890247008030084}
   creatureTaskRegister: {fileID: 5227233340017217764}
+  _hunger: 0
   maximumHunger: 60
   saturationPerItem: 75
+  minSpeedToLookDown: 0.5
+  lookDownAngle: {x: 0, y: 180, z: 0}
 --- !u!114 &6816530661507420879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,7 +203,7 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   wanderSpeed: 4
   explorationSpeed: 8
-  chaseSpeed: 12
+  chaseSpeed: 8
   canChangeSpeed: 1
   savedSpeed: 0
 --- !u!114 &5227233340017217764

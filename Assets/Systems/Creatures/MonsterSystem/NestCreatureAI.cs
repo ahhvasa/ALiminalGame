@@ -13,24 +13,51 @@ public class NestCreatureAI : CreatureAI
 
             if (_hunger > maximumHunger)
             {
-                soundProvider.enabled = true;
-                creatureTaskRegister.RemoveTask(stayInRoomTask);
+                HungerMode(true);
             }
             else
             {
-                soundProvider.enabled = false;
-                creatureTaskRegister.AddTask(stayInRoomTask);
+                HungerMode(false);
             }
         }
     }
+
+    public void HungerMode(bool on)
+    {
+        if (on)
+        {
+            soundProvider.enabled = true;
+            creatureTaskRegister.RemoveTask(stayInRoomTask);
+        }
+        else
+        {
+            soundProvider.enabled = false;
+            creatureTaskRegister.AddTask(stayInRoomTask);
+        }
+    }
+
+
     public float maximumHunger;
     public float saturationPerItem = 75;
 
     public CreatureTask stayInRoomTask;
+    private Vector3 lastPosition;
+
+    public float minSpeedToLookDown = 1f;
+    public Vector3 lookDownAngle;
 
     public void FixedUpdate()
     {
         Hunger += 1 * Time.deltaTime;
+
+        float velocity = ((transform.position - lastPosition) / Time.deltaTime).magnitude;
+
+        lastPosition = transform.position;
+
+        if (velocity < minSpeedToLookDown)
+        {
+            creature.transform.rotation = Quaternion.Euler(lookDownAngle);
+        }
     }
 
     new public void Start()
