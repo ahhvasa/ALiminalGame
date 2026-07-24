@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 1218084161766518720}
   - component: {fileID: 4987324369107448915}
   - component: {fileID: 251468449488093067}
+  - component: {fileID: 663062096071967449}
   m_Layer: 11
   m_Name: DogMonsterObject
   m_TagString: Untagged
@@ -194,6 +195,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 9189491924636068443}
   currentTarget: {fileID: 0}
+  wanderSpeed: 4
+  explorationSpeed: 8
+  chaseSpeed: 12
 --- !u!114 &5205544256144012057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -318,6 +322,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
+--- !u!114 &663062096071967449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3829444498239040751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c7d608236684d4ba10c0ca777912a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateToTarget: 1
 --- !u!1001 &3008829432601762235
 PrefabInstance:
   m_ObjectHideFlags: 0

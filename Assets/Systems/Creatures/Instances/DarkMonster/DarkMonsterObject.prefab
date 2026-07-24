@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5712014697880967176}
   - component: {fileID: 260889561709671961}
   - component: {fileID: 871919189128421948}
+  - component: {fileID: 4722888685422285424}
   - component: {fileID: 3439476491918335907}
   - component: {fileID: 7875546342787050413}
   - component: {fileID: 3969319391307795748}
@@ -26,6 +27,7 @@ GameObject:
   - component: {fileID: 7167917249134012327}
   - component: {fileID: 8134462919668463596}
   - component: {fileID: 1177809800455660117}
+  - component: {fileID: 7033225450955980838}
   m_Layer: 11
   m_Name: DarkMonsterObject
   m_TagString: Untagged
@@ -41,7 +43,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5096637368358986888}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -100,6 +102,19 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &4722888685422285424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5096637368358986888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c7d608236684d4ba10c0ca777912a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateToTarget: 1
 --- !u!54 &3439476491918335907
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -194,6 +209,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 871919189128421948}
   currentTarget: {fileID: 0}
+  wanderSpeed: 4
+  explorationSpeed: 8
+  chaseSpeed: 12
+  canChangeSpeed: 1
+  savedSpeed: 0
 --- !u!114 &4297490941818813310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,7 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edfe347a7056dc34f9afb511e2c5c3a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hearingDistance: 2
+  hearingDistanceMultiplier: 1
 --- !u!114 &8030084626153769242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,7 +267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d01cc435d891c9647922d698733107c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smellDistance: 50
+  smellDistanceMultiplier: 1
 --- !u!114 &2141275031011173918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -318,6 +338,21 @@ MonoBehaviour:
   setZeroPosition: 0
   children:
   - {fileID: 0}
+--- !u!114 &7033225450955980838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5096637368358986888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc6564b2da107574aada8a92e752b669, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  creature: {fileID: 3969319391307795748}
+  targetLayer: 7
+  doorOpeningTime: 0.75
 --- !u!1001 &6512079410859839964
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -336,7 +371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2470447875600392718, guid: 1c2d8e527a97169498d64dcc050e4722, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5274147582711814291, guid: 1c2d8e527a97169498d64dcc050e4722, type: 3}
       propertyPath: m_LocalPosition.x

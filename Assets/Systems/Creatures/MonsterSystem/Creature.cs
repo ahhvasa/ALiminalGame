@@ -2,6 +2,7 @@ using MyLibrary.StateMachine;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using System;
 
 public class Creature : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class Creature : MonoBehaviour
 
     public CreatureTaskRegister taskRegister;
     public CreatureViewAnimation creatureViewAnimation;
+
+    public Action OnEatObject;
 
     public void SurpriseSound()
     {

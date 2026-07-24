@@ -184,8 +184,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4958665994894265138}
+  - component: {fileID: 8626609160542081760}
   m_Layer: 0
-  m_Name: Dweller
+  m_Name: NestMonsterView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -207,6 +208,27 @@ Transform:
   - {fileID: 3989301427139524014}
   m_Father: {fileID: 1290443135686714104}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &8626609160542081760
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3631842035357078226}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bac6ee7c5d1ec9842aac0168b9f6de16, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4697936904089292909
 GameObject:
   m_ObjectHideFlags: 0
@@ -435,6 +457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ccdb47a74931ef469e45de58dcd5ad5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  setZeroPosition: 0
   children: []
 --- !u!114 &512719135764901726
 MonoBehaviour:

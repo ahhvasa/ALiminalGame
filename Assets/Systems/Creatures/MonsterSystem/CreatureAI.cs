@@ -14,9 +14,9 @@ public class CreatureAI : MonoBehaviour
     public CreatureTaskRegister creatureTaskRegister;
 
 
-    CreatureVisionSenseProvider visionProvider;
-    CreatureSoundSenseProvider soundProvider;
-    CreatureSmellSenseProvider smellProvider;
+    protected CreatureVisionSenseProvider visionProvider;
+    protected CreatureSoundSenseProvider soundProvider;
+    protected CreatureSmellSenseProvider smellProvider;
 
     public Action OnFixedUpdate;
 
@@ -254,6 +254,11 @@ public class CreatureAI : MonoBehaviour
 
 
 }
+
+
+
+
+
 
 public class CreatureBehaviourBuilder
 {
