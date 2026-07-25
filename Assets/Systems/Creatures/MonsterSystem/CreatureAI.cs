@@ -86,7 +86,7 @@ public class CreatureAI : MonoBehaviour
 
                     if (visibleObject.PerceivableObject.TryGetComponent<ScaryFlag>(out ScaryFlag scaryFlag))
                     {
-                        return creature.scaryFlag.scaryMeter <= scaryFlag.scaryMeter;
+                        return creature.scaryFlag.scaryMeter < scaryFlag.scaryMeter;
                     }
                     return false;
                 },

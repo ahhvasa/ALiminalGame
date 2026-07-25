@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 273161381861350518}
   - component: {fileID: 685876015697928484}
   - component: {fileID: 5222168164889421031}
+  - component: {fileID: 6101620480280881449}
   m_Layer: 11
   m_Name: NestMonsterObject
   m_TagString: Untagged
@@ -182,6 +183,15 @@ MonoBehaviour:
   creatureVision: {fileID: 1572960960614919942}
   creatureMemory: {fileID: 7970890247008030084}
   creatureTaskRegister: {fileID: 5227233340017217764}
+  creatureDoorOpen: {fileID: 6101620480280881449}
+  wanderSpeed_calm: 4
+  exploreSpeed_calm: 4
+  chaseSpeed_calm: 10
+  doorOpenTime_calm: 3
+  wanderSpeed_hungry: 4
+  exploreSpeed_hungry: 8
+  chaseSpeed_hungry: 12
+  doorOpenTime_hungry: 0.75
   _hunger: 0
   maximumHunger: 60
   saturationPerItem: 75
@@ -358,6 +368,21 @@ MonoBehaviour:
   setZeroPosition: 0
   children:
   - {fileID: 0}
+--- !u!114 &6101620480280881449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3860702637093244690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc6564b2da107574aada8a92e752b669, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  creature: {fileID: 4917023480167737022}
+  targetLayer: 7
+  doorOpeningTime: 0.75
 --- !u!1001 &2987735389268097606
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -53,7 +53,11 @@ public class CreatureTaskRegister : MonoBehaviour
     public void FixedUpdate()
     {
         creature.ExecuteTask(GetPriorityTask());
+
+        #if UNITY_EDITOR
         taskLog = CreatureTask.PrintList(tasks);
+        #endif
+
     }
 
     public CreatureTask GetPriorityTask()

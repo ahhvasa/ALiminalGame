@@ -47,6 +47,8 @@ public class VisibleObject : MonoBehaviour, IPercivableObject
             }
         }
         perceivableObject.visibleObject = this;
+
+        SetAlpha(0);
     }
     public void ConnectObject(GameObject gameObject)
     {

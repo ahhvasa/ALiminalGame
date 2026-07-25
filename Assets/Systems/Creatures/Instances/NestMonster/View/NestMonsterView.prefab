@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1290443135686714104}
   - component: {fileID: 1172836446364979850}
-  - component: {fileID: 6958956452866303374}
   m_Layer: 0
   m_Name: NestMonsterView
   m_TagString: Untagged
@@ -35,6 +34,7 @@ Transform:
   - {fileID: 1526682508853776569}
   - {fileID: 501243481671898101}
   - {fileID: 8754165140403366193}
+  - {fileID: 1043688535405281811}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1172836446364979850
@@ -50,19 +50,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
---- !u!114 &6958956452866303374
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 134566366407697630}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bfc20864ab72734b8accfd76a334b77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  visibleObject: {fileID: 0}
 --- !u!1 &2411527241589472916
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,6 +191,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1043688535405281811}
   - component: {fileID: 5916295209359844638}
+  - component: {fileID: 7584952248831029236}
+  - component: {fileID: 4663563452467104097}
+  - component: {fileID: 8885643980669941671}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -220,13 +210,13 @@ Transform:
   m_GameObject: {fileID: 3461727860356495399}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.65, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 0, y: 2.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4833869426089636248}
   - {fileID: 807861414386150689}
-  m_Father: {fileID: 3989301427139524014}
+  m_Father: {fileID: 1290443135686714104}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5916295209359844638
 MonoBehaviour:
@@ -240,8 +230,76 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bee0a40dc63bffe438b5ff22a9613a5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maximumDistance: 3
   position: {x: 0, y: 0, z: 0}
   speed: 10
+--- !u!135 &7584952248831029236
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3461727860356495399}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &4663563452467104097
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3461727860356495399}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &8885643980669941671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3461727860356495399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ce4dfd559aa1e04f8498640b25bd5e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  perceivableObject: {fileID: 0}
+  AIIgnore: 0
+  fadeDuration: 0.3
+  meshRenderers: []
+  spriteRenderers: []
+  lightSources: []
+  connectedObjects: []
 --- !u!1 &3631842035357078226
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,6 +310,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4958665994894265138}
   - component: {fileID: 8626609160542081760}
+  - component: {fileID: 7198792789241096872}
   m_Layer: 0
   m_Name: NestMonsterView
   m_TagString: Untagged
@@ -296,6 +355,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7198792789241096872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3631842035357078226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bfc20864ab72734b8accfd76a334b77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visibleObject: {fileID: 0}
 --- !u!1 &4193426087385670611
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,7 +440,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 11
   m_Sprite: {fileID: 1482876619, guid: 82e73c393033a1443a3582f318e35721, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -684,7 +756,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 11
   m_Sprite: {fileID: -2014888657, guid: 82e73c393033a1443a3582f318e35721, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -800,7 +872,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -2
+  m_SortingOrder: 8
   m_Sprite: {fileID: 21300000, guid: 8aa7bbcde143f314c8eb55781bc8b832, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -896,7 +968,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 11
   m_Sprite: {fileID: 1482876619, guid: 82e73c393033a1443a3582f318e35721, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -939,7 +1011,6 @@ Transform:
   m_Children:
   - {fileID: 8110495784123585774}
   - {fileID: 4431379207983667887}
-  - {fileID: 1043688535405281811}
   m_Father: {fileID: 4958665994894265138}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4827517840186805724

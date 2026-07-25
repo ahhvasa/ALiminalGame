@@ -40,7 +40,12 @@ public class CreatureMemory : MonoBehaviour
         }
 
         UpdateSenses();
+
+
+        #if UNITY_EDITOR
         memoryLog = senses.ListToText<CreatureSense>();
+        #endif
+
         SenseTimer();
     }
 
