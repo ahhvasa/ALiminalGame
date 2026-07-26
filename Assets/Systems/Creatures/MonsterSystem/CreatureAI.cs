@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject.SpaceFighter;
 
 public class CreatureAI : MonoBehaviour
 {
     public Creature creature;
 
-
+    public LayerMask playerRaycastCheckLayerMask;
     public CreatureVisionSenseProvider creatureVision;
 
     public CreatureMemory creatureMemory;

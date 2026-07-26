@@ -95,7 +95,7 @@ TextMesh:
   m_Alignment: 1
   m_TabSize: 1
   m_FontSize: 50
-  m_FontStyle: 0
+  m_FontStyle: 1
   m_RichText: 1
   m_Font: {fileID: 0}
   m_Color:
@@ -225,4 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b96daa37e696f244bec7477c9bbfe19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  minDistance: 7
+  maxDistance: 8
   textMesh: {fileID: 6446963549090546762}

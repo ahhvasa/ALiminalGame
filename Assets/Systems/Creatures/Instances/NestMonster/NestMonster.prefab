@@ -236,6 +236,22 @@ PrefabInstance:
       propertyPath: soundPlayer
       value: 
       objectReference: {fileID: 4246187489263550455}
+    - target: {fileID: 2004340206780223640, guid: aeedd3732108467459124319078bd47f, type: 3}
+      propertyPath: maximumHunger
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2004340206780223640, guid: aeedd3732108467459124319078bd47f, type: 3}
+      propertyPath: chaseSpeed_calm
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2004340206780223640, guid: aeedd3732108467459124319078bd47f, type: 3}
+      propertyPath: saturationPerItem
+      value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667711568385712668, guid: aeedd3732108467459124319078bd47f, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 3019156631881117189}
     - target: {fileID: 3860702637093244690, guid: aeedd3732108467459124319078bd47f, type: 3}
       propertyPath: m_Name
       value: NestMonsterObject
@@ -248,6 +264,10 @@ PrefabInstance:
       propertyPath: children.Array.data[0]
       value: 
       objectReference: {fileID: 2542043128083988105}
+    - target: {fileID: 7156627294449655965, guid: aeedd3732108467459124319078bd47f, type: 3}
+      propertyPath: scaryMeter
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7627839714895168188, guid: aeedd3732108467459124319078bd47f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

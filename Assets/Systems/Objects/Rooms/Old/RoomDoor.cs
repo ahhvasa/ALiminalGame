@@ -10,6 +10,8 @@ public class RoomDoor : MonoBehaviour, IPlayerInteractableObject
 
     public Action<bool> OnOpen;
 
+    public bool active = true;
+
     public void Awake()
     {
         forwardPoint = transform.position + transform.forward * 1;
@@ -47,6 +49,8 @@ public class RoomDoor : MonoBehaviour, IPlayerInteractableObject
     }
     public void Open(bool open)
     {
+        if (active == false) { return; }
+
         if (IsOpen == open) { return; }
         IsOpen = open;
         

@@ -16,6 +16,7 @@ public class CreatureSoundSenseProvider : CreatureSenseProvider<Sound, SoundSens
 
     public override SoundSense GetSense(Sound obj)
     {
+        if (obj == null) return null;
         return new SoundSense(obj);
     }
 
@@ -105,7 +106,11 @@ public abstract class CreatureSenseProvider<TObject, TSense> : MonoBehaviour
     {
         foreach (TObject obj in currentObjects)
         {
-            creatureSenses.Add(GetSense(obj));
+            if (obj == null) { continue; }
+            if (obj.PerceivableObject == null) { continue; }
+            TSense sense = GetSense(obj);
+            if (sense == null) { continue; }
+            creatureSenses.Add(sense);
         }
     }
 

@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 815229219532640259}
   - component: {fileID: 6979068212297007377}
   - component: {fileID: 1367437736871121277}
+  - component: {fileID: 2018800741294904030}
+  - component: {fileID: 3640011685750096959}
   m_Layer: 11
   m_Name: MonsterSound
   m_TagString: Untagged
@@ -69,6 +71,7 @@ MonoBehaviour:
     aIPerceivedSoundData:
       isAiPerceived: 0
       soundType: 0
+      soundDistance: 10
   surpriseSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -81,6 +84,7 @@ MonoBehaviour:
     aIPerceivedSoundData:
       isAiPerceived: 0
       soundType: 0
+      soundDistance: 10
 --- !u!114 &1367437736871121277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,3 +99,93 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   perceivableObject: {fileID: 0}
   playingSounds: []
+--- !u!114 &2018800741294904030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649448455170574732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e3b02c1d3e3d6849ad9242f722ed5af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSoundData:
+    mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
+    clips:
+    - {fileID: 8300000, guid: 948ebcb35277168478fea5bf414c5c2d, type: 3}
+    loopPlayInterval:
+      looped: 1
+      minimumInterval: 0
+      maximumInterval: 0
+    removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
+      soundDistance: 10
+  runSoundData:
+    mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
+    clips:
+    - {fileID: 8300000, guid: 948ebcb35277168478fea5bf414c5c2d, type: 3}
+    loopPlayInterval:
+      looped: 1
+      minimumInterval: 0
+      maximumInterval: 0
+    removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
+      soundDistance: 10
+  soundPlayer: {fileID: 1367437736871121277}
+  moveThreshold: 0.05
+  maxSpeed: 6
+  minPitch: 0.8
+  maxPitch: 1.3
+--- !u!114 &3640011685750096959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649448455170574732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e3b02c1d3e3d6849ad9242f722ed5af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSoundData:
+    mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
+    clips:
+    - {fileID: 8300000, guid: 335160360e8a8d94d9109c651d878e17, type: 3}
+    - {fileID: 8300000, guid: e739d8133bb5c53418352013faff2635, type: 3}
+    - {fileID: 8300000, guid: 8d380536500bc794fad73e35441d5be4, type: 3}
+    loopPlayInterval:
+      looped: 1
+      minimumInterval: 0
+      maximumInterval: 0
+    removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
+      soundDistance: 10
+  runSoundData:
+    mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
+    clips:
+    - {fileID: 8300000, guid: 335160360e8a8d94d9109c651d878e17, type: 3}
+    - {fileID: 8300000, guid: e739d8133bb5c53418352013faff2635, type: 3}
+    - {fileID: 8300000, guid: 8d380536500bc794fad73e35441d5be4, type: 3}
+    loopPlayInterval:
+      looped: 1
+      minimumInterval: 0
+      maximumInterval: 0
+    removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
+      soundDistance: 10
+  soundPlayer: {fileID: 1367437736871121277}
+  moveThreshold: 0.05
+  maxSpeed: 6
+  minPitch: 0.8
+  maxPitch: 1.3

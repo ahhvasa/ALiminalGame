@@ -10,6 +10,7 @@ public class BoxLadder : MonoBehaviour, IPlayerInteractableObject
     public List<GameObject> boxElements;
     public GameObject ladderObject;
 
+    public SoundData sound;
 
     public Action OnBuild;
 
@@ -26,6 +27,7 @@ public class BoxLadder : MonoBehaviour, IPlayerInteractableObject
 
             if (boxCount >= boxReqiered)
             {
+                SoundManager.PlaySound(sound, attachedPortalDoor.roomDoor.soundPlayer);
                 ladderObject.SetActive(true);
                 OnBuild?.Invoke();
             }

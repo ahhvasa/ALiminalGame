@@ -9,6 +9,11 @@ public class NoteObject : ItemHoldable
 
     public override void Activate(bool activateOrDeactivate)
     {
+        if (on)
+        {
+            Show();
+        }
+
         active = activateOrDeactivate;
     }
 

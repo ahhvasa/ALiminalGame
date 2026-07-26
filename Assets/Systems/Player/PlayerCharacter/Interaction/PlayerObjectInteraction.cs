@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerObjectInteraction : MonoBehaviour
 {
     public Player player;
-    public float maxActivationDistance = 1;
+    float maxActivationDistance = 5;
 
 
     public void Update()
@@ -22,6 +22,8 @@ public class PlayerObjectInteraction : MonoBehaviour
 
         if (SceneSearchService.TryFindNearest<InteractableObjectFlag>(player.transform.position, maxActivationDistance, out InteractableObjectFlag target))
         {
+            if (Vector3.Distance(player.transform.position, target.transform.position) > target.objectActivationDistance) { return; }
+
             if (target.TryGetComponent<IPlayerInteractableObject>(out var interactable))
             {
                 interactable.Interact(player);

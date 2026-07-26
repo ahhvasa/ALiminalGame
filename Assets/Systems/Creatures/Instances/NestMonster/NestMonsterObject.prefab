@@ -24,7 +24,6 @@ GameObject:
   - component: {fileID: 7970890247008030084}
   - component: {fileID: 7156627294449655965}
   - component: {fileID: 1175601112822615101}
-  - component: {fileID: 5008454660613969838}
   - component: {fileID: 273161381861350518}
   - component: {fileID: 685876015697928484}
   - component: {fileID: 5222168164889421031}
@@ -186,7 +185,7 @@ MonoBehaviour:
   creatureDoorOpen: {fileID: 6101620480280881449}
   wanderSpeed_calm: 4
   exploreSpeed_calm: 4
-  chaseSpeed_calm: 10
+  chaseSpeed_calm: 4
   doorOpenTime_calm: 3
   wanderSpeed_hungry: 4
   exploreSpeed_hungry: 8
@@ -312,21 +311,6 @@ MonoBehaviour:
   visibleObject: {fileID: 2189474637496008759}
   objectSmell: {fileID: 0}
   soundPlayer: {fileID: 0}
---- !u!114 &5008454660613969838
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3860702637093244690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ccdb47a74931ef469e45de58dcd5ad5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  setZeroPosition: 0
-  children:
-  - {fileID: 0}
 --- !u!114 &273161381861350518
 MonoBehaviour:
   m_ObjectHideFlags: 0
