@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6499172031009237958}
-  - component: {fileID: 2811243068473600362}
+  - component: {fileID: 4951980969497459717}
+  - component: {fileID: 4612081117198943041}
   m_Layer: 11
   m_Name: DogMonster
   m_TagString: Untagged
@@ -35,7 +36,7 @@ Transform:
   - {fileID: 8849246702013621965}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2811243068473600362
+--- !u!114 &4951980969497459717
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -49,6 +50,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeAtDay: 0
   activeAtNight: 1
+--- !u!114 &4612081117198943041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211346876648517946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2acdfccd76d340645adfd9de0a54e317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  navMeshAgent: {fileID: 5947559858314121130}
 --- !u!1001 &577642363399412938
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -239,6 +253,11 @@ MonoBehaviour:
 --- !u!4 &4927725485323519152 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7596609545992298817, guid: f407dec11b217284092ceba59533b0bf, type: 3}
+  m_PrefabInstance: {fileID: 3246629251439355377}
+  m_PrefabAsset: {fileID: 0}
+--- !u!195 &5947559858314121130 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 9189491924636068443, guid: f407dec11b217284092ceba59533b0bf, type: 3}
   m_PrefabInstance: {fileID: 3246629251439355377}
   m_PrefabAsset: {fileID: 0}
 --- !u!54 &8154662585467040309 stripped
