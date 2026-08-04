@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 
@@ -220,11 +221,36 @@ public class CreatureState_RunFrom : ICreatureState
                 creature.taskRegister.RemoveTask(creatureTask);
             }
         }
+
+
     }
     public void Update()
     {
     }
 
+    public void OnLost()
+    {
+        if (currentWaitAndRemoveTask == null)
+        {
+            currentWaitAndRemoveTask = creature.StartCoroutine(WaitAndRemoveTask());
+        }
+    }
+    public void OnDetect()
+    {
+        if (currentWaitAndRemoveTask != null)
+        {
+            creature.StopCoroutine(currentWaitAndRemoveTask);
+            currentWaitAndRemoveTask = null;
+        }
+    }
+
+    public Coroutine currentWaitAndRemoveTask;
+    public IEnumerator WaitAndRemoveTask()
+    {
+        yield return new WaitForSeconds(5f);
+
+        creature.taskRegister.RemoveTask(creatureTask);
+    }
 
     void Initialize()
     {

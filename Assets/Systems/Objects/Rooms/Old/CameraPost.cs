@@ -40,6 +40,9 @@ public class CameraPost : MonoBehaviour, IPlayerInteractableObject
 
     public void TakeItem(Player player)
     {
+        if (player.playerInventory.CurrentItem is Item_CCTVCamera == false
+            && player.playerInventory.CurrentItem is Item_Flashlight == false) { return; }
+
         animator.enabled = true;
         currentItem = player.playerInventory.TakeItem();
 
@@ -50,6 +53,10 @@ public class CameraPost : MonoBehaviour, IPlayerInteractableObject
         if (currentItem is Item_CCTVCamera)
         {
             (currentItem as Item_CCTVCamera).Working = true;
+        }
+        if (currentItem is Item_Flashlight)
+        {
+            (currentItem as Item_Flashlight).Turn(true);
         }
     }
 }

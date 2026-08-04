@@ -116,7 +116,7 @@ public class PlayerInventory : MonoBehaviour
         }
         if (InputProvider.MouseScroll(out bool forwardOrBackward))
         {
-            CurrentID += forwardOrBackward ? 1 : -1;
+            CurrentID += forwardOrBackward ? -1 : 1;
         }
         if (InputProvider.SelectItem_1())
         {

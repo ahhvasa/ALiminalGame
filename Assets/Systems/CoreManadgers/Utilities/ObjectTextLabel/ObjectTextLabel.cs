@@ -17,11 +17,31 @@ public class ObjectTextLabel : MonoBehaviour
         }
         get { return text; }
     }
-    void Start()
+
+    private void Start()
     {
         textItem = ObjectTextManadger.Instance.Get();
         textItem.transform.position = transform.position;
         textItem.transform.SetParent(transform);
         Text = text;
+    }
+
+    private void OnEnable()
+    {
+        if (ObjectTextManadger.Instance == null) { return; }
+        if (textItem != null) { return; }
+
+        textItem = ObjectTextManadger.Instance.Get();
+        textItem.transform.position = transform.position;
+        textItem.transform.SetParent(transform);
+        Text = text;
+    }
+
+    private void OnDisable()
+    {
+        if (textItem == null) { return; }
+
+        ObjectTextManadger.Instance.Return(textItem);
+        textItem = null;
     }
 }

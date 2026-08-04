@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using Zenject.SpaceFighter;
 
@@ -33,7 +34,7 @@ public class CreatureAI : MonoBehaviour
         ChasePlayer();
         BeScared();
         EatFood();
-
+        ExploreLastSeenPlayerPosition();
 
         void EatFood()
         {
@@ -52,7 +53,7 @@ public class CreatureAI : MonoBehaviour
                 createAction: (VisibleObject visibleObject) =>
                 {
                     var state = new CreatureState_EatObject(creature, visibleObject.gameObject);
-                    var task = new CreatureTask(60, state);
+                    var task = new CreatureTask(70, state);
                     state.SetParentTask(task);
                     return task;
                 },
@@ -102,10 +103,12 @@ public class CreatureAI : MonoBehaviour
                 {
                     creature.SurpriseSound();
                     (task.state as CreatureState_RunFrom).runFromPoint = visibleObject.perceivableObject.transform.position;
+
+                    (task.state as CreatureState_RunFrom).OnDetect();
                 },
                 onLost: (VisibleObject visibleObject, CreatureTask task) =>
                 {
-
+                    (task.state as CreatureState_RunFrom).OnLost();
                 },
                 onFixedUpdate: (VisibleObject visibleObject, CreatureTask task) =>
                 {
@@ -203,6 +206,10 @@ public class CreatureAI : MonoBehaviour
 
         }
 
+
+
+
+
         void ChasePlayer()
         {
             new CreatureBehaviourBuilder().Build<VisibleObject, VisionSense>(
@@ -235,6 +242,47 @@ public class CreatureAI : MonoBehaviour
 
         }
 
+
+        void ExploreLastSeenPlayerPosition()
+        {
+            new CreatureBehaviourBuilder().Build<VisibleObject, VisionSense>(
+                visionProvider,
+                this,
+                playerPositionExploreTasks,
+                validateObject: (VisibleObject visibleObject) =>
+                {
+                    return visibleObject.PerceivableObject.TryGetComponent<Player>(out Player player);
+                },
+                createAction: (VisibleObject visibleObject) =>
+                {
+                    var state = new CreatureState_Explore(creature, visibleObject.PerceivableObject.transform.position);
+                    var task = new CreatureTask(60, state);
+                    state.SetParentTask(task);
+                    return task;
+                },
+                onDetect: (VisibleObject visibleObject, CreatureTask task) =>
+                {
+                    (task.state as CreatureState_Explore).lost = false;
+                    (task.state as CreatureState_Explore).point = visibleObject.PerceivableObject.transform.position;
+                },
+                onLost: (VisibleObject visibleObject, CreatureTask task) =>
+                {
+                    (task.state as CreatureState_Explore).lost = true;
+                },
+                onFixedUpdate: (VisibleObject visibleObject, CreatureTask task) =>
+                {
+                    if ((task.state as CreatureState_Explore).lost == true) { return; }
+
+                    if (visibleObject.PerceivableObject == null) { return; }
+
+                    (task.state as CreatureState_Explore).point = visibleObject.PerceivableObject.transform.position;
+                },
+                removeTaskOnLose: false
+                );
+
+        }
+
+
     }
 
 
@@ -246,6 +294,7 @@ public class CreatureAI : MonoBehaviour
     public Dictionary<PerceivableObject, CreatureTask> playerChaseTasks = new();
     public Dictionary<PerceivableObject, CreatureTask> soundExploreTasks = new();
     public Dictionary<PerceivableObject, CreatureTask> smellExploreTasks = new();
+    public Dictionary<PerceivableObject, CreatureTask> playerPositionExploreTasks = new();
 
     public void FixedUpdate()
     {

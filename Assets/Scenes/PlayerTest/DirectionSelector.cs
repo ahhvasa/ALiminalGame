@@ -29,7 +29,6 @@ public class DirectionSelector : MonoBehaviour
                 bestIndex = i;
             }
         }
-        Debug.Log("563 " + bestIndex);
         for (int i = 0; i < objects.Length; i++)
         {
             if (objects[i] != null)
