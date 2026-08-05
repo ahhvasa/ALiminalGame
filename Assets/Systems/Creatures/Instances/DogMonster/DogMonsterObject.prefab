@@ -179,6 +179,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creature: {fileID: 4939275754327295299}
+  playerRaycastCheckLayerMask:
+    serializedVersion: 2
+    m_Bits: 131328
   creatureVision: {fileID: 1541168149746257147}
   creatureMemory: {fileID: 7937974353815006841}
   creatureTaskRegister: {fileID: 5205544256144012057}
@@ -229,6 +232,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomVision:
     directlyVisibleRooms: []
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 131328
 --- !u!114 &1771460713052369127
 MonoBehaviour:
   m_ObjectHideFlags: 0

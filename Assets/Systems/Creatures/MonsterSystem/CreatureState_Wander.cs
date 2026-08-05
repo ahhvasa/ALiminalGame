@@ -37,6 +37,10 @@ public class CreatureState_Wander : ICreatureState
                 SetRandomDestination();
             }
         }
+        if (Vector3.Distance(creature.transform.position, movement.agent.destination) < 1f)
+        {
+            SetRandomDestination();
+        }
     }
 
 
