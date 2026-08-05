@@ -179,21 +179,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creature: {fileID: 4917023480167737022}
+  playerRaycastCheckLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
   creatureVision: {fileID: 1572960960614919942}
   creatureMemory: {fileID: 7970890247008030084}
   creatureTaskRegister: {fileID: 5227233340017217764}
+  canEatApples: 1
   creatureDoorOpen: {fileID: 6101620480280881449}
   wanderSpeed_calm: 4
   exploreSpeed_calm: 4
-  chaseSpeed_calm: 4
+  chaseSpeed_calm: 12
   doorOpenTime_calm: 3
   wanderSpeed_hungry: 4
   exploreSpeed_hungry: 8
   chaseSpeed_hungry: 12
   doorOpenTime_hungry: 0.75
   _hunger: 0
-  maximumHunger: 60
-  saturationPerItem: 75
+  maximumHunger: 100
+  saturationPerItem: 110
   minSpeedToLookDown: 0.5
   lookDownAngle: {x: 0, y: 180, z: 0}
 --- !u!114 &6816530661507420879
@@ -243,6 +247,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomVision:
     directlyVisibleRooms: []
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 131328
+  maxDistance: 25
 --- !u!114 &1739073140481069850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -295,7 +303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd2be8d39b76514089746e686224287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaryMeter: 10
+  scaryMeter: 20
 --- !u!114 &1175601112822615101
 MonoBehaviour:
   m_ObjectHideFlags: 0

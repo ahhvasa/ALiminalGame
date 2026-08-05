@@ -192,9 +192,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creature: {fileID: 3969319391307795748}
+  playerRaycastCheckLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
   creatureVision: {fileID: 7421188443169735836}
   creatureMemory: {fileID: 2141275031011173918}
   creatureTaskRegister: {fileID: 4297490941818813310}
+  canEatApples: 0
 --- !u!114 &3292187112369748309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,6 +246,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomVision:
     directlyVisibleRooms: []
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 131328
+  maxDistance: 25
 --- !u!114 &7713384095317997696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,7 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd2be8d39b76514089746e686224287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaryMeter: 10
+  scaryMeter: 30
 --- !u!114 &7167917249134012327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -352,7 +360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   creature: {fileID: 3969319391307795748}
   targetLayer: 7
-  doorOpeningTime: 0.75
+  doorOpeningTime: 0.1
 --- !u!1001 &6512079410859839964
 PrefabInstance:
   m_ObjectHideFlags: 0

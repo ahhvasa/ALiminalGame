@@ -22,6 +22,8 @@ public class CreatureAI : MonoBehaviour
 
     public Action OnFixedUpdate;
 
+    public bool canEatApples = false;
+
     public void Start()
     {
         creatureMemory.TryGetProvider<CreatureVisionSenseProvider>(out visionProvider);
@@ -46,7 +48,14 @@ public class CreatureAI : MonoBehaviour
                 {
                     if (visibleObject.PerceivableObject.TryGetComponent<FoodFlag>(out FoodFlag foodFlag))
                     {
-                        return foodFlag.foodType == foodType.meat || foodFlag.foodType == foodType.apple;
+                        if (canEatApples == false)
+                        {
+                            return foodFlag.foodType == foodType.meat;
+                        }
+                        else
+                        {
+                            return foodFlag.foodType == foodType.meat || foodFlag.foodType == foodType.apple;
+                        }
                     }
                     return false;
                 },

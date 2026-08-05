@@ -63,6 +63,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68a79ecf7c2be2a42883c1e5058ba4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectActivationDistance: 2
 --- !u!114 &3028511204047323300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,7 +77,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   perceivableObject: {fileID: 0}
-  AIIgnore: 0
+  AIIgnore: 1
   fadeDuration: 0.3
   meshRenderers: []
   spriteRenderers: []
@@ -273,6 +274,7 @@ MonoBehaviour:
   itemObject: {fileID: 378012185810159021}
   icon: {fileID: 21300000, guid: 794a0d07e3ec24749beb0d63665fe423, type: 3}
   textureType: 3
+  canBeUsedToBuildLadder: 0
 --- !u!1 &8002066986847720764
 GameObject:
   m_ObjectHideFlags: 0
