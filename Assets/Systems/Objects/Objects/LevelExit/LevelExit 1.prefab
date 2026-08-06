@@ -873,6 +873,18 @@ PrefabInstance:
       propertyPath: attachedPortalDoor
       value: 
       objectReference: {fileID: 4988650206880649167}
+    - target: {fileID: 3624761970870690165, guid: dd5d65309705e414a844953d2b9a5d4e, type: 3}
+      propertyPath: m_Size.x
+      value: 2.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 3624761970870690165, guid: dd5d65309705e414a844953d2b9a5d4e, type: 3}
+      propertyPath: m_Size.y
+      value: 2.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 3624761970870690165, guid: dd5d65309705e414a844953d2b9a5d4e, type: 3}
+      propertyPath: m_Size.z
+      value: 3.64
+      objectReference: {fileID: 0}
     - target: {fileID: 6020408391850461414, guid: dd5d65309705e414a844953d2b9a5d4e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -975,6 +987,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4537166018973721902, guid: b9095fb205688be4c82ee8ed9a54a958, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4537166018973721902, guid: b9095fb205688be4c82ee8ed9a54a958, type: 3}
+      propertyPath: singleSoundOnOpen.mixerGroup
+      value: 
+      objectReference: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
+    - target: {fileID: 4537166018973721902, guid: b9095fb205688be4c82ee8ed9a54a958, type: 3}
+      propertyPath: singleSoundOnOpen.clips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4537166018973721902, guid: b9095fb205688be4c82ee8ed9a54a958, type: 3}
+      propertyPath: singleSoundOnOpen.clips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 755594bb40f4238458401e575f165a49, type: 3}
     - target: {fileID: 7223745600989119544, guid: b9095fb205688be4c82ee8ed9a54a958, type: 3}
       propertyPath: m_Name
       value: PortalDoor

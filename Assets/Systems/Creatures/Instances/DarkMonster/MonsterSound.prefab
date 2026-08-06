@@ -60,6 +60,7 @@ MonoBehaviour:
     aIPerceivedSoundData:
       isAiPerceived: 0
       soundType: 0
+      soundDistance: 10
   surpriseSound:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -72,6 +73,7 @@ MonoBehaviour:
     aIPerceivedSoundData:
       isAiPerceived: 0
       soundType: 0
+      soundDistance: 10
 --- !u!114 &7152608914221489995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,7 +89,7 @@ MonoBehaviour:
   walkSoundData:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
-    - {fileID: 8300000, guid: bdfad2ae3153bad409b144e63600715b, type: 3}
+    - {fileID: 8300000, guid: 06f94e7e4cc63f14e8d1703e650d61ce, type: 3}
     loopPlayInterval:
       looped: 1
       minimumInterval: 0
@@ -96,10 +98,11 @@ MonoBehaviour:
     aIPerceivedSoundData:
       isAiPerceived: 0
       soundType: 0
+      soundDistance: 10
   runSoundData:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
-    - {fileID: 8300000, guid: bdfad2ae3153bad409b144e63600715b, type: 3}
+    - {fileID: 8300000, guid: 06f94e7e4cc63f14e8d1703e650d61ce, type: 3}
     loopPlayInterval:
       looped: 1
       minimumInterval: 0
@@ -108,10 +111,11 @@ MonoBehaviour:
     aIPerceivedSoundData:
       isAiPerceived: 0
       soundType: 0
+      soundDistance: 10
   soundPlayer: {fileID: 6818558312663492528}
   moveThreshold: 0.05
   maxSpeed: 1
-  minPitch: 0.4
+  minPitch: 0.7
   maxPitch: 1
 --- !u!114 &6818558312663492528
 MonoBehaviour:

@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 8935231709507924673}
   - component: {fileID: 352036914228731528}
   - component: {fileID: 3034434949863589306}
-  - component: {fileID: 1272492415563434111}
-  m_Layer: 8
+  m_Layer: 18
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,28 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1272492415563434111
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2103403082710353631}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &4148040029783756766
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,7 +97,7 @@ GameObject:
   - component: {fileID: 262285207979988267}
   - component: {fileID: 776741079002340562}
   - component: {fileID: 5818496302187549043}
-  m_Layer: 8
+  m_Layer: 18
   m_Name: Window
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,7 +189,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 3, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &776741079002340562
 Rigidbody:
@@ -254,7 +231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   perceivableObject: {fileID: 0}
-  AIIgnore: 0
+  AIIgnore: 1
   fadeDuration: 0.3
   meshRenderers: []
   spriteRenderers: []

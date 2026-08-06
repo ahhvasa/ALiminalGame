@@ -275,7 +275,7 @@ GameObject:
   - component: {fileID: 1950331157264896087}
   - component: {fileID: 1303917711534733012}
   - component: {fileID: 1183530405275574480}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BlackBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -508,6 +508,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 5561438221904843219}
   animator: {fileID: 7719029617700976730}
+  active: 1
   doorWays: []
   IsOpen: 0
   autoCloseDelay: 99000
@@ -619,6 +620,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68a79ecf7c2be2a42883c1e5058ba4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectActivationDistance: 2
 --- !u!54 &4661097981012391274
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -709,7 +711,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6924635583877627178}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b69f8e9847f96a468244583ad8fc58e, type: 3}
   m_Name: 
@@ -717,6 +719,19 @@ MonoBehaviour:
   player: {fileID: 0}
   maxDistance: 8
   roomDoor: {fileID: 7614480674938847847}
+  portalSound:
+    mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
+    clips:
+    - {fileID: 8300000, guid: d0e539598a6c97746827cd361c4af190, type: 3}
+    loopPlayInterval:
+      looped: 1
+      minimumInterval: 0
+      maximumInterval: 0
+    removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
+      soundDistance: 10
 --- !u!114 &1020556565014708946
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -53,21 +53,15 @@ public class PlayerCCTVCameraControlState : IPlayerState
     }
     public void Update()
     {
-
         if (InputProvider.ActivateItem())
         {
             if (_justEntered) { return; }
             ExitCameraControlState();
         }
 
-
-        if (InputProvider.Interact())
+        if (InputProvider.MouseScroll(out bool forwardOrBackward))
         {
-            CurrentCameraId += 1;
-        }
-        if (InputProvider.Drop())
-        {
-            CurrentCameraId -= 1;
+            CurrentCameraId += forwardOrBackward ? 1 : -1;
         }
     }
 

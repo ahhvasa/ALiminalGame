@@ -24,10 +24,10 @@ GameObject:
   - component: {fileID: 7970890247008030084}
   - component: {fileID: 7156627294449655965}
   - component: {fileID: 1175601112822615101}
-  - component: {fileID: 5008454660613969838}
   - component: {fileID: 273161381861350518}
   - component: {fileID: 685876015697928484}
   - component: {fileID: 5222168164889421031}
+  - component: {fileID: 6101620480280881449}
   m_Layer: 11
   m_Name: NestMonsterObject
   m_TagString: Untagged
@@ -179,11 +179,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creature: {fileID: 4917023480167737022}
+  playerRaycastCheckLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
   creatureVision: {fileID: 1572960960614919942}
   creatureMemory: {fileID: 7970890247008030084}
   creatureTaskRegister: {fileID: 5227233340017217764}
-  maximumHunger: 60
-  saturationPerItem: 75
+  canEatApples: 1
+  creatureDoorOpen: {fileID: 6101620480280881449}
+  wanderSpeed_calm: 4
+  exploreSpeed_calm: 4
+  chaseSpeed_calm: 12
+  doorOpenTime_calm: 3
+  wanderSpeed_hungry: 4
+  exploreSpeed_hungry: 8
+  chaseSpeed_hungry: 12
+  doorOpenTime_hungry: 0.75
+  _hunger: 0
+  maximumHunger: 100
+  saturationPerItem: 110
+  minSpeedToLookDown: 0.5
+  lookDownAngle: {x: 0, y: 180, z: 0}
 --- !u!114 &6816530661507420879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,7 +216,7 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   wanderSpeed: 4
   explorationSpeed: 8
-  chaseSpeed: 12
+  chaseSpeed: 8
   canChangeSpeed: 1
   savedSpeed: 0
 --- !u!114 &5227233340017217764
@@ -231,6 +247,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomVision:
     directlyVisibleRooms: []
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 131328
+  maxDistance: 25
 --- !u!114 &1739073140481069850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,7 +303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd2be8d39b76514089746e686224287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaryMeter: 10
+  scaryMeter: 20
 --- !u!114 &1175601112822615101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,21 +319,6 @@ MonoBehaviour:
   visibleObject: {fileID: 2189474637496008759}
   objectSmell: {fileID: 0}
   soundPlayer: {fileID: 0}
---- !u!114 &5008454660613969838
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3860702637093244690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ccdb47a74931ef469e45de58dcd5ad5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  setZeroPosition: 0
-  children:
-  - {fileID: 0}
 --- !u!114 &273161381861350518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,6 +360,21 @@ MonoBehaviour:
   setZeroPosition: 0
   children:
   - {fileID: 0}
+--- !u!114 &6101620480280881449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3860702637093244690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc6564b2da107574aada8a92e752b669, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  creature: {fileID: 4917023480167737022}
+  targetLayer: 7
+  doorOpeningTime: 0.75
 --- !u!1001 &2987735389268097606
 PrefabInstance:
   m_ObjectHideFlags: 0

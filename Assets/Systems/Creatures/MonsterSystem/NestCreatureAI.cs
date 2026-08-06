@@ -2,6 +2,19 @@ using UnityEngine;
 
 public class NestCreatureAI : CreatureAI
 {
+    public CreatureDoorOpen creatureDoorOpen;
+
+    public float wanderSpeed_calm = 4;
+    public float exploreSpeed_calm = 4;
+    public float chaseSpeed_calm = 10;
+    public float doorOpenTime_calm = 3;
+
+    public float wanderSpeed_hungry = 4;
+    public float exploreSpeed_hungry = 8;
+    public float chaseSpeed_hungry = 12;
+    public float doorOpenTime_hungry = 0.75f;
+
+
     [SerializeField] private float _hunger;
     public float Hunger
     {
@@ -13,24 +26,61 @@ public class NestCreatureAI : CreatureAI
 
             if (_hunger > maximumHunger)
             {
-                soundProvider.enabled = true;
-                creatureTaskRegister.RemoveTask(stayInRoomTask);
+                HungerMode(true);
             }
             else
             {
-                soundProvider.enabled = false;
-                creatureTaskRegister.AddTask(stayInRoomTask);
+                HungerMode(false);
             }
         }
     }
+
+    public void HungerMode(bool on)
+    {
+        if (on)
+        {
+            soundProvider.enabled = true;
+            creatureTaskRegister.RemoveTask(stayInRoomTask);
+
+            creature.movement.wanderSpeed = wanderSpeed_hungry;
+            creature.movement.explorationSpeed = exploreSpeed_hungry;
+            creature.movement.chaseSpeed = chaseSpeed_hungry;
+            creatureDoorOpen.doorOpeningTime = doorOpenTime_hungry;
+        }
+        else
+        {
+            soundProvider.enabled = false;
+            creatureTaskRegister.AddTask(stayInRoomTask);
+
+            creature.movement.wanderSpeed = wanderSpeed_calm;
+            creature.movement.explorationSpeed = exploreSpeed_calm;
+            creature.movement.chaseSpeed = chaseSpeed_calm;
+            creatureDoorOpen.doorOpeningTime = doorOpenTime_calm;
+        }
+    }
+
+
     public float maximumHunger;
     public float saturationPerItem = 75;
 
     public CreatureTask stayInRoomTask;
+    private Vector3 lastPosition;
+
+    public float minSpeedToLookDown = 1f;
+    public Vector3 lookDownAngle;
 
     public void FixedUpdate()
     {
         Hunger += 1 * Time.deltaTime;
+
+        float velocity = ((transform.position - lastPosition) / Time.deltaTime).magnitude;
+
+        lastPosition = transform.position;
+
+        if (velocity < minSpeedToLookDown)
+        {
+            creature.transform.rotation = Quaternion.Euler(lookDownAngle);
+        }
     }
 
     new public void Start()
@@ -102,7 +152,7 @@ public class NestCreatureAI : CreatureAI
 
                     if (visibleObject.PerceivableObject.TryGetComponent<ScaryFlag>(out ScaryFlag scaryFlag))
                     {
-                        return creature.scaryFlag.scaryMeter <= scaryFlag.scaryMeter;
+                        return creature.scaryFlag.scaryMeter < scaryFlag.scaryMeter;
                     }
                     return false;
                 },

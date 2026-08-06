@@ -6,8 +6,9 @@ using UnityEngine.InputSystem;
 public class PlayerObjectInteraction : MonoBehaviour
 {
     public Player player;
-    public float maxActivationDistance = 1;
+    float maxActivationDistance = 5;
 
+    public GameObject interactableObjectLabel;
 
     public void Update()
     {
@@ -15,17 +16,53 @@ public class PlayerObjectInteraction : MonoBehaviour
         {
             Interact();
         }
+        //HiglightObject();
+    }
+
+    public void HiglightObject()
+    {
+        if (GetObjectInfront(out InteractableObjectFlag target))
+        {
+            interactableObjectLabel.transform.position = target.transform.position;
+            interactableObjectLabel.SetActive(true);
+        }
+        else
+        {
+            interactableObjectLabel.SetActive(false);
+        }
     }
 
     public void Interact()
     {
-
-        if (SceneSearchService.TryFindNearest<InteractableObjectFlag>(player.transform.position, maxActivationDistance, out InteractableObjectFlag target))
+        if (GetInteractableObject(out var interactableObject))
         {
-            if (target.TryGetComponent<IPlayerInteractableObject>(out var interactable))
+            interactableObject.Interact(player);
+        }
+    }
+
+    public bool GetObjectInfront(out InteractableObjectFlag target)
+    {
+        target = null;
+        if (SceneSearchService.TryFindNearest<InteractableObjectFlag>(player.transform.position, maxActivationDistance, out target))
+        {
+            if (Vector3.Distance(player.transform.position, target.transform.position) > target.objectActivationDistance) { return false; }
+
+            return true;
+        }
+        return false;
+    }
+
+
+    public bool GetInteractableObject(out IPlayerInteractableObject interactableObject)
+    {
+        interactableObject = null;
+        if (GetObjectInfront(out InteractableObjectFlag target))
+        {
+            if (target.TryGetComponent<IPlayerInteractableObject>(out interactableObject))
             {
-                interactable.Interact(player);
+                return true;
             }
         }
+        return false;
     }
 }

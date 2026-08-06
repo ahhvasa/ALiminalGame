@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 4987324369107448915}
   - component: {fileID: 251468449488093067}
   - component: {fileID: 663062096071967449}
+  - component: {fileID: 1464352545934122746}
   m_Layer: 11
   m_Name: DogMonsterObject
   m_TagString: Untagged
@@ -178,6 +179,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creature: {fileID: 4939275754327295299}
+  playerRaycastCheckLayerMask:
+    serializedVersion: 2
+    m_Bits: 131328
   creatureVision: {fileID: 1541168149746257147}
   creatureMemory: {fileID: 7937974353815006841}
   creatureTaskRegister: {fileID: 5205544256144012057}
@@ -198,6 +202,8 @@ MonoBehaviour:
   wanderSpeed: 4
   explorationSpeed: 8
   chaseSpeed: 12
+  canChangeSpeed: 1
+  savedSpeed: 0
 --- !u!114 &5205544256144012057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,6 +232,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomVision:
     directlyVisibleRooms: []
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 131328
 --- !u!114 &1771460713052369127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,6 +344,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateToTarget: 1
+--- !u!114 &1464352545934122746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3829444498239040751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc6564b2da107574aada8a92e752b669, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  creature: {fileID: 4939275754327295299}
+  targetLayer: 7
+  doorOpeningTime: 0.75
 --- !u!1001 &3008829432601762235
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -31,9 +31,7 @@ public class CreatureDoorOpen : MonoBehaviour
 
         if (roomDoor.IsOpen == false)
         {
-            if (openOrClose == true && doorOpeningTime > 0.01f) { creature.movement.StopForTime(doorOpeningTime); }
+            if (openOrClose == true && doorOpeningTime > 0.01f) { creature.movement.StopForTime(doorOpeningTime, () => roomDoor.Open(openOrClose, transform.position)); }
         }
-
-        roomDoor.Open(openOrClose, transform.position);
     }
 }

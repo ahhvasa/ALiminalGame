@@ -9,7 +9,6 @@ public class Creature : MonoBehaviour
     public StateMachine<ICreatureState> stateMachine;
     public CreatureTask currentTask;
 
-
     public CreatureMovement movement;
 
     public CreatureSound creatureSound;

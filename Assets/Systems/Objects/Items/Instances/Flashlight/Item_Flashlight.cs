@@ -33,7 +33,11 @@ public class Item_Flashlight : ItemHoldable
             }
         }
     }
-
+    public void Turn(bool onOrOff)
+    {
+        on = onOrOff;
+        Turn();
+    }
     public void Turn()
     {
         SoundManager.PlaySound((on == false) ? turnOff : turnOn, soundPlayer);

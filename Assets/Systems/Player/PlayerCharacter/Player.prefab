@@ -83,6 +83,51 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &5033739563764407387
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5332939559591320778}
+  - component: {fileID: 5105819056503980459}
+  m_Layer: 6
+  m_Name: InteractableObjectLabel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5332939559591320778
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5033739563764407387}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3783418767933666297}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5105819056503980459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5033739563764407387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fdb664c4f3c1f641b889c66b6b86689, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: E
 --- !u!1 &5997081642616601318
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,6 +174,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 798647189311640246}
+  - {fileID: 5332939559591320778}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8057258995056074699
@@ -162,6 +208,9 @@ MonoBehaviour:
   playerMovement: {fileID: 8057258995056074699}
   playerStateMachine: {fileID: 5614018124006436660}
   roomVision: {fileID: 4612091867928227931}
+  playerMonsterInView: {fileID: 0}
+  meatExplosion: {fileID: 0}
+  playerDeath: {fileID: 0}
   soundPlayer: {fileID: 214273685968976462}
 --- !u!114 &5614018124006436660
 MonoBehaviour:
@@ -189,7 +238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 8017804734392711120}
-  maxActivationDistance: 1
+  interactableObjectLabel: {fileID: 5105819056503980459}
 --- !u!114 &4612091867928227931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,6 +254,7 @@ MonoBehaviour:
   roomVision:
     directlyVisibleRooms: []
   seeEveryRoom: 0
+  visibleObjects: []
 --- !u!54 &6388091752429591500
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -346,6 +396,19 @@ MonoBehaviour:
     aIPerceivedSoundData:
       isAiPerceived: 1
       soundType: 0
+      soundDistance: 10
+  runSoundData:
+    mixerGroup: {fileID: 0}
+    clips: []
+    loopPlayInterval:
+      looped: 0
+      minimumInterval: 0
+      maximumInterval: 0
+    removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
+      soundDistance: 10
   soundPlayer: {fileID: 214273685968976462}
   moveThreshold: 0.05
   maxSpeed: 6
@@ -365,6 +428,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   perceivableObject: {fileID: 0}
   AIIgnore: 0
+  smellDistance: 10
 --- !u!114 &3770332816700702382
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2,8 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Zenject.SpaceFighter;
-using static UnityEditor.Progress;
 
 public class RoomDoor : MonoBehaviour, IPlayerInteractableObject
 {
@@ -11,6 +9,8 @@ public class RoomDoor : MonoBehaviour, IPlayerInteractableObject
     public Animator animator;
 
     public Action<bool> OnOpen;
+
+    public bool active = true;
 
     public void Awake()
     {
@@ -49,6 +49,8 @@ public class RoomDoor : MonoBehaviour, IPlayerInteractableObject
     }
     public void Open(bool open)
     {
+        if (active == false) { return; }
+
         if (IsOpen == open) { return; }
         IsOpen = open;
         

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization.Tables;
 
 public class ObjectSpawnOnTime : MonoBehaviour
 {
@@ -16,11 +17,17 @@ public class ObjectSpawnOnTime : MonoBehaviour
     public void OnEnable()
     {
         totalCount = spawnTime.Count;
+
+        if (totalCount == 0) { return; }
+
         objectPull = new ObjectPull<GameObject> (prefab, totalCount);
+
+
         coroutine = StartCoroutine(WaitAndSpawn(0));
     }
     public void OnDisable()
     {
+        if (coroutine == null) { return; }
         StopCoroutine(coroutine);
     }
 

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Item_CCTVCamera : ItemHoldable
 {
-    private bool working;
+    [SerializeField] private bool working;
     public bool Working
     {
         get { return working; }

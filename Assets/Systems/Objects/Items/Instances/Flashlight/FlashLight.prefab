@@ -141,9 +141,9 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0.6523077, b: 0, a: 1}
-  m_Intensity: 20
-  m_Range: 10
-  m_SpotAngle: 50
+  m_Intensity: 2
+  m_Range: 1000
+  m_SpotAngle: 80
   m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
@@ -246,17 +246,41 @@ MonoBehaviour:
   soundPlayer: {fileID: 5966658525674644467}
   turnOn:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
-    clip: {fileID: 8300000, guid: 13ec8e11528095846b5bba6819f58e38, type: 3}
-    looped: 0
+    clips: []
+    loopPlayInterval:
+      looped: 0
+      minimumInterval: 0
+      maximumInterval: 0
+    removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
+      soundDistance: 10
   turnOff:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
-    clip: {fileID: 8300000, guid: 13ec8e11528095846b5bba6819f58e38, type: 3}
-    looped: 0
+    clips: []
+    loopPlayInterval:
+      looped: 0
+      minimumInterval: 0
+      maximumInterval: 0
+    removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
+      soundDistance: 10
   flickering:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
     - {fileID: 8300000, guid: 94d276b1e340afc4fa9225399294bf04, type: 3}
-    looped: 1
+    loopPlayInterval:
+      looped: 0
+      minimumInterval: 0
+      maximumInterval: 0
+    removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
+      soundDistance: 10
 --- !u!1 &7497275028173928410
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,6 +345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68a79ecf7c2be2a42883c1e5058ba4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectActivationDistance: 2
 --- !u!114 &4222915553527823295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -334,7 +359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   perceivableObject: {fileID: 0}
-  AIIgnore: 0
+  AIIgnore: 1
   fadeDuration: 0.3
   meshRenderers: []
   spriteRenderers: []
@@ -400,4 +425,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc30803b067cad24f9859fd8f3abf016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  perceivableObject: {fileID: 0}
   playingSounds: []

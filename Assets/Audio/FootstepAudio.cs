@@ -19,6 +19,8 @@ public class FootstepAudio : MonoBehaviour
     private void Start()
     {
         _lastPosition = transform.position;
+
+        if (walkSound != null) { return; }
         walkSound = SoundManager.PlaySound(walkSoundData, soundPlayer);
         walkSound.Stop();
     }
@@ -26,7 +28,7 @@ public class FootstepAudio : MonoBehaviour
     public void OnEnable()
     {
         if (SoundManager.Instance == null || walkSound != null) { return; }
-
+        
         _lastPosition = transform.position;
         walkSound = SoundManager.PlaySound(walkSoundData, soundPlayer);
         walkSound.Stop();
@@ -34,8 +36,8 @@ public class FootstepAudio : MonoBehaviour
 
     public void OnDisable()
     {
-        if (SoundManager.Instance == null || walkSound == null || gameObject.activeSelf == false) { return; }
-
+        if (SoundManager.Instance == null || walkSound == null || gameObject.activeSelf == false || soundPlayer.isActiveAndEnabled == false) { return; }
+        
         SoundManager.Instance.StartCoroutine(ReturnToPool());
     }
     IEnumerator ReturnToPool()
@@ -58,6 +60,8 @@ public class FootstepAudio : MonoBehaviour
 
         _lastPosition = transform.position;
 
+        Debug.Log("my speed = " + speed + " walkSound = " + walkSound);
+
         if (speed > moveThreshold)
         {
             if (!walkSound.IsPlaying)
@@ -67,11 +71,19 @@ public class FootstepAudio : MonoBehaviour
                 minPitch,
                 maxPitch,
                 Mathf.Clamp01(speed / maxSpeed));
+
+
+            walkSound.audioSource.volume = Mathf.Lerp(
+                0,
+                1,
+                Mathf.Clamp01(speed / maxSpeed));
         }
         else
         {
-            if (walkSound.IsPlaying)
-                walkSound.Stop();
+            //if (walkSound.IsPlaying)
+            //    walkSound.Stop();
+
+            walkSound.audioSource.volume = 0;
         }
     }
 }

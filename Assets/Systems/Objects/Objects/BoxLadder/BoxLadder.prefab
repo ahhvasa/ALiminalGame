@@ -125,6 +125,19 @@ MonoBehaviour:
   - {fileID: 7004795226430173110}
   - {fileID: 3187048289210197878}
   ladderObject: {fileID: 2217130593856667214}
+  sound:
+    mixerGroup: {fileID: -6528212505855835555, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
+    clips:
+    - {fileID: 8300000, guid: 755594bb40f4238458401e575f165a49, type: 3}
+    loopPlayInterval:
+      looped: 0
+      minimumInterval: 0
+      maximumInterval: 0
+    removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
+      soundDistance: 10
   attachedPortalDoor: {fileID: 0}
 --- !u!114 &4426467657051668129
 MonoBehaviour:
@@ -138,6 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68a79ecf7c2be2a42883c1e5058ba4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectActivationDistance: 5
 --- !u!54 &8480892118070985062
 Rigidbody:
   m_ObjectHideFlags: 0

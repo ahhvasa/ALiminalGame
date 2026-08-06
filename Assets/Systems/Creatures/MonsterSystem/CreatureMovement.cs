@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
+using System;
 
 public class CreatureMovement : MonoBehaviour
 {
@@ -62,18 +63,18 @@ public class CreatureMovement : MonoBehaviour
         agent.speed = 0f;
     }
 
-    public void StopForTime(float time)
+    public void StopForTime(float time, Action action)
     {
         if (stopCoroutine != null)
         {
             StopCoroutine(stopCoroutine);
             stopCoroutine = null;
         }
-        stopCoroutine = StartCoroutine(StopForTimeCoroutine(time));
+        stopCoroutine = StartCoroutine(StopForTimeCoroutine(time, action));
     }
     Coroutine stopCoroutine;
 
-    private IEnumerator StopForTimeCoroutine(float time)
+    private IEnumerator StopForTimeCoroutine(float time, Action action)
     {
         canChangeSpeed = false;
         savedSpeed = agent.speed;
@@ -81,6 +82,7 @@ public class CreatureMovement : MonoBehaviour
         yield return new WaitForSeconds(time);
         agent.speed = savedSpeed;
         canChangeSpeed = true;
+        action?.Invoke();
     }
 
 }
