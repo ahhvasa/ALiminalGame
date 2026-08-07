@@ -1,10 +1,12 @@
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class PlanksDoorBarricade : DoorBarricade
 {
-    public Item_Planks item;
-    public RoomDoor roomDoor;
+    public GameObject barricadeInWorld;
     public GameObject barricadeOnDoorView;
+
+    public GameObject[] carricadeInWorldSpawnPointOnBreak;
 
     public SoundData breakingSound;
     private Sound currentBreakingSound;
@@ -16,7 +18,12 @@ public class PlanksDoorBarricade : DoorBarricade
     public override void Break()
     {
         roomDoor.doorBarricade = null;
+        roomDoor.isLockedByBarricade = false;
+
         barricadeOnDoorView.SetActive(false);
+        barricadeInWorld.SetActive(true);
+
+        barricadeInWorld.transform.position = carricadeInWorldSpawnPointOnBreak[UnityEngine.Random.Range(0, carricadeInWorldSpawnPointOnBreak.Length)].transform.position;
 
         SoundManager.PlaySound(breakSound, soundPlayer);
 
@@ -37,11 +44,18 @@ public class PlanksDoorBarricade : DoorBarricade
         }
     }
 
-    public override void Install()
+    public override void Install(RoomDoor roomdoor)
     {
+        item.playerOwner.playerInventory.DropItem();
+
+        roomDoor = roomdoor;
+        roomDoor.doorBarricade = this;
+        roomDoor.isLockedByBarricade = true;
+
         barricadeOnDoorView.transform.position = roomDoor.transform.position;
         barricadeOnDoorView.transform.rotation= roomDoor.transform.rotation;
         barricadeOnDoorView.SetActive(true);
+        barricadeInWorld.SetActive(false);
 
         SoundManager.PlaySound(installSound, soundPlayer);
     }

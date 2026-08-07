@@ -11,6 +11,7 @@ public class RoomDoor : MonoBehaviour, IPlayerInteractableObject
     public Action<bool> OnOpen;
 
     public DoorBarricade doorBarricade;
+    public bool isLockedByBarricade;
 
     public bool active = true;
 
@@ -51,6 +52,8 @@ public class RoomDoor : MonoBehaviour, IPlayerInteractableObject
     }
     public void Open(bool open)
     {
+        if (isLockedByBarricade) { return; }
+
         if (active == false) { return; }
 
         if (IsOpen == open) { return; }
@@ -97,6 +100,29 @@ public class RoomDoor : MonoBehaviour, IPlayerInteractableObject
 
     public void Interact(Player player)
     {
+        if (player.playerInventory.CurrentItem != null)
+        {
+            if (player.playerInventory.CurrentItem is Item_Planks)
+            {
+                if (IsOpen == false)
+                {
+                    (player.playerInventory.CurrentItem as Item_Planks).doorBarricade.Install(this);
+                    return;
+                }
+            }
+        }
+
+        if (doorBarricade != null)
+        {
+            if (player.playerInventory.CurrentItem == null)
+            {
+                var doorBarricadeObject = doorBarricade;
+                doorBarricade.Break();
+                player.playerInventory.PickUpItem(doorBarricadeObject.item);
+                return;
+            }
+        }
+
         Open(!IsOpen, player.transform.position);
     }
 

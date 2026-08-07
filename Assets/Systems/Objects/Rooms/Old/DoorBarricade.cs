@@ -1,19 +1,11 @@
 using UnityEngine;
 
-public abstract class DoorBarricade : MonoBehaviour 
+public abstract class DoorBarricade : MonoBehaviour
 {
-    public void Activate(bool installOrBreak)
-    {
-        if (installOrBreak)
-        {
-            Install();
-        }
-        else
-        {
-            Break();
-        }
-    }
-    public abstract void Install();
+    public Item_Planks item;
+    public RoomDoor roomDoor;
+
+    public abstract void Install(RoomDoor roomDoor);
     public abstract void Break();
     public float doorBarricadeDurability = 1;
 
