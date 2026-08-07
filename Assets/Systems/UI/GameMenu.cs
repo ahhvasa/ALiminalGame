@@ -59,7 +59,7 @@ public class GameMenu : MonoBehaviour
 
     public void Exit()
     {
-        Debug.Log("Exit");
+        Application.Quit();
     }
 
     public void Options()

@@ -10,6 +10,8 @@ public class RoomDoor : MonoBehaviour, IPlayerInteractableObject
 
     public Action<bool> OnOpen;
 
+    public DoorBarricade doorBarricade;
+
     public bool active = true;
 
     public void Awake()

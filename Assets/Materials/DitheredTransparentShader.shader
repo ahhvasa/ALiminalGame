@@ -54,7 +54,6 @@ Shader "Custom/DitheredTransparentShader"
 
             fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
 
-            /// Multiplying by 1.1 is actually a hack to avoid a situation where the value is 0.99 and the system makes the object slightly transparent.
             clip(c.a * 1.1 + _MinimumAlpha - dither[index]);
 
             o.Albedo = c.rgb;

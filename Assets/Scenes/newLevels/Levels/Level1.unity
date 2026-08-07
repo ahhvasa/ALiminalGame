@@ -4531,6 +4531,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 1843062946}
   animator: {fileID: 65102858}
+  doorBarricade: {fileID: 0}
   active: 1
   doorWays: []
   IsOpen: 0
@@ -7287,6 +7288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 134268746}
   animator: {fileID: 114654815}
+  doorBarricade: {fileID: 0}
   active: 1
   doorWays: []
   IsOpen: 0
@@ -13423,6 +13425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 1574159608}
   animator: {fileID: 217298866}
+  doorBarricade: {fileID: 0}
   active: 1
   doorWays: []
   IsOpen: 0
@@ -21452,6 +21455,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 1526342819}
   animator: {fileID: 344318569}
+  doorBarricade: {fileID: 0}
   active: 1
   doorWays: []
   IsOpen: 0
@@ -25630,6 +25634,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 678706698}
   animator: {fileID: 428769247}
+  doorBarricade: {fileID: 0}
   active: 1
   doorWays: []
   IsOpen: 0
@@ -29182,6 +29187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 934386775}
   animator: {fileID: 494965048}
+  doorBarricade: {fileID: 0}
   active: 1
   doorWays: []
   IsOpen: 0
@@ -39537,6 +39543,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 663103654}
   animator: {fileID: 652734272}
+  doorBarricade: {fileID: 0}
   active: 1
   doorWays: []
   IsOpen: 0
@@ -42745,6 +42752,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 1328816442}
   animator: {fileID: 701710507}
+  doorBarricade: {fileID: 0}
   active: 1
   doorWays: []
   IsOpen: 0
@@ -45490,6 +45498,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 1153038081}
   animator: {fileID: 740294484}
+  doorBarricade: {fileID: 0}
   active: 1
   doorWays: []
   IsOpen: 0
@@ -54831,6 +54840,17 @@ Transform:
   - {fileID: 1294465063}
   m_Father: {fileID: 494965047}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &888082310 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7390412377225791519, guid: 4f6c783e1d761f34f9480e2bea38f42d, type: 3}
+  m_PrefabInstance: {fileID: 1093697512}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a92ec6ca9f88c045b163b8f8a9af396, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &889092396 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4004240629055830267, guid: 2599e8ff113c97b4597737ed82ae64cd, type: 3}
@@ -68288,6 +68308,67 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1090490873}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1093697512
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1512097684064922063, guid: 4f6c783e1d761f34f9480e2bea38f42d, type: 3}
+      propertyPath: m_Name
+      value: Planks
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830010100202645862, guid: 4f6c783e1d761f34f9480e2bea38f42d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -21.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830010100202645862, guid: 4f6c783e1d761f34f9480e2bea38f42d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830010100202645862, guid: 4f6c783e1d761f34f9480e2bea38f42d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 36.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830010100202645862, guid: 4f6c783e1d761f34f9480e2bea38f42d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830010100202645862, guid: 4f6c783e1d761f34f9480e2bea38f42d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830010100202645862, guid: 4f6c783e1d761f34f9480e2bea38f42d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830010100202645862, guid: 4f6c783e1d761f34f9480e2bea38f42d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830010100202645862, guid: 4f6c783e1d761f34f9480e2bea38f42d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830010100202645862, guid: 4f6c783e1d761f34f9480e2bea38f42d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830010100202645862, guid: 4f6c783e1d761f34f9480e2bea38f42d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7390412377225791519, guid: 4f6c783e1d761f34f9480e2bea38f42d, type: 3}
+      propertyPath: roomDoor
+      value: 
+      objectReference: {fileID: 2103966199}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4f6c783e1d761f34f9480e2bea38f42d, type: 3}
 --- !u!1001 &1094807503
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -73615,6 +73696,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 2092246366}
   animator: {fileID: 1173484182}
+  doorBarricade: {fileID: 0}
   active: 1
   doorWays: []
   IsOpen: 0
@@ -79751,11 +79833,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1347181110590224940, guid: 04c02d6491ad6c245842a656e03aed87, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.8660255
+      value: 0.8660254
       objectReference: {fileID: 0}
     - target: {fileID: 1347181110590224940, guid: 04c02d6491ad6c245842a656e03aed87, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.49999982
+      value: -0.5000001
       objectReference: {fileID: 0}
     - target: {fileID: 1347181110590224940, guid: 04c02d6491ad6c245842a656e03aed87, type: 3}
       propertyPath: m_LocalRotation.y
@@ -79815,11 +79897,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4809687775732321284, guid: 04c02d6491ad6c245842a656e03aed87, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.50000006
+      value: 0.5000002
       objectReference: {fileID: 0}
     - target: {fileID: 4809687775732321284, guid: 04c02d6491ad6c245842a656e03aed87, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.8660254
+      value: 0.8660253
       objectReference: {fileID: 0}
     - target: {fileID: 4896030770751311354, guid: 04c02d6491ad6c245842a656e03aed87, type: 3}
       propertyPath: m_LocalRotation.y
@@ -79903,11 +79985,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9046819080066541331, guid: 04c02d6491ad6c245842a656e03aed87, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.8660253
+      value: 0.86602557
       objectReference: {fileID: 0}
     - target: {fileID: 9046819080066541331, guid: 04c02d6491ad6c245842a656e03aed87, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.5000001
+      value: -0.49999976
       objectReference: {fileID: 0}
     - target: {fileID: 9120501530894157448, guid: 04c02d6491ad6c245842a656e03aed87, type: 3}
       propertyPath: m_LocalRotation.y
@@ -82416,6 +82498,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 669253500}
   animator: {fileID: 1301901498}
+  doorBarricade: {fileID: 0}
   active: 1
   doorWays: []
   IsOpen: 0
@@ -88021,6 +88104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 114905264}
   animator: {fileID: 1392032891}
+  doorBarricade: {fileID: 0}
   active: 1
   doorWays: []
   IsOpen: 0
@@ -105324,6 +105408,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 1034062021}
   animator: {fileID: 1693096166}
+  doorBarricade: {fileID: 0}
   active: 1
   doorWays: []
   IsOpen: 0
@@ -115987,6 +116072,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 1311028603}
   animator: {fileID: 1878259389}
+  doorBarricade: {fileID: 0}
   active: 1
   doorWays: []
   IsOpen: 0
@@ -117337,6 +117423,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 1041074672}
   animator: {fileID: 1901882073}
+  doorBarricade: {fileID: 0}
   active: 1
   doorWays: []
   IsOpen: 0
@@ -118996,6 +119083,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 1791146464}
   animator: {fileID: 1922944234}
+  doorBarricade: {fileID: 0}
   active: 1
   doorWays: []
   IsOpen: 0
@@ -123596,6 +123684,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 613878856}
   animator: {fileID: 2002874476}
+  doorBarricade: {fileID: 0}
   active: 1
   doorWays: []
   IsOpen: 0
@@ -129350,6 +129439,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 351960574}
   animator: {fileID: 2103966202}
+  doorBarricade: {fileID: 888082310}
   active: 1
   doorWays: []
   IsOpen: 0
@@ -133229,3 +133319,4 @@ SceneRoots:
   - {fileID: 1398088851}
   - {fileID: 521016115}
   - {fileID: 1156931388}
+  - {fileID: 1093697512}
