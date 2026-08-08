@@ -2,7 +2,9 @@ Shader "Custom/BasicWaterShader"
 {
     Properties
     {
-        _Color ("Background Color", Color) = (0.1, 0.4, 0.8, 0.8)
+        _Color ("Color", Color) = (1,1,1,1)
+
+        _ColorBackground ("Background Color", Color) = (0.1, 0.4, 0.8, 0.8)
         _TextureColor ("Texture Color", Color) = (1, 1, 1, 1)
         _MainTex ("Water Texture", 2D) = "white" {}
         _WaveSpeed ("Wave Speed", Float) = 0.5
@@ -32,11 +34,12 @@ Shader "Custom/BasicWaterShader"
 
         sampler2D _MainTex;
         sampler2D _CameraDepthTexture;
-        fixed4 _Color, _TextureColor, _FoamColor;
+        fixed4 _ColorBackground, _TextureColor, _FoamColor;
         float _WaveSpeed, _WaveStrength, _WaveAmount, _WaveFrequency;
         float _TextureDistortion, _CartoonFactor;
         float _TransparencySpeed, _TransparencyStrength;
         float _FoamAmount, _FoamCutoff, _FoamSpeed, _FoamNoiseScale;
+        fixed4 _Color;
 
         struct Input
         {
@@ -107,11 +110,13 @@ Shader "Custom/BasicWaterShader"
             foam = smoothstep(_FoamCutoff, 1, foam);
 
             // Blend colors, apply transparency and foam
-            fixed3 finalColor = lerp(_Color.rgb, c.rgb, c.a * textureTransparency);
+            fixed3 finalColor = lerp(_ColorBackground.rgb, c.rgb, c.a * textureTransparency);
             finalColor = lerp(finalColor, _FoamColor.rgb, foam);
 
+            finalColor *= _Color.rgb;
+
             o.Albedo = finalColor;
-            o.Alpha = lerp(_Color.a, c.a * _TextureColor.a, c.a * textureTransparency);
+            o.Alpha = lerp(_ColorBackground.a, c.a * _TextureColor.a, c.a * textureTransparency) * _Color.a;
 
             // Simple normal calculation for lighting
             o.Normal = float3(0, 0, 1);
