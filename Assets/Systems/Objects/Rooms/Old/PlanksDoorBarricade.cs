@@ -15,6 +15,8 @@ public class PlanksDoorBarricade : DoorBarricade
 
     public SoundPlayer soundPlayer;
 
+    public GameObject gameObjectOnBreakign;
+
     public override void Break()
     {
         roomDoor.doorBarricade = null;
@@ -32,6 +34,7 @@ public class PlanksDoorBarricade : DoorBarricade
             currentBreakingSound.Stop();
             currentBreakingSound = null;
         }
+        gameObjectOnBreakign.SetActive(false);
     }
 
     public override void CancelBreaking()
@@ -42,6 +45,7 @@ public class PlanksDoorBarricade : DoorBarricade
             currentBreakingSound.Stop();
             currentBreakingSound = null;
         }
+        gameObjectOnBreakign.SetActive(false);
     }
 
     public override void Install(RoomDoor roomdoor)
@@ -63,5 +67,6 @@ public class PlanksDoorBarricade : DoorBarricade
     public override void StartBreaking()
     {
         currentBreakingSound = SoundManager.PlaySound(breakingSound, soundPlayer);
+        gameObjectOnBreakign.SetActive(true);
     }
 }
