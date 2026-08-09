@@ -13,6 +13,8 @@ public class ObjectTextLabel : MonoBehaviour
         set
         {
             text = value;
+            if (textItem == null) { return; }
+
             textItem.SetText(text);
         }
         get { return text; }
@@ -20,10 +22,7 @@ public class ObjectTextLabel : MonoBehaviour
 
     private void Start()
     {
-        textItem = ObjectTextManadger.Instance.Get();
-        textItem.transform.position = transform.position;
-        textItem.transform.SetParent(transform);
-        Text = text;
+
     }
 
     private void OnEnable()

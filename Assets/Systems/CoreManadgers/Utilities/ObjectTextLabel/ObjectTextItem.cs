@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class ObjectTextItem : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class ObjectTextItem : MonoBehaviour
         player = FindObjectOfType<Player>();
     }
 
-    public TextMesh textMesh;
+    public TextMeshPro textMesh;
     public void SetText(string text)
     {
         textMesh.text = text;

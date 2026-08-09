@@ -25,6 +25,8 @@ public class VisibleObject : MonoBehaviour, IPercivableObject
     [SerializeField] private List<MeshRenderer> meshRenderers = new();
     [SerializeField] private List<SpriteRenderer> spriteRenderers = new();
     [SerializeField] private List<Light> lightSources = new();
+    [SerializeField] private List<VO_HideGameObjectOnZeroAlpha> hideGameObjectsOnZeroAlpha = new();
+    
 
     [SerializeField] private List<GameObject> connectedObjects;
 
@@ -33,11 +35,52 @@ public class VisibleObject : MonoBehaviour, IPercivableObject
 
     private Coroutine fadeCoroutine;
 
+
+    public void PostProcessLists()
+    {
+        for (int i = 0; i != meshRenderers.Count; i++)
+        {
+            if (meshRenderers[i].gameObject.GetComponent<VO_DontIncludeComponentsMark>() != null)
+            {
+                meshRenderers.RemoveAt(i);
+                i--;
+            }
+        }
+        for (int i = 0; i != spriteRenderers.Count; i++)
+        {
+            if (spriteRenderers[i].gameObject.GetComponent<VO_DontIncludeComponentsMark>() != null)
+            {
+                spriteRenderers.RemoveAt(i);
+                i--;
+            }
+        }
+        for (int i = 0; i != lightSources.Count; i++)
+        {
+            if (lightSources[i].gameObject.GetComponent<VO_DontIncludeComponentsMark>() != null)
+            {
+                lightSources.RemoveAt(i);
+                i--;
+            }
+        }
+        for (int i = 0; i != hideGameObjectsOnZeroAlpha.Count; i++)
+        {
+            if (hideGameObjectsOnZeroAlpha[i].gameObject.GetComponent<VO_DontIncludeComponentsMark>() != null)
+            {
+                hideGameObjectsOnZeroAlpha.RemoveAt(i);
+                i--;
+            }
+        }
+    }
+
+
+
     private void Awake()
     {
         meshRenderers.AddRange(GetComponentsInChildren<MeshRenderer>(true));
         spriteRenderers.AddRange(GetComponentsInChildren<SpriteRenderer>(true));
         lightSources.AddRange(GetComponentsInChildren<Light>(true));
+        hideGameObjectsOnZeroAlpha.AddRange(GetComponentsInChildren<VO_HideGameObjectOnZeroAlpha>(true));
+        PostProcessLists();
 
         if (perceivableObject == null)
         {
@@ -57,6 +100,9 @@ public class VisibleObject : MonoBehaviour, IPercivableObject
         meshRenderers.AddRange(gameObject.GetComponentsInChildren<MeshRenderer>(true));
         spriteRenderers.AddRange(gameObject.GetComponentsInChildren<SpriteRenderer>(true));
         lightSources.AddRange(gameObject.GetComponentsInChildren<Light>(true));
+        hideGameObjectsOnZeroAlpha.AddRange(gameObject.GetComponentsInChildren<VO_HideGameObjectOnZeroAlpha>(true));
+
+        PostProcessLists();
     }
 
     public void Show(bool show)
@@ -120,6 +166,9 @@ public class VisibleObject : MonoBehaviour, IPercivableObject
         if (lightSources.Count > 0)
             return lightSources[0].enabled ? 1 : 0;
 
+        if (hideGameObjectsOnZeroAlpha.Count > 0)
+            return hideGameObjectsOnZeroAlpha[0].gameObject.activeSelf ? 1 : 0;
+
         return 1f;
     }
 
@@ -135,7 +184,6 @@ public class VisibleObject : MonoBehaviour, IPercivableObject
         foreach (var renderer in meshRenderers)
         {
             Material material = renderer.material;
-
             Color color = material.color;
             color.a = alpha;
             material.color = color;
@@ -144,6 +192,16 @@ public class VisibleObject : MonoBehaviour, IPercivableObject
         foreach (var lightSource in lightSources)
         {
             lightSource.enabled = alpha > 0.5f ? true : false;
+        }
+
+        foreach (var gameObject in hideGameObjectsOnZeroAlpha)
+        {
+            Debug.Log("Process 03030303033");
+            gameObject.gameObject.SetActive(alpha > 0.5f ? true : false);
+            if (gameObject.scaleSize)
+            {
+                gameObject.gameObject.transform.localScale = new Vector3(alpha, alpha, alpha);
+            }
         }
 
     }
@@ -158,5 +216,8 @@ public class VisibleObject : MonoBehaviour, IPercivableObject
 
         foreach (var lightSource in lightSources)
             lightSource.enabled = enabled;
+
+        foreach (var gameObject in hideGameObjectsOnZeroAlpha)
+            gameObject.enabled = enabled;
     }
 }
