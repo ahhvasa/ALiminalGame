@@ -165,6 +165,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: Start the night
+  overrideFontSize: 0
+  fontSize: 0
 --- !u!1 &985472262388271756
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,6 +274,7 @@ MonoBehaviour:
   meshRenderers: []
   spriteRenderers: []
   lightSources: []
+  hideGameObjectsOnZeroAlpha: []
   connectedObjects: []
 --- !u!135 &326131362041727399
 SphereCollider:
@@ -318,4 +321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68a79ecf7c2be2a42883c1e5058ba4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectActivationDistance: 2
+  active: 1
+  objectActivationDistance: 3
+  visibleObject: {fileID: 0}
+  playerActivationLabelHeight: 1.75

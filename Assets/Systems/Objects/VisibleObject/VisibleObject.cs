@@ -104,6 +104,24 @@ public class VisibleObject : MonoBehaviour, IPercivableObject
 
         PostProcessLists();
     }
+    public void DisconnectObject(GameObject gameObject)
+    {
+        connectedObjects.Remove(gameObject);
+
+        foreach (var item in gameObject.GetComponentsInChildren<MeshRenderer>(true))
+            meshRenderers.Remove(item);
+
+        foreach (var item in gameObject.GetComponentsInChildren<SpriteRenderer>(true))
+            spriteRenderers.Remove(item);
+
+        foreach (var item in gameObject.GetComponentsInChildren<Light>(true))
+            lightSources.Remove(item);
+
+        foreach (var item in gameObject.GetComponentsInChildren<VO_HideGameObjectOnZeroAlpha>(true))
+            hideGameObjectsOnZeroAlpha.Remove(item);
+
+        PostProcessLists();
+    }
 
     public void Show(bool show)
     {
@@ -172,8 +190,17 @@ public class VisibleObject : MonoBehaviour, IPercivableObject
         return 1f;
     }
 
+    private float _currentAlpha = 0;
+    public float CurrentAlpha
+    {
+        get
+        {
+            return _currentAlpha;
+        }
+    }
     private void SetAlpha(float alpha)
     {
+        _currentAlpha = alpha;
         foreach (var renderer in spriteRenderers)
         {
             Color color = renderer.color;
@@ -196,7 +223,6 @@ public class VisibleObject : MonoBehaviour, IPercivableObject
 
         foreach (var gameObject in hideGameObjectsOnZeroAlpha)
         {
-            Debug.Log("Process 03030303033");
             gameObject.gameObject.SetActive(alpha > 0.5f ? true : false);
             if (gameObject.scaleSize)
             {

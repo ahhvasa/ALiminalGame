@@ -19,10 +19,6 @@ public class Item_AlarmClock : ItemHoldable
 
     private bool clockActivated;
 
-    private void Start()
-    {
-
-    }
 
     private void Update()
     {

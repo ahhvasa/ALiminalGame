@@ -4,6 +4,14 @@ using UnityEngine;
 public abstract class 
     Item : MonoBehaviour
 {
+    public InteractableObjectFlag interactableObjectFlag;
+
+    public void Start()
+    {
+        interactableObjectFlag = GetComponentInChildren<InteractableObjectFlag>();
+    }
+
+
     private int layerInWorld = 13;
     private int layerInHands = 9;
 
@@ -23,6 +31,7 @@ public abstract class
 
     public void OnPickUp(Player player)
     {
+        interactableObjectFlag.active = false;
         playerOwner = player;
         _isInInventory = true;
         itemObject.gameObject.layer = layerInHands;
@@ -36,6 +45,7 @@ public abstract class
     }
     public void OnDrop()
     {
+        interactableObjectFlag.active = true;
         SoundManager.PlaySound(SoundManager.Instance.itemSounds.GetDropDownSound(textureType), playerOwner.soundPlayer);
         _isInInventory = false;
         itemObject.gameObject.layer = layerInWorld;

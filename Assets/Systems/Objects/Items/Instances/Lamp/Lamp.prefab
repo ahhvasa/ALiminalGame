@@ -63,7 +63,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68a79ecf7c2be2a42883c1e5058ba4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectActivationDistance: 2
+  active: 1
+  objectActivationDistance: 2.5
+  visibleObject: {fileID: 0}
+  playerActivationLabelHeight: 0
 --- !u!114 &3028511204047323300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,6 +85,7 @@ MonoBehaviour:
   meshRenderers: []
   spriteRenderers: []
   lightSources: []
+  hideGameObjectsOnZeroAlpha: []
   connectedObjects: []
 --- !u!65 &4465730848039762966
 BoxCollider:
@@ -270,6 +274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aad67c365f8d1548a821f10cf2678c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactableObjectFlag: {fileID: 0}
   playerOwner: {fileID: 0}
   itemObject: {fileID: 378012185810159021}
   icon: {fileID: 21300000, guid: 794a0d07e3ec24749beb0d63665fe423, type: 3}

@@ -1,12 +1,16 @@
 using MyLibrary.StateMachine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
 
 public class ObjectTextLabel : MonoBehaviour
 {
     [SerializeField] private string text;
     private ObjectTextItem textItem;
+    private VisibleObject visibleObject;
+    public bool overrideFontSize;
+    public float fontSize;
 
     public string Text
     {
@@ -22,25 +26,45 @@ public class ObjectTextLabel : MonoBehaviour
 
     private void Start()
     {
+        visibleObject = GetComponentInParent<VisibleObject>();
+    }
 
+    public void FixedUpdate()
+    {
+        TrySetLabel();
     }
 
     private void OnEnable()
     {
-        if (ObjectTextManadger.Instance == null) { return; }
+        TrySetLabel();
+    }
+
+    public void TrySetLabel()
+    {
         if (textItem != null) { return; }
+        if (ObjectTextManadger.Instance == null) { return; }
 
         textItem = ObjectTextManadger.Instance.Get();
         textItem.transform.position = transform.position;
         textItem.transform.SetParent(transform);
+
+        if (overrideFontSize)
+        {
+            textItem.textMesh.fontSize = fontSize;
+        }
+
         Text = text;
+
+        visibleObject.ConnectObject(textItem.gameObject);
     }
 
     private void OnDisable()
     {
         if (textItem == null) { return; }
 
+        visibleObject.DisconnectObject(textItem.gameObject);
         ObjectTextManadger.Instance.Return(textItem);
         textItem = null;
+
     }
 }

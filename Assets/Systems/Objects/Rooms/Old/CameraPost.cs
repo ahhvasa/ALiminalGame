@@ -7,6 +7,7 @@ public class CameraPost : MonoBehaviour, IPlayerInteractableObject
     public Animator animator;
     public Item currentItem;
     public Transform objectParent;
+    public InteractableObjectFlag interactableObjectFlag;
 
     public void Awake()
     {
@@ -34,8 +35,9 @@ public class CameraPost : MonoBehaviour, IPlayerInteractableObject
         }
 
         currentItem.itemObject.transform.SetParent(null);
-        player.playerInventory.PickUpItem(currentItem);
+        player.playerInventory.PickUpItem(currentItem); 
         currentItem = null;
+        
     }
 
     public void TakeItem(Player player)
@@ -58,5 +60,8 @@ public class CameraPost : MonoBehaviour, IPlayerInteractableObject
         {
             (currentItem as Item_Flashlight).Turn(true);
         }
+
+        currentItem.interactableObjectFlag.active = false;
+        CameraManadger.Instance.UpdateCameras(false);
     }
 }

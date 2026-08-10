@@ -53,7 +53,30 @@ public static class SceneSearchService
     }
 
 
+    public static List<T> FindAllObjectsInCircleZone<T>(Vector3 position, float radius)
+    where T : Component
+    {
+        List<T> objectsInRange = new List<T>();
 
+        T[] allObjects = MonoBehaviour.FindObjectsByType<T>(FindObjectsSortMode.None);
+
+        float radiusSqr = radius * radius;
+
+        foreach (var currentObject in allObjects)
+        {
+            Vector3 pos = currentObject.transform.position;
+
+            float dx = pos.x - position.x;
+            float dz = pos.z - position.z;
+
+            if (dx * dx + dz * dz <= radiusSqr)
+            {
+                objectsInRange.Add(currentObject);
+            }
+        }
+
+        return objectsInRange;
+    }
 
 
 

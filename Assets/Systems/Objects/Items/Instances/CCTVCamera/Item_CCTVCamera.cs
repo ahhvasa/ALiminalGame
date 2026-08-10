@@ -9,11 +9,23 @@ public class Item_CCTVCamera : ItemHoldable
         set 
         {
             lightObject.SetActive(value);
-            working = value; 
+            working = value;
+
+
+            if (working)
+            {
+                CCTVCameraManager.Instance.activeCameras.Add(this);
+            }
+            else
+            {
+                if (CCTVCameraManager.Instance == null) { return; }
+                CCTVCameraManager.Instance.activeCameras.Remove(this);
+            }
         }
     }
-    public void Awake()
+    public void Start()
     {
+        base.Start();
         Working = false;
     }
 
@@ -24,6 +36,8 @@ public class Item_CCTVCamera : ItemHoldable
     public override void Activate(bool activateOrDeactivate)
     {
         active = activateOrDeactivate;
+        CameraManadger.Instance.UpdateCameras(activateOrDeactivate);
+
     }
 
     public void Update()
