@@ -379,6 +379,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6499172031009237958}
     m_Modifications:
+    - target: {fileID: -7138600435968851587, guid: f407dec11b217284092ceba59533b0bf, type: 3}
+      propertyPath: smellDistanceMultiplier
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 251468449488093067, guid: f407dec11b217284092ceba59533b0bf, type: 3}
       propertyPath: animator
       value: 
@@ -387,6 +391,10 @@ PrefabInstance:
       propertyPath: soundPlayer
       value: 
       objectReference: {fileID: 7162004591921883059}
+    - target: {fileID: 1771460713052369127, guid: f407dec11b217284092ceba59533b0bf, type: 3}
+      propertyPath: hearingDistanceMultiplier
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2716390090289136097, guid: f407dec11b217284092ceba59533b0bf, type: 3}
       propertyPath: animator
       value: 

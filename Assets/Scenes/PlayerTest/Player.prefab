@@ -486,7 +486,6 @@ GameObject:
   - component: {fileID: 892710612075091094}
   - component: {fileID: 2454157368768802997}
   - component: {fileID: 6696867728003625755}
-  - component: {fileID: 5110921997957918346}
   - component: {fileID: 3405786643243794480}
   - component: {fileID: 6968391696885643126}
   - component: {fileID: 3824677046320119184}
@@ -736,7 +735,7 @@ MonoBehaviour:
       looped: 1
       minimumInterval: 0
       maximumInterval: 0
-    removeDistantSoundReduction: 0
+    removeDistantSoundReduction: 1
     aIPerceivedSoundData:
       isAiPerceived: 1
       soundType: 0
@@ -748,7 +747,7 @@ MonoBehaviour:
       looped: 0
       minimumInterval: 0
       maximumInterval: 0
-    removeDistantSoundReduction: 0
+    removeDistantSoundReduction: 1
     aIPerceivedSoundData:
       isAiPerceived: 0
       soundType: 0
@@ -758,21 +757,6 @@ MonoBehaviour:
   maxSpeed: 6
   minPitch: 0.8
   maxPitch: 1.3
---- !u!114 &5110921997957918346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3023669467677848646}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f99e7a910a721746a2c30f294cb7344, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  perceivableObject: {fileID: 0}
-  AIIgnore: 0
-  smellDistance: 10
 --- !u!114 &3405786643243794480
 MonoBehaviour:
   m_ObjectHideFlags: 0

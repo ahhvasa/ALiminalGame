@@ -872,13 +872,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5404535937609530068}
     m_Modifications:
+    - target: {fileID: 2217130593856667214, guid: dd5d65309705e414a844953d2b9a5d4e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3542091582454699498, guid: dd5d65309705e414a844953d2b9a5d4e, type: 3}
       propertyPath: attachedPortalDoor
       value: 
       objectReference: {fileID: 4988650206880649167}
+    - target: {fileID: 3624761970870690165, guid: dd5d65309705e414a844953d2b9a5d4e, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3624761970870690165, guid: dd5d65309705e414a844953d2b9a5d4e, type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3624761970870690165, guid: dd5d65309705e414a844953d2b9a5d4e, type: 3}
+      propertyPath: m_Size.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6020408391850461414, guid: dd5d65309705e414a844953d2b9a5d4e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.000000029802322
       objectReference: {fileID: 0}
     - target: {fileID: 6020408391850461414, guid: dd5d65309705e414a844953d2b9a5d4e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -886,7 +902,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6020408391850461414, guid: dd5d65309705e414a844953d2b9a5d4e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.87
+      value: -1.12
       objectReference: {fileID: 0}
     - target: {fileID: 6020408391850461414, guid: dd5d65309705e414a844953d2b9a5d4e, type: 3}
       propertyPath: m_LocalRotation.w

@@ -25,10 +25,12 @@ public class ObjectSmell : MonoBehaviour, IPercivableObject
 
     public void OnEnable()
     {
+        if (ObjectSmellManadger.Instance == null) { return; }
         ObjectSmellManadger.Instance.objectSmell.Add(this);
     }
     public void OnDisable()
     {
+        if (ObjectSmellManadger.Instance == null) { return; }
         ObjectSmellManadger.Instance.objectSmell.Remove(this);
     }
 }

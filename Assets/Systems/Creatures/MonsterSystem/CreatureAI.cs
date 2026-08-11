@@ -265,6 +265,7 @@ public class CreatureAI : MonoBehaviour
                 createAction: (VisibleObject visibleObject) =>
                 {
                     var state = new CreatureState_Explore(creature, visibleObject.PerceivableObject.transform.position);
+                    state.runToPoint = true;
                     var task = new CreatureTask(60, state);
                     state.SetParentTask(task);
                     return task;

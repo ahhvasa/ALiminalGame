@@ -31,6 +31,12 @@ public class CameraManadger : MonoBehaviour
     {
         foreach (var post in cameraPosts)
         {
+            if (post.interactableObjectFlag == null)
+            {
+                post.interactableObjectFlag = post.GetComponent<InteractableObjectFlag>();
+                // Unity sometimes can't load the link
+            }
+
             if (post.currentItem == null)
             {
                 post.interactableObjectFlag.active = showOrHide;

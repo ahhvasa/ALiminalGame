@@ -66,6 +66,7 @@ public class CreatureState_Explore : ICreatureState
     public Vector3 point;
     public CreatureTask creatureTask;
     public bool lost = false;
+    public bool runToPoint = false;
 
     public CreatureState_Explore(Creature creature, Vector3 point)
     {
@@ -80,7 +81,14 @@ public class CreatureState_Explore : ICreatureState
 
     public void OnEnter()
     {
-        movement.SetExplorationSpeed();
+        if (runToPoint)
+        {
+            movement.SetChaseSpeed();
+        }
+        else
+        {
+            movement.SetExplorationSpeed();
+        }
     }
     public void OnExit()
     {

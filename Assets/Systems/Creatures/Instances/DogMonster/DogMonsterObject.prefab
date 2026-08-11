@@ -147,6 +147,7 @@ MonoBehaviour:
   meshRenderers: []
   spriteRenderers: []
   lightSources: []
+  hideGameObjectsOnZeroAlpha: []
   connectedObjects: []
 --- !u!114 &4939275754327295299
 MonoBehaviour:
@@ -185,6 +186,7 @@ MonoBehaviour:
   creatureVision: {fileID: 1541168149746257147}
   creatureMemory: {fileID: 7937974353815006841}
   creatureTaskRegister: {fileID: 5205544256144012057}
+  canEatApples: 0
 --- !u!114 &6786429213037736242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,6 +237,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 131328
+  maxDistance: 25
 --- !u!114 &1771460713052369127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,7 +258,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3829444498239040751}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d01cc435d891c9647922d698733107c5, type: 3}
   m_Name: 
@@ -359,6 +362,7 @@ MonoBehaviour:
   creature: {fileID: 4939275754327295299}
   targetLayer: 7
   doorOpeningTime: 0.75
+  doorBarricadeBreakingPower: 1
 --- !u!1001 &3008829432601762235
 PrefabInstance:
   m_ObjectHideFlags: 0

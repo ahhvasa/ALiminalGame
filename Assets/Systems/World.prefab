@@ -451,6 +451,7 @@ Transform:
   - {fileID: 4681639565158207374}
   - {fileID: 7475722034179422491}
   - {fileID: 2071046633235993805}
+  - {fileID: 7348881937549818387}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4127896772767027786
@@ -497,6 +498,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e510c7b1c0255ed4fa3f59f64f2e172f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &4592672355958440608
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7348881937549818387}
+  - component: {fileID: 8901884535059822785}
+  m_Layer: 0
+  m_Name: TextPopupManadger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7348881937549818387
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4592672355958440608}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4628378429106023769}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8901884535059822785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4592672355958440608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f61be6298d24b3e40bbaafa9aa5e7a9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 3644677761586074938, guid: aaefab19b7df46c48b04f9eec3187949, type: 3}
 --- !u!1 &4884693439451054928
 GameObject:
   m_ObjectHideFlags: 0
@@ -925,8 +971,8 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 75828585e5ffd18418422a529b068b20, type: 3}
     loopPlayInterval:
       looped: 1
-      minimumInterval: 45
-      maximumInterval: 120
+      minimumInterval: 20
+      maximumInterval: 45
     removeDistantSoundReduction: 1
     aIPerceivedSoundData:
       isAiPerceived: 0
@@ -942,8 +988,8 @@ MonoBehaviour:
     - {fileID: 8300000, guid: efeabd490c1d4ed419088d27310fff6a, type: 3}
     loopPlayInterval:
       looped: 1
-      minimumInterval: 45
-      maximumInterval: 120
+      minimumInterval: 20
+      maximumInterval: 45
     removeDistantSoundReduction: 1
     aIPerceivedSoundData:
       isAiPerceived: 0
@@ -958,7 +1004,7 @@ MonoBehaviour:
     loopPlayInterval:
       looped: 1
       minimumInterval: 20
-      maximumInterval: 40
+      maximumInterval: 45
     removeDistantSoundReduction: 1
     aIPerceivedSoundData:
       isAiPerceived: 0

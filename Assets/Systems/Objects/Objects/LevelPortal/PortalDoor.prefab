@@ -462,7 +462,6 @@ GameObject:
   - component: {fileID: 5281405644272900789}
   - component: {fileID: 7614480674938847847}
   - component: {fileID: 8990103005681851987}
-  - component: {fileID: 1710172441954005293}
   - component: {fileID: 4661097981012391274}
   - component: {fileID: 700941308093349733}
   - component: {fileID: 2073844400014231464}
@@ -508,6 +507,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 5561438221904843219}
   animator: {fileID: 7719029617700976730}
+  doorBarricade: {fileID: 0}
+  isLockedByBarricade: 0
   active: 1
   doorWays: []
   IsOpen: 0
@@ -607,20 +608,8 @@ MonoBehaviour:
   meshRenderers: []
   spriteRenderers: []
   lightSources: []
+  hideGameObjectsOnZeroAlpha: []
   connectedObjects: []
---- !u!114 &1710172441954005293
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6924635583877627178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68a79ecf7c2be2a42883c1e5058ba4b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectActivationDistance: 2
 --- !u!54 &4661097981012391274
 Rigidbody:
   m_ObjectHideFlags: 0
