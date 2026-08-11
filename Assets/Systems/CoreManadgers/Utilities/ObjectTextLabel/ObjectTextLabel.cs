@@ -43,6 +43,7 @@ public class ObjectTextLabel : MonoBehaviour
     {
         if (textItem != null) { return; }
         if (ObjectTextManadger.Instance == null) { return; }
+        if (visibleObject == null) { visibleObject = GetComponentInParent<VisibleObject>();  }
 
         textItem = ObjectTextManadger.Instance.Get();
         textItem.transform.position = transform.position;
