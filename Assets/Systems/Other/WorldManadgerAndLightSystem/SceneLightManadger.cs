@@ -24,7 +24,7 @@ public class SceneLightManadger : MonoBehaviour
     public void SetNight()
     {
         Debug.Log("Night");
-        StartLightTransition(0f);
+        StartLightTransition(0.1f);
     }
 
     private void StartLightTransition(float targetIntensity)
