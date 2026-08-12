@@ -40,6 +40,12 @@ public class VisibleObject : MonoBehaviour, IPercivableObject
     {
         for (int i = 0; i != meshRenderers.Count; i++)
         {
+            if (meshRenderers[i] == null)
+            {
+                meshRenderers.RemoveAt(i);
+                i--;
+            }
+
             if (meshRenderers[i].gameObject.GetComponent<VO_DontIncludeComponentsMark>() != null)
             {
                 meshRenderers.RemoveAt(i);
@@ -48,6 +54,12 @@ public class VisibleObject : MonoBehaviour, IPercivableObject
         }
         for (int i = 0; i != spriteRenderers.Count; i++)
         {
+            if (spriteRenderers[i] == null)
+            {
+                spriteRenderers.RemoveAt(i);
+                i--;
+            }
+
             if (spriteRenderers[i].gameObject.GetComponent<VO_DontIncludeComponentsMark>() != null)
             {
                 spriteRenderers.RemoveAt(i);
@@ -56,6 +68,12 @@ public class VisibleObject : MonoBehaviour, IPercivableObject
         }
         for (int i = 0; i != lightSources.Count; i++)
         {
+            if (lightSources[i] == null)
+            {
+                lightSources.RemoveAt(i);
+                i--;
+            }
+
             if (lightSources[i].gameObject.GetComponent<VO_DontIncludeComponentsMark>() != null)
             {
                 lightSources.RemoveAt(i);
@@ -64,6 +82,12 @@ public class VisibleObject : MonoBehaviour, IPercivableObject
         }
         for (int i = 0; i != hideGameObjectsOnZeroAlpha.Count; i++)
         {
+            if (hideGameObjectsOnZeroAlpha[i] == null)
+            {
+                hideGameObjectsOnZeroAlpha.RemoveAt(i);
+                i--;
+            }
+
             if (hideGameObjectsOnZeroAlpha[i].gameObject.GetComponent<VO_DontIncludeComponentsMark>() != null)
             {
                 hideGameObjectsOnZeroAlpha.RemoveAt(i);
@@ -76,6 +100,8 @@ public class VisibleObject : MonoBehaviour, IPercivableObject
 
     private void Awake()
     {
+        PostProcessLists();
+
         meshRenderers.AddRange(GetComponentsInChildren<MeshRenderer>(true));
         spriteRenderers.AddRange(GetComponentsInChildren<SpriteRenderer>(true));
         lightSources.AddRange(GetComponentsInChildren<Light>(true));

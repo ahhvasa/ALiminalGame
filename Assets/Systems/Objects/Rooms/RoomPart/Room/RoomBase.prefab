@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 6944002557231458601}
   - component: {fileID: 7332022918007791144}
   - component: {fileID: 6395930546030028001}
+  - component: {fileID: 9089756187598582662}
   m_Layer: 0
   m_Name: RoomBase
   m_TagString: Untagged
@@ -172,7 +173,24 @@ MonoBehaviour:
   meshRenderers: []
   spriteRenderers: []
   lightSources: []
+  hideGameObjectsOnZeroAlpha: []
   connectedObjects: []
+--- !u!114 &9089756187598582662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734098496158569571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8c25b55e02a36f429ba13d246f68fe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  room: {fileID: 7332022918007791144}
+  visibleObject: {fileID: 6395930546030028001}
+  prefabKey: RoomEdge
+  roomName: 
 --- !u!1 &765957973973470404
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,7 +428,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5433068294812519597
 Transform:
   m_ObjectHideFlags: 0
@@ -607,7 +625,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3983378591003454030
 Transform:
   m_ObjectHideFlags: 0
