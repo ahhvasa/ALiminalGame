@@ -19,7 +19,6 @@ public class PlayerDeath : MonoBehaviour
         playerView.gameObject.SetActive(false);
         var perceivableObject = player.GetComponent<PerceivableObject>();
         perceivableObject.visibleObject.AIIgnore = true;
-        perceivableObject.objectSmell.AIIgnore = true;
         player.playerMonsterInView.enabled = false;
         player.playerInventory.DropItem();
         player.GetComponent<FootstepAudio>().enabled = false;
