@@ -1,10 +1,11 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UITextFade : MonoBehaviour
 {
-    public Text text;
+    public TextMeshProUGUI text;
     public float initialTime = 1f;
     public float fadeTime = 1f;
     public float showTime = 2f;
@@ -22,10 +23,10 @@ public class UITextFade : MonoBehaviour
         yield return new WaitForSeconds(initialTime);
         SoundManager.PlaySound(onTextShowSound, soundPlayer);
 
-        Color transparent = Color.black;
+        Color transparent = text.color;
         transparent.a = 0f;
 
-        Color visible = Color.black;
+        Color visible = text.color;
         visible.a = 1f;
 
         text.color = transparent;

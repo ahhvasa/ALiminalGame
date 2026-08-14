@@ -50,6 +50,7 @@ MonoBehaviour:
   itemObject: {fileID: 9101376675677017802}
   icon: {fileID: 21300000, guid: cff83195064f33e4f812f5666d14a52b, type: 3}
   textureType: 4
+  exclamationMark: {fileID: 5100351524218002892}
   stringReference:
     m_TableReference:
       m_TableCollectionName: 
@@ -97,6 +98,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7844540891982878381}
+  - {fileID: 6565683261653519106}
   m_Father: {fileID: 6830010100202645862}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9101376675677017802
@@ -196,6 +198,70 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &5100351524218002892
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6565683261653519106}
+  - component: {fileID: 7765007844131987818}
+  - component: {fileID: 4177423548644698187}
+  m_Layer: 9
+  m_Name: exclamationMark
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6565683261653519106
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5100351524218002892}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3075007370870692079}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7765007844131987818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5100351524218002892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fdb664c4f3c1f641b889c66b6b86689, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: '!'
+  overrideFontSize: 1
+  fontSize: 10
+--- !u!111 &4177423548644698187
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5100351524218002892}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 8faf9fd618ef9304ab9463dbbd4352db, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 8faf9fd618ef9304ab9463dbbd4352db, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &6197957869780973731
 GameObject:
   m_ObjectHideFlags: 0

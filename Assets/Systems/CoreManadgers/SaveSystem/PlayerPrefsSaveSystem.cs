@@ -21,7 +21,6 @@ public class PlayerPrefsSaveSystem : ISaveSystem
     {
         if (!PlayerPrefs.HasKey(key))
         {
-            Debug.LogWarning($"Save not found: {key}");
             return Task.FromResult(default(T));
         }
 
