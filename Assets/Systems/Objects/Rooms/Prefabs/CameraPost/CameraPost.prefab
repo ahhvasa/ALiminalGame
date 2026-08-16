@@ -158,6 +158,20 @@ MonoBehaviour:
   currentItem: {fileID: 0}
   objectParent: {fileID: 5681170231500302426}
   interactableObjectFlag: {fileID: 1414619144459352545}
+  soundOnTakeObject:
+    mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
+    clips:
+    - {fileID: 8300000, guid: c9de527f6dde20b45bc6e8b38e235c0d, type: 3}
+    loopPlayInterval:
+      looped: 0
+      minimumInterval: 0
+      maximumInterval: 0
+    removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
+      soundDistance: 10
+  soundPlayer: {fileID: 0}
 --- !u!114 &1414619144459352545
 MonoBehaviour:
   m_ObjectHideFlags: 0

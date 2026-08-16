@@ -94,6 +94,7 @@ MonoBehaviour:
   drop: {fileID: -7918994617320474307, guid: 16d482963d4bbb841b02013d8145116d, type: 3}
   activateItem: {fileID: 8103034261933313731, guid: 16d482963d4bbb841b02013d8145116d, type: 3}
   scroll: {fileID: -4502330884042251963, guid: 16d482963d4bbb841b02013d8145116d, type: 3}
+  crouch: {fileID: 5186230314432626013, guid: 16d482963d4bbb841b02013d8145116d, type: 3}
   escape: {fileID: 2924903070278795255, guid: 16d482963d4bbb841b02013d8145116d, type: 3}
   selectItem_1: {fileID: 7044390000102706851, guid: 16d482963d4bbb841b02013d8145116d, type: 3}
   selectItem_2: {fileID: 5277722546924628226, guid: 16d482963d4bbb841b02013d8145116d, type: 3}
@@ -251,6 +252,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allCameras: []
   activeCameras: []
+  onChooseCamera:
+    mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
+    clips:
+    - {fileID: 8300000, guid: 53bbec793f72f7c4388c9e1e88956401, type: 3}
+    loopPlayInterval:
+      looped: 0
+      minimumInterval: 0
+      maximumInterval: 0
+    removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
+      soundDistance: 10
 --- !u!1 &2336190578006342861
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,6 +9,7 @@ public class PlayerCCTVCameraControlState : IPlayerState
     private int _currentCameraId = 0;
     private bool _justEntered = false;
 
+
     public int CurrentCameraId
     {
         get { return _currentCameraId; }
@@ -24,7 +25,7 @@ public class PlayerCCTVCameraControlState : IPlayerState
                 _currentCameraId = CCTVCameraManager.Instance.activeCameras.Count - 1;
             }
 
-
+            SoundManager.PlaySound(CCTVCameraManager.Instance.onChooseCamera, player.soundPlayer);
             CameraPoint.Instance.FollowObject(CCTVCameraManager.Instance.activeCameras[_currentCameraId].itemObject.transform);
         }
     }

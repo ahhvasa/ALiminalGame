@@ -8,6 +8,8 @@ public class CCTVCameraManager : MonoBehaviour
     public List<Item_CCTVCamera> allCameras = new List<Item_CCTVCamera>();
     public List<Item_CCTVCamera> activeCameras = new List<Item_CCTVCamera>();
 
+    public SoundData onChooseCamera;
+
     public void Start()
     {
         Instance = this;

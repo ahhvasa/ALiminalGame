@@ -13,8 +13,11 @@ public class FootstepAudio : MonoBehaviour
     [SerializeField] private float maxSpeed = 6f;
     [SerializeField] private float minPitch = 0.8f;
     [SerializeField] private float maxPitch = 1.3f;
+    [SerializeField] private float maxSoundDistance = 10f;
 
     private Vector3 _lastPosition;
+
+    public bool blockSound = false;
 
     private void Start()
     {
@@ -67,16 +70,32 @@ public class FootstepAudio : MonoBehaviour
             if (!walkSound.IsPlaying)
                 walkSound.Play();
 
+            float t = Mathf.Clamp01(speed / maxSpeed);
+
             walkSound.audioSource.pitch = Mathf.Lerp(
                 minPitch,
                 maxPitch,
-                Mathf.Clamp01(speed / maxSpeed));
+                t);
 
 
             walkSound.audioSource.volume = Mathf.Lerp(
                 0,
                 1,
-                Mathf.Clamp01(speed / maxSpeed));
+                t);
+
+            if (blockSound)
+            {
+                walkSound.aIPerceivedSoundData.soundDistance = 0;
+            }
+            else
+            {
+
+                walkSound.aIPerceivedSoundData.soundDistance = Mathf.Lerp(
+                    0,
+                    maxSoundDistance,
+                    t);
+            }
+
         }
         else
         {

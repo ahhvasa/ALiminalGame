@@ -9,6 +9,8 @@ public class CameraPost : MonoBehaviour, IPlayerInteractableObject
     public Transform objectParent;
     public InteractableObjectFlag interactableObjectFlag;
 
+    public SoundData soundOnTakeObject;
+
     public void Awake()
     {
         animator.enabled = false;
@@ -61,7 +63,10 @@ public class CameraPost : MonoBehaviour, IPlayerInteractableObject
             (currentItem as Item_Flashlight).Turn(true);
         }
 
+
         currentItem.interactableObjectFlag.active = false;
         CameraManadger.Instance.UpdateCameras(false);
+
+        SoundManager.PlaySound(soundOnTakeObject, player.soundPlayer);
     }
 }

@@ -10,6 +10,7 @@ public class InputProvider : MonoBehaviour
     public InputActionReference drop;
     public InputActionReference activateItem;
     public InputActionReference scroll;
+    public InputActionReference crouch; 
 
     public InputActionReference escape;
 
@@ -65,6 +66,10 @@ public class InputProvider : MonoBehaviour
             forwardOrBackward = false;
             return false;
         }
+    }
+    public static bool Crouch()
+    {
+        return Instance.crouch.action.IsPressed();
     }
     public static bool Escape()
     {

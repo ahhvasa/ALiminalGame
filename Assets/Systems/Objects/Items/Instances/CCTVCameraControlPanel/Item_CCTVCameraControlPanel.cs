@@ -7,6 +7,8 @@ public class Item_CCTVCameraControlPanel : ItemHoldable
     public PlayerCCTVCameraControlState cameraControlState;
     public InputHintInfo hintInfo;
 
+    public SoundData onChooseCamera;
+
     public Item_CCTVCameraControlPanel()
     {
         hintInfo = new InputHintInfo("F", "See Cameras");
@@ -19,6 +21,7 @@ public class Item_CCTVCameraControlPanel : ItemHoldable
 
         if (active)
         {
+            SoundManager.PlaySound(onChooseCamera, playerOwner.soundPlayer);
             InputHintManadger.ShowHint(hintInfo);
         }
         else
