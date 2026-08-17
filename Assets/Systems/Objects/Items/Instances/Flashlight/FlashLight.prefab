@@ -247,7 +247,8 @@ MonoBehaviour:
   soundPlayer: {fileID: 5966658525674644467}
   turnOn:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
-    clips: []
+    clips:
+    - {fileID: 8300000, guid: 13ec8e11528095846b5bba6819f58e38, type: 3}
     loopPlayInterval:
       looped: 0
       minimumInterval: 0
@@ -259,7 +260,8 @@ MonoBehaviour:
       soundDistance: 10
   turnOff:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
-    clips: []
+    clips:
+    - {fileID: 8300000, guid: 13ec8e11528095846b5bba6819f58e38, type: 3}
     loopPlayInterval:
       looped: 0
       minimumInterval: 0

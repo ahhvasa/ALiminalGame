@@ -9,7 +9,14 @@ public class LevelPortal : MonoBehaviour
     [Inject] public ISaveSystem saveSystem;
     public string sceneName;
 
-    private void OnTriggerEnter(Collider other)
+    public bool activated = false;
+
+    public void Awake()
+    {
+        activated = false;
+    }
+
+    private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player")
         {
@@ -19,11 +26,28 @@ public class LevelPortal : MonoBehaviour
 
     public async void LoadLevel()
     {
-        if (markPlayerProgress)
+        Debug.Log($"LEVEL PORTAL: LoadLevel activated. And currently loading {activated}  name {sceneName}");
+
+        if (activated) { return; }
+        activated = true;
+
+        try
         {
-            await SaveProgress();
+
+            if (markPlayerProgress)
+            {
+                await SaveProgress();
+            }
+            await SceneLoader.Instance.LoadSceneAsync(sceneName);
+            Debug.Log($"LEVEL PORTAL: Must be loaded");
+            activated = false;
         }
-        await SceneLoader.Instance.LoadSceneAsync(sceneName);
+        catch
+        {
+            Debug.Log("LEVEL PORTAL: ");
+            activated = false;
+        }
+
     }
 
     public async Task SaveProgress()

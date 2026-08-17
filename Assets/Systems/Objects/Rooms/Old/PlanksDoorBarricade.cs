@@ -1,5 +1,4 @@
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class PlanksDoorBarricade : DoorBarricade
 {
@@ -31,7 +30,7 @@ public class PlanksDoorBarricade : DoorBarricade
 
         if (currentBreakingSound != null)
         {
-            currentBreakingSound.Stop();
+            currentBreakingSound.DestroySound();
             currentBreakingSound = null;
         }
         gameObjectOnBreakign.SetActive(false);
@@ -42,7 +41,7 @@ public class PlanksDoorBarricade : DoorBarricade
 
         if (currentBreakingSound != null)
         {
-            currentBreakingSound.Stop();
+            currentBreakingSound.DestroySound();
             currentBreakingSound = null;
         }
         gameObjectOnBreakign.SetActive(false);

@@ -49,7 +49,7 @@ public class Item_Flashlight : ItemHoldable
         }
         else
         {
-            if (currentFlickering != null) { currentFlickering.Stop(); }
+            if (currentFlickering != null) { currentFlickering.DestroySound(); }
         }
 
         projectorObject.SetActive(on);

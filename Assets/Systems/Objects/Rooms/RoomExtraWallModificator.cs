@@ -16,6 +16,8 @@ public class RoomExtraWallModificator : MonoBehaviour
     public VisibleObject visibleObject;
     public string prefabKey;
 
+#if UNITY_EDITOR
+
     public void BuildWalls()
     {
         foreach (var part in room.roomParts)
@@ -59,4 +61,6 @@ public class RoomExtraWallModificator : MonoBehaviour
         EditorUtility.SetDirty(prefab);
         return GameObject.Instantiate(prefab);
     }
+
+#endif
 }

@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class LevelCandel : MonoBehaviour, IPlayerInteractableObject
 {
+    public SoundData sound;
+
     public void Interact(Player player)
     {
-        WorldManadger.Instance.EnterNight();
+        if (WorldManadger.Instance.isNightOn == false)
+        {
+            WorldManadger.Instance.EnterNight();
+            SoundManager.PlaySound(sound, player.soundPlayer);
+        }
     }
 }

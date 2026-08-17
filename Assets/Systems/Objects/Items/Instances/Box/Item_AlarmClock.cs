@@ -41,6 +41,8 @@ public class Item_AlarmClock : ItemHoldable
         }
         else
         {
+            if (active == false) { return; }
+
             currentTimeBeforeRing -= Time.deltaTime;
 
             if (currentTimeBeforeRing <= 0f)
@@ -52,7 +54,7 @@ public class Item_AlarmClock : ItemHoldable
 
                 if (tickingSound != null)
                 {
-                    tickingSound.StopSmoothly();
+                    tickingSound.DestroySound();
                     tickingSound = null;
                 }
 

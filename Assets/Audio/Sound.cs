@@ -93,6 +93,11 @@ public class Sound : MonoBehaviour, IPercivableObject
     }
 
 
+    public async UniTask DestroySmoothly()
+    {
+        await SmoothlyChangeVolumeAsync(1f, 0f);
+        DestroySound();
+    }
     public async UniTask StopSmoothly()
     {
         await SmoothlyChangeVolumeAsync(1f, 0f);

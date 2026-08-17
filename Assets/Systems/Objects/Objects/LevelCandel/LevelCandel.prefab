@@ -309,6 +309,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcc533a4073bd6d4dac0595f55dd7332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sound:
+    mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
+    clips:
+    - {fileID: 8300000, guid: 6c78c8e4dab258a4faed2c0500b19d03, type: 3}
+    loopPlayInterval:
+      looped: 0
+      minimumInterval: 0
+      maximumInterval: 0
+    removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
+      soundDistance: 10
 --- !u!114 &5391203667046309479
 MonoBehaviour:
   m_ObjectHideFlags: 0

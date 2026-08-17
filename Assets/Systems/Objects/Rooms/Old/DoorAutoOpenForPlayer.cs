@@ -15,7 +15,7 @@ public class DoorAutoOpenForPlayer : OnPlayerNear
         else
         {
             if (currentPortalSound == null) { return; }
-            currentPortalSound.StopSmoothly();
+            currentPortalSound.DestroySmoothly();
             currentPortalSound = null;
         }
     }

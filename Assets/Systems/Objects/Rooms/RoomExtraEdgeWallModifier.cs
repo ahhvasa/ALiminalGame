@@ -14,6 +14,8 @@ public class RoomExtraEdgeWallModifier : MonoBehaviour
     public string prefabKey;
     public string roomName;
 
+#if UNITY_EDITOR
+
     public void BuildWalls()
     {
         foreach (var part in room.roomParts)
@@ -52,4 +54,6 @@ public class RoomExtraEdgeWallModifier : MonoBehaviour
         EditorUtility.SetDirty(prefab);
         return GameObject.Instantiate(prefab);
     }
+
+#endif
 }

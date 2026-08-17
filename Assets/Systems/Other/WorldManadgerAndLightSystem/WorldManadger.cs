@@ -16,6 +16,8 @@ public class WorldManadger : MonoBehaviour
     public event Action OnDayStart;
     public event Action OnNightStart;
 
+    public bool isNightOn = false;
+
     public void Awake()
     {
         Instance = this;
@@ -31,11 +33,13 @@ public class WorldManadger : MonoBehaviour
     {
         OnDayStart?.Invoke();
         stateMachine.EnterState(worldDayState);
+        isNightOn = false;
     }
     public void EnterNight()
     {
         OnNightStart?.Invoke();
         stateMachine.EnterState(worldNightState);
+        isNightOn = true;
     }
     public void Win()
     {

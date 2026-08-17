@@ -21,7 +21,7 @@ public class NoteObject : ItemHoldable
     bool active;
     bool on = false;
 
-    public async Task Start()
+    public new async Task Start()
     {
         base.Start();
         ShowExclamationMark(await WasReadEarlier() == false);
@@ -75,14 +75,14 @@ public class NoteObject : ItemHoldable
 
     public async Task WasReadNow(bool wasRead)
     {
-        await saveSystem.SaveAsync<String_vv111>(noteKey, wasRead ? new String_vv111("1") : new String_vv111("0"));
+        await saveSystem.SaveAsync<SerializableString>(noteKey, wasRead ? new SerializableString("1") : new SerializableString("0"));
     }
 
     public async Task<bool> WasReadEarlier()
     {
         if (noExclamationMark) { return true; }
 
-        string value = (await saveSystem.LoadAsync<String_vv111>(noteKey)).str;
+        string value = (await saveSystem.LoadAsync<SerializableString>(noteKey)).str;
 
         return value == "1";
     }
@@ -90,11 +90,11 @@ public class NoteObject : ItemHoldable
 }
 
 [Serializable]
-public class String_vv111
+public class SerializableString
 {
     public string str;
 
-    public String_vv111(string str)
+    public SerializableString(string str)
     {
         this.str = str;
     }
