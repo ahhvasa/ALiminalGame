@@ -83,7 +83,7 @@ public class Sound : MonoBehaviour, IPercivableObject
     public void DestroySound()
     {
         isPlaying = false;
-        OnSoundDestroy.Invoke();
+        OnSoundDestroy?.Invoke();
     }
 
     public void Stop()

@@ -352,7 +352,7 @@ public class CreatureBehaviourBuilder
             }
             CreatureTask task = taskDictionary[key];
 
-            onDetect.Invoke(obj, task);
+            onDetect?.Invoke(obj, task);
             creatureAI.creatureTaskRegister.AddTask(task);
 
             fixedUpdateAction = () =>
@@ -374,7 +374,7 @@ public class CreatureBehaviourBuilder
 
             var task = taskDictionary[key];
 
-            onLost.Invoke(obj, task);
+            onLost?.Invoke(obj, task);
 
             creatureAI.OnFixedUpdate -= fixedUpdateAction;
 

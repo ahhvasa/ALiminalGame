@@ -63,7 +63,6 @@ public class FootstepAudio : MonoBehaviour
 
         _lastPosition = transform.position;
 
-        Debug.Log("my speed = " + speed + " walkSound = " + walkSound);
 
         if (speed > moveThreshold)
         {

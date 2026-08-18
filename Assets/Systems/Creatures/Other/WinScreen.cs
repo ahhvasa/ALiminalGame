@@ -39,7 +39,7 @@ public class WinScreen : MonoBehaviour
 
     public void Update()
     {
-        if (Input.anyKeyDown)
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             if (showedCredits)
             {

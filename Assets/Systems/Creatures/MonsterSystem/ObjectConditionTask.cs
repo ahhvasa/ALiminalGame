@@ -25,7 +25,7 @@ public class ObjectConditionTask<TComponent>
             {
                 if (TryGetComponent(visibleObject, out TComponent component) == false) { return; }
 
-                tasks[component] = createTaskDelegate.Invoke(component);
+                tasks[component] = createTaskDelegate?.Invoke(component);
                 creatureTaskRegister.AddTask(tasks[component]);
             };
 

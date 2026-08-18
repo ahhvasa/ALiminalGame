@@ -25,7 +25,10 @@ public class ObjectActivateOnTime : MonoBehaviour
 
         foreach (GameObject obj in objects)
         {
-            obj.SetActive(false);
+            if (obj != null)
+            {
+                obj.SetActive(false);
+            }
         }
         StopCoroutine(coroutine);
     }

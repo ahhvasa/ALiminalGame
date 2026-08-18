@@ -17,11 +17,11 @@ public class PlayerDeadState : IPlayerState
         player.playerMovement.enabled = false;
 
         player.playerDeath.Die();
-        OnDeath.Invoke(true);
+        OnDeath?.Invoke(true);
     }
     public void OnExit()
     {
-        OnDeath.Invoke(false);
+        OnDeath?.Invoke(false);
     }
 
     public void FixedUpdate()

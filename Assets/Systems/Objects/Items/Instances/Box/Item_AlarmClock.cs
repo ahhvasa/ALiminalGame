@@ -19,6 +19,16 @@ public class Item_AlarmClock : ItemHoldable
 
     private bool clockActivated;
 
+    public override void OnDropInternal()
+    {
+        base.OnDropInternal();
+        isInHands = false;
+    }
+    public override void OnPickUpInternal(Player player)
+    {
+        base.OnPickUpInternal(player);
+        isInHands = true;
+    }  
 
     private void Update()
     {
@@ -41,7 +51,7 @@ public class Item_AlarmClock : ItemHoldable
         }
         else
         {
-            if (active == false) { return; }
+            if (active == false && isInHands == true) { return; }
 
             currentTimeBeforeRing -= Time.deltaTime;
 
@@ -71,6 +81,7 @@ public class Item_AlarmClock : ItemHoldable
 
 
     public bool active;
+    public bool isInHands = false;
 
     public override void ItemUpdateInternal()
     {
