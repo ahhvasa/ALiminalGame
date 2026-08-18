@@ -83,10 +83,7 @@ public class WorldDayState : IWorldState
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            worldManadger.EnterNight();
-        }
+
     }
     public void FixedUpdate()
     {
@@ -114,10 +111,7 @@ public class WorldNightState : IWorldState
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            worldManadger.EnterDay();
-        }
+
     }
     public void FixedUpdate()
     {

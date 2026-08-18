@@ -6,7 +6,6 @@ using Zenject;
 
 public class LevelPortal : MonoBehaviour
 {
-    [Inject] public ISaveSystem saveSystem;
     public string sceneName;
 
     public bool activated = false;
@@ -52,11 +51,11 @@ public class LevelPortal : MonoBehaviour
 
     public async Task SaveProgress()
     {
-        PlayerProgress file = await saveSystem.LoadAsync<PlayerProgress>(PlayerProgress.fileName);
+        PlayerProgress file = await PlayerPrefsSaveSystem_StaticSingleton.Instance.LoadAsync<PlayerProgress>(PlayerProgress.fileName);
         if (file == null) { file = new PlayerProgress(); }
         file.finishedLevels.Add(SceneManager.GetActiveScene().name);
 
-        await saveSystem.SaveAsync<PlayerProgress>(PlayerProgress.fileName, file);
+        await PlayerPrefsSaveSystem_StaticSingleton.Instance.SaveAsync<PlayerProgress>(PlayerProgress.fileName, file);
     }
 
     public bool markPlayerProgress = false;

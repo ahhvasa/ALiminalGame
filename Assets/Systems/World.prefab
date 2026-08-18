@@ -404,6 +404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c45a8a18d279e0e4685e1a414162938e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isNightOn: 0
 --- !u!114 &5503874586234330613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -466,6 +467,7 @@ Transform:
   - {fileID: 7475722034179422491}
   - {fileID: 2071046633235993805}
   - {fileID: 7348881937549818387}
+  - {fileID: 8538890036076162109}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4127896772767027786
@@ -510,6 +512,50 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e510c7b1c0255ed4fa3f59f64f2e172f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &4340149178141256392
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8538890036076162109}
+  - component: {fileID: 1710902980803802252}
+  m_Layer: 0
+  m_Name: SaveSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8538890036076162109
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4340149178141256392}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4628378429106023769}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1710902980803802252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4340149178141256392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9b8028ff40c73449b7d692325ca1d25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4592672355958440608
@@ -985,8 +1031,8 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 75828585e5ffd18418422a529b068b20, type: 3}
     loopPlayInterval:
       looped: 1
-      minimumInterval: 20
-      maximumInterval: 45
+      minimumInterval: 5
+      maximumInterval: 10
     removeDistantSoundReduction: 1
     aIPerceivedSoundData:
       isAiPerceived: 0
@@ -1002,8 +1048,8 @@ MonoBehaviour:
     - {fileID: 8300000, guid: efeabd490c1d4ed419088d27310fff6a, type: 3}
     loopPlayInterval:
       looped: 1
-      minimumInterval: 20
-      maximumInterval: 45
+      minimumInterval: 5
+      maximumInterval: 10
     removeDistantSoundReduction: 1
     aIPerceivedSoundData:
       isAiPerceived: 0
@@ -1217,6 +1263,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4628378429106023769}
     m_Modifications:
+    - target: {fileID: 312555950253751393, guid: 56217a8f27659c0419aed29de8ddc4d0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 312555950253751393, guid: 56217a8f27659c0419aed29de8ddc4d0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 312555950253751393, guid: 56217a8f27659c0419aed29de8ddc4d0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2779053833839815905, guid: 56217a8f27659c0419aed29de8ddc4d0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2779053833839815905, guid: 56217a8f27659c0419aed29de8ddc4d0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2779053833839815905, guid: 56217a8f27659c0419aed29de8ddc4d0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
     - target: {fileID: 2872116776551411494, guid: 56217a8f27659c0419aed29de8ddc4d0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 15
@@ -1257,9 +1327,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4733245209813171586, guid: 56217a8f27659c0419aed29de8ddc4d0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4733245209813171586, guid: 56217a8f27659c0419aed29de8ddc4d0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4733245209813171586, guid: 56217a8f27659c0419aed29de8ddc4d0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
     - target: {fileID: 5087527083867846475, guid: 56217a8f27659c0419aed29de8ddc4d0, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7163142570250415362, guid: 56217a8f27659c0419aed29de8ddc4d0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7163142570250415362, guid: 56217a8f27659c0419aed29de8ddc4d0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7163142570250415362, guid: 56217a8f27659c0419aed29de8ddc4d0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1411,6 +1505,10 @@ PrefabInstance:
     - target: {fileID: 3647108303360730886, guid: 5461701a3301fcf41abd79aea9479a72, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4131024894105207034, guid: 5461701a3301fcf41abd79aea9479a72, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

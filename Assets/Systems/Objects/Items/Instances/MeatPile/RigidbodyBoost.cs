@@ -14,9 +14,6 @@ public class RigidbodyBoost : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            rb.AddForce(direction.normalized * force, ForceMode.Impulse);
-        }
+
     }
 }

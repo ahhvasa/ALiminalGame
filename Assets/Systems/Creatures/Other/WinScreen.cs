@@ -24,22 +24,22 @@ public class WinScreen : MonoBehaviour
         Fade(backGround, 0, 1, 0.5f);
         await Fade(winScreen, 0, 1, 0.5f);
 
-        player.playerMovement.enabled = false;
+        await Fade(winScreen, 1, 1, 1f);
 
-        await Task.Delay(1500);
 
         await Fade(winScreen, 1, 0, 0.5f);
         await Fade(creditsScreen, 0, 1, 0.5f);
 
-        await Task.Delay(1000);
+        await Fade(creditsScreen, 1, 1, 1f);
 
         showedCredits = true;
 
     }
 
+
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.anyKeyDown)
         {
             if (showedCredits)
             {

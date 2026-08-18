@@ -26,7 +26,7 @@ public class DeadScreen : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.anyKey)
         {
             if (playerIsDead)
             {

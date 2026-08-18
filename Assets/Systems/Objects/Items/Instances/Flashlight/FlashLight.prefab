@@ -243,8 +243,8 @@ MonoBehaviour:
   textureType: 3
   active: 0
   on: 1
+  canBeSetToCameraPost: 1
   projectorObject: {fileID: 1087654470322919892}
-  soundPlayer: {fileID: 5966658525674644467}
   turnOn:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -271,19 +271,6 @@ MonoBehaviour:
       isAiPerceived: 0
       soundType: 0
       soundDistance: 10
-  flickering:
-    mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
-    clips:
-    - {fileID: 8300000, guid: 94d276b1e340afc4fa9225399294bf04, type: 3}
-    loopPlayInterval:
-      looped: 0
-      minimumInterval: 0
-      maximumInterval: 0
-    removeDistantSoundReduction: 0
-    aIPerceivedSoundData:
-      isAiPerceived: 0
-      soundType: 0
-      soundDistance: 10
 --- !u!1 &7497275028173928410
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,7 +285,6 @@ GameObject:
   - component: {fileID: 4222915553527823295}
   - component: {fileID: 5507714294958681161}
   - component: {fileID: 5769976362834624668}
-  - component: {fileID: 5966658525674644467}
   m_Layer: 9
   m_Name: FlashLight
   m_TagString: Untagged
@@ -420,17 +406,3 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5966658525674644467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7497275028173928410}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc30803b067cad24f9859fd8f3abf016, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  perceivableObject: {fileID: 0}
-  playingSounds: []

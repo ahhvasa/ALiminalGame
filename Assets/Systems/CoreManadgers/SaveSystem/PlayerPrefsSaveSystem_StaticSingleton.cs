@@ -1,11 +1,12 @@
 using System.Threading.Tasks;
 using UnityEngine;
 
-public class PlayerPrefsSaveSystem : ISaveSystem
+public class PlayerPrefsSaveSystem_StaticSingleton : MonoBehaviour
 {
-    public PlayerPrefsSaveSystem(string saveFolder = null)
+    public static PlayerPrefsSaveSystem_StaticSingleton Instance;
+    public void Awake()
     {
-
+        Instance = this;
     }
 
     public Task SaveAsync<T>(string key, T data)

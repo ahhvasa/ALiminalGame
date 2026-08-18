@@ -15,8 +15,6 @@ public class SettingsMenu : MonoBehaviour
 
     private const string SettingsKey = "Settings";
 
-    [Inject] private ISaveSystem saveSystem;
-
     [SerializeField] public Button backButton;
 
     [Header("Audio")]
@@ -71,14 +69,14 @@ public class SettingsMenu : MonoBehaviour
 
     private async Task LoadOptions()
     {
-        options = await saveSystem.LoadAsync<GameOptionsData>(SettingsKey);
+        options = await PlayerPrefsSaveSystem_StaticSingleton.Instance.LoadAsync<GameOptionsData>(SettingsKey);
         options ??= CreateDefaultOptions();
         await ApplySettings();
     }
 
     private async Task SaveOptions()
     {
-        await saveSystem.SaveAsync(SettingsKey, options);
+        await PlayerPrefsSaveSystem_StaticSingleton.Instance.SaveAsync(SettingsKey, options);
     }
 
     private async Task ApplySettings()

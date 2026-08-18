@@ -33,9 +33,6 @@ public class TextPopupManadger : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            ShowTextOnPlayer("TEXT");
-        }
+
     }
 }

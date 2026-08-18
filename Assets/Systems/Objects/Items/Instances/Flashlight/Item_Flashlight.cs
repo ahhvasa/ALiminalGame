@@ -4,18 +4,17 @@ public class Item_Flashlight : ItemHoldable
 {
     public bool active;
     public bool on;
+    public bool canBeSetToCameraPost;
 
     public GameObject projectorObject;
 
     [Header("Sound")]
 
-    public SoundPlayer soundPlayer;
-
     public SoundData turnOn;
     public SoundData turnOff;
-    public SoundData flickering;
+    //public SoundData flickering;
 
-    private Sound currentFlickering;
+    //private Sound currentFlickering;
 
 
     public override void Activate(bool activateOrDeactivate)
@@ -42,15 +41,15 @@ public class Item_Flashlight : ItemHoldable
     }
     public void Turn()
     {
-        SoundManager.PlaySound((on == false) ? turnOff : turnOn, soundPlayer);
-        if (on)
-        {
-            currentFlickering = SoundManager.PlaySound(flickering, soundPlayer);
-        }
-        else
-        {
-            if (currentFlickering != null) { currentFlickering.DestroySound(); }
-        }
+        SoundManager.PlaySound((on == false) ? turnOff : turnOn, playerOwner.soundPlayer);
+        //if (on)
+        //{
+        //    currentFlickering = SoundManager.PlaySound(flickering, playerOwner.soundPlayer);
+        //}
+        //else
+        //{
+        //    if (currentFlickering != null) { currentFlickering.DestroySound(); }
+        //}
 
         projectorObject.SetActive(on);
         on = !on;

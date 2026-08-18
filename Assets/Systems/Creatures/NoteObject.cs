@@ -11,7 +11,6 @@ using System;
 
 public class NoteObject : ItemHoldable
 {
-    [Inject] ISaveSystem saveSystem;
     public GameObject exclamationMark;
 
     public LocalizedString stringReference;
@@ -75,14 +74,14 @@ public class NoteObject : ItemHoldable
 
     public async Task WasReadNow(bool wasRead)
     {
-        await saveSystem.SaveAsync<SerializableString>(noteKey, wasRead ? new SerializableString("1") : new SerializableString("0"));
+        await PlayerPrefsSaveSystem_StaticSingleton.Instance.SaveAsync<SerializableString>(noteKey, wasRead ? new SerializableString("1") : new SerializableString("0"));
     }
 
     public async Task<bool> WasReadEarlier()
     {
         if (noExclamationMark) { return true; }
 
-        string value = (await saveSystem.LoadAsync<SerializableString>(noteKey)).str;
+        string value = (await PlayerPrefsSaveSystem_StaticSingleton.Instance.LoadAsync<SerializableString>(noteKey)).str;
 
         return value == "1";
     }

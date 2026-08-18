@@ -7,8 +7,6 @@ using Zenject;
 
 public class DoorLockedByPlayerProgress : MonoBehaviour
 {
-    [Inject] public ISaveSystem saveSystem;
-
     public List<DoorAndPlayerProgressPair> doors;
 
     void Start()
@@ -18,7 +16,7 @@ public class DoorLockedByPlayerProgress : MonoBehaviour
 
     async Task OpenDoors()
     {
-        PlayerProgress playerProgress = await saveSystem.LoadAsync<PlayerProgress>(PlayerProgress.fileName);
+        PlayerProgress playerProgress = await PlayerPrefsSaveSystem_StaticSingleton.Instance.LoadAsync<PlayerProgress>(PlayerProgress.fileName);
 
         foreach (var pair in doors)
         {

@@ -46,6 +46,16 @@ public class CameraPost : MonoBehaviour, IPlayerInteractableObject
     {
         if (player.playerInventory.CurrentItem is Item_CCTVCamera == false
             && player.playerInventory.CurrentItem is Item_Flashlight == false) { return; }
+        else
+        {
+            if (currentItem is Item_Flashlight)
+            {
+                if ((currentItem as Item_Flashlight).canBeSetToCameraPost == false)
+                {
+                    return;
+                }
+            }
+        }
 
         animator.enabled = true;
         currentItem = player.playerInventory.TakeItem();
