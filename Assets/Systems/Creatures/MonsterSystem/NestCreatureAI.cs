@@ -24,7 +24,6 @@ public class NestCreatureAI : CreatureAI
         set
         {
             _hunger = value;
-            if (_hunger <= 0) { _hunger = 0; }
 
             if (_hunger > maximumHunger)
             {

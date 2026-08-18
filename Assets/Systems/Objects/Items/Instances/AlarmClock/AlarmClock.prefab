@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 150c645583d77434ab545b74619ba205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactableObjectFlag: {fileID: 0}
   playerOwner: {fileID: 0}
   itemObject: {fileID: 8794520076734473121}
   icon: {fileID: 21300000, guid: 20406eca41b0bc245ba983135796bffa, type: 3}
@@ -53,6 +54,7 @@ MonoBehaviour:
   clockStartTimerTime: 2
   soundPlayer: {fileID: 8063891718273704769}
   active: 0
+  isInHands: 0
   alarmClockWinding:
     mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
     clips:
@@ -91,7 +93,7 @@ MonoBehaviour:
     aIPerceivedSoundData:
       isAiPerceived: 1
       soundType: 2
-      soundDistance: 40
+      soundDistance: 120
 --- !u!1 &6061547359469992162
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,6 +158,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68a79ecf7c2be2a42883c1e5058ba4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
+  objectActivationDistance: 2.5
+  visibleObject: {fileID: 0}
+  playerActivationLabelHeight: 0
 --- !u!114 &6555278670391047789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,6 +180,7 @@ MonoBehaviour:
   meshRenderers: []
   spriteRenderers: []
   lightSources: []
+  hideGameObjectsOnZeroAlpha: []
   connectedObjects: []
 --- !u!65 &7191133389198177112
 BoxCollider:
@@ -236,6 +243,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: 
+  overrideFontSize: 0
+  fontSize: 0
 --- !u!114 &8063891718273704769
 MonoBehaviour:
   m_ObjectHideFlags: 0
