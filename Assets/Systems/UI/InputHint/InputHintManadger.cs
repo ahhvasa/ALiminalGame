@@ -9,6 +9,8 @@ public class InputHintManadger : MonoBehaviour
     public Transform context;
     private Dictionary<InputHintInfo, InputHintItem> items = new();
 
+    public GameObject hintPanel;
+
     public void Awake()
     {
         Instance = this;
@@ -36,6 +38,11 @@ public class InputHintManadger : MonoBehaviour
         InputHintItem item = objectPull.GetObject();
         item.transform.SetParent(context.transform);
         return item;
+    }
+
+    public void ShowPanel(bool showOrHide)
+    {
+        hintPanel.SetActive(showOrHide);
     }
 
 }

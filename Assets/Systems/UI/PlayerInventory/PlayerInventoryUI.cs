@@ -2,11 +2,16 @@ using UnityEngine;
 
 public class PlayerInventoryUI : MonoBehaviour
 {
+    public static PlayerInventoryUI Instance;
+
     public PlayerInventory playerInventory;
     public PlayerInventoryUI_Item[] items;
 
+    public GameObject inventoryPanel;
+
     public void Awake()
     {
+        Instance = this;
         playerInventory.OnPickUp += SetTextureToItem;
         playerInventory.OnDrop += HideItem;
 
@@ -29,5 +34,10 @@ public class PlayerInventoryUI : MonoBehaviour
             item.activeBorder.SetActive(false);
         }
         items[id].activeBorder.SetActive(true);
+    }
+
+    public void ShowInventoryPanel(bool showOrHide)
+    {
+        inventoryPanel.SetActive(showOrHide);
     }
 }

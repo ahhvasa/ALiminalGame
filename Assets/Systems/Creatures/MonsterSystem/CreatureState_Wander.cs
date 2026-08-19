@@ -218,6 +218,7 @@ public class CreatureState_EatObject : ICreatureState
         creature.creatureViewAnimation?.EatObject();
         creature.OnEatObject?.Invoke();
 
+        creature.creatureSound.EatObjectSound();
 
         creature.taskRegister.RemoveTask(creatureTask);
         target.gameObject.SetActive(false);

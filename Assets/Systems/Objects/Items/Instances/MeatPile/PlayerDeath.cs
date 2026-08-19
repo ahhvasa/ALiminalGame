@@ -10,6 +10,10 @@ public class PlayerDeath : MonoBehaviour
 
     public void Die()
     {
+        InputHintManadger.Instance.ShowPanel(false);
+        PlayerInventoryUI.Instance.ShowInventoryPanel(false);
+        NoteManadger.Instance.HideNote();
+
         SoundManager.PlaySound(deathStinger, player.soundPlayer);
         player.meatExplosion.Explode();
 

@@ -74,6 +74,19 @@ MonoBehaviour:
       isAiPerceived: 0
       soundType: 0
       soundDistance: 10
+  eatObjectSound:
+    mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
+    clips:
+    - {fileID: 8300000, guid: 2a695acc38297dc49a1eb1e626f5e98b, type: 3}
+    loopPlayInterval:
+      looped: 0
+      minimumInterval: 0
+      maximumInterval: 0
+    removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
+      soundDistance: 10
 --- !u!114 &7152608914221489995
 MonoBehaviour:
   m_ObjectHideFlags: 0
