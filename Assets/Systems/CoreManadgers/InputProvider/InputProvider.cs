@@ -19,6 +19,9 @@ public class InputProvider : MonoBehaviour
     public InputActionReference selectItem_3;
     public InputActionReference selectItem_4;
 
+    public InputActionReference rotateCameraLeft;
+    public InputActionReference rotateCameraRight;
+
     public void Awake()
     {
         Instance = this;
@@ -92,6 +95,15 @@ public class InputProvider : MonoBehaviour
     public static bool SelectItem_4()
     {
         return Instance.selectItem_4.action.WasPressedThisFrame();
+    }
+
+    public static bool RotateCameraLeft()
+    {
+        return Instance.rotateCameraLeft.action.WasPressedThisFrame();
+    }
+    public static bool RotateCameraRight()
+    {
+        return Instance.rotateCameraRight.action.WasPressedThisFrame();
     }
 
 }
