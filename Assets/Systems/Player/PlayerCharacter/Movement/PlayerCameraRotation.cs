@@ -53,11 +53,11 @@ public class PlayerCameraRotation : MonoBehaviour
     {
         if (InputProvider.RotateCameraLeft())
         {
-            CurrentIndex--;
+            CurrentIndex++;
         }
         else if (InputProvider.RotateCameraRight())
         {
-            CurrentIndex++;
+            CurrentIndex--;
         }
     }
 }

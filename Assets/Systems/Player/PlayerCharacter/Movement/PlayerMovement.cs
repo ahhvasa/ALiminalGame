@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public float crouchSpeed = 5f;
     public float currentMaxSpeed = 5f;
 
-    public FootstepAudio footstepAudio;
+    public FootstepAudio_DiffrentSoundsForMaterials footstepAudio;
 
     private Vector3 _velocity;
     private Rigidbody rb;
