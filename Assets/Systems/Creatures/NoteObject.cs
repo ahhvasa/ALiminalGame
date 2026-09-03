@@ -64,11 +64,11 @@ public class NoteObject : ItemHoldable
 
         if (on)
         {
-            NoteManadger.Instance.ShowNote(stringReference);
+            NoteManager.Instance.ShowNote(stringReference);
         }
         else
         {
-            NoteManadger.Instance.HideNote();
+            NoteManager.Instance.HideNote();
         }
     }
 

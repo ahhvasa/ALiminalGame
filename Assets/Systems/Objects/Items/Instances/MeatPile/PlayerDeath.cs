@@ -12,7 +12,7 @@ public class PlayerDeath : MonoBehaviour
     {
         InputHintManadger.Instance.ShowPanel(false);
         PlayerInventoryUI.Instance.ShowInventoryPanel(false);
-        NoteManadger.Instance.HideNote();
+        NoteManager.Instance.HideNote();
 
         SoundManager.PlaySound(deathStinger, player.soundPlayer);
         player.meatExplosion.Explode();

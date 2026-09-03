@@ -2,9 +2,9 @@ using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.UI;
 
-public class NoteManadger : MonoBehaviour
+public class NoteManager : MonoBehaviour
 {
-    public static NoteManadger Instance;
+    public static NoteManager Instance;
 
     public GameObject note;
     public Text textObject;
