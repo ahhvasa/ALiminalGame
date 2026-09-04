@@ -1,14 +1,19 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerObjectInteraction : MonoBehaviour
 {
     public Player player;
-    float maxActivationDistance = 5;
+    public float maxActivationDistance = 5;
 
     public GameObject interactableObjectLabel;
+
+    public InteractableObjectFlag currentObjectInFront;
+
 
     public void Update()
     {
@@ -16,14 +21,19 @@ public class PlayerObjectInteraction : MonoBehaviour
         {
             Interact();
         }
-        //HiglightObject();
+        HiglightObject();
+    }
+
+    public void FixedUpdate()
+    {
+        GetObjectInfront(out currentObjectInFront);
     }
 
     public void HiglightObject()
     {
-        if (GetObjectInfront(out InteractableObjectFlag target))
+        if (currentObjectInFront != null)
         {
-            interactableObjectLabel.transform.position = target.transform.position;
+            interactableObjectLabel.transform.position = currentObjectInFront.transform.position + Vector3.up * currentObjectInFront.playerActivationLabelHeight;
             interactableObjectLabel.SetActive(true);
         }
         else
@@ -43,12 +53,44 @@ public class PlayerObjectInteraction : MonoBehaviour
     public bool GetObjectInfront(out InteractableObjectFlag target)
     {
         target = null;
-        if (SceneSearchService.TryFindNearest<InteractableObjectFlag>(player.transform.position, maxActivationDistance, out target))
-        {
-            if (Vector3.Distance(player.transform.position, target.transform.position) > target.objectActivationDistance) { return false; }
 
-            return true;
+        List<InteractableObjectFlag> objects = SceneSearchService.FindAllObjectsInCircleZone< InteractableObjectFlag >(player.transform.position, maxActivationDistance);
+        
+
+        Vector3 lookDirection = player.transform.forward;
+        float bestDot = -1f;
+        float bestDistanceSqr = float.MaxValue;
+
+        foreach (var obj in objects)
+        {
+            if (obj.active == false) { continue; }
+            if (obj.visibleObject != null) 
+            { 
+                if (obj.visibleObject.CurrentAlpha <= 0.5f) { continue; }
+            }
+
+
+            Vector3 directionToObject = obj.transform.position - player.transform.position;
+
+            if (directionToObject.magnitude > obj.objectActivationDistance) { continue; }
+
+            float distanceSqr = directionToObject.sqrMagnitude;
+
+            directionToObject.Normalize();
+
+
+            float dot = Vector3.Dot(lookDirection, directionToObject);
+
+            if (dot > bestDot || (Mathf.Approximately(dot, bestDot) && distanceSqr < bestDistanceSqr))
+            {
+                bestDot = dot;
+                bestDistanceSqr = distanceSqr;
+                target = obj;
+            }
         }
+
+        if (target != null) { return true; }
+
         return false;
     }
 
@@ -56,9 +98,9 @@ public class PlayerObjectInteraction : MonoBehaviour
     public bool GetInteractableObject(out IPlayerInteractableObject interactableObject)
     {
         interactableObject = null;
-        if (GetObjectInfront(out InteractableObjectFlag target))
+        if (currentObjectInFront != null)
         {
-            if (target.TryGetComponent<IPlayerInteractableObject>(out interactableObject))
+            if (currentObjectInFront.TryGetComponent<IPlayerInteractableObject>(out interactableObject))
             {
                 return true;
             }

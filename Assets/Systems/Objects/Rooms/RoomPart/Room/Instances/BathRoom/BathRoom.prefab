@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 1924249071814405313}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.239795, y: -0.25690794, z: 3.4890304}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 51fb40d0feab4a04d9b3f9c32511077d, type: 2}
+    - target: {fileID: 3246684061931099044, guid: c7ca8d223e46d2045abcf59ef5036d0b, type: 3}
+      propertyPath: m_TagString
+      value: Tile
+      objectReference: {fileID: 0}
     - target: {fileID: 6944002557231458601, guid: c7ca8d223e46d2045abcf59ef5036d0b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -112,6 +116,10 @@ PrefabInstance:
       propertyPath: roomView.wallTexture
       value: 
       objectReference: {fileID: 2800000, guid: 9a14077ade533e84eb54338019d7f030, type: 3}
+    - target: {fileID: 9089756187598582662, guid: c7ca8d223e46d2045abcf59ef5036d0b, type: 3}
+      propertyPath: roomName
+      value: BathRoom
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

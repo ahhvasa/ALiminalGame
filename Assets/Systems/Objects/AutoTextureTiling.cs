@@ -25,6 +25,9 @@ public class AutoTextureTiling : MonoBehaviour
     private void UpdateTiling()
     {
         Vector3 scale = transform.lossyScale;
-        _material.mainTextureScale = new Vector2(scale.x, scale.y) * tilesPerUnit;
+
+        Vector2 tiling = _material.mainTextureScale;
+
+        _material.mainTextureScale = new Vector2(scale.x, scale.y) * tilesPerUnit * tiling;
     }
 }

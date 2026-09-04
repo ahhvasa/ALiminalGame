@@ -23,10 +23,45 @@ public class CreatureState_Wander : ICreatureState
     {
         movement.Stop();
     }
+
+
+
+    public float stopSpeedThreshold = 0.01f;
+    public int maxStopFrames = 480; // 8 sec
+
+    public Vector3 previousPosition;
+    public int stopCounter;
+
     public void FixedUpdate()
     {
+        float distance = Vector3.Distance(creature.transform.position, previousPosition);
 
+        if (distance < stopSpeedThreshold)
+        {
+            stopCounter++;
+
+            if (stopCounter >= maxStopFrames)
+            {
+                stopCounter = 0;
+                OnStop();
+            }
+        }
+        else
+        {
+            stopCounter = 0;
+        }
+
+        previousPosition = creature.transform.position;
     }
+
+    private void OnStop()
+    {
+        SetRandomDestination();
+        movement.SetWanderSpeed();
+    }
+
+
+
     public void Update()
     {
         if (movement.agent.pathPending == false &&
@@ -66,6 +101,7 @@ public class CreatureState_Explore : ICreatureState
     public Vector3 point;
     public CreatureTask creatureTask;
     public bool lost = false;
+    public bool runToPoint = false;
 
     public CreatureState_Explore(Creature creature, Vector3 point)
     {
@@ -80,7 +116,14 @@ public class CreatureState_Explore : ICreatureState
 
     public void OnEnter()
     {
-        movement.SetExplorationSpeed();
+        if (runToPoint)
+        {
+            movement.SetChaseSpeed();
+        }
+        else
+        {
+            movement.SetExplorationSpeed();
+        }
     }
     public void OnExit()
     {
@@ -175,6 +218,7 @@ public class CreatureState_EatObject : ICreatureState
         creature.creatureViewAnimation?.EatObject();
         creature.OnEatObject?.Invoke();
 
+        creature.creatureSound.EatObjectSound();
 
         creature.taskRegister.RemoveTask(creatureTask);
         target.gameObject.SetActive(false);

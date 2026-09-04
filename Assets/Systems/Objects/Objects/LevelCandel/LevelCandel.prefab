@@ -165,6 +165,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: Start the night
+  overrideFontSize: 0
+  fontSize: 0
 --- !u!1 &985472262388271756
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,6 +274,7 @@ MonoBehaviour:
   meshRenderers: []
   spriteRenderers: []
   lightSources: []
+  hideGameObjectsOnZeroAlpha: []
   connectedObjects: []
 --- !u!135 &326131362041727399
 SphereCollider:
@@ -306,6 +309,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcc533a4073bd6d4dac0595f55dd7332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sound:
+    mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
+    clips:
+    - {fileID: 8300000, guid: 6c78c8e4dab258a4faed2c0500b19d03, type: 3}
+    loopPlayInterval:
+      looped: 0
+      minimumInterval: 0
+      maximumInterval: 0
+    removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
+      soundDistance: 10
 --- !u!114 &5391203667046309479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -318,4 +334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68a79ecf7c2be2a42883c1e5058ba4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   objectActivationDistance: 2
+  visibleObject: {fileID: 0}
+  playerActivationLabelHeight: 1.75

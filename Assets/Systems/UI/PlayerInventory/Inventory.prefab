@@ -55,6 +55,7 @@ MonoBehaviour:
   - {fileID: 2815236207985051158}
   - {fileID: 4157730096563843427}
   - {fileID: 1734764310588935458}
+  inventoryPanel: {fileID: 8501748637071677436}
 --- !u!1 &4818759094484023821
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,14 +170,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: InventoryItem
       objectReference: {fileID: 0}
-    - target: {fileID: 2948619160831802763, guid: 5535abf4467e26a40976a329e4778070, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2948619160831802763, guid: 5535abf4467e26a40976a329e4778070, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5784182955164473063, guid: 5535abf4467e26a40976a329e4778070, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -286,17 +279,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4799816224155711315}
     m_Modifications:
+    - target: {fileID: 1493249528134675475, guid: 5535abf4467e26a40976a329e4778070, type: 3}
+      propertyPath: m_ControlPath
+      value: <Keyboard>/4
+      objectReference: {fileID: 0}
     - target: {fileID: 2640866683314051293, guid: 5535abf4467e26a40976a329e4778070, type: 3}
       propertyPath: m_Name
       value: InventoryItem (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2948619160831802763, guid: 5535abf4467e26a40976a329e4778070, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2948619160831802763, guid: 5535abf4467e26a40976a329e4778070, type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5784182955164473063, guid: 5535abf4467e26a40976a329e4778070, type: 3}
       propertyPath: m_Pivot.x
@@ -407,17 +396,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4799816224155711315}
     m_Modifications:
+    - target: {fileID: 1493249528134675475, guid: 5535abf4467e26a40976a329e4778070, type: 3}
+      propertyPath: m_ControlPath
+      value: <Keyboard>/3
+      objectReference: {fileID: 0}
     - target: {fileID: 2640866683314051293, guid: 5535abf4467e26a40976a329e4778070, type: 3}
       propertyPath: m_Name
       value: InventoryItem (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2948619160831802763, guid: 5535abf4467e26a40976a329e4778070, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2948619160831802763, guid: 5535abf4467e26a40976a329e4778070, type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5784182955164473063, guid: 5535abf4467e26a40976a329e4778070, type: 3}
       propertyPath: m_Pivot.x
@@ -528,17 +513,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4799816224155711315}
     m_Modifications:
+    - target: {fileID: 1493249528134675475, guid: 5535abf4467e26a40976a329e4778070, type: 3}
+      propertyPath: m_ControlPath
+      value: <Keyboard>/2
+      objectReference: {fileID: 0}
     - target: {fileID: 2640866683314051293, guid: 5535abf4467e26a40976a329e4778070, type: 3}
       propertyPath: m_Name
       value: InventoryItem (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2948619160831802763, guid: 5535abf4467e26a40976a329e4778070, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2948619160831802763, guid: 5535abf4467e26a40976a329e4778070, type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5784182955164473063, guid: 5535abf4467e26a40976a329e4778070, type: 3}
       propertyPath: m_Pivot.x

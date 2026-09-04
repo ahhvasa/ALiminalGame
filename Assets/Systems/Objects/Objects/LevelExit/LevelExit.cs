@@ -26,7 +26,7 @@ public class LevelExit : MonoBehaviour, IPlayerInteractableObject
     public void Win()
     {
         boxCount = 0;
-        WorldManadger.Instance.EnterDay();
-        WorldManadger.Instance.Win();
+        WorldManager.Instance.EnterDay();
+        WorldManager.Instance.Win();
     }
 }

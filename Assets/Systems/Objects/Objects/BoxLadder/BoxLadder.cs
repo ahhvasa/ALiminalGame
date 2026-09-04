@@ -4,6 +4,7 @@ using System;
 
 public class BoxLadder : MonoBehaviour, IPlayerInteractableObject
 {
+
     private int boxCount;
     private int boxReqiered;
 
@@ -12,7 +13,15 @@ public class BoxLadder : MonoBehaviour, IPlayerInteractableObject
 
     public SoundData sound;
 
+    public ObjectTextLabel textLabel;
+
     public Action OnBuild;
+    public InteractableObjectFlag interactableObjectFlag;
+
+    public void Start()
+    {
+        interactableObjectFlag.active = false;
+    }
 
     public int BoxCount
     {
@@ -29,13 +38,16 @@ public class BoxLadder : MonoBehaviour, IPlayerInteractableObject
             {
                 SoundManager.PlaySound(sound, attachedPortalDoor.roomDoor.soundPlayer);
                 ladderObject.SetActive(true);
+                textLabel.Text = "";
                 OnBuild?.Invoke();
             }
             else
             {
+                textLabel.Text = $"{boxCount}/{boxReqiered}";
                 ladderObject.SetActive(false);
             }
 
+            
         }
     }
 
@@ -46,6 +58,29 @@ public class BoxLadder : MonoBehaviour, IPlayerInteractableObject
         boxReqiered = boxElements.Count;
         BoxCount = 0;
         OnBuild += () => attachedPortalDoor.enabled = true;
+
+        FindObjectOfType<PlayerInventory>().OnTakeInHands += BoxLadder_OnTakeInHands;
+        FindObjectOfType<PlayerInventory>().OnPickUp += BoxLadder_OnTakeInHands;
+    }
+
+    private void BoxLadder_OnTakeInHands(Item arg1, int arg2)
+    {
+        if (arg1 is Item_StandartItem)
+        {
+            Item_StandartItem item = arg1 as Item_StandartItem;
+            if (item.canBeUsedToBuildLadder)
+            {
+                interactableObjectFlag.active = true;
+            }
+            else
+            {
+                interactableObjectFlag.active = false;
+            }
+        }
+        else
+        {
+            interactableObjectFlag.active = false;
+        }
     }
 
     public void Interact(Player player)

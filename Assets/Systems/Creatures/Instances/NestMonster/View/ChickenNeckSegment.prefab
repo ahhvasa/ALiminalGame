@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 369507238652964851}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -76,9 +76,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
-  m_Sprite: {fileID: -1483855345, guid: 82e73c393033a1443a3582f318e35721, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: baa6dd4dab671a941a150bc5f39048c1, type: 3}
+  m_Color: {r: 0.8117647, g: 0.6313726, b: 0.42745098, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -140,11 +140,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   perceivableObject: {fileID: 0}
-  AIIgnore: 0
+  AIIgnore: 1
   fadeDuration: 0.3
   meshRenderers: []
   spriteRenderers: []
   lightSources: []
+  hideGameObjectsOnZeroAlpha: []
   connectedObjects: []
 --- !u!135 &8965794174002229999
 SphereCollider:

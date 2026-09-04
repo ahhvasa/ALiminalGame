@@ -2,6 +2,7 @@ using UnityEngine;
 
 public abstract class ItemHoldable : Item
 {
+
     public override void OnPickUpInternal(Player player)
     {
         playerOwner.playerObjectHold.HoldObject(itemObject.transform);

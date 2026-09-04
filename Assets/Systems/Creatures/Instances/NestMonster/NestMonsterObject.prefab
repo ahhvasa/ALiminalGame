@@ -147,6 +147,7 @@ MonoBehaviour:
   meshRenderers: []
   spriteRenderers: []
   lightSources: []
+  hideGameObjectsOnZeroAlpha: []
   connectedObjects: []
 --- !u!114 &4917023480167737022
 MonoBehaviour:
@@ -191,13 +192,15 @@ MonoBehaviour:
   exploreSpeed_calm: 4
   chaseSpeed_calm: 12
   doorOpenTime_calm: 3
-  wanderSpeed_hungry: 4
+  wanderSpeed_hungry: 6
   exploreSpeed_hungry: 8
   chaseSpeed_hungry: 12
   doorOpenTime_hungry: 0.75
+  nestRoom: {fileID: 0}
+  avaliableNestRooms: []
   _hunger: 0
-  maximumHunger: 100
-  saturationPerItem: 110
+  maximumHunger: 45
+  saturationPerItem: 60
   minSpeedToLookDown: 0.5
   lookDownAngle: {x: 0, y: 180, z: 0}
 --- !u!114 &6816530661507420879
@@ -214,7 +217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 9165020795947649446}
   currentTarget: {fileID: 0}
-  wanderSpeed: 4
+  wanderSpeed: 6
   explorationSpeed: 8
   chaseSpeed: 8
   canChangeSpeed: 1
@@ -375,6 +378,7 @@ MonoBehaviour:
   creature: {fileID: 4917023480167737022}
   targetLayer: 7
   doorOpeningTime: 0.75
+  doorBarricadeBreakingPower: 1
 --- !u!1001 &2987735389268097606
 PrefabInstance:
   m_ObjectHideFlags: 0

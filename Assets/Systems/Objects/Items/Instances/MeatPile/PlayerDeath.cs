@@ -10,6 +10,10 @@ public class PlayerDeath : MonoBehaviour
 
     public void Die()
     {
+        InputHintManager.Instance.ShowPanel(false);
+        PlayerInventoryUI.Instance.ShowInventoryPanel(false);
+        NoteManager.Instance.HideNote();
+
         SoundManager.PlaySound(deathStinger, player.soundPlayer);
         player.meatExplosion.Explode();
 
@@ -19,7 +23,7 @@ public class PlayerDeath : MonoBehaviour
         playerView.gameObject.SetActive(false);
         var perceivableObject = player.GetComponent<PerceivableObject>();
         perceivableObject.visibleObject.AIIgnore = true;
-        perceivableObject.objectSmell.AIIgnore = true;
+
         player.playerMonsterInView.enabled = false;
         player.playerInventory.DropItem();
         player.GetComponent<FootstepAudio>().enabled = false;

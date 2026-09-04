@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7354862370440436494}
-  - component: {fileID: 895306434024760460}
+  - component: {fileID: 8549709325323655294}
   m_Layer: 9
   m_Name: Apple
   m_TagString: Untagged
@@ -33,7 +33,7 @@ Transform:
   - {fileID: 1714033353992040624}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &895306434024760460
+--- !u!114 &8549709325323655294
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,13 +42,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 2324893018503886418}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aad67c365f8d1548a821f10cf2678c6, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e7effaae203e4741bd1634ea1163113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactableObjectFlag: {fileID: 0}
   playerOwner: {fileID: 0}
   itemObject: {fileID: 8913791552864487468}
   icon: {fileID: 21300000, guid: f6d430a0dfb088a4d83a63220581be41, type: 3}
   textureType: 2
+  objectSmell: {fileID: 386341475458396946}
 --- !u!1 &2779387353556079845
 GameObject:
   m_ObjectHideFlags: 0
@@ -64,6 +66,8 @@ GameObject:
   - component: {fileID: 4939671786880204032}
   - component: {fileID: 7455876937718772000}
   - component: {fileID: 7525759032550275560}
+  - component: {fileID: 386341475458396946}
+  - component: {fileID: 6477767086134065983}
   m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
@@ -99,7 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfb65c2854905114988613c942c81062, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 895306434024760460}
+  item: {fileID: 8549709325323655294}
 --- !u!114 &2052439425860282070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,6 +116,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68a79ecf7c2be2a42883c1e5058ba4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
+  objectActivationDistance: 2.5
+  visibleObject: {fileID: 0}
+  playerActivationLabelHeight: 0
 --- !u!114 &5744226896143547103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,12 +132,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ce4dfd559aa1e04f8498640b25bd5e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  perceivableObject: {fileID: 0}
+  perceivableObject: {fileID: 6477767086134065983}
   AIIgnore: 0
   fadeDuration: 0.3
   meshRenderers: []
   spriteRenderers: []
   lightSources: []
+  hideGameObjectsOnZeroAlpha: []
   connectedObjects: []
 --- !u!65 &4939671786880204032
 BoxCollider:
@@ -192,6 +201,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodType: 0
+--- !u!114 &386341475458396946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2779387353556079845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f99e7a910a721746a2c30f294cb7344, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  perceivableObject: {fileID: 6477767086134065983}
+  AIIgnore: 0
+  smellDistance: 12
+--- !u!114 &6477767086134065983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2779387353556079845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a48b626cd7146124db30a8c9dd608354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visibleObject: {fileID: 5744226896143547103}
+  objectSmell: {fileID: 386341475458396946}
+  soundPlayer: {fileID: 0}
 --- !u!1 &7848122425432510153
 GameObject:
   m_ObjectHideFlags: 0

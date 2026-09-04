@@ -9,7 +9,11 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float maxSpeed = 5f;
+    public float runSpeed = 10f;
+    public float crouchSpeed = 5f;
+    public float currentMaxSpeed = 5f;
+
+    public FootstepAudio_DiffrentSoundsForMaterials footstepAudio;
 
     private Vector3 _velocity;
     private Rigidbody rb;
@@ -34,38 +38,34 @@ public class PlayerMovement : MonoBehaviour
         direction.y = 0f;
         direction = direction.normalized;
 
-        _velocity = direction * (maxSpeed * speedFactor);
+        _velocity = direction * (currentMaxSpeed * speedFactor);
         rb.velocity = _velocity;
 
         OnMove?.Invoke(direction, speedFactor);
     }
+
+    public void FixedUpdate()
+    {
+        SetCrouchMovement(InputProvider.Crouch());
+    }
+
     public void Update()
     {
         Vector3 inputDirection = InputProvider.CurrentMovement();
 
-        float speed = 0;
-
-        if (inputDirection.magnitude > 0f) { speed = 1; }
-        else
+        if (inputDirection.magnitude <= 0f)
         {
             Move(0f, Vector3.zero);
             return;
         }
 
-        Transform camera = Camera.main.transform;
+        Move(inputDirection.magnitude, inputDirection.normalized);
+    }
 
-        Vector3 camForward = camera.forward;
-        Vector3 camRight = camera.right;
-
-        camForward.y = 0f;
-        camRight.y = 0f;
-
-        camForward.Normalize();
-        camRight.Normalize();
-
-        Vector3 direction = camForward * inputDirection.z + camRight * inputDirection.x;
-
-        Move(speed, direction);
+    public void SetCrouchMovement(bool setCrouchSpeed)
+    {
+        currentMaxSpeed = setCrouchSpeed ? crouchSpeed : runSpeed;
+        footstepAudio.blockSound = setCrouchSpeed;
     }
 
     private void OnDisable()

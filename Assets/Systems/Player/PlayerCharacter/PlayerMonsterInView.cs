@@ -44,9 +44,9 @@ public class PlayerMonsterInView : MonoBehaviour
 
     public void OnDisable()
     {
-        activeMonsterDetected?.StopSmoothly();
-        activeMonsterNear?.StopSmoothly();
-        activeJustEscapedMonster?.StopSmoothly();
+        activeMonsterDetected?.DestroySmoothly();
+        activeMonsterNear?.DestroySmoothly();
+        activeJustEscapedMonster?.DestroySmoothly();
     }
 
     private void OnFirstMonsterDetected()
@@ -57,20 +57,20 @@ public class PlayerMonsterInView : MonoBehaviour
             justEscapedCoroutine = null;
         }
 
-        activeJustEscapedMonster?.StopSmoothly();
+        activeJustEscapedMonster?.DestroySmoothly();
 
-        activeMonsterDetected?.StopSmoothly();
+        activeMonsterDetected?.DestroySmoothly();
         activeMonsterDetected = SoundManager.PlaySound(monsterDetected, player.soundPlayer);
 
-        activeMonsterNear?.StopSmoothly();
+        activeMonsterNear?.DestroySmoothly();
         activeMonsterNear = SoundManager.PlaySound(monsterNear, player.soundPlayer);
     }
 
     private void OnLastMonsterLost()
     {
-        activeMonsterNear?.StopSmoothly();
+        activeMonsterNear?.DestroySmoothly();
 
-        activeJustEscapedMonster?.StopSmoothly();
+        activeJustEscapedMonster?.DestroySmoothly();
         activeJustEscapedMonster = SoundManager.PlaySound(justEscapedMonster, player.soundPlayer);
 
         justEscapedCoroutine = StartCoroutine(StopJustEscapedAfterDelay());
@@ -80,7 +80,7 @@ public class PlayerMonsterInView : MonoBehaviour
     {
         yield return new WaitForSeconds(justEscapedDuration);
 
-        activeJustEscapedMonster?.StopSmoothly();
+        activeJustEscapedMonster?.DestroySmoothly();
         justEscapedCoroutine = null;
     }
 }

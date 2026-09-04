@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameMenu : MonoBehaviour
@@ -10,9 +11,14 @@ public class GameMenu : MonoBehaviour
     public GameObject gameMenuPanel;
     public SettingsMenu settingsMenu;
 
-    [SerializeField] private Button continueButton;
-    [SerializeField] private Button optionsButton;
-    [SerializeField] private Button exitButton;
+    public Button continueButton;
+    public Button optionsButton;
+    public Button restartButton;
+    public Button exitButton;
+
+    public GameObject restartConfirmPanel;
+    public Button restartConfirm_yes;
+    public Button restartConfirm_no;
 
     public void Start()
     {
@@ -24,17 +30,12 @@ public class GameMenu : MonoBehaviour
         continueButton.onClick.AddListener(Continue);
         optionsButton.onClick.AddListener(Options);
         exitButton.onClick.AddListener(Exit);
+        restartButton.onClick.AddListener(Restart);
+
+        restartConfirm_yes.onClick.AddListener(() => RestartConfirm(true));
+        restartConfirm_no.onClick.AddListener(() => RestartConfirm(false));
 
         settingsMenu.backButton.onClick.AddListener(OptionsClose);
-    }
-
-    public void UnsubscribeEvents()
-    {
-        continueButton.onClick.RemoveListener(Continue);
-        optionsButton.onClick.RemoveListener(Options);
-        exitButton.onClick.RemoveListener(Exit);
-
-        settingsMenu.backButton.onClick.RemoveListener(OptionsClose);
     }
 
     public void Update()
@@ -59,7 +60,24 @@ public class GameMenu : MonoBehaviour
 
     public void Exit()
     {
-        Debug.Log("Exit");
+        Application.Quit();
+    }
+
+    public void Restart()
+    {
+        gameMenuPanel.SetActive(false);
+        restartConfirmPanel.SetActive(true);
+    }
+    public void RestartConfirm(bool confirmOrNo)
+    {
+        restartConfirmPanel.SetActive(false);
+        gameMenuPanel.SetActive(true);
+
+        if (confirmOrNo)
+        {
+            CloseMenu();
+            SceneLoader.Instance.LoadSceneAsync(SceneManager.GetActiveScene().name);
+        }
     }
 
     public void Options()

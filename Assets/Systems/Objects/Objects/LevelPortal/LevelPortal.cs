@@ -6,10 +6,16 @@ using Zenject;
 
 public class LevelPortal : MonoBehaviour
 {
-    [Inject] public ISaveSystem saveSystem;
     public string sceneName;
 
-    private void OnTriggerEnter(Collider other)
+    public bool activated = false;
+
+    public void Awake()
+    {
+        activated = false;
+    }
+
+    private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player")
         {
@@ -19,20 +25,33 @@ public class LevelPortal : MonoBehaviour
 
     public async void LoadLevel()
     {
-        if (markPlayerProgress)
+        if (activated) { return; }
+        activated = true;
+
+        try
         {
-            await SaveProgress();
+
+            if (markPlayerProgress)
+            {
+                await SaveProgress();
+            }
+            await SceneLoader.Instance.LoadSceneAsync(sceneName);
+            activated = false;
         }
-        await SceneLoader.Instance.LoadSceneAsync(sceneName);
+        catch
+        {
+            activated = false;
+        }
+
     }
 
     public async Task SaveProgress()
     {
-        PlayerProgress file = await saveSystem.LoadAsync<PlayerProgress>(PlayerProgress.fileName);
+        PlayerProgress file = await PlayerPrefsSaveSystem_StaticSingleton.Instance.LoadAsync<PlayerProgress>(PlayerProgress.fileName);
         if (file == null) { file = new PlayerProgress(); }
         file.finishedLevels.Add(SceneManager.GetActiveScene().name);
 
-        await saveSystem.SaveAsync<PlayerProgress>(PlayerProgress.fileName, file);
+        await PlayerPrefsSaveSystem_StaticSingleton.Instance.SaveAsync<PlayerProgress>(PlayerProgress.fileName, file);
     }
 
     public bool markPlayerProgress = false;

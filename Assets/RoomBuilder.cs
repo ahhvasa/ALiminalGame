@@ -59,8 +59,34 @@ public class RoomBuilder : MonoBehaviour
             }
         }
 
+
+        RoomExtraWallModificator[] wallModifiers = FindObjectsOfType<RoomExtraWallModificator>();
+        foreach (var obj in wallModifiers)
+        {
+            obj.BuildWalls();
+        }
+        RoomExtraEdgeWallModifier[] edgeModifiers = FindObjectsOfType<RoomExtraEdgeWallModifier>();
+        foreach (var obj in edgeModifiers)
+        {
+            obj.BuildWalls();
+        }
+
         ApplyTextures();
+
+
+
         navMeshSurface.BuildNavMesh();
+
+        GameObject[] allGameObjects = FindObjectsOfType<GameObject>();
+
+        foreach (var gameObject in allGameObjects)
+        {
+            foreach (var component in gameObject.GetComponents<Component>())
+            {
+                if (component != null)
+                    EditorUtility.SetDirty(component);
+            }
+        }
     }
 
     public void ApplyTextures()

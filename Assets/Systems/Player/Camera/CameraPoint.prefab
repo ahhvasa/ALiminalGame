@@ -43,7 +43,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.6313726, g: 0.26703793, b: 0.21960783, a: 0}
+  m_BackGroundColor: {r: 0.2627451, g: 0, b: 0.03529412, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 1945573579605489833}
   - component: {fileID: 2317007475194442711}
   - component: {fileID: 3991945236544191918}
+  - component: {fileID: 3056153169924698934}
   m_Layer: 6
   m_Name: CameraPoint
   m_TagString: Untagged
@@ -152,6 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 373bc086b5e3be84d908029de9f01771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraPosts: []
   camera: {fileID: 1282745607962041816}
   point: {fileID: 7699582109408516132}
 --- !u!114 &3991945236544191918
@@ -167,3 +169,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followPosition: {fileID: 1945573579605489833}
+--- !u!114 &3056153169924698934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8862740017315309102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b31681415d6f8f43a874782b2c13b41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSpeed: 75
+  maxSpeed: 800
+  acceleration: 800
+  targetRotation: {x: 0, y: 0, z: 0, w: 1}

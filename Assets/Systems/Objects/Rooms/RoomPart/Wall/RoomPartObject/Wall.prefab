@@ -106,8 +106,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.9, y: 1, z: 0.95}
-  m_Center: {x: -0.45, y: 0, z: 0}
+  m_Size: {x: 1.2126197, y: 1, z: 0.95}
+  m_Center: {x: -0.79369026, y: 0, z: 3.6647929e-16}
 --- !u!114 &1435907227783734177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,6 +126,7 @@ MonoBehaviour:
   meshRenderers: []
   spriteRenderers: []
   lightSources: []
+  hideGameObjectsOnZeroAlpha: []
   connectedObjects: []
 --- !u!54 &1358777462932235707
 Rigidbody:
@@ -154,6 +155,59 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &6185032719072640873
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6863187618248680134}
+  - component: {fileID: 5426952130628327778}
+  m_Layer: 8
+  m_Name: MiddleCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6863187618248680134
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6185032719072640873}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8807374154601504340}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5426952130628327778
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6185032719072640873}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.2126197, y: 1, z: 0.95}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6446104301008541779
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,6 +240,7 @@ Transform:
   m_Children:
   - {fileID: 4499861228282848507}
   - {fileID: 8864922624298345034}
+  - {fileID: 6863187618248680134}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &4550034007713130450
@@ -309,8 +364,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.9, y: 1, z: 0.95}
-  m_Center: {x: -0.45, y: 0, z: 0}
+  m_Size: {x: 1.2126197, y: 1, z: 0.95}
+  m_Center: {x: -0.79369026, y: 0, z: 3.6647929e-16}
 --- !u!114 &2335668516744439609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,6 +384,7 @@ MonoBehaviour:
   meshRenderers: []
   spriteRenderers: []
   lightSources: []
+  hideGameObjectsOnZeroAlpha: []
   connectedObjects: []
 --- !u!54 &1944077557638027552
 Rigidbody:
@@ -371,7 +427,7 @@ GameObject:
   - component: {fileID: 7317597161372647350}
   - component: {fileID: 8360082893033365134}
   m_Layer: 8
-  m_Name: Quad
+  m_Name: WallQuad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -492,7 +548,7 @@ GameObject:
   - component: {fileID: 8340081613427941534}
   - component: {fileID: 3421145496485557104}
   m_Layer: 8
-  m_Name: Quad
+  m_Name: WallQuad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

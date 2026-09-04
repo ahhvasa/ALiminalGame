@@ -14,6 +14,8 @@ public class NestCreatureAI : CreatureAI
     public float chaseSpeed_hungry = 12;
     public float doorOpenTime_hungry = 0.75f;
 
+    public Room nestRoom;
+    public Room[] avaliableNestRooms;
 
     [SerializeField] private float _hunger;
     public float Hunger
@@ -22,7 +24,6 @@ public class NestCreatureAI : CreatureAI
         set
         {
             _hunger = value;
-            if (_hunger <= 0) { _hunger = 0; }
 
             if (_hunger > maximumHunger)
             {
@@ -85,6 +86,12 @@ public class NestCreatureAI : CreatureAI
 
     new public void Start()
     {
+        if (avaliableNestRooms.Length > 0) 
+        {
+            nestRoom = avaliableNestRooms[Random.Range(0, avaliableNestRooms.Length)];
+        }
+        
+
         creatureMemory.TryGetProvider<CreatureVisionSenseProvider>(out visionProvider);
         creatureMemory.TryGetProvider<CreatureSoundSenseProvider>(out soundProvider);
         creatureMemory.TryGetProvider<CreatureSmellSenseProvider>(out smellProvider);
@@ -96,7 +103,7 @@ public class NestCreatureAI : CreatureAI
         BeScared();
         EatFood();
 
-        stayInRoomTask = new CreatureTask(20, new CreatureState_Explore(creature, creature.transform.position));
+        stayInRoomTask = new CreatureTask(20, new CreatureState_Explore(creature, nestRoom != null ? nestRoom.transform.position : creature.transform.position));
         creatureTaskRegister.AddTask(stayInRoomTask);
 
         creature.OnEatObject += () => { _hunger -= saturationPerItem; };

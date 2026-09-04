@@ -83,7 +83,7 @@ public class Sound : MonoBehaviour, IPercivableObject
     public void DestroySound()
     {
         isPlaying = false;
-        OnSoundDestroy.Invoke();
+        OnSoundDestroy?.Invoke();
     }
 
     public void Stop()
@@ -93,6 +93,11 @@ public class Sound : MonoBehaviour, IPercivableObject
     }
 
 
+    public async UniTask DestroySmoothly()
+    {
+        await SmoothlyChangeVolumeAsync(1f, 0f);
+        DestroySound();
+    }
     public async UniTask StopSmoothly()
     {
         await SmoothlyChangeVolumeAsync(1f, 0f);

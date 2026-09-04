@@ -17,6 +17,8 @@ public class PlaceElementsOnLine : MonoBehaviour
     public float elementOffsetT;
     public float elementOffsetT_changeSpeed = 1f;
 
+    public Transform elementRoot;
+
     private void Start()
     {
         objectPull = new ObjectPull<GameObject>(prefab, initialCount);
@@ -39,6 +41,7 @@ public class PlaceElementsOnLine : MonoBehaviour
         while (elements.Count < pointCount)
         {
             GameObject obj = objectPull.GetObject();
+            obj.transform.SetParent(elementRoot, true);
             obj.transform.position = transform.position;
             elements.Add(obj);
         }

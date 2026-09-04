@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7661132374217470234
 Transform:
   m_ObjectHideFlags: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 2217130593856667214}
   serializedVersion: 2
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 0.397, z: -0.522}
+  m_LocalPosition: {x: 0.000000099341065, y: 0.397, z: -1.3553333}
   m_LocalScale: {x: 1.4323828, y: 6.653186, z: 1.0619}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -76,6 +76,8 @@ GameObject:
   - component: {fileID: 4426467657051668129}
   - component: {fileID: 8480892118070985062}
   - component: {fileID: 3624761970870690165}
+  - component: {fileID: 7310741930673631632}
+  - component: {fileID: 5380134225305297672}
   m_Layer: 0
   m_Name: BoxLadder
   m_TagString: Untagged
@@ -138,6 +140,8 @@ MonoBehaviour:
       isAiPerceived: 0
       soundType: 0
       soundDistance: 10
+  textLabel: {fileID: 7310741930673631632}
+  interactableObjectFlag: {fileID: 4426467657051668129}
   attachedPortalDoor: {fileID: 0}
 --- !u!114 &4426467657051668129
 MonoBehaviour:
@@ -151,7 +155,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68a79ecf7c2be2a42883c1e5058ba4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectActivationDistance: 5
+  active: 1
+  objectActivationDistance: 4
+  visibleObject: {fileID: 0}
+  playerActivationLabelHeight: 1.75
 --- !u!54 &8480892118070985062
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -198,8 +205,43 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2, y: 2, z: 2}
+  m_Size: {x: 2.74, y: 2.76, z: 3.64}
   m_Center: {x: 0, y: 0, z: -0.8}
+--- !u!114 &7310741930673631632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6769293968762799786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fdb664c4f3c1f641b889c66b6b86689, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: 
+  overrideFontSize: 0
+  fontSize: 0
+--- !u!114 &5380134225305297672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6769293968762799786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ce4dfd559aa1e04f8498640b25bd5e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  perceivableObject: {fileID: 0}
+  AIIgnore: 0
+  fadeDuration: 0.3
+  meshRenderers: []
+  spriteRenderers: []
+  lightSources: []
+  hideGameObjectsOnZeroAlpha: []
+  connectedObjects: []
 --- !u!1001 &3564554269478660552
 PrefabInstance:
   m_ObjectHideFlags: 0

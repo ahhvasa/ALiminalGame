@@ -46,7 +46,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2513258058147684746}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c69126d96082934c8f62bc07fbadde2, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e38253c364b0e84c8949b36e3daa8e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   note: {fileID: 9122528637530918331}
@@ -59,6 +59,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6772886675697439790}
     m_Modifications:
+    - target: {fileID: 3337429788713323401, guid: ab7ee8f392f125d429fc3faae3ebf2ae, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 9ae91f84460caef46a7f8a50cd5daabe, type: 3}
     - target: {fileID: 4169434999804968770, guid: ab7ee8f392f125d429fc3faae3ebf2ae, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -142,6 +146,22 @@ PrefabInstance:
     - target: {fileID: 4347696470673387115, guid: ab7ee8f392f125d429fc3faae3ebf2ae, type: 3}
       propertyPath: m_Name
       value: Note
+      objectReference: {fileID: 0}
+    - target: {fileID: 8388594817952793765, guid: ab7ee8f392f125d429fc3faae3ebf2ae, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 9ae91f84460caef46a7f8a50cd5daabe, type: 3}
+    - target: {fileID: 8388594817952793765, guid: ab7ee8f392f125d429fc3faae3ebf2ae, type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 8388594817952793765, guid: ab7ee8f392f125d429fc3faae3ebf2ae, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8388594817952793765, guid: ab7ee8f392f125d429fc3faae3ebf2ae, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

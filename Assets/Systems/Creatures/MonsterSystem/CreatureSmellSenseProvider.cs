@@ -16,7 +16,7 @@ public class CreatureSmellSenseProvider : CreatureSenseProvider<ObjectSmell, Sme
     public override void UpdateValues()
     {
         newObjects.Clear();
-        foreach (var objectSmell in ObjectSmellManadger.Instance.objectSmell)
+        foreach (var objectSmell in ObjectSmellManager.Instance.objectSmell)
         {
             if (objectSmell.AIIgnore) { continue; }
             if (Vector3.Distance(transform.position, objectSmell.transform.position) < objectSmell.smellDistance * smellDistanceMultiplier)

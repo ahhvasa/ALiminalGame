@@ -12,8 +12,4 @@ public class CreatureViewAnimation : MonoBehaviour
     {
         animator?.SetTrigger("Attack");
     }
-    public void IdleSpecial()
-    {
-        animator?.SetTrigger("IdleScecial");
-    }
 }

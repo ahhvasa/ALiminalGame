@@ -7,6 +7,7 @@ public class DeadScreen : MonoBehaviour
 {
     public GameMenu gameMenu;
     public GameObject deathScreen;
+    public bool playerIsDead = false;
 
     void Start()
     {
@@ -18,6 +19,7 @@ public class DeadScreen : MonoBehaviour
 
     void ShowDeathScreen(bool show)
     {
+        playerIsDead = show;
         gameMenu.enabled = !show;
         deathScreen.SetActive(show);
     }
@@ -26,7 +28,10 @@ public class DeadScreen : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            SceneLoader.Instance.LoadSceneAsync(SceneManager.GetActiveScene().name);
+            if (playerIsDead)
+            {
+                SceneLoader.Instance.LoadSceneAsync(SceneManager.GetActiveScene().name);
+            }
         }
     }
 }

@@ -126,6 +126,7 @@ MonoBehaviour:
   meshRenderers: []
   spriteRenderers: []
   lightSources: []
+  hideGameObjectsOnZeroAlpha: []
   connectedObjects: []
 --- !u!54 &2074471164721091775
 Rigidbody:
@@ -679,6 +680,7 @@ MonoBehaviour:
   meshRenderers: []
   spriteRenderers: []
   lightSources: []
+  hideGameObjectsOnZeroAlpha: []
   connectedObjects: []
 --- !u!54 &4681261872713468483
 Rigidbody:
@@ -833,6 +835,7 @@ MonoBehaviour:
   meshRenderers: []
   spriteRenderers: []
   lightSources: []
+  hideGameObjectsOnZeroAlpha: []
   connectedObjects: []
 --- !u!54 &7978224558033048934
 Rigidbody:
@@ -869,25 +872,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5404535937609530068}
     m_Modifications:
+    - target: {fileID: 2217130593856667214, guid: dd5d65309705e414a844953d2b9a5d4e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3542091582454699498, guid: dd5d65309705e414a844953d2b9a5d4e, type: 3}
       propertyPath: attachedPortalDoor
       value: 
       objectReference: {fileID: 4988650206880649167}
     - target: {fileID: 3624761970870690165, guid: dd5d65309705e414a844953d2b9a5d4e, type: 3}
       propertyPath: m_Size.x
-      value: 2.74
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3624761970870690165, guid: dd5d65309705e414a844953d2b9a5d4e, type: 3}
       propertyPath: m_Size.y
-      value: 2.76
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3624761970870690165, guid: dd5d65309705e414a844953d2b9a5d4e, type: 3}
       propertyPath: m_Size.z
-      value: 3.64
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6020408391850461414, guid: dd5d65309705e414a844953d2b9a5d4e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.000000029802322
       objectReference: {fileID: 0}
     - target: {fileID: 6020408391850461414, guid: dd5d65309705e414a844953d2b9a5d4e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -895,7 +902,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6020408391850461414, guid: dd5d65309705e414a844953d2b9a5d4e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.87
+      value: -1.12
       objectReference: {fileID: 0}
     - target: {fileID: 6020408391850461414, guid: dd5d65309705e414a844953d2b9a5d4e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1003,6 +1010,10 @@ PrefabInstance:
       propertyPath: singleSoundOnOpen.clips.Array.data[0]
       value: 
       objectReference: {fileID: 8300000, guid: 755594bb40f4238458401e575f165a49, type: 3}
+    - target: {fileID: 7136317595852384360, guid: b9095fb205688be4c82ee8ed9a54a958, type: 3}
+      propertyPath: m_Center.z
+      value: -1.25
+      objectReference: {fileID: 0}
     - target: {fileID: 7223745600989119544, guid: b9095fb205688be4c82ee8ed9a54a958, type: 3}
       propertyPath: m_Name
       value: PortalDoor

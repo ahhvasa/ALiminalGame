@@ -265,6 +265,7 @@ public class CreatureAI : MonoBehaviour
                 createAction: (VisibleObject visibleObject) =>
                 {
                     var state = new CreatureState_Explore(creature, visibleObject.PerceivableObject.transform.position);
+                    state.runToPoint = true;
                     var task = new CreatureTask(60, state);
                     state.SetParentTask(task);
                     return task;
@@ -351,7 +352,7 @@ public class CreatureBehaviourBuilder
             }
             CreatureTask task = taskDictionary[key];
 
-            onDetect.Invoke(obj, task);
+            onDetect?.Invoke(obj, task);
             creatureAI.creatureTaskRegister.AddTask(task);
 
             fixedUpdateAction = () =>
@@ -373,7 +374,7 @@ public class CreatureBehaviourBuilder
 
             var task = taskDictionary[key];
 
-            onLost.Invoke(obj, task);
+            onLost?.Invoke(obj, task);
 
             creatureAI.OnFixedUpdate -= fixedUpdateAction;
 

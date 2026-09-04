@@ -47,7 +47,11 @@ PrefabInstance:
     - target: {fileID: 2756310139865434674, guid: c7ca8d223e46d2045abcf59ef5036d0b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 7d040f2a827e60d42a29c180fac5da2b, type: 2}
+      objectReference: {fileID: 2100000, guid: 285f69fe046e0dc4ca314836ab6ead1d, type: 2}
+    - target: {fileID: 3246684061931099044, guid: c7ca8d223e46d2045abcf59ef5036d0b, type: 3}
+      propertyPath: m_TagString
+      value: Tile
+      objectReference: {fileID: 0}
     - target: {fileID: 6944002557231458601, guid: c7ca8d223e46d2045abcf59ef5036d0b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -96,6 +100,10 @@ PrefabInstance:
       propertyPath: roomView.wallTexture
       value: 
       objectReference: {fileID: 2800000, guid: 985ad8142bd8aea44a9e0ee787b6d9be, type: 3}
+    - target: {fileID: 9089756187598582662, guid: c7ca8d223e46d2045abcf59ef5036d0b, type: 3}
+      propertyPath: roomName
+      value: Kitchen
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 1414619144459352545}
   - component: {fileID: 4613481865588338825}
   - component: {fileID: 2002499049796547430}
+  - component: {fileID: 444395171304045041}
   m_Layer: 0
   m_Name: CameraPost
   m_TagString: Untagged
@@ -156,6 +157,21 @@ MonoBehaviour:
   animator: {fileID: 6731141668238985002}
   currentItem: {fileID: 0}
   objectParent: {fileID: 5681170231500302426}
+  interactableObjectFlag: {fileID: 1414619144459352545}
+  soundOnTakeObject:
+    mixerGroup: {fileID: -8433962774543606272, guid: 954b9f538929f6a43aa17ff0d1f613e8, type: 2}
+    clips:
+    - {fileID: 8300000, guid: c9de527f6dde20b45bc6e8b38e235c0d, type: 3}
+    loopPlayInterval:
+      looped: 0
+      minimumInterval: 0
+      maximumInterval: 0
+    removeDistantSoundReduction: 0
+    aIPerceivedSoundData:
+      isAiPerceived: 0
+      soundType: 0
+      soundDistance: 10
+  soundPlayer: {fileID: 0}
 --- !u!114 &1414619144459352545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,6 +184,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68a79ecf7c2be2a42883c1e5058ba4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
+  objectActivationDistance: 1.5
+  visibleObject: {fileID: 0}
+  playerActivationLabelHeight: 1
 --- !u!54 &4613481865588338825
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -214,8 +234,28 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.1, y: 0.1, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &444395171304045041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4469884546981296363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ce4dfd559aa1e04f8498640b25bd5e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  perceivableObject: {fileID: 0}
+  AIIgnore: 0
+  fadeDuration: 0.3
+  meshRenderers: []
+  spriteRenderers: []
+  lightSources: []
+  hideGameObjectsOnZeroAlpha: []
+  connectedObjects: []
 --- !u!1 &4919844119665674478
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,6 +265,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2089885965481058027}
+  - component: {fileID: 5896249387304369847}
   m_Layer: 0
   m_Name: point
   m_TagString: Untagged
@@ -248,6 +289,19 @@ Transform:
   - {fileID: 5681170231500302426}
   m_Father: {fileID: 5744960746504100898}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5896249387304369847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4919844119665674478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c21de87da161096419bdad7a7f7fa138, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleSize: 0
 --- !u!1 &8200755425551463071
 GameObject:
   m_ObjectHideFlags: 0

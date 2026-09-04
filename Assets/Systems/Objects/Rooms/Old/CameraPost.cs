@@ -7,6 +7,9 @@ public class CameraPost : MonoBehaviour, IPlayerInteractableObject
     public Animator animator;
     public Item currentItem;
     public Transform objectParent;
+    public InteractableObjectFlag interactableObjectFlag;
+
+    public SoundData soundOnTakeObject;
 
     public void Awake()
     {
@@ -34,14 +37,25 @@ public class CameraPost : MonoBehaviour, IPlayerInteractableObject
         }
 
         currentItem.itemObject.transform.SetParent(null);
-        player.playerInventory.PickUpItem(currentItem);
+        player.playerInventory.PickUpItem(currentItem); 
         currentItem = null;
+        
     }
 
     public void TakeItem(Player player)
     {
         if (player.playerInventory.CurrentItem is Item_CCTVCamera == false
             && player.playerInventory.CurrentItem is Item_Flashlight == false) { return; }
+        else
+        {
+            if (currentItem is Item_Flashlight)
+            {
+                if ((currentItem as Item_Flashlight).canBeSetToCameraPost == false)
+                {
+                    return;
+                }
+            }
+        }
 
         animator.enabled = true;
         currentItem = player.playerInventory.TakeItem();
@@ -58,5 +72,11 @@ public class CameraPost : MonoBehaviour, IPlayerInteractableObject
         {
             (currentItem as Item_Flashlight).Turn(true);
         }
+
+
+        currentItem.interactableObjectFlag.active = false;
+        CameraManager.Instance.UpdateCameras(false);
+
+        SoundManager.PlaySound(soundOnTakeObject, player.soundPlayer);
     }
 }

@@ -21,6 +21,8 @@ public class DistantSoundReductionSystem : MonoBehaviour
 
         float progress = soundParent.CurrentProgress;
 
+        sound.audioSource.volume = Mathf.Lerp(0.1f, 1, progress);
+
         if (progress < 0.5f)
         {
             sound.audioLowPassFilter.enabled = true;
