@@ -1,9 +1,9 @@
 using System.Collections;
 using UnityEngine;
 
-public class SceneLightManadger : MonoBehaviour
+public class SceneLightManager : MonoBehaviour
 {
-    public static SceneLightManadger Instance;
+    public static SceneLightManager Instance;
 
     [SerializeField] private Light directionalLight;
     [SerializeField] private float transitionTime = 2f;

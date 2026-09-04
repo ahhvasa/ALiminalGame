@@ -25,11 +25,11 @@ public class LevelMusic : MonoBehaviour
         currentSFX.Stop();
 
 
-        WorldManadger.Instance.OnDayStart += () => { PlayDayMusic(); };
-        WorldManadger.Instance.OnNightStart += () => { PlayNightMusic(); };
+        WorldManager.Instance.OnDayStart += () => { PlayDayMusic(); };
+        WorldManager.Instance.OnNightStart += () => { PlayNightMusic(); };
 
-        if (WorldManadger.Instance.stateMachine.Current is WorldDayState) { PlayDayMusic(); }
-        if (WorldManadger.Instance.stateMachine.Current is WorldNightState) { PlayNightMusic(); }
+        if (WorldManager.Instance.stateMachine.Current is WorldDayState) { PlayDayMusic(); }
+        if (WorldManager.Instance.stateMachine.Current is WorldNightState) { PlayNightMusic(); }
     }
     
     public void Update()

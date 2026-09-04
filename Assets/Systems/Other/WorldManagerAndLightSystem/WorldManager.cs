@@ -4,9 +4,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WorldManadger : MonoBehaviour
+public class WorldManager : MonoBehaviour
 {
-    public static WorldManadger Instance;
+    public static WorldManager Instance;
 
     public StateMachine<IWorldState> stateMachine;
 
@@ -65,16 +65,16 @@ public interface IWorldState : IState_UseFrames
 
 public class WorldDayState : IWorldState
 {
-    public WorldManadger worldManadger;
+    public WorldManager worldManadger;
 
-    public WorldDayState(WorldManadger worldManadger)
+    public WorldDayState(WorldManager worldManadger)
     {
         this.worldManadger = worldManadger;
     }
 
     public void OnEnter()
     {
-        SceneLightManadger.Instance.SetDay();
+        SceneLightManager.Instance.SetDay();
     }
     public void OnExit()
     {
@@ -93,16 +93,16 @@ public class WorldDayState : IWorldState
 
 public class WorldNightState : IWorldState
 {
-    public WorldManadger worldManadger;
+    public WorldManager worldManadger;
 
-    public WorldNightState(WorldManadger worldManadger)
+    public WorldNightState(WorldManager worldManadger)
     {
         this.worldManadger = worldManadger;
     }
 
     public void OnEnter()
     {
-        SceneLightManadger.Instance.SetNight();
+        SceneLightManager.Instance.SetNight();
     }
     public void OnExit()
     {

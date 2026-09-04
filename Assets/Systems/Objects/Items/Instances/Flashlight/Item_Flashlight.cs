@@ -21,7 +21,7 @@ public class Item_Flashlight : ItemHoldable
     {
         active = activateOrDeactivate;
 
-        CameraManadger.Instance.UpdateCameras(activateOrDeactivate);
+        CameraManager.Instance.UpdateCameras(activateOrDeactivate);
     }
 
     public override void ItemUpdateInternal()

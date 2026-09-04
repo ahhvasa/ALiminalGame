@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectSmellManadger : MonoBehaviour
+public class ObjectSmellManager : MonoBehaviour
 {
-    public static ObjectSmellManadger Instance;
+    public static ObjectSmellManager Instance;
     public List<ObjectSmell> objectSmell = new();
     public void Awake()
     {

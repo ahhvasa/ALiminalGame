@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputHintManadger : MonoBehaviour
+public class InputHintManager : MonoBehaviour
 {
-    public static InputHintManadger Instance;
+    public static InputHintManager Instance;
     public InputHintItem prefab;
     public ObjectPull<InputHintItem> objectPull;
     public Transform context;

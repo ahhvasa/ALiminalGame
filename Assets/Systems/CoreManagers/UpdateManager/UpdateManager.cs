@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UpdateManadger : MonoBehaviour
+public class UpdateManager : MonoBehaviour
 {
     private readonly List<IUpdateHandler> _updatables = new();
 

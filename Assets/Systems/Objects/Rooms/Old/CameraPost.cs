@@ -75,7 +75,7 @@ public class CameraPost : MonoBehaviour, IPlayerInteractableObject
 
 
         currentItem.interactableObjectFlag.active = false;
-        CameraManadger.Instance.UpdateCameras(false);
+        CameraManager.Instance.UpdateCameras(false);
 
         SoundManager.PlaySound(soundOnTakeObject, player.soundPlayer);
     }

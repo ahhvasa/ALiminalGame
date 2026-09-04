@@ -22,11 +22,11 @@ public class Item_CCTVCameraControlPanel : ItemHoldable
         if (active)
         {
             SoundManager.PlaySound(onChooseCamera, playerOwner.soundPlayer);
-            InputHintManadger.ShowHint(hintInfo);
+            InputHintManager.ShowHint(hintInfo);
         }
         else
         {
-            InputHintManadger.RemoveHint(hintInfo);
+            InputHintManager.RemoveHint(hintInfo);
         }
     }
 

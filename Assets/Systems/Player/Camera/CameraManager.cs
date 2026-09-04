@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
 
-public class CameraManadger : MonoBehaviour
+public class CameraManager : MonoBehaviour
 {
-    public static CameraManadger Instance;
+    public static CameraManager Instance;
 
     public CameraPost[] cameraPosts;
 

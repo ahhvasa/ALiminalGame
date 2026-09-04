@@ -7,12 +7,12 @@ public class ActiveAtTime : MonoBehaviour
 
     public void Start()
     {
-        WorldManadger.Instance.OnDayStart += () => SetActive(activeAtDay);
-        WorldManadger.Instance.OnNightStart += () => SetActive(activeAtNight);
+        WorldManager.Instance.OnDayStart += () => SetActive(activeAtDay);
+        WorldManager.Instance.OnNightStart += () => SetActive(activeAtNight);
 
-        bool day = WorldManadger.Instance.stateMachine.Current is WorldDayState;
+        bool day = WorldManager.Instance.stateMachine.Current is WorldDayState;
         if (day) { SetActive(activeAtDay); }
-        bool night = WorldManadger.Instance.stateMachine.Current is WorldNightState;
+        bool night = WorldManager.Instance.stateMachine.Current is WorldNightState;
         if (night) { SetActive(activeAtNight); }
     }
 

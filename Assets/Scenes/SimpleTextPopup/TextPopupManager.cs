@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class TextPopupManadger : MonoBehaviour
+public class TextPopupManager : MonoBehaviour
 {
-    public static TextPopupManadger Instance;
+    public static TextPopupManager Instance;
 
     private Player player;            
     public ObjectPull<TextFade> objectPull;

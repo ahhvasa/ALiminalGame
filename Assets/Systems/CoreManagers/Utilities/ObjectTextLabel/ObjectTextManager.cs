@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class ObjectTextManadger : MonoBehaviour
+public class ObjectTextManager : MonoBehaviour
 {
-    public static ObjectTextManadger Instance;
+    public static ObjectTextManager Instance;
     public ObjectPull<ObjectTextItem> objectPull;
     public ObjectTextItem prefab;
 

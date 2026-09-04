@@ -10,7 +10,7 @@ public class PlayerDeath : MonoBehaviour
 
     public void Die()
     {
-        InputHintManadger.Instance.ShowPanel(false);
+        InputHintManager.Instance.ShowPanel(false);
         PlayerInventoryUI.Instance.ShowInventoryPanel(false);
         NoteManager.Instance.HideNote();
 

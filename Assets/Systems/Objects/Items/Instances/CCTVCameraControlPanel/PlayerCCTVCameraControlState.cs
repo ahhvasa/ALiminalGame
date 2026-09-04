@@ -42,7 +42,7 @@ public class PlayerCCTVCameraControlState : IPlayerState
 
         if (CCTVCameraManager.Instance.activeCameras.Count == 0)
         {
-            TextPopupManadger.Instance.ShowTextOnPlayer("No cameras instaleld");
+            TextPopupManager.Instance.ShowTextOnPlayer("No cameras instaleld");
             ExitCameraControlState();
             return;
         }

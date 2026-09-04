@@ -36,7 +36,7 @@ public class Item_CCTVCamera : ItemHoldable
     public override void Activate(bool activateOrDeactivate)
     {
         active = activateOrDeactivate;
-        CameraManadger.Instance.UpdateCameras(activateOrDeactivate);
+        CameraManager.Instance.UpdateCameras(activateOrDeactivate);
 
     }
 

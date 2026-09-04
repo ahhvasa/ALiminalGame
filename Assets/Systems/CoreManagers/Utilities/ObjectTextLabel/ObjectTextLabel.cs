@@ -41,10 +41,10 @@ public class ObjectTextLabel : MonoBehaviour
     public void TrySetLabel()
     {
         if (textItem != null) { return; }
-        if (ObjectTextManadger.Instance == null) { return; }
+        if (ObjectTextManager.Instance == null) { return; }
         if (visibleObject == null) { visibleObject = GetComponentInParent<VisibleObject>();  }
 
-        textItem = ObjectTextManadger.Instance.Get();
+        textItem = ObjectTextManager.Instance.Get();
         textItem.transform.position = transform.position;
         textItem.transform.SetParent(transform);
 
@@ -63,7 +63,7 @@ public class ObjectTextLabel : MonoBehaviour
         if (textItem == null) { return; }
 
         visibleObject.DisconnectObject(textItem.gameObject);
-        ObjectTextManadger.Instance.Return(textItem);
+        ObjectTextManager.Instance.Return(textItem);
         textItem = null;
 
     }

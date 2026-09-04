@@ -6,7 +6,7 @@ public class SplitRotationLookAtCamera : MonoBehaviour
 
     private void Update()
     {
-        Vector3 direction = CameraManadger.cameraDirection;
+        Vector3 direction = CameraManager.cameraDirection;
         splitRotation.SetDirection(direction);
     }
 }

@@ -8,9 +8,9 @@ public class LevelCandel : MonoBehaviour, IPlayerInteractableObject
 
     public void Interact(Player player)
     {
-        if (WorldManadger.Instance.isNightOn == false)
+        if (WorldManager.Instance.isNightOn == false)
         {
-            WorldManadger.Instance.EnterNight();
+            WorldManager.Instance.EnterNight();
             SoundManager.PlaySound(sound, player.soundPlayer);
         }
     }

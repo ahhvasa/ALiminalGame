@@ -5,7 +5,7 @@ public class UpdateManagerInstaller : IBindingInstaller
     public void InstallBindings(DiContainer Container)
     {
         Container
-        .Bind<UpdateManadger>()
+        .Bind<UpdateManager>()
         .FromComponentInHierarchy()
         .AsSingle();
     }
