@@ -30,11 +30,9 @@ public class PlayerInventory : MonoBehaviour
         {
             int previousId = _currentId;
 
-
-
             _currentId = value;
-            if (_currentId < 0) { _currentId = 0; }
-            if (_currentId >= items.Length) { _currentId = items.Length - 1; }
+            if (_currentId < 0) { _currentId = items.Length - Math.Abs(_currentId % items.Length); }
+            if (_currentId >= items.Length) { _currentId = _currentId % items.Length; }
 
             if (_currentId != previousId)
             {
@@ -133,6 +131,15 @@ public class PlayerInventory : MonoBehaviour
         if (InputProvider.SelectItem_4())
         {
             CurrentID = 3;
+        }
+
+        if (InputProvider.SelectNextItem())
+        {
+            CurrentID += 1;
+        }
+        if (InputProvider.SelectPrevItem())
+        {
+            CurrentID -= 1;
         }
     }
 

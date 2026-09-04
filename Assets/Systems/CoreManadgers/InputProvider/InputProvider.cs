@@ -6,6 +6,7 @@ public class InputProvider : MonoBehaviour
     public static InputProvider Instance;
 
     public InputActionReference move;
+    public InputActionReference look;
     public InputActionReference interact;
     public InputActionReference drop;
     public InputActionReference activateItem;
@@ -19,6 +20,9 @@ public class InputProvider : MonoBehaviour
     public InputActionReference selectItem_3;
     public InputActionReference selectItem_4;
 
+    public InputActionReference selectNextItem;
+    public InputActionReference selectPrevItem;
+
     public InputActionReference rotateCameraLeft;
     public InputActionReference rotateCameraRight;
 
@@ -29,9 +33,60 @@ public class InputProvider : MonoBehaviour
 
     public static Vector3 CurrentMovement()
     {
+        Vector3 inputDirection = InputProvider.CurrentMovementRaw();
+
+        float speed = inputDirection.magnitude;
+
+        Transform camera = Camera.main.transform;
+
+        Vector3 camForward = camera.forward;
+        Vector3 camRight = camera.right;
+
+        camForward.y = 0f;
+        camRight.y = 0f;
+
+        camForward.Normalize();
+        camRight.Normalize();
+
+        Vector3 direction = (camForward * inputDirection.z + camRight * inputDirection.x).normalized;
+
+        return direction * speed;
+    }
+
+    public static Vector3 CurrentMovementRaw()
+    {
         Vector3 movement = Instance.move.action.ReadValue<Vector2>();
         movement = new Vector3(movement.x, 0, movement.y);
-        return movement;
+        return movement.normalized;
+    }
+
+    public static Vector3 CurrentLookDirection()
+    {
+        Vector3 inputDirection = InputProvider.CurrentLookDirectionRaw();
+
+        float speed = inputDirection.magnitude;
+
+        Transform camera = Camera.main.transform;
+
+        Vector3 camForward = camera.forward;
+        Vector3 camRight = camera.right;
+
+        camForward.y = 0f;
+        camRight.y = 0f;
+
+        camForward.Normalize();
+        camRight.Normalize();
+
+        Vector3 direction = (camForward * inputDirection.z + camRight * inputDirection.x).normalized;
+
+        return direction * speed;
+    }
+
+    public static Vector3 CurrentLookDirectionRaw()
+    {
+        Vector3 rotation = Instance.look.action.ReadValue<Vector2>();
+        rotation = new Vector3(rotation.x, 0, rotation.y);
+        return rotation;
     }
 
     public static bool Interact()
@@ -95,6 +150,15 @@ public class InputProvider : MonoBehaviour
     public static bool SelectItem_4()
     {
         return Instance.selectItem_4.action.WasPressedThisFrame();
+    }
+
+    public static bool SelectNextItem()
+    {
+        return Instance.selectNextItem.action.WasPressedThisFrame();
+    }
+    public static bool SelectPrevItem()
+    {
+        return Instance.selectPrevItem.action.WasPressedThisFrame();
     }
 
     public static bool RotateCameraLeft()

@@ -53,30 +53,13 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 inputDirection = InputProvider.CurrentMovement();
 
-        float speed = 0;
-
-        if (inputDirection.magnitude > 0f) { speed = 1; }
-        else
+        if (inputDirection.magnitude <= 0f)
         {
             Move(0f, Vector3.zero);
             return;
         }
 
-
-        Transform camera = Camera.main.transform;
-
-        Vector3 camForward = camera.forward;
-        Vector3 camRight = camera.right;
-
-        camForward.y = 0f;
-        camRight.y = 0f;
-
-        camForward.Normalize();
-        camRight.Normalize();
-
-        Vector3 direction = camForward * inputDirection.z + camRight * inputDirection.x;
-
-        Move(speed, direction);
+        Move(inputDirection.magnitude, inputDirection.normalized);
     }
 
     public void SetCrouchMovement(bool setCrouchSpeed)

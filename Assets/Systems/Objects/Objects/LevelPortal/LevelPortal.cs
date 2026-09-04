@@ -25,8 +25,6 @@ public class LevelPortal : MonoBehaviour
 
     public async void LoadLevel()
     {
-        Debug.Log($"LEVEL PORTAL: LoadLevel activated. And currently loading {activated}  name {sceneName}");
-
         if (activated) { return; }
         activated = true;
 
@@ -38,12 +36,10 @@ public class LevelPortal : MonoBehaviour
                 await SaveProgress();
             }
             await SceneLoader.Instance.LoadSceneAsync(sceneName);
-            Debug.Log($"LEVEL PORTAL: Must be loaded");
             activated = false;
         }
         catch
         {
-            Debug.Log("LEVEL PORTAL: ");
             activated = false;
         }
 
