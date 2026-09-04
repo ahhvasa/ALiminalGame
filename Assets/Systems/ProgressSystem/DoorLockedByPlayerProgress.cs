@@ -25,7 +25,7 @@ public class DoorLockedByPlayerProgress : MonoBehaviour
                 pair.door.active = false;
             }
 
-            if (playerProgress.finishedLevels.Contains(pair.levelReqiered))
+            if (playerProgress.finishedLevels.Contains(pair.levelRequired))
             {
                 pair.door.active = true;
             }
@@ -43,7 +43,7 @@ public class DoorLockedByPlayerProgress : MonoBehaviour
 public class DoorAndPlayerProgressPair
 {
     public RoomDoor door;
-    public string levelReqiered;
+    public string levelRequired;
 }
 
 [Serializable]

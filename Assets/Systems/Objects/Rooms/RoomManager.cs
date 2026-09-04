@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class RoomManadger : MonoBehaviour
+public class RoomManager : MonoBehaviour
 {
-    public static RoomManadger Instance;
+    public static RoomManager Instance;
     public List<Room> allRooms;
 
     public static List<Room> AllRooms { get { return Instance.allRooms; } }
@@ -20,7 +20,7 @@ public class RoomManadger : MonoBehaviour
         Room closestRoom = null;
         float closestDistance = float.MaxValue;
 
-        foreach (Room room in RoomManadger.Instance.allRooms)
+        foreach (Room room in RoomManager.Instance.allRooms)
         {
             float distance = Vector3.Distance(position, room.transform.position);
 
@@ -50,7 +50,7 @@ public class RoomManadger : MonoBehaviour
         List<Room> currentDirectlyVisibleRooms = new List<Room>();
         currentDirectlyVisibleRooms.AddRange(roomVision.directlyVisibleRooms);
 
-        currentDirectlyVisibleRooms.Add(RoomManadger.GetClosestRoom(position));
+        currentDirectlyVisibleRooms.Add(RoomManager.GetClosestRoom(position));
 
         List<Room> allVisibleRooms = new List<Room>();
 

@@ -23,7 +23,7 @@ public class CCTVCameraManager : MonoBehaviour
         {
             if (camera.IsInInventory) { continue; }
 
-            rooms.Add(RoomManadger.GetClosestRoom(camera.itemObject.transform.position));
+            rooms.Add(RoomManager.GetClosestRoom(camera.itemObject.transform.position));
         }
         return rooms;
     }

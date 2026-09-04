@@ -17,10 +17,10 @@ public class PlayerRoomVision : MonoBehaviour
 
     void FixedUpdate()
     {
-        List<Room> visibleRooms = RoomManadger.GetVisibleRooms(transform.position, roomVision);
+        List<Room> visibleRooms = RoomManager.GetVisibleRooms(transform.position, roomVision);
         List<Room> unVisibleRooms = new List<Room>();
 
-        foreach (Room room in RoomManadger.AllRooms)
+        foreach (Room room in RoomManager.AllRooms)
         {
             if (visibleRooms.Contains(room) == false)
             {

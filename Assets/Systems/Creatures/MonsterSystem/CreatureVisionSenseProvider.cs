@@ -20,7 +20,7 @@ public class CreatureVisionSenseProvider : CreatureSenseProvider<VisibleObject, 
 
     public override void UpdateValues()
     {
-        List<Room> visibleRooms = RoomManadger.GetVisibleRooms(transform.position, roomVision);
+        List<Room> visibleRooms = RoomManager.GetVisibleRooms(transform.position, roomVision);
         newObjects.Clear();
         foreach (Room room in visibleRooms)
         {
