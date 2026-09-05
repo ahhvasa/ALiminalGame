@@ -5,26 +5,24 @@ public class PlayerRotation : MonoBehaviour
 {
     public void Update()
     {
-        UseController();
-        //if (Mouse.current != null)
-        //{
-        //    UseMouse();
-        //}
-        //else
-        //{
-        //    UseController();
-        //}
+        if (InputManager.Instance.CurrentDevice == InputDeviceType.KeyboardMouse)
+        {
+            UseMouse();
+        }
+        else
+        {
+            UseController();
+        }
     }
 
     public void UseMouse()
     {
         LookAtDirection(GroundQuad.Point);
     }
+
     public void UseController()
     {
         Vector3 lookDirection = InputProvider.CurrentLookDirection();
-
-        Debug.Log("Look at " + lookDirection);
 
         if (lookDirection.magnitude <= 0.2f)
         {
