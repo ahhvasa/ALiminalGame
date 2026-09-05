@@ -26,7 +26,7 @@ public class PlayerDeath : MonoBehaviour
 
         player.playerMonsterInView.enabled = false;
         player.playerInventory.DropItem();
-        player.GetComponent<FootstepAudio>().enabled = false;
+        player.GetComponent<FootstepAudio_DiffrentSoundsForMaterials>().enabled = false;
         player.GetComponent<Collider>().enabled = false;
 
     }

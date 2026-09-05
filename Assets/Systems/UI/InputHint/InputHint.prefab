@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3235987832334218911}
   - component: {fileID: 1112227566344340398}
-  - component: {fileID: 4725509170342434734}
+  - component: {fileID: 2907363108855435899}
   m_Layer: 5
   m_Name: InputHint
   m_TagString: Untagged
@@ -46,7 +46,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5513285058061018155}
   m_CullTransparentMesh: 1
---- !u!114 &4725509170342434734
+--- !u!114 &2907363108855435899
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -55,11 +55,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5513285058061018155}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df1d655a1697d7a41b3e14aa120eecdf, type: 3}
+  m_Script: {fileID: 11500000, guid: fdf9756b5877ad8479f40e505ea57e01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyText: {fileID: 0}
-  commandText: {fileID: 0}
+  prefab: {fileID: 2150182067352960449, guid: 4755b4d4844b90445a86073e2ceaff95, type: 3}
+  context: {fileID: 6245349442515872934}
+  hintPanel: {fileID: 5579760188859180836}
 --- !u!1 &5579760188859180836
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,15 +8,22 @@ public class Touchscreen : MonoBehaviour
         InputManager.Instance.OnSetDeviceType += Show;
     }
 
+    public void OnDisable()
+    {
+        InputManager.Instance.OnSetDeviceType -= Show;
+    }
+
+    public GameObject panel;
+
     public void Show(InputDeviceType deviceType)
     {
         if (deviceType == InputDeviceType.TouchScreen)
         {
-            gameObject.SetActive(true);
+            panel.SetActive(true);
         }
         else
         {
-            gameObject.SetActive(false);
+            panel.SetActive(false);
         }
     }
 }

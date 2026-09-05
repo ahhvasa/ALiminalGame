@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Device;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.LowLevel;
 
@@ -21,7 +22,7 @@ public class InputManager : MonoBehaviour
                 return;
             }
             _currentDevice = value;
-            OnSetDeviceType.Invoke(_currentDevice);
+            OnSetDeviceType?.Invoke(_currentDevice);
         }
     }
 
@@ -44,19 +45,37 @@ public class InputManager : MonoBehaviour
 
     private void OnInputEvent(InputEventPtr eventPtr, InputDevice device)
     {
+        if (AllowEditing() == false)
+        { return; }
+
         if (!eventPtr.IsA<StateEvent>() && !eventPtr.IsA<DeltaStateEvent>())
             return;
 
         if (device is Mouse || device is Keyboard)
         { SetDevice(InputDeviceType.KeyboardMouse); }
-        else if (device is Gamepad)
+        if (device is Gamepad)
         { SetDevice(InputDeviceType.Gamepad); }
-        else if (device is Touchscreen)
+        if (device.layout.Contains("Touchscreen"))
         { SetDevice(InputDeviceType.TouchScreen); }
+
+        Debug.Log($"Device: {device.name},  type {device.GetType()}");
+    }
+
+    private bool AllowEditing()
+    {
+        if (CurrentDevice == InputDeviceType.TouchScreen)
+        {
+            return false;
+        }
+
+        return true;
     }
 
     private void SetDevice(InputDeviceType device)
     {
+        if (AllowEditing() == false)
+        { return; }
+
         CurrentDevice = device;
         Debug.Log($"Input device: {device}");
     }
