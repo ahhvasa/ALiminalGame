@@ -18,14 +18,18 @@ public class WorldManager : MonoBehaviour
 
     public bool isNightOn = false;
 
+    public SceneLightManager sceneLightManager;
+
     public void Awake()
     {
-        Instance = this;
+        sceneLightManager.Install();
 
+        Instance = this;
         worldDayState = new WorldDayState(this);
         worldNightState = new WorldNightState(this);
 
         stateMachine = new StateMachine<IWorldState>(worldDayState, worldNightState);
+
         EnterDay();
     }
 

@@ -81,6 +81,10 @@ public class CreatureMovement : MonoBehaviour
         SetStopSpeed();
         yield return new WaitForSeconds(time);
         agent.speed = savedSpeed;
+        if (agent.speed <= 0.1f)
+        {
+            agent.speed = wanderSpeed;
+        }
         canChangeSpeed = true;
         action?.Invoke();
     }

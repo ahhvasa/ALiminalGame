@@ -11,9 +11,13 @@ public class ActiveAtTime : MonoBehaviour
         WorldManager.Instance.OnNightStart += () => SetActive(activeAtNight);
 
         bool day = WorldManager.Instance.stateMachine.Current is WorldDayState;
-        if (day) { SetActive(activeAtDay); }
         bool night = WorldManager.Instance.stateMachine.Current is WorldNightState;
-        if (night) { SetActive(activeAtNight); }
+
+        if (day) { SetActive(activeAtDay); return; }
+        else if (night) { SetActive(activeAtNight); return; }
+
+        SetActive(activeAtDay);
+        return;
     }
 
     public void SetActive(bool enabled)

@@ -10,7 +10,7 @@ public class SceneLightManager : MonoBehaviour
 
     private Coroutine lightCoroutine;
 
-    private void Awake()
+    public void Install()
     {
         Instance = this;
     }

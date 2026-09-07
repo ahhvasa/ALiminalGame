@@ -21,8 +21,6 @@ public class ObjectActivateOnTime : MonoBehaviour
     }
     public void OnDisable()
     {
-        if (coroutine == null) { return; }
-
         foreach (GameObject obj in objects)
         {
             if (obj != null)
@@ -30,7 +28,7 @@ public class ObjectActivateOnTime : MonoBehaviour
                 obj.SetActive(false);
             }
         }
-        StopCoroutine(coroutine);
+        if (coroutine != null) { StopCoroutine(coroutine); coroutine = null; }
     }
 
 
@@ -45,6 +43,10 @@ public class ObjectActivateOnTime : MonoBehaviour
         if (index + 1 < spawnTime.Count)
         {
             coroutine = StartCoroutine(WaitAndSpawn(index + 1));
+        }
+        else
+        {
+            coroutine = null;
         }
     }
 }
