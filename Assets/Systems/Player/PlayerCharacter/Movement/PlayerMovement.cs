@@ -46,7 +46,22 @@ public class PlayerMovement : MonoBehaviour
 
     public void FixedUpdate()
     {
-        SetCrouchMovement(InputProvider.Crouch());
+        if (InputManager.Instance.CurrentDevice == InputDeviceType.KeyboardMouse)
+        {
+            SetCrouchMovement(InputProvider.Crouch());
+        }
+        else
+        {
+            Vector3 inputDirection = InputProvider.CurrentMovement();
+            if (inputDirection.magnitude <= 0.95f)
+            {
+                SetCrouchMovement(true);
+            }
+            else
+            {
+                SetCrouchMovement(false);
+            }
+        }
     }
 
     public void Update()
@@ -59,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        Move(inputDirection.magnitude, inputDirection.normalized);
+        Move(1, inputDirection.normalized);
     }
 
     public void SetCrouchMovement(bool setCrouchSpeed)

@@ -57,7 +57,7 @@ public class InputProvider : MonoBehaviour
     {
         Vector3 movement = Instance.move.action.ReadValue<Vector2>();
         movement = new Vector3(movement.x, 0, movement.y);
-        return movement.normalized;
+        return movement;
     }
 
     public static Vector3 CurrentLookDirection()
